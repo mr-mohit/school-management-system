@@ -19,6 +19,7 @@ export class TeacherdashboardPage {
 
   tab1Root: any = TeacherHomePage;
   tab2Root: any = ProfilePage;
+  tab3Root: any = ProfilePage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
