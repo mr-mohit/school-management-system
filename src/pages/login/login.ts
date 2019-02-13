@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, LoadingController } from 'ionic-angular';
-import { HomePage } from '../home/home';
 import { ResetpasswordPage } from '../resetpassword/resetpassword';
-import { TeacherHomePage } from '../teacher-home/teacher-home';
 import { ParentHomePage } from '../parent-home/parent-home';
 import { StudentdashboardPage } from '../studentdashboard/studentdashboard';
+import { TeacherdashboardPage } from '../teacherdashboard/teacherdashboard';
 
 @Component({
   selector: 'page-login',
@@ -27,7 +26,7 @@ private password;
     loader.present();
     if(this.username=="Teacher")
     {
-      this.navCtrl.setRoot(TeacherHomePage);
+      this.navCtrl.setRoot(TeacherdashboardPage);
     }
    if(this.username=="Parent")
     {

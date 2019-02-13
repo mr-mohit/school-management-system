@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { TeacherHomePage } from '../teacher-home/teacher-home';
+import { ProfilePage } from '../profile/profile';
 
 /**
  * Generated class for the TeacherdashboardPage page.
@@ -15,11 +17,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class TeacherdashboardPage {
 
+  tab1Root: any = TeacherHomePage;
+  tab2Root: any = ProfilePage;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TeacherdashboardPage');
-  }
+
 
 }
