@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuToggle, App } from 'ionic-angular';
+import { IonicPage, NavController, NavParams} from 'ionic-angular';
 import { HomePage } from '../home/home';
-import { LoginPage } from '../login/login';
 import { ProfilePage } from '../profile/profile';
 
 /**
@@ -21,6 +20,7 @@ export class StudentdashboardPage {
 
   tab1Root: any = HomePage;
   tab2Root: any = ProfilePage;
+  tab3Root: any = ProfilePage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

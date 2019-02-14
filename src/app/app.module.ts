@@ -13,6 +13,7 @@ import { TeacherHomePage } from '../pages/teacher-home/teacher-home';
 import { ParentHomePage } from '../pages/parent-home/parent-home';
 import { StudentdashboardPage } from '../pages/studentdashboard/studentdashboard';
 import { ProfilePage } from '../pages/profile/profile';
+import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ProfilePage } from '../pages/profile/profile';
     ResetpasswordPage,
     TeacherHomePage,
     ParentHomePage,
-    StudentdashboardPage
+    StudentdashboardPage,
+    TeacherdashboardPage,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,8 @@ import { ProfilePage } from '../pages/profile/profile';
     ResetpasswordPage,
     TeacherHomePage,
     ParentHomePage,
-    StudentdashboardPage
+    StudentdashboardPage,
+    TeacherdashboardPage,
   ],
   providers: [
     StatusBar,

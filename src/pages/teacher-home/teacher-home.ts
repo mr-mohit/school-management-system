@@ -18,8 +18,4 @@ export class TeacherHomePage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TeacherHomePage');
-  }
-
 }
