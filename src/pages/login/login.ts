@@ -24,6 +24,7 @@ private password;
       duration: 800
     });
     loader.present();
+    
     if(this.username=="Teacher")
     {
       this.navCtrl.setRoot(TeacherdashboardPage);
