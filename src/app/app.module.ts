@@ -13,6 +13,9 @@ import { TeacherHomePage } from '../pages/teacher-home/teacher-home';
 import { ParentHomePage } from '../pages/parent-home/parent-home';
 import { StudentdashboardPage } from '../pages/studentdashboard/studentdashboard';
 import { ProfilePage } from '../pages/profile/profile';
+import { ServiceProvider } from '../providers/service/service';
+import {HttpClientModule} from '@angular/common/http';
+import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard';
 
 @NgModule({
   declarations: [
@@ -23,10 +26,12 @@ import { ProfilePage } from '../pages/profile/profile';
     ResetpasswordPage,
     TeacherHomePage,
     ParentHomePage,
-    StudentdashboardPage
+    StudentdashboardPage,
+    TeacherdashboardPage
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -38,12 +43,14 @@ import { ProfilePage } from '../pages/profile/profile';
     ResetpasswordPage,
     TeacherHomePage,
     ParentHomePage,
-    StudentdashboardPage
+    StudentdashboardPage,
+    TeacherdashboardPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ServiceProvider
   ]
 })
 export class AppModule {}
