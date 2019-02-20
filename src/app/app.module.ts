@@ -14,6 +14,8 @@ import { ParentHomePage } from '../pages/parent-home/parent-home';
 import { StudentdashboardPage } from '../pages/studentdashboard/studentdashboard';
 import { ProfilePage } from '../pages/profile/profile';
 import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard';
+import { NewseviceProvider } from '../providers/newsevice/newsevice';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -46,7 +49,8 @@ import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    NewseviceProvider
   ]
 })
 export class AppModule {}

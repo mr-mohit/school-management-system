@@ -4,8 +4,8 @@ import { NavController, AlertController, LoadingController } from 'ionic-angular
 import { ResetpasswordPage } from '../resetpassword/resetpassword';
 
 import { StudentdashboardPage } from '../studentdashboard/studentdashboard';
-import {ServiceProvider} from '../../providers/service/service';
 import { TeacherdashboardPage } from '../teacherdashboard/teacherdashboard';
+import { NewseviceProvider } from '../../providers/newsevice/newsevice';
 
 @Component({
   selector: 'page-login',
@@ -21,7 +21,7 @@ public user:any=
   "password":" "
 };
   constructor(public navCtrl: NavController,public alertCtrl:AlertController,public loadingCtrl: LoadingController,
-    public service:ServiceProvider) {
+    public service:NewseviceProvider) {
   }
 io
   VaildateLogin(username,password)
@@ -39,16 +39,18 @@ io
 
          if(data['statuscode'] == 1)
          {
-          console.log("login sucessfully implimented");
+           //console.log("login sucessfully implimented");
            if(this.dataitem.data[0].ROLE=='student')
            {
-            console.log("student");
-             this.navCtrl.setRoot('StudentdashboardPage');//calling student dashboard
+            //console.log("student");
+            this.navCtrl.setRoot(StudentdashboardPage);
+             //this.navCtrl.setRoot('StudentdashboardPage');//calling student dashboard
            }
            else if(this.dataitem.data[0].ROLE=='teacher')
            {
-            console.log("teacher");
-             this.navCtrl.setRoot('TeacherdashboardPage');//calling teacher dashboardpage
+            //console.log("teacher");
+            this.navCtrl.setRoot(TeacherdashboardPage);
+            //this.navCtrl.setRoot('TeacherdashboardPage');//calling teacher dashboardpage
            }
           
          }
