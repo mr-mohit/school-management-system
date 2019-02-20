@@ -5,38 +5,77 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content>
+<ion-content class="main-wrapper">
     
-  
-   
-  <img src="assets/img/Logo.png" style="display:block;width:50%;height:auto;margin-left:auto;margin-right:auto;" /> 
+ <div class="upperhalf">   
+  <img src="assets/imgs/logo1.png" style="display:block;width: 50%;margin-left:auto;margin-right:auto;border-radius: 60%;height: 167px;" /> 
+ </div>
+  <div class="lowerhalf">
+      <div class="login-form"> 
+      <!--   <div class="wrapper-class"> -->
+      <ion-card style="Border-Radius: 10px;">
+          <ion-card-header>
+            Login
+          </ion-card-header>
+        
+          <ion-card-content>
+              <ion-item class="user">
+                  <ion-label floating>
+                    Username
+                  </ion-label>
+                  <ion-input type="text" name="username"  [(ngModel)]="username" ></ion-input>
+                </ion-item>
+                <ion-item class="pass-word">
+                  <ion-label floating>
+                    Password
+                  </ion-label> 
+                  <ion-input type="password" name="password" [(ngModel)]="password"></ion-input>
+                </ion-item>
 
-  <div class="spacer" style="height:20px;" id="login-spacer2"></div>
- 
-  <div>
-   
-      <ion-item>
+                <ion-item class="Space">
+                    <ion-label>
+                    </ion-label>
+                </ion-item>
+                
+          </ion-card-content>
+        
+        </ion-card>
+        <div class="log-in"> 
+            <button id="login-button3" ion-button color="header"
+            block style="border-radius:2px 2px 2px 2px;width: 200px;" on-click="VaildateLogin()">
+             Log in
+           </button>
+      </div>
+         <!-- </div> --> 
+      </div>
+  <!--  <div class="login-form"> 
+      <div class="wrapper-class">
+      <ion-item class="user">
         <ion-label floating>
           Username
         </ion-label>
         <ion-input type="text" name="username"  [(ngModel)]="username" ></ion-input>
       </ion-item>
-      <ion-item>
+      <ion-item class="pass-word">
         <ion-label floating>
           Password
         </ion-label> 
         <ion-input type="password" name="password" [(ngModel)]="password"></ion-input>
       </ion-item>
-      
-    
+     <div class="log-in"> 
+      <button id="login-button3" ion-button color="header"
+      block style="border-radius:2px 2px 2px 2px;" on-click="VaildateLogin()">
+       Log in
+     </button>
+    </div>
+     <div class="pass-word">
+     <span id="login-button2" ion-button outline color="assertive" block on-click="ResetPassword()">
+       Forgot Password?
+     </span>
+    </div> 
+    </div> 
+    </div> -->
   </div>
-  <div class="spacer" style="width:300px;height:10px;"></div>
-  <button id="login-button3" ion-button color="header"
-   block style="border-radius:2px 2px 2px 2px;" on-click="VaildateLogin()">
-    Log in
-  </button>
-  <div class="spacer" style="width:300px;height:5px;"></div>
-  <button id="login-button2" ion-button outline color="assertive" block on-click="ResetPassword()">
-    Forgot Password?
-  </button>
+ 
+
 </ion-content>

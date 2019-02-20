@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, LoadingController } from 'ionic-angular';
+import { MenuController } from 'ionic-angular';
 import { ResetpasswordPage } from '../resetpassword/resetpassword';
 import { ParentHomePage } from '../parent-home/parent-home';
 import { StudentdashboardPage } from '../studentdashboard/studentdashboard';
@@ -12,7 +13,8 @@ import { TeacherdashboardPage } from '../teacherdashboard/teacherdashboard';
 export class LoginPage {
 private username;
 private password;
-  constructor(public navCtrl: NavController,public alertCtrl:AlertController,public loadingCtrl: LoadingController) {
+  constructor(public Menu: MenuController ,public navCtrl: NavController,public alertCtrl:AlertController,public loadingCtrl: LoadingController) {
+    this.Menu.enable(false);
   }
 
   VaildateLogin(username,password)
