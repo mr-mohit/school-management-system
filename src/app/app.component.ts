@@ -14,6 +14,7 @@ import { TeacherSendMessagePage } from '../pages/teacher-send-message/teacher-se
 import { TeacherAnnouncementPage } from '../pages/teacher-announcement/teacher-announcement';
 import { AboutUsPage } from '../pages/about-us/about-us';
 import { SettingPage } from '../pages/setting/setting';
+import { NewseviceProvider } from '../providers/newsevice/newsevice';
 
 
 
@@ -28,7 +29,8 @@ export class MyApp {
     Teacher_a:Array<{title:string, icon:string,component:any,}>;  //array for teacher
     help:Array<{title:string, icon:string,component:any,}>;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,public altertCtrl:AlertController) {
+  constructor(platform: Platform, statusBar: StatusBar,
+             public service:NewseviceProvider, splashScreen: SplashScreen,public altertCtrl:AlertController) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
