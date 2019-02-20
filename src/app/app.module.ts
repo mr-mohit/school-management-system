@@ -14,6 +14,7 @@ import { ParentHomePage } from '../pages/parent-home/parent-home';
 import { StudentdashboardPage } from '../pages/studentdashboard/studentdashboard';
 import { ProfilePage } from '../pages/profile/profile';
 import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard';
+import { StudentExamsPage } from '../pages/student-exams/student-exams';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard
     ParentHomePage,
     StudentdashboardPage,
     TeacherdashboardPage,
+    StudentExamsPage,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +44,8 @@ import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard
     ParentHomePage,
     StudentdashboardPage,
     TeacherdashboardPage,
+    StudentExamsPage,
+    
   ],
   providers: [
     StatusBar,
