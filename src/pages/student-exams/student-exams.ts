@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the ParentHomePage page.
+ * Generated class for the StudentExamsPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,16 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-parent-home',
-  templateUrl: 'parent-home.html',
+  selector: 'page-student-exams',
+  templateUrl: 'student-exams.html',
 })
-export class ParentHomePage {
+export class StudentExamsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ParentHomePage');
+    console.log('ionViewDidLoad StudentExamsPage');
   }
 
 }
