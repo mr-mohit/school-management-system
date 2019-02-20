@@ -11,5 +11,22 @@
 </ion-header>
 
 <ion-content padding>
+  <h5>Personal Information</h5>
+  <label >
+    {{service?.details?.NAME}}<br>
 
+    <!-- {{service?.details?.NAME}}<br>
+    {{service?.details?.USER_NAME}}<br>
+    {{service?.details?.ROLE}} -->
+    <!-- {{service?.details?.USER_NAME}} -->
+  </label>
+    <br>
+  <h5>Address</h5>
+  <label >
+      {{service?.address?.FATHER_NAME}}
+    </label>
+  <!-- <label *ngFor="let item of service?.address">
+    {{item}}
+  </label> -->
+  
 </ion-content>

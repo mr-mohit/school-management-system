@@ -11,24 +11,35 @@
 
   <div class="spacer" style="height:20px;" id="login-spacer2"></div>
  
-  <div>
+  <div class="main-wrapper">
    
-      <ion-item>
+      <ion-item class="user">
         <ion-label floating>
           Username
         </ion-label>
         <ion-input type="text" name="username"  [(ngModel)]="username" ></ion-input>
       </ion-item>
-      <ion-item>
+      <ion-item class="pass-word">
         <ion-label floating>
           Password
         </ion-label> 
         <ion-input type="password" name="password" [(ngModel)]="password"></ion-input>
       </ion-item>
-      
-    
+
+        <div class="log-in">
+        <button id="login-button3" ion-button color="header"
+        block style="border-radius:2px 2px 2px 2px;" on-click="VaildateLogin()">
+          Log in
+        </button>
+        </div>
+
+      <div class="forget-pass">
+        <button id="login-button2" ion-button outline color="assertive" block on-click="ResetPassword()">
+        Forgot Password?
+      </button>
+      </div>
   </div>
-  <div class="spacer" style="width:300px;height:10px;"></div>
+   <!-- <div class="spacer" style="width:300px;height:10px;"></div> 
   <button id="login-button3" ion-button color="header"
    block style="border-radius:2px 2px 2px 2px;" on-click="VaildateLogin()">
     Log in
@@ -36,5 +47,5 @@
   <div class="spacer" style="width:300px;height:5px;"></div>
   <button id="login-button2" ion-button outline color="assertive" block on-click="ResetPassword()">
     Forgot Password?
-  </button>
+  </button> -->
 </ion-content>
