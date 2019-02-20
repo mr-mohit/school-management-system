@@ -10,12 +10,14 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ResetpasswordPage } from '../pages/resetpassword/resetpassword';
 import { TeacherHomePage } from '../pages/teacher-home/teacher-home';
-import { ParentHomePage } from '../pages/parent-home/parent-home';
 import { StudentdashboardPage } from '../pages/studentdashboard/studentdashboard';
 import { ProfilePage } from '../pages/profile/profile';
 import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard';
+
 import { NewseviceProvider } from '../providers/newsevice/newsevice';
 import { HttpClientModule } from '@angular/common/http';
+import { StudentExamsPage } from '../pages/student-exams/student-exams';
+
 
 @NgModule({
   declarations: [
@@ -25,9 +27,9 @@ import { HttpClientModule } from '@angular/common/http';
     ProfilePage,
     ResetpasswordPage,
     TeacherHomePage,
-    ParentHomePage,
     StudentdashboardPage,
     TeacherdashboardPage,
+    StudentExamsPage,
   ],
   imports: [
     BrowserModule,
@@ -42,9 +44,10 @@ import { HttpClientModule } from '@angular/common/http';
     ProfilePage,
     ResetpasswordPage,
     TeacherHomePage,
-    ParentHomePage,
     StudentdashboardPage,
     TeacherdashboardPage,
+    StudentExamsPage,
+    
   ],
   providers: [
     StatusBar,
