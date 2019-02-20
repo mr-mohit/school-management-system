@@ -1,9 +1,7 @@
 {
   "name": "SchoolLpu",
-
   "integrations": {
-  "cordova": {}},
-  "type": "ionic-angular",
-  "app_id": ""
-
+    "cordova": {}
+  },
+  "type": "ionic-angular"
 }
