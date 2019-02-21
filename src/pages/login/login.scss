@@ -1,6 +1,7 @@
 page-login {
     .upperhalf {
         height: 50%;
+        padding-top: 10%;
         background: linear-gradient(180deg, rgba(0,255,255,1) 19%, rgba(51,102,204,1) 81%);
     }
     .lowerhalf {
@@ -22,7 +23,8 @@ page-login {
     .log-in {
         position: relative;
         bottom: 28px;
-        margin-left: 50px;
+        display: flex;
+        justify-content: center;
     }
     button#login-button3 {
         border-radius: 40px !important;
