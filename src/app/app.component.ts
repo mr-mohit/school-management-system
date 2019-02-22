@@ -2,7 +2,6 @@ import { Component, ViewChild } from '@angular/core';
 import { Platform, Nav, AlertController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { SchoolInfoPage } from '../pages/school-info/school-info';
 import { ViewEventsPage } from '../pages/view-events/view-events';
@@ -15,8 +14,7 @@ import { TeacherAnnouncementPage } from '../pages/teacher-announcement/teacher-a
 import { AboutUsPage } from '../pages/about-us/about-us';
 import { SettingPage } from '../pages/setting/setting';
 import { NewseviceProvider } from '../providers/newsevice/newsevice';
-import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
-import { StudentdashboardPage } from '../pages/studentdashboard/studentdashboard';
+
 
 
 
@@ -25,7 +23,7 @@ import { StudentdashboardPage } from '../pages/studentdashboard/studentdashboard
 })
 export class MyApp {
   @ViewChild(Nav) navCtrl: Nav;
-    rootPage:any = AdminDashboardPage;
+    rootPage:any = LoginPage;
     //declaration of array for side menu
     Student_a:Array<{title:string, icon:string,component:any,}>;    //array for student
     Teacher_a:Array<{title:string, icon:string,component:any,}>;  //array for teacher

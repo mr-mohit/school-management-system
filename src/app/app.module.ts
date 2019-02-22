@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { StudentExamsPage } from '../pages/student-exams/student-exams';
 import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
 import { AdminHomePage } from '../pages/admin-home/admin-home';
+import { SettingPage } from '../pages/setting/setting';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { AdminHomePage } from '../pages/admin-home/admin-home';
     TeacherdashboardPage,
     StudentExamsPage,
     AdminDashboardPage,
-    AdminHomePage
+    AdminHomePage,
+    SettingPage
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,8 @@ import { AdminHomePage } from '../pages/admin-home/admin-home';
     TeacherdashboardPage,
     StudentExamsPage,
     AdminDashboardPage,
-    AdminHomePage
+    AdminHomePage,
+    SettingPage
     
   ],
   providers: [
