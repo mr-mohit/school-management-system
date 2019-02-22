@@ -15,6 +15,7 @@ import { TeacherAnnouncementPage } from '../pages/teacher-announcement/teacher-a
 import { AboutUsPage } from '../pages/about-us/about-us';
 import { SettingPage } from '../pages/setting/setting';
 import { NewseviceProvider } from '../providers/newsevice/newsevice';
+import { StudentdashboardPage } from '../pages/studentdashboard/studentdashboard';
 
 
 
