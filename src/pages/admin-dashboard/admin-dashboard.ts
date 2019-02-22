@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 import { AdminHomePage } from '../admin-home/admin-home';
 import { ProfilePage } from '../profile/profile';
 import { SettingPage } from '../setting/setting';
@@ -22,7 +22,8 @@ export class AdminDashboardPage {
   tab2Root: any = ProfilePage;
   tab3Root: any = SettingPage;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public Menu:MenuController) {
+    this.Menu.enable(true);
   }
 
   ionViewDidLoad() {
