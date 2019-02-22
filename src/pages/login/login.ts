@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, LoadingController } from 'ionic-angular';
-
+import { MenuController } from 'ionic-angular';
 import { ResetpasswordPage } from '../resetpassword/resetpassword';
 
 import { StudentdashboardPage } from '../studentdashboard/studentdashboard';
-import {ServiceProvider} from '../../providers/service/service';
 import { TeacherdashboardPage } from '../teacherdashboard/teacherdashboard';
+import { NewseviceProvider } from '../../providers/newsevice/newsevice';
 
 @Component({
   selector: 'page-login',
@@ -20,10 +20,11 @@ public user:any=
   "username":"",
   "password":" "
 };
-  constructor(public navCtrl: NavController,public alertCtrl:AlertController,public loadingCtrl: LoadingController,
-    public service:ServiceProvider) {
+  constructor(public Menu: MenuController,public navCtrl: NavController,public alertCtrl:AlertController,public loadingCtrl: LoadingController,
+    public service:NewseviceProvider) {
+      this.Menu.enable(false);
   }
-
+io
   VaildateLogin(username,password)
   {
   
@@ -39,16 +40,18 @@ public user:any=
 
          if(data['statuscode'] == 1)
          {
-          console.log("login sucessfully implimented");
+           //console.log("login sucessfully implimented");
            if(this.dataitem.data[0].ROLE=='student')
            {
-            console.log("student");
-             this.navCtrl.setRoot('StudentdashboardPage');//calling student dashboard
+            //console.log("student");
+            this.navCtrl.setRoot(StudentdashboardPage);
+             //this.navCtrl.setRoot('StudentdashboardPage');//calling student dashboard
            }
            else if(this.dataitem.data[0].ROLE=='teacher')
            {
-            console.log("teacher");
-             this.navCtrl.setRoot('TeacherdashboardPage');//calling teacher dashboardpage
+            //console.log("teacher");
+            this.navCtrl.setRoot(TeacherdashboardPage);
+            //this.navCtrl.setRoot('TeacherdashboardPage');//calling teacher dashboardpage
            }
           
          }
@@ -58,6 +61,9 @@ public user:any=
          }
 })  //calling service function end
 }
+
+   
+
 
 ResetPassword()
 {
