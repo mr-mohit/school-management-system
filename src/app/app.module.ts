@@ -17,6 +17,9 @@ import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard
 import { NewseviceProvider } from '../providers/newsevice/newsevice';
 import { HttpClientModule } from '@angular/common/http';
 import { StudentExamsPage } from '../pages/student-exams/student-exams';
+import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
+import { AdminHomePage } from '../pages/admin-home/admin-home';
+import { SettingPage } from '../pages/setting/setting';
 
 
 @NgModule({
@@ -30,6 +33,9 @@ import { StudentExamsPage } from '../pages/student-exams/student-exams';
     StudentdashboardPage,
     TeacherdashboardPage,
     StudentExamsPage,
+    AdminDashboardPage,
+    AdminHomePage,
+    SettingPage
   ],
   imports: [
     BrowserModule,
@@ -47,6 +53,9 @@ import { StudentExamsPage } from '../pages/student-exams/student-exams';
     StudentdashboardPage,
     TeacherdashboardPage,
     StudentExamsPage,
+    AdminDashboardPage,
+    AdminHomePage,
+    SettingPage
     
   ],
   providers: [
