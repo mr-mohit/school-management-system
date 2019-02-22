@@ -27,7 +27,6 @@ public user:any=
 io
   VaildateLogin(username,password)
   {
-
   
 
         this.user['username']=this.username;//get user name from login.html
