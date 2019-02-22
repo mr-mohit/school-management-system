@@ -2,7 +2,6 @@ import { Component, ViewChild } from '@angular/core';
 import { Platform, Nav, AlertController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { SchoolInfoPage } from '../pages/school-info/school-info';
 import { ViewEventsPage } from '../pages/view-events/view-events';
@@ -15,7 +14,7 @@ import { TeacherAnnouncementPage } from '../pages/teacher-announcement/teacher-a
 import { AboutUsPage } from '../pages/about-us/about-us';
 import { SettingPage } from '../pages/setting/setting';
 import { NewseviceProvider } from '../providers/newsevice/newsevice';
-import { StudentdashboardPage } from '../pages/studentdashboard/studentdashboard';
+
 
 
 
