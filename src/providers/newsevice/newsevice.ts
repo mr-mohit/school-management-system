@@ -32,7 +32,7 @@ export class NewseviceProvider {
         //console.log(this.user_role);
         if(data['statuscode'] == 1)
          {
-         //console.log("sucessfully implimented",data['statuscode']);
+         //console.log("sucessfully implemented",data['statuscode']);
          this.address=this.recdata.adress[0];
          //console.log(typeof(this.address));
          this.details=this.recdata.data[0];
