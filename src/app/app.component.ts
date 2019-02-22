@@ -15,6 +15,7 @@ import { TeacherAnnouncementPage } from '../pages/teacher-announcement/teacher-a
 import { AboutUsPage } from '../pages/about-us/about-us';
 import { SettingPage } from '../pages/setting/setting';
 import { NewseviceProvider } from '../providers/newsevice/newsevice';
+import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
 
 
 
@@ -23,7 +24,7 @@ import { NewseviceProvider } from '../providers/newsevice/newsevice';
 })
 export class MyApp {
   @ViewChild(Nav) navCtrl: Nav;
-    rootPage:any = LoginPage;
+    rootPage:any = AdminDashboardPage;
     //declaration of array for side menu
     Student_a:Array<{title:string, icon:string,component:any,}>;    //array for student
     Teacher_a:Array<{title:string, icon:string,component:any,}>;  //array for teacher
