@@ -16,7 +16,7 @@ import { StudentdashboardPage } from '../pages/studentdashboard/studentdashboard
 })
 export class MyApp {
   @ViewChild(Nav) navCtrl: Nav;
-    rootPage:any = StudentdashboardPage;
+    rootPage:any = LoginPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,public altertCtrl:AlertController) {
     platform.ready().then(() => {
