@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams} from 'ionic-angular';
+import { MenuController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { ProfilePage } from '../profile/profile';
 
@@ -22,7 +23,8 @@ export class StudentdashboardPage {
   tab2Root: any = ProfilePage;
   tab3Root: any = ProfilePage;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public Menu: MenuController ) {
+    this.Menu.enable(true);
   }
 
 }

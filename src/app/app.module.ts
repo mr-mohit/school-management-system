@@ -13,11 +13,15 @@ import { TeacherHomePage } from '../pages/teacher-home/teacher-home';
 import { StudentdashboardPage } from '../pages/studentdashboard/studentdashboard';
 import { ProfilePage } from '../pages/profile/profile';
 import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard';
+
+import { NewseviceProvider } from '../providers/newsevice/newsevice';
+import { HttpClientModule } from '@angular/common/http';
 import { StudentExamsPage } from '../pages/student-exams/student-exams';
 import { StudentAttendancePage } from '../pages/student-attendance/student-attendance';
 import { StudentAnnouncementsPage } from '../pages/student-announcements/student-announcements';
 import { StudentTimeTablePage } from '../pages/student-time-table/student-time-table';
 import { StudentResultPage } from '../pages/student-result/student-result';
+
 
 @NgModule({
   declarations: [
@@ -38,7 +42,8 @@ import { StudentResultPage } from '../pages/student-result/student-result';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -60,7 +65,8 @@ import { StudentResultPage } from '../pages/student-result/student-result';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    NewseviceProvider
   ]
 })
 export class AppModule {}
