@@ -28,10 +28,10 @@ export class NewseviceProvider {
       this.http.post(url,JSON.stringify(data1)).subscribe(data=>{
         //console.log(data);
         this.recdata=data;
-        this.user_role=this.recdata.data[0].ROLE;//storing the role of user into the variable named user_role
-        //console.log(this.user_role);
-        if(data['statuscode'] == 1)
+                if(data['statuscode'] == 1)
          {
+          this.user_role=this.recdata.data[0].ROLE;//storing the role of user into the variable named user_role
+          //console.log(this.user_role);
          //console.log("sucessfully implimented",data['statuscode']);
          this.address=this.recdata.adress[0];
          //console.log(typeof(this.address));
