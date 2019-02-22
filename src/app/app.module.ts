@@ -24,6 +24,12 @@ import { StudentResultPage } from '../pages/student-result/student-result';
 import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
 import { AdminHomePage } from '../pages/admin-home/admin-home';
 import { SettingPage } from '../pages/setting/setting';
+import { AdminAddPage } from '../pages/admin-add/admin-add';
+import { AdminViewPage } from '../pages/admin-view/admin-view';
+import { AdminAnnouncementsPage } from '../pages/admin-announcements/admin-announcements';
+import { AdminDeletePage } from '../pages/admin-delete/admin-delete';
+import { AdminUpdatePage } from '../pages/admin-update/admin-update';
+import { AdminMessagesPage } from '../pages/admin-messages/admin-messages';
 
 
 @NgModule({
@@ -43,6 +49,12 @@ import { SettingPage } from '../pages/setting/setting';
     StudentResultPage,
     AdminDashboardPage,
     AdminHomePage,
+    AdminAddPage,
+    AdminViewPage,
+    AdminAnnouncementsPage,
+    AdminDeletePage,
+    AdminUpdatePage,
+    AdminMessagesPage,
     SettingPage
   ],
   imports: [
@@ -67,7 +79,14 @@ import { SettingPage } from '../pages/setting/setting';
     StudentResultPage,
     AdminDashboardPage,
     AdminHomePage,
-    SettingPage
+    AdminAddPage,
+    AdminViewPage,
+    AdminAnnouncementsPage,
+    AdminDeletePage,
+    AdminUpdatePage,
+    AdminMessagesPage,
+    SettingPage,
+
     
   ],
   providers: [
