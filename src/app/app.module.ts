@@ -17,6 +17,7 @@ import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard
 import { NewseviceProvider } from '../providers/newsevice/newsevice';
 import { HttpClientModule } from '@angular/common/http';
 import { StudentExamsPage } from '../pages/student-exams/student-exams';
+import { ServiceLoginProvider } from '../providers/service-login/service-login';
 
 
 @NgModule({
@@ -53,7 +54,9 @@ import { StudentExamsPage } from '../pages/student-exams/student-exams';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    NewseviceProvider
+    NewseviceProvider,
+    ServiceLoginProvider,
+    ServiceLoginProvider
   ]
 })
 export class AppModule {}

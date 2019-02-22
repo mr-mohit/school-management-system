@@ -2,10 +2,9 @@ import { Component } from '@angular/core';
 import { NavController, AlertController, LoadingController } from 'ionic-angular';
 import { MenuController } from 'ionic-angular';
 import { ResetpasswordPage } from '../resetpassword/resetpassword';
-
 import { StudentdashboardPage } from '../studentdashboard/studentdashboard';
 import { TeacherdashboardPage } from '../teacherdashboard/teacherdashboard';
-import { NewseviceProvider } from '../../providers/newsevice/newsevice';
+import { ServiceLoginProvider } from '../../providers/service-login/service-login';
 
 @Component({
   selector: 'page-login',
@@ -21,7 +20,7 @@ public user:any=
   "password":" "
 };
   constructor(public Menu: MenuController,public navCtrl: NavController,public alertCtrl:AlertController,public loadingCtrl: LoadingController,
-    public service:NewseviceProvider) {
+    public service:ServiceLoginProvider) {
       this.Menu.enable(false);
   }
 io
@@ -57,6 +56,7 @@ io
          }
          else
          {
+           //console.log("Wrong username or password");
            alert("Invalid User");
          }
 })  //calling service function end
