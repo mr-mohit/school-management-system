@@ -7,15 +7,45 @@
     </ion-toolbar>
   </ion-header>
   <ion-content id="side-menu21">
-    <ion-list id="menu-list1">
+    <!-- <ion-list id="menu-list1">
       <ion-item color="none" menuClose="" on-click="goToHome()" id="menu-list-item1">
         Home
       </ion-item>
       <ion-item color="none" menuClose="" on-click="goToLogin()" id="menu-list-item2">
         Logout
       </ion-item>
+    </ion-list> -->
+    <ion-list *ngIf="service.user_role=='student'" >
+      <button menuClose ion-item *ngFor="let p of Student_a" (click)="openPage(p)" >
+        <ion-icon name="{{p.icon}}" item-left>   </ion-icon>
+        {{p.title}}
+      </button>
+    </ion-list>
+    <!-- Techer Element -->
+    <ion-list *ngIf="service.user_role=='teacher'" >
+        <button menuClose ion-item *ngFor="let p of Teacher_a" (click)="openPage(p)" >
+          <ion-icon name="{{p.icon}}" item-left>   </ion-icon>
+          {{p.title}}
+        </button>
+      </ion-list>
+    <strong>
+        <ion-label>&nbsp;&nbsp;&nbsp;&nbsp;
+            HELP
+          </ion-label>
+    </strong>
+    <ion-list>
+        <button menuClose ion-item *ngFor="let p of help" (click)="openPage(p)" >
+            <ion-icon name="{{p.icon}}" item-left>   </ion-icon>
+            {{p.title}}
+          </button>
     </ion-list>
   </ion-content>
+  <ion-footer>
+    <button full menuClose ion-button (click)="goToLogin()" >
+      <ion-icon name="log-out"></ion-icon>&nbsp;
+      Logout      
+    </button>
+  </ion-footer>
 </ion-menu>
 
 <ion-nav #mainContent [root]="rootPage"></ion-nav>
