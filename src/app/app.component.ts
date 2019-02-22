@@ -16,6 +16,7 @@ import { AboutUsPage } from '../pages/about-us/about-us';
 import { SettingPage } from '../pages/setting/setting';
 import { NewseviceProvider } from '../providers/newsevice/newsevice';
 import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
+import { StudentdashboardPage } from '../pages/studentdashboard/studentdashboard';
 
 
 
