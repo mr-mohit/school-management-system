@@ -33,6 +33,7 @@ export class NewseviceProvider {
           this.user_role=this.recdata.data[0].ROLE;//storing the role of user into the variable named user_role
           //console.log(this.user_role);
          //console.log("sucessfully implimented",data['statuscode']);
+         //console.log("sucessfully implemented",data['statuscode']);
          this.address=this.recdata.adress[0];
          //console.log(typeof(this.address));
          this.details=this.recdata.data[0];
