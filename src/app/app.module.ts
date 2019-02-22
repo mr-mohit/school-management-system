@@ -21,6 +21,9 @@ import { StudentAttendancePage } from '../pages/student-attendance/student-atten
 import { StudentAnnouncementsPage } from '../pages/student-announcements/student-announcements';
 import { StudentTimeTablePage } from '../pages/student-time-table/student-time-table';
 import { StudentResultPage } from '../pages/student-result/student-result';
+import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
+import { AdminHomePage } from '../pages/admin-home/admin-home';
+import { SettingPage } from '../pages/setting/setting';
 
 
 @NgModule({
@@ -38,7 +41,9 @@ import { StudentResultPage } from '../pages/student-result/student-result';
     StudentAnnouncementsPage,
     StudentTimeTablePage,
     StudentResultPage,
-    
+    AdminDashboardPage,
+    AdminHomePage,
+    SettingPage
   ],
   imports: [
     BrowserModule,
@@ -60,6 +65,9 @@ import { StudentResultPage } from '../pages/student-result/student-result';
     StudentAnnouncementsPage,
     StudentTimeTablePage,
     StudentResultPage,
+    AdminDashboardPage,
+    AdminHomePage,
+    SettingPage
     
   ],
   providers: [
