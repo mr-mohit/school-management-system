@@ -21,7 +21,7 @@ export class AdminAddPage {
 
   AddUser()
   {
-     this.navCtrl.push(AddUsersPage);
+    this.navCtrl.push(AddUsersPage);
   }
   AddSubject()
   {
