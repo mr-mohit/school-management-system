@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, Output } from '@angular/core';
+import { Injectable} from '@angular/core';
 
 /*
   Generated class for the NewseviceProvider provider.

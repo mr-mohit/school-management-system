@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { AddUsersPage } from '../add-users/add-users';
 
 /**
- * Generated class for the AdminAddPage page.
+ * Generated class for the AddUsersPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,33 +10,16 @@ import { AddUsersPage } from '../add-users/add-users';
 
 @IonicPage()
 @Component({
-  selector: 'page-admin-add',
-  templateUrl: 'admin-add.html',
+  selector: 'page-add-users',
+  templateUrl: 'add-users.html',
 })
-export class AdminAddPage {
+export class AddUsersPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  AddUser()
-  {
-     this.navCtrl.push(AddUsersPage);
-  }
-  AddSubject()
-  {
-
-  }
-  AddClass()
-  {
-
-  }
-  AddTimeTable()
-  {
-
-  }
-  AddSession()
-  {
-
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad AddUsersPage');
   }
 
 }

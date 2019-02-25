@@ -5,11 +5,69 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
-    <ion-title>Admin_Add</ion-title>
+  <ion-navbar color="header">
+    <ion-title>Admin : Add</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+  
+  <div  padding style="margin-top:10vh;">
+      <ion-row no-padding>
+      
+        <ion-col col-4 >
+       <ion-card class="bkgcolor"  no-margin on-click="AddUser()">
+
+      <p> <ion-icon name="add" style="margin-left:31%; margin-top:20%;color: white !important; font-size:400%"></ion-icon></p>
+
+       </ion-card>
+     <strong>  <ion-label style="padding-left:8vw; ">Add User</ion-label> </strong> 
+     </ion-col>
+     <ion-col col-4>
+       <ion-card class="bkgcolor"  no-margin on-click="AddSubject()">
+        <p> <ion-icon name="add" style="margin-left:30%; margin-top:20%; font-size:400%;color: white !important;"></ion-icon></p>
+          
+       </ion-card>
+     <strong>  <ion-label style="padding-left:8vw; ">Add Subject</ion-label> </strong> 
+     </ion-col>
+     <ion-col col-4>
+      
+      <ion-card class="bkgcolor"  no-margin on-click="AddClass()">
+         <p> <ion-icon name="add" style="margin-left:30%; margin-top:20%;color: white !important; font-size:400%;"></ion-icon></p>
+
+       </ion-card>
+        <strong>  <ion-label style="padding-left:2vw; ">Add Class</ion-label> </strong> 
+
+     </ion-col>
+     </ion-row> 
+      <ion-row no-padding>
+      
+        <ion-col col-4 >
+       <ion-card class="bkgcolor"  no-margin on-click="AddTimeTable()">
+         <p> <ion-icon name="add" style="margin-left:31%; margin-top:20%;color: white !important; font-size:400%;"></ion-icon></p>
+
+       </ion-card>
+              <strong>  <ion-label style="padding-left:4vw;">Add Timetable</ion-label> </strong> 
+
+     </ion-col>
+     <ion-col col-4>
+       <ion-card class="bkgcolor"  no-margin on-click="AddSession()">
+          <p> <ion-icon name="add" style="margin-left:29%; margin-top:20%;color: white !important; font-size:400%;"></ion-icon></p>
+
+
+       </ion-card>
+        <strong>  <ion-label style="padding-left:6vw;">Add Session</ion-label> </strong> 
+     </ion-col>
+     <ion-col col-4>
+       <ion-card class="bkgcolor"  no-margin>
+           <p> <ion-icon name="add" style="margin-left:27%; margin-top:20%; color: white !important;font-size:400%;"></ion-icon></p>
+
+       </ion-card>
+             <strong>  <ion-label style="padding-left:4vw;"> Messages </ion-label> </strong> 
+
+     </ion-col>
+    </ion-row>
+   </div>
+
 
 </ion-content>
