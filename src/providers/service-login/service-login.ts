@@ -10,7 +10,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ServiceLoginProvider {
   public data:any;
-  public URL="http://localhost/schoolapi/";
+  public URL="https://direct-school.000webhostapp.com/";
   public recdata: any;//this variable will store info coming from API
   public address:any;//for storing address
   public details:any;//for storing other details

@@ -33,8 +33,8 @@ import {TeacherProfilePage} from '../pages/teacher-profile/teacher-profile';
     StudentExamsPage,
     AdminDashboardPage,
     AdminHomePage,
-    SettingPage
-    StudentProfilePage,
+    SettingPage,
+    StudentProfilePage
   ],
   imports: [
     BrowserModule,
@@ -54,9 +54,8 @@ import {TeacherProfilePage} from '../pages/teacher-profile/teacher-profile';
     StudentExamsPage,
     AdminDashboardPage,
     AdminHomePage,
-    SettingPage
-    StudentProfilePage,
-    
+    SettingPage,
+    StudentProfilePage
   ],
   providers: [
     StatusBar,
