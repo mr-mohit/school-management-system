@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams} from 'ionic-angular';
 import { MenuController } from 'ionic-angular';
 import { HomePage } from '../home/home';
-import { ProfilePage } from '../profile/profile';
+import {StudentProfilePage} from '../student-profile/student-profile';
+
 
 /**
  * Generated class for the StudentdashboardPage page.
@@ -20,8 +21,8 @@ export class StudentdashboardPage {
 
 
   tab1Root: any = HomePage;
-  tab2Root: any = ProfilePage;
-  tab3Root: any = ProfilePage;
+  tab2Root: any = StudentProfilePage;
+  tab3Root: any = StudentProfilePage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public Menu: MenuController ) {
     this.Menu.enable(true);

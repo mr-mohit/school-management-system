@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { TeacherHomePage } from '../teacher-home/teacher-home';
-import { ProfilePage } from '../profile/profile';
+import {TeacherProfilePage} from '../teacher-profile/teacher-profile';
 
 /**
  * Generated class for the TeacherdashboardPage page.
@@ -18,8 +18,8 @@ import { ProfilePage } from '../profile/profile';
 export class TeacherdashboardPage {
 
   tab1Root: any = TeacherHomePage;
-  tab2Root: any = ProfilePage;
-  tab3Root: any = ProfilePage;
+  tab2Root: any = TeacherProfilePage;
+  tab3Root: any = TeacherProfilePage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
