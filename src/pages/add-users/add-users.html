@@ -6,10 +6,78 @@
 -->
 <ion-header>
   <ion-navbar color="header">
-    <ion-title>Admin : Add Users</ion-title>
+    <ion-title>Add User</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  
+        <ion-item id="page-select1">
+          <ion-label>
+            Role Type
+          </ion-label>
+          <ion-select name="role">
+            <ion-option>
+              Teacher
+            </ion-option>
+            <ion-option>
+              Student
+            </ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>
+            Name
+          </ion-label>
+          <ion-input type="text" placeholder="" name="name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            Gender
+          </ion-label>
+          <ion-select name="gender">
+            <ion-option>
+              Male
+            </ion-option>
+            <ion-option>
+              Female
+            </ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>
+            
+          </ion-label>
+          <ion-input type="date" placeholder=""></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>
+            Age
+          </ion-label>
+          <ion-input type="number" placeholder="" name="age"></ion-input>
+        </ion-item>
+        <ion-item >
+          <ion-label floating>
+            Email
+          </ion-label>
+          <ion-input type="email" placeholder="" name="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>
+            Username
+          </ion-label>
+          <ion-input type="text" placeholder="" name="username"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>
+            Password
+          </ion-label>
+          <ion-input type="password" placeholder=""></ion-input>
+        </ion-item>
 
+      <button id="adduser" ion-button color="header"
+      block style="border-radius:2px 2px 2px 2px;width: 100px; margin-top: 25px; margin-left: 35%" on-click="VaildateLogin()">
+            Add User
+           </button>
+      
 </ion-content>
