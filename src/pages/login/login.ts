@@ -6,6 +6,7 @@ import { ResetpasswordPage } from '../resetpassword/resetpassword';
 import { StudentdashboardPage } from '../studentdashboard/studentdashboard';
 import { TeacherdashboardPage } from '../teacherdashboard/teacherdashboard';
 import { NewseviceProvider } from '../../providers/newsevice/newsevice';
+import { AdminDashboardPage } from '../admin-dashboard/admin-dashboard';
 
 @Component({
   selector: 'page-login',
@@ -53,11 +54,17 @@ io
             this.navCtrl.setRoot(TeacherdashboardPage);
             //this.navCtrl.setRoot('TeacherdashboardPage');//calling teacher dashboardpage
            }
+           else if(this.dataitem.data[0].ROLE=='admin')
+           {
+            //console.log("admin");
+            this.navCtrl.setRoot(AdminDashboardPage);
+            //this.navCtrl.setRoot('TeacherdashboardPage');//calling teacher dashboardpage
+           }
           
          }
          else
          {
-           alert("Invalid User");
+           //alert("Invalid User");
          }
 })  //calling service function end
 }
