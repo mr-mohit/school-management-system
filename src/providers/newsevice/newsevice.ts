@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, Output } from '@angular/core';
+import { Injectable} from '@angular/core';
 
 /*
   Generated class for the NewseviceProvider provider.
@@ -28,22 +28,31 @@ export class NewseviceProvider {
       this.http.post(url,JSON.stringify(data1)).subscribe(data=>{
         //console.log(data);
         this.recdata=data;
-        this.user_role=this.recdata.data[0].ROLE;//storing the role of user into the variable named user_role
         //console.log(this.user_role);
-        if(data['statuscode'] == 1)
+         if(data['statuscode'] == 1)
          {
-         //console.log("sucessfully implimented",data['statuscode']);
-         this.address=this.recdata.adress[0];
-         //console.log(typeof(this.address));
-         this.details=this.recdata.data[0];
+           //storing the role of user into the variable named user_role
+            this.user_role=this.recdata.data[0].ROLE;
+            //console.log("sucessfully implimented",data['statuscode']);
+            this.address=this.recdata.adress[0];
+            //console.log(typeof(this.address));
+            this.details=this.recdata.data[0];
 
-         //console.log("Address");
-         //console.log(this.address);
-
+            //console.log("Address");
+            //console.log(this.address);
          }
+         else
+         {
+          console.log("invalid username and/or password");
+           alert("invalid username and/or password");
+         }
+         resolve(data);
+
+
         resolve(data);
       },error=>{
-        console.log("sorry,,error",error);
+        console.log("empty username and/or password",error);
+        alert("empty  username and/or password");
       });
     });
   }
