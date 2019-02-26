@@ -14,7 +14,6 @@ import { TeacherAnnouncementPage } from '../pages/teacher-announcement/teacher-a
 import { AboutUsPage } from '../pages/about-us/about-us';
 import { SettingPage } from '../pages/setting/setting';
 import { ServiceLoginProvider } from '../providers/service-login/service-login';
-import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
 
 
 
