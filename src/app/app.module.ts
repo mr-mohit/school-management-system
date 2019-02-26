@@ -31,6 +31,7 @@ import { AdminDeletePage } from '../pages/admin-delete/admin-delete';
 import { AdminUpdatePage } from '../pages/admin-update/admin-update';
 import { AdminMessagesPage } from '../pages/admin-messages/admin-messages';
 import { AddUsersPage } from '../pages/add-users/add-users';
+import { UserAddressPage } from '../pages/user-address/user-address';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import { AddUsersPage } from '../pages/add-users/add-users';
     AdminUpdatePage,
     AdminMessagesPage,
     AddUsersPage,
+    UserAddressPage,
     SettingPage
   ],
   imports: [
@@ -88,6 +90,7 @@ import { AddUsersPage } from '../pages/add-users/add-users';
     AdminUpdatePage,
     AdminMessagesPage,
     AddUsersPage,
+    UserAddressPage,
     SettingPage,
 
     

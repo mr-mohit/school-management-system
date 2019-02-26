@@ -25,7 +25,6 @@ public user:any=
     public service:NewseviceProvider) {
       this.Menu.enable(false);
   }
-io
   VaildateLogin(username,password)
   {
   
