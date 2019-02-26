@@ -52,7 +52,7 @@ public user:any=
             this.navCtrl.setRoot(TeacherdashboardPage);
             //this.navCtrl.setRoot('TeacherdashboardPage');//calling teacher dashboardpage
            }
-           else if(this.dataitem.data[0].ROLE=='admin')
+           else if(this.dataitem.data[0].ROLE=='admin'|| this.dataitem.data[0].ROLE=='Admin')
            {
              //sending to Admin Page
              this.navCtrl.setRoot(AdminDashboardPage);
