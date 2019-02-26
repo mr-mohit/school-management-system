@@ -19,8 +19,10 @@ import { QuizServiceProvider } from '../providers/quiz-service/quiz-service';
 import { StudentQuiz1Page } from '../pages/student-quiz1/student-quiz1';
 import { ServiceLoginProvider } from '../providers/service-login/service-login';
 import {TeacherProfilePage} from '../pages/teacher-profile/teacher-profile';
+import { StudentQuizPage } from '../pages/student-quiz/student-quiz';
+import { StudentProfilePage } from '../pages/student-profile/student-profile';
 
-
+ @NgModule({ 
   declarations: [
     MyApp,
     HomePage,

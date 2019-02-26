@@ -16,7 +16,6 @@ import { QuizServiceProvider } from '../../providers/quiz-service/quiz-service';
 })
 export class StudentQuiz1Page {
 
-  public score = 0; // total score
   public useransw; // user answer
   
 
@@ -31,18 +30,31 @@ export class StudentQuiz1Page {
    next()
    {
        
-        console.log(this.useransw);
+    console.log(" response :\n",this.useransw);
+    console.log(this.service.answer);
+    if(this.useransw)
+    {
+      if(this.useransw == this.service.answer)
+      {
+        this.service.score +=1;
+      } 
+      console.log("score :\n",this.service.score);
         this.service.index +=1;
         console.log(this.service.index);
          if(this.service.index < 4)
          {
           this.service.getquestion(this.service.index);
           this.navCtrl.setRoot(StudentQuiz1Page);
+         
          }
          else
          {
-
+          this.navCtrl.setRoot(StudentQuiz1Page);
          }
-        
+    }
+    else
+    {
+       alert("Please select an option");
+    }  
    }
 }

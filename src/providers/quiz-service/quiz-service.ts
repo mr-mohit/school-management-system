@@ -20,6 +20,8 @@ export class QuizServiceProvider {
   public option3; // option3
   public option4; // option4
   public answer; // answer got from the API
+  public score = 0; // total score
+
  
 
 
@@ -31,7 +33,8 @@ export class QuizServiceProvider {
 
   getnext()
   { 
-     this.index = 0;
+     this.index = 0; //idex initial when we start the quiz
+     this.score = 0 ; // initialized the score
     return new Promise(resolve=>{
       this.http.get(this.URL).subscribe(data=>{
         this.recdata=data;
@@ -44,7 +47,7 @@ export class QuizServiceProvider {
           this.option2 = this.recdata.data[0].option2;
           this.option3 = this.recdata.data[0].option3;
           this.option4 = this.recdata.data[0].option4;
-          this.answer = this.recdata.data[0].answer;
+          this.answer = this.recdata.data[0].ans;
 
             resolve(data);
          }
@@ -64,7 +67,7 @@ export class QuizServiceProvider {
     this.option2 = this.recdata.data[i].option2;
     this.option3 = this.recdata.data[i].option3;
     this.option4 = this.recdata.data[i].option4;
-    this.answer = this.recdata.data[i].answer;
+    this.answer = this.recdata.data[i].ans;
   }
 
 
