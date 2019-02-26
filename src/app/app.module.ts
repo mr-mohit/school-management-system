@@ -20,6 +20,9 @@ import { StudentExamsPage } from '../pages/student-exams/student-exams';
 import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
 import { AdminHomePage } from '../pages/admin-home/admin-home';
 import { SettingPage } from '../pages/setting/setting';
+import { StudentQuizPage } from '../pages/student-quiz/student-quiz';
+import { QuizServiceProvider } from '../providers/quiz-service/quiz-service';
+import { StudentQuiz1Page } from '../pages/student-quiz1/student-quiz1';
 
 
 @NgModule({
@@ -34,6 +37,8 @@ import { SettingPage } from '../pages/setting/setting';
     TeacherdashboardPage,
     StudentExamsPage,
     AdminDashboardPage,
+    StudentQuizPage,
+    StudentQuiz1Page,
     AdminHomePage,
     SettingPage
   ],
@@ -53,6 +58,8 @@ import { SettingPage } from '../pages/setting/setting';
     StudentdashboardPage,
     TeacherdashboardPage,
     StudentExamsPage,
+    StudentQuizPage,
+    StudentQuiz1Page,
     AdminDashboardPage,
     AdminHomePage,
     SettingPage
@@ -62,7 +69,8 @@ import { SettingPage } from '../pages/setting/setting';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    NewseviceProvider
+    NewseviceProvider,
+    QuizServiceProvider
   ]
 })
 export class AppModule {}

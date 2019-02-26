@@ -48,11 +48,9 @@ export class NewseviceProvider {
          }
          resolve(data);
 
-
-        resolve(data);
       },error=>{
-        console.log("empty username and/or password",error);
-        alert("empty  username and/or password");
+        console.log("invalid username and/or password");
+        alert("invalid username and/or password");
       });
     });
   }
