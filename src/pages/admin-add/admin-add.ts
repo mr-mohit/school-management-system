@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AddUsersPage } from '../add-users/add-users';
+import { AddSubjectsPage } from '../add-subjects/add-subjects';
 
 /**
  * Generated class for the AdminAddPage page.
@@ -25,7 +26,7 @@ export class AdminAddPage {
   }
   AddSubject()
   {
-
+        this.navCtrl.push(AddSubjectsPage);
   }
   AddClass()
   {
