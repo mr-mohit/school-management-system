@@ -1,0 +1,83 @@
+<!--
+  Generated template for the UserAddressPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="header">
+    <ion-title>User Address</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-item>
+    <ion-label floating>
+      Father Name
+    </ion-label>
+    <ion-input type="text" placeholder="" name="Fname"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>
+      Address Type
+    </ion-label>
+    <ion-select name="AddressType">
+      <ion-option>
+        Permanent address
+      </ion-option>
+      <ion-option>
+        Temporary Address
+      </ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>
+      Address Line 1
+    </ion-label>
+    <ion-input type="text" placeholder="" name="AddressOne"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>
+      Address Line 2
+    </ion-label>
+    <ion-input type="text" placeholder="" name="AddressTwo"></ion-input>
+  </ion-item>
+
+  <ion-item >
+    <ion-label floating>
+      State
+    </ion-label>
+    <ion-input type="text" placeholder="" name="State"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>
+      Pincode
+    </ion-label>
+    <ion-input type="number" placeholder="" name="Pincode"></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-label floating>
+        City
+      </ion-label>
+      <ion-input type="text" placeholder="" name="City"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label floating>
+          Contact No
+        </ion-label>
+        <ion-input type="number" placeholder="" name="Contact"></ion-input>
+      </ion-item>
+
+<button id="adduser" ion-button color="header"
+block style="border-radius:2px 2px 2px 2px;width: 100px; margin-top: 25px; margin-left: 35%" on-click="AddUserAddress()">
+      Add User
+     </button>
+
+</ion-content>
