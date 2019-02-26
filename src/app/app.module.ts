@@ -4,17 +4,12 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
-
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ResetpasswordPage } from '../pages/resetpassword/resetpassword';
 import { TeacherHomePage } from '../pages/teacher-home/teacher-home';
 import { StudentdashboardPage } from '../pages/studentdashboard/studentdashboard';
-import { ProfilePage } from '../pages/profile/profile';
 import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard';
-
-import { NewseviceProvider } from '../providers/newsevice/newsevice';
 import { HttpClientModule } from '@angular/common/http';
 import { StudentExamsPage } from '../pages/student-exams/student-exams';
 import { StudentAttendancePage } from '../pages/student-attendance/student-attendance';
@@ -32,6 +27,9 @@ import { AdminUpdatePage } from '../pages/admin-update/admin-update';
 import { AdminMessagesPage } from '../pages/admin-messages/admin-messages';
 import { AddUsersPage } from '../pages/add-users/add-users';
 import { UserAddressPage } from '../pages/user-address/user-address';
+import { ServiceLoginProvider } from '../providers/service-login/service-login';
+import {StudentProfilePage} from '../pages/student-profile/student-profile';
+import {TeacherProfilePage} from '../pages/teacher-profile/teacher-profile';
 
 
 @NgModule({
@@ -39,41 +37,9 @@ import { UserAddressPage } from '../pages/user-address/user-address';
     MyApp,
     HomePage,
     LoginPage,
-    ProfilePage,
     ResetpasswordPage,
     TeacherHomePage,
-    StudentdashboardPage,
-    TeacherdashboardPage,
-    StudentExamsPage,
-    StudentAttendancePage,
-    StudentAnnouncementsPage,
-    StudentTimeTablePage,
-    StudentResultPage,
-    AdminDashboardPage,
-    AdminHomePage,
-    AdminAddPage,
-    AdminViewPage,
-    AdminAnnouncementsPage,
-    AdminDeletePage,
-    AdminUpdatePage,
-    AdminMessagesPage,
-    AddUsersPage,
-    UserAddressPage,
-    SettingPage
-  ],
-  imports: [
-    BrowserModule,
-    IonicModule.forRoot(MyApp),
-    HttpClientModule
-  ],
-  bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    HomePage,
-    LoginPage,
-    ProfilePage,
-    ResetpasswordPage,
-    TeacherHomePage,
+    TeacherProfilePage,
     StudentdashboardPage,
     TeacherdashboardPage,
     StudentExamsPage,
@@ -92,14 +58,48 @@ import { UserAddressPage } from '../pages/user-address/user-address';
     AddUsersPage,
     UserAddressPage,
     SettingPage,
+    StudentProfilePage
+  ],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(MyApp),
+    HttpClientModule
+  ],
+  bootstrap: [IonicApp],
+  entryComponents: [
+    MyApp,
+    HomePage,
+    LoginPage,
+    ResetpasswordPage,
+    TeacherHomePage,
+    StudentdashboardPage,
+    TeacherdashboardPage,
+    TeacherProfilePage,
+    StudentExamsPage,
+    StudentAttendancePage,
+    StudentAnnouncementsPage,
+    StudentTimeTablePage,
+    StudentResultPage,
+    AdminDashboardPage,
+    AdminHomePage,
+    AdminAddPage,
+    AdminViewPage,
+    AdminAnnouncementsPage,
+    AdminDeletePage,
+    AdminUpdatePage,
+    AdminMessagesPage,
+    AddUsersPage,
+    UserAddressPage,
 
     
+    SettingPage,
+    StudentProfilePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    NewseviceProvider
+    ServiceLoginProvider
   ]
 })
 export class AppModule {}
