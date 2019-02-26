@@ -4,35 +4,30 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
-
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ResetpasswordPage } from '../pages/resetpassword/resetpassword';
 import { TeacherHomePage } from '../pages/teacher-home/teacher-home';
 import { StudentdashboardPage } from '../pages/studentdashboard/studentdashboard';
-import { ProfilePage } from '../pages/profile/profile';
 import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard';
-
-import { NewseviceProvider } from '../providers/newsevice/newsevice';
 import { HttpClientModule } from '@angular/common/http';
 import { StudentExamsPage } from '../pages/student-exams/student-exams';
 import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
 import { AdminHomePage } from '../pages/admin-home/admin-home';
 import { SettingPage } from '../pages/setting/setting';
-import { StudentQuizPage } from '../pages/student-quiz/student-quiz';
 import { QuizServiceProvider } from '../providers/quiz-service/quiz-service';
 import { StudentQuiz1Page } from '../pages/student-quiz1/student-quiz1';
+import { ServiceLoginProvider } from '../providers/service-login/service-login';
+import {TeacherProfilePage} from '../pages/teacher-profile/teacher-profile';
 
 
-@NgModule({
   declarations: [
     MyApp,
     HomePage,
     LoginPage,
-    ProfilePage,
     ResetpasswordPage,
     TeacherHomePage,
+    TeacherProfilePage,
     StudentdashboardPage,
     TeacherdashboardPage,
     StudentExamsPage,
@@ -40,7 +35,8 @@ import { StudentQuiz1Page } from '../pages/student-quiz1/student-quiz1';
     StudentQuizPage,
     StudentQuiz1Page,
     AdminHomePage,
-    SettingPage
+    SettingPage,
+    StudentProfilePage
   ],
   imports: [
     BrowserModule,
@@ -52,25 +48,26 @@ import { StudentQuiz1Page } from '../pages/student-quiz1/student-quiz1';
     MyApp,
     HomePage,
     LoginPage,
-    ProfilePage,
     ResetpasswordPage,
     TeacherHomePage,
     StudentdashboardPage,
     TeacherdashboardPage,
+    TeacherProfilePage,
     StudentExamsPage,
     StudentQuizPage,
     StudentQuiz1Page,
     AdminDashboardPage,
     AdminHomePage,
-    SettingPage
-    
+    SettingPage,
+    StudentProfilePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    NewseviceProvider,
-    QuizServiceProvider
+  
+    QuizServiceProvider,
+    ServiceLoginProvider
   ]
 })
 export class AppModule {}
