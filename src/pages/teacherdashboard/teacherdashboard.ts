@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { TeacherHomePage } from '../teacher-home/teacher-home';
+
+import { SettingPage } from '../setting/setting';
 import {TeacherProfilePage} from '../teacher-profile/teacher-profile';
 
 /**
@@ -18,8 +20,8 @@ import {TeacherProfilePage} from '../teacher-profile/teacher-profile';
 export class TeacherdashboardPage {
 
   tab1Root: any = TeacherHomePage;
-  tab2Root: any = TeacherProfilePage;
-  tab3Root: any = TeacherProfilePage;
+tab2Root: any = TeacherProfilePage;
+  tab3Root: any = SettingPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

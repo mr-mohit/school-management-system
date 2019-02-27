@@ -16,13 +16,44 @@
 // automatically applied to the <body> element in the app.
 .bkgcolor
     {
-        background-color: #2dcaff;
+        background-color: rgba(51,102,204,1);
         max-width: 30vw;
         max-height: 30vw;
         height: 26vw;
         width: 26vw;
         border-radius:50%;
         
+    }
+    .upperhalf {
+        height: 50%;
+        padding-top: 10%;
+        background: linear-gradient(180deg, rgb(180,203,236) 19%, rgba(51,102,204,1) 81%);
+        padding-top: 10%;
+    }
+    .lowerhalf {
+        height: 50%;
+        background-color: #ffffff;
+    }
+    .login-form {
+        padding: 25px;
+        position: relative;
+        bottom: 60px;
+    }
+    .user {
+        border-radius: 7px 7px 0px 0px;
+    }
+    .wrapper-class {
+        background-color: #fff;
+    }
+
+    .log-in {
+        position: relative;
+        bottom: 28px;
+        display: flex;
+        justify-content: center;
+    }
+    button#login-button3 {
+        border-radius: 40px !important;
     }
 
     

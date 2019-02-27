@@ -38,7 +38,7 @@ export class MyApp {
 
     });
     
-    //initalizating the student array elements for side menu
+    //initializing the student array elements for side menu
     this.Student_a=[
       {title:'School Info', icon:'contact', component:SchoolInfoPage},
       {title:'Events', icon:'contact',component:ViewEventsPage},
@@ -47,7 +47,7 @@ export class MyApp {
       {title:'Gallery',icon:'contact',component:GalleryPage}
     ];
 
-    //initalizating the teacher array elements for side menu
+    //initializing the teacher array elements for side menu
     this.Teacher_a=[
       {title:'Send Messages', icon:'contact',component:TeacherSendMessagePage},
       {title:'Set Announcement',icon:'contact',component:TeacherAnnouncementPage},
@@ -55,7 +55,7 @@ export class MyApp {
       {title:'Gallery',icon:'contact',component:GalleryPage},
       {title:'Events', icon:'contact',component:ViewEventsPage}
     ];
-    //initalizating the common array elements for side menu
+    //initializing the common array elements for side menu
     this.help=[
       {title:'About Us', icon:'contact',component:AboutUsPage},
       {title:'Settings',icon:'contact',component:SettingPage}

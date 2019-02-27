@@ -6,7 +6,12 @@ page-home {
     margin-top:20%; 
     font-size:400%
    }
-    
+   ion-content
+   {
+       padding-top:10vh;
+       background: linear-gradient(180deg, rgb(245, 247, 246) 19%, rgb(65, 65, 128) 81%);
+
+   }
    
 
 }

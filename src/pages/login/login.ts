@@ -4,6 +4,7 @@ import { MenuController } from 'ionic-angular';
 import { ResetpasswordPage } from '../resetpassword/resetpassword';
 import { StudentdashboardPage } from '../studentdashboard/studentdashboard';
 import { TeacherdashboardPage } from '../teacherdashboard/teacherdashboard';
+import { AdminDashboardPage } from '../admin-dashboard/admin-dashboard';
 import { ServiceLoginProvider } from '../../providers/service-login/service-login';
 
 @Component({
@@ -23,7 +24,6 @@ public user:any=
     public service:ServiceLoginProvider) {
       this.Menu.enable(false);
   }
-io
   VaildateLogin(username,password)
   {
   
@@ -52,12 +52,20 @@ io
             this.navCtrl.setRoot(TeacherdashboardPage);
             //this.navCtrl.setRoot('TeacherdashboardPage');//calling teacher dashboardpage
            }
-          
+           else if(this.dataitem.data[0].ROLE=='admin'|| this.dataitem.data[0].ROLE=='Admin')
+           {
+             //sending to Admin Page
+             this.navCtrl.setRoot(AdminDashboardPage);
+           }
          }
          else
          {
-           //console.log("Wrong username or password");
-           alert("Invalid User");
+           //showing alert in case of wrong password and user 
+          const alert = this.alertCtrl.create({
+            title: 'Invaild User!',
+            buttons: ['OK']
+          });
+          alert.present();
          }
 })  //calling service function end
 }

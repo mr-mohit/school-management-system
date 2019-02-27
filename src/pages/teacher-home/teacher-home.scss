@@ -4,7 +4,14 @@ page-teacher-home {
         margin: 13px 1px 13px 0px;
         text-align: center;
         text-decoration-style: solid;
+        color:white;
         
+    }
+    ion-content
+    {
+        padding-top:10vh;
+        background: linear-gradient(180deg, rgb(245, 247, 246) 19%, rgb(65, 65, 128) 81%);
+
     }
 
 }
