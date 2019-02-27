@@ -33,7 +33,7 @@ import {TeacherProfilePage} from '../pages/teacher-profile/teacher-profile';
     StudentExamsPage,
     AdminDashboardPage,
     AdminHomePage,
-    SettingPage
+    SettingPage,
     StudentProfilePage,
   ],
   imports: [
@@ -54,7 +54,7 @@ import {TeacherProfilePage} from '../pages/teacher-profile/teacher-profile';
     StudentExamsPage,
     AdminDashboardPage,
     AdminHomePage,
-    SettingPage
+    SettingPage,
     StudentProfilePage,
     
   ],
