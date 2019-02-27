@@ -40,13 +40,13 @@ public user:any=
          if(data['statuscode'] == 1)
          {
            //console.log("login sucessfully implimented");
-           if(this.dataitem.data[0].ROLE=='student')
+           if(this.dataitem.data[0].ROLE=='student'|| this.dataitem.data[0].ROLE=='Student')
            {
             //console.log("student");
             this.navCtrl.setRoot(StudentdashboardPage);
              //this.navCtrl.setRoot('StudentdashboardPage');//calling student dashboard
            }
-           else if(this.dataitem.data[0].ROLE=='teacher')
+           else if(this.dataitem.data[0].ROLE=='teacher'|| this.dataitem.data[0].ROLE=='Teacher')
            {
             //console.log("teacher");
             this.navCtrl.setRoot(TeacherdashboardPage);

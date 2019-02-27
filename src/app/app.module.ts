@@ -30,6 +30,8 @@ import { UserAddressPage } from '../pages/user-address/user-address';
 import { ServiceLoginProvider } from '../providers/service-login/service-login';
 import {StudentProfilePage} from '../pages/student-profile/student-profile';
 import {TeacherProfilePage} from '../pages/teacher-profile/teacher-profile';
+import {AdminProfilePage} from '../pages/admin-profile/admin-profile';
+import { ServiceAdduserProvider } from '../providers/service-adduser/service-adduser';
 
 
 @NgModule({
@@ -48,6 +50,7 @@ import {TeacherProfilePage} from '../pages/teacher-profile/teacher-profile';
     StudentTimeTablePage,
     StudentResultPage,
     AdminDashboardPage,
+    AdminProfilePage,
     AdminHomePage,
     AdminAddPage,
     AdminViewPage,
@@ -81,6 +84,7 @@ import {TeacherProfilePage} from '../pages/teacher-profile/teacher-profile';
     StudentTimeTablePage,
     StudentResultPage,
     AdminDashboardPage,
+    AdminProfilePage,
     AdminHomePage,
     AdminAddPage,
     AdminViewPage,
@@ -99,7 +103,8 @@ import {TeacherProfilePage} from '../pages/teacher-profile/teacher-profile';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ServiceLoginProvider
+    ServiceLoginProvider,
+    ServiceAdduserProvider
   ]
 })
 export class AppModule {}

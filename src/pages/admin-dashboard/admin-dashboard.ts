@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 import { AdminHomePage } from '../admin-home/admin-home';
-import {StudentProfilePage} from '../student-profile/student-profile';
 import { SettingPage } from '../setting/setting';
+import { AdminProfilePage } from '../admin-profile/admin-profile';
 
 /**
  * Generated class for the AdminDashboardPage page.
@@ -19,7 +19,7 @@ import { SettingPage } from '../setting/setting';
 export class AdminDashboardPage {
 
   tab1Root: any = AdminHomePage;
-  tab2Root: any = StudentProfilePage;
+  tab2Root: any = AdminProfilePage;
   tab3Root: any = SettingPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public Menu:MenuController) {
