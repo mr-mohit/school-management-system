@@ -30,6 +30,8 @@ import { UserAddressPage } from '../pages/user-address/user-address';
 import { ServiceLoginProvider } from '../providers/service-login/service-login';
 import {StudentProfilePage} from '../pages/student-profile/student-profile';
 import {TeacherProfilePage} from '../pages/teacher-profile/teacher-profile';
+import {AdminProfilePage} from '../pages/admin-profile/admin-profile';
+import { ServiceAdduserProvider } from '../providers/service-adduser/service-adduser';
 import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
 
 
@@ -49,6 +51,7 @@ import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
     StudentTimeTablePage,
     StudentResultPage,
     AdminDashboardPage,
+    AdminProfilePage,
     AdminHomePage,
     AdminAddPage,
     AdminViewPage,
@@ -83,6 +86,7 @@ import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
     StudentTimeTablePage,
     StudentResultPage,
     AdminDashboardPage,
+    AdminProfilePage,
     AdminHomePage,
     AdminAddPage,
     AdminViewPage,
@@ -100,7 +104,8 @@ import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ServiceLoginProvider
+    ServiceLoginProvider,
+    ServiceAdduserProvider
   ]
 })
 export class AppModule {}
