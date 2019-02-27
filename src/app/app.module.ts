@@ -30,6 +30,7 @@ import { UserAddressPage } from '../pages/user-address/user-address';
 import { ServiceLoginProvider } from '../providers/service-login/service-login';
 import {StudentProfilePage} from '../pages/student-profile/student-profile';
 import {TeacherProfilePage} from '../pages/teacher-profile/teacher-profile';
+import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import {TeacherProfilePage} from '../pages/teacher-profile/teacher-profile';
     AdminMessagesPage,
     AddUsersPage,
     UserAddressPage,
+    AddSubjectsPage,
     SettingPage,
     StudentProfilePage
   ],
@@ -90,8 +92,7 @@ import {TeacherProfilePage} from '../pages/teacher-profile/teacher-profile';
     AdminMessagesPage,
     AddUsersPage,
     UserAddressPage,
-
-    
+    AddSubjectsPage,
     SettingPage,
     StudentProfilePage
   ],
