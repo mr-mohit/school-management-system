@@ -11,8 +11,8 @@
 </ion-header>
 
 <ion-content padding>
-  
-        <ion-item id="page-select1">
+  <form>
+        <ion-item>
           <ion-label>
             Role Type
           </ion-label>
@@ -46,15 +46,9 @@
         </ion-item>
         <ion-item>
           <ion-label floating>
-            
+            Date of birth
           </ion-label>
-          <ion-input type="date" placeholder=""></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>
-            Age
-          </ion-label>
-          <ion-input type="number" placeholder="" name="age"></ion-input>
+          <ion-input type="date" placeholder="" name="dob"></ion-input>
         </ion-item>
         <ion-item >
           <ion-label floating>
@@ -64,15 +58,9 @@
         </ion-item>
         <ion-item>
           <ion-label floating>
-            Username
-          </ion-label>
-          <ion-input type="text" placeholder="" name="username"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>
             Password
           </ion-label>
-          <ion-input type="password" placeholder=""></ion-input>
+          <ion-input type="password" placeholder="" name="password"></ion-input>
         </ion-item>
 
         <ion-label>
@@ -83,7 +71,7 @@
       block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;" on-click="getUserAddress()">
             Next
            </button>
-
+</form>
            
       
 </ion-content>

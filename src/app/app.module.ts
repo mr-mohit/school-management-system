@@ -31,6 +31,9 @@ import { ServiceLoginProvider } from '../providers/service-login/service-login';
 import {StudentProfilePage} from '../pages/student-profile/student-profile';
 import {TeacherProfilePage} from '../pages/teacher-profile/teacher-profile';
 import { ServiceAddsubjectProvider } from '../providers/service-addsubject/service-addsubject';
+import {AdminProfilePage} from '../pages/admin-profile/admin-profile';
+import { ServiceAdduserProvider } from '../providers/service-adduser/service-adduser';
+import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
 
 
 @NgModule({
@@ -49,6 +52,7 @@ import { ServiceAddsubjectProvider } from '../providers/service-addsubject/servi
     StudentTimeTablePage,
     StudentResultPage,
     AdminDashboardPage,
+    AdminProfilePage,
     AdminHomePage,
     SettingPage,
     StudentProfilePage,
@@ -60,6 +64,7 @@ import { ServiceAddsubjectProvider } from '../providers/service-addsubject/servi
     AdminMessagesPage,
     AddUsersPage,
     UserAddressPage,
+    AddSubjectsPage,
     SettingPage,
     StudentProfilePage
   ],
@@ -84,6 +89,7 @@ import { ServiceAddsubjectProvider } from '../providers/service-addsubject/servi
     StudentTimeTablePage,
     StudentResultPage,
     AdminDashboardPage,
+    AdminProfilePage,
     AdminHomePage,
     SettingPage,
     StudentProfilePage,
@@ -95,8 +101,7 @@ import { ServiceAddsubjectProvider } from '../providers/service-addsubject/servi
     AdminMessagesPage,
     AddUsersPage,
     UserAddressPage,
-
-    
+    AddSubjectsPage,
     SettingPage,
     StudentProfilePage
   ],
@@ -105,7 +110,8 @@ import { ServiceAddsubjectProvider } from '../providers/service-addsubject/servi
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ServiceLoginProvider,
-    ServiceAddsubjectProvider
+    ServiceAddsubjectProvider,
+    ServiceAdduserProvider
   ]
 })
 export class AppModule {}
