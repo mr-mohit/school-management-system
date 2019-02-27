@@ -30,6 +30,7 @@ import { UserAddressPage } from '../pages/user-address/user-address';
 import { ServiceLoginProvider } from '../providers/service-login/service-login';
 import {StudentProfilePage} from '../pages/student-profile/student-profile';
 import {TeacherProfilePage} from '../pages/teacher-profile/teacher-profile';
+import { ServiceAddsubjectProvider } from '../providers/service-addsubject/service-addsubject';
 
 
 @NgModule({
@@ -103,7 +104,8 @@ import {TeacherProfilePage} from '../pages/teacher-profile/teacher-profile';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ServiceLoginProvider
+    ServiceLoginProvider,
+    ServiceAddsubjectProvider
   ]
 })
 export class AppModule {}
