@@ -7,16 +7,17 @@
 <ion-header>
   <ion-navbar color="header">
     <ion-title>Add User</ion-title>
+   
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <form>
+  <div>
         <ion-item>
           <ion-label>
             Role Type
           </ion-label>
-          <ion-select name="role">
+          <ion-select name="role" [(ngModel)]="role">
             <ion-option>
               Teacher
             </ion-option>
@@ -29,13 +30,16 @@
           <ion-label floating>
             Name
           </ion-label>
-          <ion-input type="text" placeholder="" name="name"></ion-input>
+          <ion-input type="text" name="name" [(ngModel)]="name"></ion-input>
         </ion-item>
+
+        <ion-label></ion-label>
+
         <ion-item>
           <ion-label>
             Gender
           </ion-label>
-          <ion-select name="gender">
+          <ion-select name="gender" [(ngModel)]="gender">
             <ion-option>
               Male
             </ion-option>
@@ -48,30 +52,36 @@
           <ion-label floating>
             Date of birth
           </ion-label>
-          <ion-input type="date" placeholder="" name="dob"></ion-input>
+          <ion-input type="date" name="dob" [(ngModel)]="dob"></ion-input>
         </ion-item>
         <ion-item >
           <ion-label floating>
             Email
           </ion-label>
-          <ion-input type="email" placeholder="" name="email"></ion-input>
+          <ion-input type="email"  name="email" [(ngModel)]="email"></ion-input>
         </ion-item>
+
+        <ion-item>
+          <ion-label floating>
+            Username
+          </ion-label>
+          <ion-input type="text"  name="username" [(ngModel)]="username"></ion-input>
+        </ion-item>
+
         <ion-item>
           <ion-label floating>
             Password
           </ion-label>
-          <ion-input type="password" placeholder="" name="password"></ion-input>
+          <ion-input type="password"  name="password" [(ngModel)]="password"></ion-input>
         </ion-item>
 
         <ion-label>
            
         </ion-label>
-
-      <button id="adduser" ion-button color="header"
-      block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;" on-click="getUserAddress()">
-            Next
-           </button>
-</form>
+      </div>
+     
+          <button ion-button icon-right  (click)="getUserAddress()" style="margin-left: 38%;">Next <ion-icon name="arrow-forward"></ion-icon></button>
+      
            
       
 </ion-content>

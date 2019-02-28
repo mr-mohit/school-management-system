@@ -16,14 +16,14 @@
     <ion-label floating>
       Father Name
     </ion-label>
-    <ion-input type="text" placeholder="" name="Fname"></ion-input>
+    <ion-input type="text" [(ngModel)]="Fname" name="Fname"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label>
       Address Type
     </ion-label>
-    <ion-select name="AddressType">
+    <ion-select name="AddressType" [(ngModel)]="AddressType">
       <ion-option>
         Permanent address
       </ion-option>
@@ -37,42 +37,42 @@
     <ion-label floating>
       Address Line 1
     </ion-label>
-    <ion-input type="text" placeholder="" name="AddressOne"></ion-input>
+    <ion-input type="text" [(ngModel)]="AddressOne" name="AddressOne"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label floating>
       Address Line 2
     </ion-label>
-    <ion-input type="text" placeholder="" name="AddressTwo"></ion-input>
+    <ion-input type="text" [(ngModel)]="AddressTwo" name="AddressTwo"></ion-input>
   </ion-item>
 
   <ion-item >
     <ion-label floating>
       State
     </ion-label>
-    <ion-input type="text" placeholder="" name="State"></ion-input>
+    <ion-input type="text" [(ngModel)]="State" name="State"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label floating>
       Pincode
     </ion-label>
-    <ion-input type="number" placeholder="" name="Pincode"></ion-input>
+    <ion-input type="number" [(ngModel)]="Pincode" name="Pincode"></ion-input>
   </ion-item>
 
   <ion-item>
       <ion-label floating>
         City
       </ion-label>
-      <ion-input type="text" placeholder="" name="City"></ion-input>
+      <ion-input type="text" [(ngModel)]="City" name="City"></ion-input>
     </ion-item>
 
     <ion-item>
         <ion-label floating>
           Contact No
         </ion-label>
-        <ion-input type="number" placeholder="" name="Contact"></ion-input>
+        <ion-input type="number" [(ngModel)]="Contact" name="Contact"></ion-input>
       </ion-item>
 
 <button id="adduser" ion-button color="header"
