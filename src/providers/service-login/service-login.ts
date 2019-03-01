@@ -15,7 +15,6 @@ export class ServiceLoginProvider {
   public recdata: any;//this variable will store info coming from API
   public address:any;//for storing address
   public details:any;//for storing other details
- // public tempobj:{};
   public user_role:any; //this variable is used to define side menu as per user role
 
 
@@ -45,7 +44,7 @@ export class ServiceLoginProvider {
          }
         resolve(data);
       },error=>{
-        console.log("sorry,,error",error);
+        console.log("Error",error);
       });
     });
   }

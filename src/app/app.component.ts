@@ -14,6 +14,7 @@ import { TeacherAnnouncementPage } from '../pages/teacher-announcement/teacher-a
 import { AboutUsPage } from '../pages/about-us/about-us';
 import { SettingPage } from '../pages/setting/setting';
 import { ServiceLoginProvider } from '../providers/service-login/service-login';
+import { ServiceAddsubjectProvider} from '../providers/service-addsubject/service-addsubject';
 
 
 
@@ -29,6 +30,7 @@ export class MyApp {
     help:Array<{title:string, icon:string,component:any,}>;
 
   constructor(platform: Platform, statusBar: StatusBar,
+             public addSubject:ServiceAddsubjectProvider,
              public service:ServiceLoginProvider, splashScreen: SplashScreen,public altertCtrl:AlertController) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
