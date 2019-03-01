@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-import { ServiceAdduserProvider } from '../../providers/service-adduser/service-adduser';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UserAddressPage } from '../user-address/user-address';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+
 /**
  * Generated class for the AddUsersPage page.
  *
@@ -25,22 +27,73 @@ export class AddUsersPage {
 
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl:AlertController,public addapi:ServiceAdduserProvider) {
+  @ViewChild('signupSlider') signupSlider: any;
+
+
+  slideOneForm: FormGroup;
+  slideTwoForm: FormGroup;
+  slideThreeForm: FormGroup;
+
+  submitAttempt: boolean = false;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder) {
+  
+    // this slide is used to enter basics infos of the user
+    this.slideOneForm = formBuilder.group({
+      userid: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
+      userpic: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
+      username: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
+      userrole: [''],
+      userdob: [''],
+      usergender: [''],
+     
+    });
+    // this slide is used to enter basics infos of the user
+    this.slideTwoForm = formBuilder.group({
+      useremail: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'), Validators.required])],
+      userpassword: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[#$^+=!*()@%&]).{8,35}$'), Validators.required])],
+      userpassword2: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[#$^+=!*()@%&]).{8,35}$'), Validators.required])],
+      useractive: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
+      userfathername: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
+      usermothername: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
+     
+    });
+
+    // this slide is used to enter infos address of the user
+    this.slideThreeForm = formBuilder.group({
+        addressType: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z]*')])],
+        address1: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z]*')])],
+        address2: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z]*')])],
+        state: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z]*')])],
+        pincode: ['', Validators.compose([Validators.required, Validators.pattern('(?=.*[0-9]).{6}')])],
+        contact: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z]*')])]  
+    });
+
+
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddUsersPage');
   }
-  getUserAddress()
+  // getUserAddress()
+  // {
+  //   this.navCtrl.push(UserAddressPage);
+  // }
+
+  next(){
+    this.signupSlider.slideNext();
+    }
+
+    prev(){
+        this.signupSlider.slidePrev();
+    }
+
+
+  save()
   {
-    //setting the variables to service variables
-    this.addapi.$role=this.role;
-    this.addapi.$name=this.name;
-    this.addapi.$gender=this.gender;
-    this.addapi.$dob=this.dob;
-    this.addapi.$email=this.email;
-    this.addapi.$username=this.username;
-    this.addapi.$password=this.password;
-    this.navCtrl.push(UserAddressPage);
+    console.log(this.slideOneForm.getRawValue());
+    console.log(this.slideTwoForm.getRawValue());
+    console.log(this.slideThreeForm.getRawValue());
   }
 }
