@@ -16,6 +16,7 @@ import { SettingPage } from '../pages/setting/setting';
 import { ServiceLoginProvider } from '../providers/service-login/service-login';
 import { StudentdashboardPage } from '../pages/studentdashboard/studentdashboard';
 import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard';
+import { ServiceAddsubjectProvider} from '../providers/service-addsubject/service-addsubject';
 
 
 
@@ -31,6 +32,7 @@ export class MyApp {
     help:Array<{title:string, icon:string,component:any,}>;
 
   constructor(platform: Platform, statusBar: StatusBar,
+             public addSubject:ServiceAddsubjectProvider,
              public service:ServiceLoginProvider, splashScreen: SplashScreen,public altertCtrl:AlertController) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -55,7 +57,7 @@ export class MyApp {
       {title:'Home', icon:'home',component:TeacherdashboardPage},
       {title:'Send Messages', icon:'contact',component:TeacherSendMessagePage},
       {title:'Set Announcement',icon:'contact',component:TeacherAnnouncementPage},
-      {title:'feedback',icon:'contact',component:TeacherFeedbackPage},      
+      {title:'Feedback',icon:'contact',component:TeacherFeedbackPage},      
       {title:'Gallery',icon:'contact',component:GalleryPage},
       {title:'Events', icon:'contact',component:ViewEventsPage}
     ];

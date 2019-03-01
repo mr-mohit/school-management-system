@@ -31,6 +31,7 @@ import { AddUsersPage } from '../pages/add-users/add-users';
 import { UserAddressPage } from '../pages/user-address/user-address';
 import { ServiceLoginProvider } from '../providers/service-login/service-login';
 import {TeacherProfilePage} from '../pages/teacher-profile/teacher-profile';
+import { ServiceAddsubjectProvider } from '../providers/service-addsubject/service-addsubject';
 import {AdminProfilePage} from '../pages/admin-profile/admin-profile';
 import { ServiceAdduserProvider } from '../providers/service-adduser/service-adduser';
 import { StudentQuizPage } from '../pages/student-quiz/student-quiz';
@@ -57,6 +58,8 @@ import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
     StudentQuizPage,
     StudentQuiz1Page,
     AdminHomePage,
+    SettingPage,
+    StudentProfilePage,
     AdminAddPage,
     AdminViewPage,
     AdminAnnouncementsPage,
@@ -94,6 +97,8 @@ import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
     AdminDashboardPage,
     AdminProfilePage,
     AdminHomePage,
+    SettingPage,
+    StudentProfilePage,
     AdminAddPage,
     AdminViewPage,
     AdminAnnouncementsPage,
@@ -113,6 +118,8 @@ import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
     ServiceLoginProvider,
     ServiceAdduserProvider,
     QuizServiceProvider,
+    ServiceAddsubjectProvider,
+    ServiceAdduserProvider
   ]
 })
 export class AppModule {}
