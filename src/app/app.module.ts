@@ -111,7 +111,7 @@ import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ServiceLoginProvider,
-    ServiceAdduserProvider
+    ServiceAdduserProvider,
     QuizServiceProvider,
   ]
 })
