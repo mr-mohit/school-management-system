@@ -21,7 +21,7 @@ export class QuizServiceProvider {
   public option4; // option4
   public answer; // answer got from the API
   public score = 0; // total score
-
+  public quiz_status = 1;
  
 
 
