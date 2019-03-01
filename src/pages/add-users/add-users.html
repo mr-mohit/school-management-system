@@ -36,7 +36,7 @@
                 </ion-item>
 
                 <ion-item *ngIf="!slideOneForm.controls.userid.valid  && (slideOneForm.controls.userid.dirty || submitAttempt)">
-                    <p>Please enter a valid name.</p>
+                    <p>Please enter a valid User Id</p>
                 </ion-item>
                        <!-- user pic -->
                 <ion-item>
@@ -49,7 +49,7 @@
                 </ion-item>
                   <!-- user name -->
                 <ion-item>
-                    <ion-label floating>User Name</ion-label>
+                    <ion-label floating>Name</ion-label>
                     <ion-input formControlName="username" type="text" [class.invalid]="!slideOneForm.controls.username.valid && (slideOneForm.controls.username.dirty || submitAttempt)"></ion-input>
                 </ion-item>
 
@@ -59,13 +59,13 @@
                 
                   <!-- user role -->
                 <ion-item>
-                    <ion-label floating>User Role</ion-label>
+                    <ion-label floating>Role Type</ion-label>
                     <ion-select formControlName="userrole" [class.invalid]="!slideOneForm.controls.userrole.valid && (slideOneForm.controls.userrole.dirty || submitAttempt)">
                           <ion-option value="student">
-                                student
+                                Student
                           </ion-option>
                           <ion-option value="teacher">
-                                teacher
+                                Teacher
                           </ion-option >
                     </ion-select>
                 </ion-item>
@@ -75,13 +75,13 @@
                 </ion-item>
                   <!-- user gender -->
                 <ion-item>
-                    <ion-label floating>User gender</ion-label>
+                    <ion-label floating>Gender</ion-label>
                     <ion-select formControlName="usergender" [class.invalid]="!slideOneForm.controls.usergender.valid && (slideOneForm.controls.usergender.dirty || submitAttempt)">
                           <ion-option value="male">
-                                male
+                                Male
                           </ion-option>
                           <ion-option value="female">
-                                female
+                                Female
                           </ion-option>
                     </ion-select>
                 </ion-item>
@@ -91,7 +91,7 @@
                 </ion-item>
                   <!-- user date of birth -->
                 <ion-item>
-                    <ion-label floating>User Date of Birth</ion-label>
+                    <ion-label floating>Date of Birth</ion-label>
                       <ion-datetime display-format="MMMM YYYY" min="1930" max="2020-01-31" formControlName="userdob" [class.invalid]="!slideOneForm.controls.userdob.valid && (slideOneForm.controls.userdob.dirty || submitAttempt)">
                       </ion-datetime>
                     
@@ -117,7 +117,7 @@
                  
                   <!-- user email -->
                 <ion-item>
-                    <ion-label floating>User email </ion-label>
+                    <ion-label floating>Email </ion-label>
                     <ion-input formControlName="useremail" type="email" [class.invalid]="!slideTwoForm.controls.useremail.valid && (slideTwoForm.controls.useremail.dirty || submitAttempt)"></ion-input>
                 </ion-item>
 
@@ -127,7 +127,7 @@
                 
                   <!-- user password -->
                 <ion-item>
-                    <ion-label floating>User password</ion-label>
+                    <ion-label floating>Password</ion-label>
                     <ion-input formControlName="userpassword" type="password" [class.invalid]="!slideTwoForm.controls.userpassword.valid && (slideTwoForm.controls.userpassword.dirty || submitAttempt)"></ion-input>
                 </ion-item>
 
@@ -136,7 +136,7 @@
                 </ion-item>
                   <!-- user confirm password -->
                 <ion-item>
-                    <ion-label floating>Confirm password</ion-label>
+                    <ion-label floating>Confirm Password</ion-label>
                     <ion-input formControlName="userpassword2" type="password" [class.invalid]="!slideTwoForm.controls.userpassword2.valid && (slideTwoForm.controls.userpassword2.dirty || submitAttempt)"></ion-input>
                 </ion-item>
 
@@ -146,7 +146,7 @@
 
                   <!-- user father's name -->
                 <ion-item>
-                    <ion-label floating>User father_Name</ion-label>
+                    <ion-label floating>Father Name</ion-label>
                     <ion-input formControlName="userfathername" type="text" [class.invalid]="!slideTwoForm.controls.userfathername.valid && (slideTwoForm.controls.userfathername.dirty || submitAttempt)"></ion-input>
                 </ion-item>
 
@@ -155,7 +155,7 @@
                 </ion-item>
                        <!-- user mother's name -->
                 <ion-item>
-                    <ion-label floating>User Mother_Name </ion-label>
+                    <ion-label floating>Mother Name </ion-label>
                     <ion-input formControlName="usermothername" type="text" [class.invalid]="!slideTwoForm.controls.usermothername.valid && (slideTwoForm.controls.usermothername.dirty || submitAttempt)"></ion-input>
                 </ion-item>
 
@@ -163,7 +163,7 @@
                     <p>Please enter a valid name.</p>
                 </ion-item>
                  <!-- user activation -->
-                <ion-item>
+                <!-- <ion-item>
                     <ion-label floating>User activation</ion-label>
                     <ion-select formControlName="useractive" [class.invalid]="!slideTwoForm.controls.useractive.valid && (slideTwoForm.controls.useractive.dirty || submitAttempt)">
                           <ion-option>
@@ -173,11 +173,11 @@
                                 desactivate
                           </ion-option>
                     </ion-select>
-                </ion-item>
+                </ion-item> -->
 
-                <ion-item *ngIf="!slideTwoForm.controls.useractive.valid  && (slideTwoForm.controls.useractive.dirty || submitAttempt)">
+                <!-- <ion-item *ngIf="!slideTwoForm.controls.useractive.valid  && (slideTwoForm.controls.useractive.dirty || submitAttempt)">
                     <p>Please enter a valid value</p>
-                </ion-item> 
+                </ion-item>  -->
 
 
             </form>
@@ -193,18 +193,26 @@
             <form [formGroup]="slideThreeForm">
                  
                   <!-- addressType -->
-                <ion-item>
-                    <ion-label floating>address Type </ion-label>
-                    <ion-input formControlName="addressType" type="text" [class.invalid]="!slideThreeForm.controls.addressType.valid && (slideThreeForm.controls.addressType.dirty || submitAttempt)"></ion-input>
+
+                  <ion-item>
+                    <ion-label floating>Address Type</ion-label>
+                    <ion-select formControlName="addressType" [class.invalid]="!slideThreeForm.controls.addressType.valid && (slideThreeForm.controls.addressType.dirty || submitAttempt)">
+                          <ion-option value="Permanent">
+                            Permanent
+                          </ion-option>
+                          <ion-option value="Temporary">
+                            Temporary
+                          </ion-option >
+                    </ion-select>
                 </ion-item>
 
                 <ion-item *ngIf="!slideThreeForm.controls.addressType.valid  && (slideThreeForm.controls.addressType.dirty || submitAttempt)">
-                    <p>Please enter a valid email.</p>
+                    <p>Please Select</p>
                 </ion-item>
                 
                   <!-- address Line 1 -->
                 <ion-item>
-                    <ion-label floating>address Line 1</ion-label>
+                    <ion-label floating>Address Line 1</ion-label>
                     <ion-input formControlName="address1" type="text" [class.invalid]="!slideThreeForm.controls.address1.valid && (slideThreeForm.controls.addressType.dirty || submitAttempt)"></ion-input>
                 </ion-item>
 
@@ -213,7 +221,7 @@
                 </ion-item>
                   <!-- address Line 2 -->
                 <ion-item>
-                    <ion-label floating>address Line 2</ion-label>
+                    <ion-label floating>Address Line 2</ion-label>
                     <ion-input formControlName="address2" type="text" [class.invalid]="!slideThreeForm.controls.address2.valid && (slideThreeForm.controls.address2.dirty || submitAttempt)"></ion-input>
                 </ion-item>
 
@@ -223,7 +231,7 @@
 
                   <!-- state -->
                 <ion-item>
-                    <ion-label floating>state</ion-label>
+                    <ion-label floating>State</ion-label>
                     <ion-input formControlName="state" type="text" [class.invalid]="!slideThreeForm.controls.state.valid && (slideThreeForm.controls.state.dirty || submitAttempt)"></ion-input>
                 </ion-item>
 
@@ -232,7 +240,7 @@
                 </ion-item>
                    <!-- Pin Code -->
                 <ion-item>
-                    <ion-label floating>Pin Code </ion-label>
+                    <ion-label floating>Pincode </ion-label>
                     <ion-input formControlName="pincode" type="number" [class.invalid]="!slideThreeForm.controls.pincode.valid && (slideThreeForm.controls.pincode.dirty || submitAttempt)"></ion-input>
                 </ion-item>
 
@@ -241,7 +249,7 @@
                 </ion-item>
                  <!-- contact -->
                 <ion-item>
-                    <ion-label floating>Mobile Contact </ion-label>
+                    <ion-label floating>Contact No. </ion-label>
                    <ion-input formControlName="contact" type="text" [class.invalid]="!slideThreeForm.controls.contact.valid && (slideThreeForm.controls.contact.dirty || submitAttempt)"></ion-input>
 
                 </ion-item>

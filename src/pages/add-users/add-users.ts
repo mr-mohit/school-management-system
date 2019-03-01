@@ -1,6 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { UserAddressPage } from '../user-address/user-address';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
