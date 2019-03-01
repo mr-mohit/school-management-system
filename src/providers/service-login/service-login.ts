@@ -26,7 +26,7 @@ export class ServiceLoginProvider {
     //console.log(data1);
     return new Promise(resolve=>{
       this.http.post(url,JSON.stringify(data1)).subscribe(data=>{
-        //console.log(data);
+        console.log(data);
         this.recdata=data;        
         if(data['statuscode'] == 1)
          {
@@ -43,9 +43,11 @@ export class ServiceLoginProvider {
            //console.log("Worng")
            alert("Invalid User Name or Password");
          }
-        resolve(data);
+         resolve(data);
+
       },error=>{
-        console.log("sorry,,error",error);
+        console.log("invalid username and/or password");
+        alert("invalid username and/or password");
       });
     });
   }

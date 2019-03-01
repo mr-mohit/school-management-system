@@ -19,6 +19,8 @@ import { StudentResultPage } from '../pages/student-result/student-result';
 import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
 import { AdminHomePage } from '../pages/admin-home/admin-home';
 import { SettingPage } from '../pages/setting/setting';
+import { QuizServiceProvider } from '../providers/quiz-service/quiz-service';
+import { StudentQuiz1Page } from '../pages/student-quiz1/student-quiz1';
 import { AdminAddPage } from '../pages/admin-add/admin-add';
 import { AdminViewPage } from '../pages/admin-view/admin-view';
 import { AdminAnnouncementsPage } from '../pages/admin-announcements/admin-announcements';
@@ -28,14 +30,14 @@ import { AdminMessagesPage } from '../pages/admin-messages/admin-messages';
 import { AddUsersPage } from '../pages/add-users/add-users';
 import { UserAddressPage } from '../pages/user-address/user-address';
 import { ServiceLoginProvider } from '../providers/service-login/service-login';
-import {StudentProfilePage} from '../pages/student-profile/student-profile';
 import {TeacherProfilePage} from '../pages/teacher-profile/teacher-profile';
 import {AdminProfilePage} from '../pages/admin-profile/admin-profile';
 import { ServiceAdduserProvider } from '../providers/service-adduser/service-adduser';
+import { StudentQuizPage } from '../pages/student-quiz/student-quiz';
+import { StudentProfilePage } from '../pages/student-profile/student-profile';
 import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
 
-
-@NgModule({
+ @NgModule({ 
   declarations: [
     MyApp,
     HomePage,
@@ -52,6 +54,8 @@ import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
     StudentResultPage,
     AdminDashboardPage,
     AdminProfilePage,
+    StudentQuizPage,
+    StudentQuiz1Page,
     AdminHomePage,
     AdminAddPage,
     AdminViewPage,
@@ -81,6 +85,8 @@ import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
     TeacherdashboardPage,
     TeacherProfilePage,
     StudentExamsPage,
+    StudentQuizPage,
+    StudentQuiz1Page,
     StudentAttendancePage,
     StudentAnnouncementsPage,
     StudentTimeTablePage,
@@ -106,6 +112,7 @@ import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ServiceLoginProvider,
     ServiceAdduserProvider
+    QuizServiceProvider,
   ]
 })
 export class AppModule {}
