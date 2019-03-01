@@ -16,13 +16,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: 'add-users.html',
 })
 export class AddUsersPage {
-  private role:any;
-  private name:any;
-  private gender:any;
-  private dob:any;
-  private email:any;
-  private username:any;
-  private password:any;
+  // private role:any;
+  // private name:any;
+  // private gender:any;
+  // private dob:any;
+  // private email:any;
+  // private username:any;
+  // private password:any;
 
 
 
