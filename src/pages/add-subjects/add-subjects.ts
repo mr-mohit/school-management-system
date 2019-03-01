@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ServiceAddsubjectProvider } from '../../providers/service-addsubject/service-addsubject';
+import { Subject } from 'rxjs/Subject';
 /**
  * Generated class for the AddSubjectsPage page.
  *
@@ -31,13 +32,18 @@ export class AddSubjectsPage {
   }
   getSubject()
   {
+    if(this.subjectname!=undefined && this.subjecttype!=undefined && this.subjectmaterial!=undefined)
+    {
     this.subject['subjectname']=this.subjectname;
     this.subject['subjecttype']=this.subjecttype;
     this.subject['subjectmaterial']=this.subjectmaterial;
     this.addSubjectService.postSubject(this.subject);
-  {
-    
-  }
+    }
+   else
+   {
+    alert("Please fill all the fields");
+   }
+
   }
   
 }
