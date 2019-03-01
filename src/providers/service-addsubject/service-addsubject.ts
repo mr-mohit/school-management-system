@@ -22,11 +22,11 @@ export class ServiceAddsubjectProvider {
       this.http.post(url,JSON.stringify(data1)).subscribe(data=>{
         if(data['statuscode'] == 1)
         {
-          alert("Inserted successfully");
+          alert("Added successfully");
         }
         else
         {
-          console.log("Insertion unsuccessfull");
+          alert("Unable to Add");
         }
         resolve(data);
       },error=>{

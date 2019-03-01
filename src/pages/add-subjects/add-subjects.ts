@@ -37,7 +37,7 @@ export class AddSubjectsPage {
     this.subject['subjectname']=this.subjectname;
     this.subject['subjecttype']=this.subjecttype;
     this.subject['subjectmaterial']=this.subjectmaterial;
-    this.addSubjectService.postSubject(this.subject);
+     this.addSubjectService.postSubject(this.subject);
     }
    else
    {
