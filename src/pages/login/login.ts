@@ -24,7 +24,7 @@ public user:any=
     public service:ServiceLoginProvider) {
       this.Menu.enable(false);
   }
-  VaildateLogin(username,password)
+  VaildateLogin()
   {
   
 

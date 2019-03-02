@@ -28,12 +28,12 @@ import { AdminDeletePage } from '../pages/admin-delete/admin-delete';
 import { AdminUpdatePage } from '../pages/admin-update/admin-update';
 import { AdminMessagesPage } from '../pages/admin-messages/admin-messages';
 import { AddUsersPage } from '../pages/add-users/add-users';
-import { UserAddressPage } from '../pages/user-address/user-address';
 import { ServiceLoginProvider } from '../providers/service-login/service-login';
 import {TeacherProfilePage} from '../pages/teacher-profile/teacher-profile';
 import { StudentQuizPage } from '../pages/student-quiz/student-quiz';
 import { StudentProfilePage } from '../pages/student-profile/student-profile';
 import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
+import { ServiceAdduserProvider } from '../providers/service-adduser/service-adduser';
 
  @NgModule({ 
   declarations: [
@@ -61,7 +61,6 @@ import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
     AdminUpdatePage,
     AdminMessagesPage,
     AddUsersPage,
-    UserAddressPage,
     AddSubjectsPage,
     SettingPage,
     StudentProfilePage
@@ -97,7 +96,6 @@ import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
     AdminUpdatePage,
     AdminMessagesPage,
     AddUsersPage,
-    UserAddressPage,
     AddSubjectsPage,
     SettingPage,
     StudentProfilePage
@@ -108,7 +106,8 @@ import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
   
     QuizServiceProvider,
-    ServiceLoginProvider
+    ServiceLoginProvider,
+    ServiceAdduserProvider
   ]
 })
 export class AppModule {}
