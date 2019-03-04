@@ -35,6 +35,12 @@ import { StudentProfilePage } from '../pages/student-profile/student-profile';
 import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
 import { ServiceAdduserProvider } from '../providers/service-adduser/service-adduser';
 
+import { File } from '@ionic-native/file/ngx';
+import { Transfer} from '@ionic-native/transfer';
+import { FilePath } from '@ionic-native/file-path/ngx';
+import { Camera } from '@ionic-native/camera/ngx';
+ 
+
  @NgModule({ 
   declarations: [
     MyApp,
@@ -103,11 +109,17 @@ import { ServiceAdduserProvider } from '../providers/service-adduser/service-add
   providers: [
     StatusBar,
     SplashScreen,
+
+    File, 
+    Transfer,
+    Camera,
+    FilePath,
+
     {provide: ErrorHandler, useClass: IonicErrorHandler},
   
     QuizServiceProvider,
     ServiceLoginProvider,
-    ServiceAdduserProvider
+    ServiceAdduserProvider,
   ]
 })
 export class AppModule {}

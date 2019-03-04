@@ -45,26 +45,22 @@
 
                 <ion-item *ngIf="!slideOneForm.controls.userrole.valid  && (slideOneForm.controls.userrole.dirty || submitAttempt)">
                     <p>Please enter a valid name.</p>
-                </ion-item>            
+                </ion-item>   <br>         
                    <!-- user id -->
                 <ion-item>
                     <ion-label class="printid" (click)="getID()"> Reg_No (click) :  </ion-label>
                     <ion-label class="printid"(click)="getID()"> {{service.userID}} </ion-label>
                     
-                </ion-item>
+                </ion-item> 
     
                 <ion-item *ngIf="!slideOneForm.controls.userid.valid  && (slideOneForm.controls.userid.dirty || submitAttempt)">
                     <p>Please enter a valid name.</p>
                 </ion-item>
-                       <!-- user pic -->
-                <ion-item>
-                    <ion-label floating>User Picture</ion-label>
-                    <ion-input formControlName="userpic" type="text" [class.invalid]="!slideOneForm.controls.userpic.valid && (slideOneForm.controls.userpic.dirty || submitAttempt)"></ion-input>
-                </ion-item>
+                 
 
-                <ion-item *ngIf="!slideOneForm.controls.userpic.valid  && (slideOneForm.controls.userpic.dirty || submitAttempt)">
+                <!-- <ion-item *ngIf="!slideOneForm.controls.userpic.valid  && (slideOneForm.controls.userpic.dirty || submitAttempt)">
                     <p>Please enter a valid name.</p>
-                </ion-item>
+                </ion-item> -->
                   <!-- user name -->
                 <ion-item>
                     <ion-label floating>User Name</ion-label>
@@ -94,7 +90,7 @@
                   <!-- user date of birth -->
                 <ion-item>
                     <ion-label floating>User Date of Birth</ion-label>
-                      <ion-datetime display-format="MMMM YYYY" min="1930" max="2020-01-31" formControlName="userdob" [class.invalid]="!slideOneForm.controls.userdob.valid && (slideOneForm.controls.userdob.dirty || submitAttempt)">
+                      <ion-datetime display-format="MMMM YYYY" min="1930" max="2012-12-31" formControlName="userdob" [class.invalid]="!slideOneForm.controls.userdob.valid && (slideOneForm.controls.userdob.dirty || submitAttempt)">
                       </ion-datetime>
                     
                 </ion-item>
@@ -265,9 +261,38 @@
         </ion-list>
 
       </ion-slide>
+
+       <!-- slide 4 -->
+      <ion-slide  class="scroll">
+
+        <ion-list no-lines >
+
+            <form [formGroup]="slideFourForm">
+                 
+                <!-- user pic -->
+                <ion-item>
+                    <!-- <ion-label floating>User Picture</ion-label>
+                    <ion-input formControlName="userpic" type="text" [class.invalid]="!slideOneForm.controls.userpic.valid && (slideOneForm.controls.userpic.dirty || submitAttempt)"></ion-input> -->
+                    <img src="{{pathForImage(lastImage)}}" style="width: 40%" [hidden]="lastImage === null">
+                    <h5 [hidden]="lastImage !== null">Please Select Image!</h5>
+                    <ion-buttons>
+                            <button ion-button icon-right (click)="presentActionSheet()">
+                                <ion-icon name="camera"></ion-icon> &nbsp; Select Image
+                            </button>
+                            <!-- <button ion-button icon-right (click)="uploadImage()" [disabled]="lastImage === null">
+                                <ion-icon name="cloud-upload"></ion-icon>&nbsp; Upload
+                            </button> -->
+                    </ion-buttons>       
+                </ion-item>
+            </form>
+
+        </ion-list>
+            
+             <button ion-button full color="primary" (click)="save()">Create Account!</button>
+
+      </ion-slide>
  
 
     </ion-slides>
            
-           <button ion-button full color="primary" (click)="save()">Create Account!</button>
 </ion-content>

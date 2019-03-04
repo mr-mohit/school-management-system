@@ -11,7 +11,7 @@ import { Injectable } from '@angular/core';
 export class ServiceAdduserProvider {
 
   public data:any;
-  public URL="http://localhost/schoolapi/"; //for local use
+  public URL="http://192.168.43.143/schoolapi/"; //for local use
   // public URL="https://direct-school.000webhostapp.com/"; //for hosting
   public userID = "";
  
@@ -71,5 +71,8 @@ export class ServiceAdduserProvider {
          });
        });
  }
+
+ // upload image to the server
+ 
 
 }
