@@ -1,0 +1,47 @@
+<!--
+  Generated template for the AdminProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>admin_profile</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="text">
+  <!-- used for display profile image of user -->
+  <div class="upperhalf">   
+      <img src="assets/imgs/logo1.png" style="display:block;width: 30%;margin-left:auto;margin-right:auto;border-radius: 60%;height: 167px;" /> 
+      <br>
+      <div  style=" margin-left:40vw">
+      <strong><label>{{service?.details?.NAME}}</label></strong><br>
+      <b><label>{{service?.details?.USER_ID}}</label></b>
+    </div>
+  </div>
+  <br>
+<hr>
+<h5>Basic Details</h5>
+<hr>
+<strong><p>Father's Name</p></strong>
+<label > {{service?.address?.FATHER_NAME}}</label>
+<strong><p>Mother's Name</p></strong>
+  <label > {{service?.address?.MOTHER_NAME}}</label>
+<strong><p>Address</p></strong>
+<label>
+  <span>{{service?.address?.ADDRESS_LINE_1}}</span>
+  <span> {{service?.address?.ADDRESS_LINE_2}}</span>
+  <span>{{service?.address?.STATE}}</span>
+  <span>{{service?.address?.CITY}}</span>
+  <span>{{service?.address?.PINCODE}}</span>
+
+</label>
+  <h5>Academic Details</h5>
+<hr>
+<label >
+    {{service?.address?.FATHER_NAME}}
+  </label>
+
+</ion-content>
+
