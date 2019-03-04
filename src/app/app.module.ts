@@ -33,7 +33,6 @@ import {TeacherProfilePage} from '../pages/teacher-profile/teacher-profile';
 import {AdminProfilePage} from '../pages/admin-profile/admin-profile';
 import { ServiceAdduserProvider } from '../providers/service-adduser/service-adduser';
 import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
-import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 
 
 @NgModule({
@@ -103,8 +102,6 @@ import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
   ],
   providers: [
     StatusBar,
-    SQLite,
-    SQLiteObject,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ServiceLoginProvider,
