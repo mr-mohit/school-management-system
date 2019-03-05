@@ -11,14 +11,16 @@ import { Injectable } from '@angular/core';
 export class ServiceAddsubjectProvider {
 
   //public data:any;
-  public URL="http://localhost/schoolapi/";
+  // public URL="http://localhost/schoolapi/"; //for local use
+  public URL="https://direct-school.000webhostapp.com/"; //for hosting
   constructor(public http: HttpClient) {
-    console.log('Hello ServiceAddsubjectProvider Provider');
+    console.log("Hello ServiceAddsubjectProvider Provider");
   }
   postData(url,data1)
   {
     
     return new Promise(resolve=>{
+      
       this.http.post(url,JSON.stringify(data1)).subscribe(data=>{
         if(data['statuscode'] == 1)
         {
@@ -41,6 +43,8 @@ export class ServiceAddsubjectProvider {
   {
     //console.log(subject);
     var url=this.URL+"addSubject.php";
+    console.log("whole url",url);
+    console.log("whole data",subject);
     return this.postData(url,subject);
   }
 }

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ServiceAddsubjectProvider } from '../../providers/service-addsubject/service-addsubject';
-import { Subject } from 'rxjs/Subject';
 /**
  * Generated class for the AddSubjectsPage page.
  *
