@@ -11,25 +11,25 @@
 </ion-header>
 
 <ion-content padding>
-  <form>
   
+  <ion-list>
       <!-- Category Type here -->
 
 <ion-item>
     <ion-label>
       Category
     </ion-label>
-    <ion-select name="subjecttype" [(ngModel)]="subjecttype">
-      <ion-option value="Core">
+    <ion-select name="category" [(ngModel)]="category">
+      <ion-option value="Academics">
         Academics
       </ion-option >
-      <ion-option value="Selective">
-        Examinations
+      <ion-option value="Examination">
+        Examination
       </ion-option>
-      <ion-option value="Selective">
+      <ion-option value="Events">
           Events
         </ion-option>
-        <ion-option value="Selective">
+        <ion-option value="Sports">
             Sports
           </ion-option>
     </ion-select>
@@ -40,7 +40,7 @@
       <ion-label floating >
         Title
       </ion-label>
-      <ion-input type="text" [(ngModel)]="AnnouncementsTitle" placeholder="" name="AnnouncementsTitle"></ion-input>
+      <ion-input type="text" [(ngModel)]="AnnouncementsTitle" name="AnnouncementsTitle"></ion-input>
     </ion-item>
 
     <!-- DESCRIPTION here -->
@@ -52,20 +52,28 @@
         <ion-textarea type="text" [(ngModel)]="AnnouncementsDescription" name="AnnouncementsDescription"></ion-textarea>
       </ion-item>
 
-      <!-- Start Date -->
+      <!-- blank space -->
+      <ion-label>
 
+      </ion-label>
 
+      <!--Start Date-->
+      
+      <ion-item>
+          <ion-label>Start Date</ion-label>
+          <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="date"></ion-datetime>
+        </ion-item>
 
-
-      <!-- Ending Date -->
-
-
-
-
-
-
-
-  
+          <!--START TIME -->
+        <ion-item>
+          <ion-label>Start Time</ion-label>
+          <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="timestarts"></ion-datetime>
+        </ion-item>
+    <!-- END DATE -->
+        <ion-item>
+          <ion-label>Ends</ion-label>
+          <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="timeEnds"></ion-datetime>
+        </ion-item>
 
 <!-- blank space -->
 <ion-label>
@@ -75,5 +83,6 @@
 <button id="AddAnnouncements" ion-button color="header" on-click="Announcements()" block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;">
       Save
      </button>
-     </form>
+
+     </ion-list>
 </ion-content>

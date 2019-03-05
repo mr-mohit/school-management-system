@@ -17,6 +17,7 @@ import { ServiceLoginProvider } from '../providers/service-login/service-login';
 import { StudentdashboardPage } from '../pages/studentdashboard/studentdashboard';
 import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard';
 import { ServiceAddsubjectProvider} from '../providers/service-addsubject/service-addsubject';
+import { AdminAnnouncementsPage } from '../pages/admin-announcements/admin-announcements';
 
 
 
@@ -25,7 +26,7 @@ import { ServiceAddsubjectProvider} from '../providers/service-addsubject/servic
 })
 export class MyApp {
   @ViewChild(Nav) navCtrl: Nav;
-    rootPage:any = LoginPage;
+    rootPage:any = AdminAnnouncementsPage;
     //declaration of array for side menu
     Student_a:Array<{title:string, icon:string,component:any,}>;    //array for student
     Teacher_a:Array<{title:string, icon:string,component:any,}>;    //array for teacher

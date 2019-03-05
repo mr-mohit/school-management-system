@@ -18,9 +18,13 @@ export class ServiceAddsubjectProvider {
   }
   postData(url,data1)
   {
+
+    // For header problem
+    
+    // var header={"header":{"Content-Type":"application/json"}};
     
     return new Promise(resolve=>{
-      
+    
       this.http.post(url,JSON.stringify(data1)).subscribe(data=>{
         if(data['statuscode'] == 1)
         {

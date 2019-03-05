@@ -15,6 +15,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AdminAnnouncementsPage {
 
+private date=new Date().toISOString();
+private timestarts='00:00';
+private timeEnds=new Date().toISOString();
+private category:any;
+private AnnouncementsTitle:any;
+private AnnouncementsDescription:any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -22,4 +29,21 @@ export class AdminAnnouncementsPage {
     console.log('ionViewDidLoad AdminAnnouncementsPage');
   }
 
+  Announcements()
+  {
+    if(this.category!=undefined && this.AnnouncementsTitle!=undefined && this.AnnouncementsDescription!=undefined)
+    {
+      alert("Okay");
+
+      //trying to remove not used warning by using them
+      console.log(this.date);
+      console.log(this.timestarts);
+      console.log(this.timeEnds);
+    }
+    else
+    {
+    
+       alert("Not Okay");
+    }
+  }
 }
