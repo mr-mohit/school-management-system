@@ -1,11 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, ActionSheetController, ToastController, LoadingController, Loading, Platform } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ActionSheetController, ToastController, LoadingController, Loading, Platform, AlertController} from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ServiceAdduserProvider } from '../../providers/service-adduser/service-adduser';
-import { Camera } from '@ionic-native/camera/ngx';
+import { Camera } from '@ionic-native/camera';
 import { Transfer, TransferObject } from '@ionic-native/transfer';
-import { FilePath } from '@ionic-native/file-path/ngx';
-import { File } from '@ionic-native/file/ngx';
+import { FilePath } from '@ionic-native/file-path';
+import { File } from '@ionic-native/file';
 
 
 /**
@@ -56,11 +56,13 @@ export class AddUsersPage {
 
   }
 
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform,
               public formBuilder: FormBuilder, public service:ServiceAdduserProvider,
               private camera: Camera, private transfer: Transfer, private file: File,
               private filePath: FilePath,public actionSheetCtrl: ActionSheetController,
-              public toastCtrl: ToastController,public loadingCtrl: LoadingController) {
+              public toastCtrl: ToastController,public loadingCtrl: LoadingController,
+              public alertController: AlertController) {
   
     // this slide is used to enter basics infos of the user
     this.slideOneForm = formBuilder.group({
@@ -89,7 +91,7 @@ export class AddUsersPage {
         address2: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z]*')])],
         state: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z]*')])],
         pincode: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('(?=.*[0-9]).{6}')])],
-        contact: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z]*')])]  
+        contact: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('(?=.*[0-9]).{8,15}')])]  
     });
     
     // this slide is used to enter infos address of the user
@@ -157,7 +159,7 @@ export class AddUsersPage {
             if(this.userInfos[index] == "")
             {
               // if one field is empty => print an alert 
-                alert(" You should fill all the field / empty fields are not allowed");
+                alert(" You should fill all the fields properly / empty fields are not allowed");
                 break;
             }
             else
@@ -166,10 +168,15 @@ export class AddUsersPage {
             }
           }
           // here we check if all the fields have been filled
-          if(a == 15)
+          if(a == 15 && this.lastImage!==  null)
           {
-            this.uploadImage(); // upload image in the server
-            this.service.postuser(this.userInfos); // send the user infos to the provider 
+            //this.uploadImage(); // upload image in the server
+            //this.service.postuser(this.userInfos); // send the user infos to the provider 
+            this.ConfirmCreationUser(this.userInfos); 
+          }
+          else if(this.lastImage ===  null)
+          {
+            alert("Select an image from your gallery");
           }
             
       }
@@ -229,6 +236,7 @@ export class AddUsersPage {
       } else {
         var currentName = imagePath.substr(imagePath.lastIndexOf('/') + 1);
         var correctPath = imagePath.substr(0, imagePath.lastIndexOf('/') + 1);
+      
         this.copyFileToLocalDir(correctPath, currentName, this.createFileName());
       }
     }, (err) => {
@@ -255,7 +263,7 @@ export class AddUsersPage {
   private presentToast(text) {
     let toast = this.toastCtrl.create({
       message: text,
-      duration: 3000,
+      duration: 9000,
       position: 'top'
     });
     toast.present();
@@ -272,13 +280,16 @@ export class AddUsersPage {
   // upload image to the server
   public uploadImage() {
     // Destination URL
-    var url = "http://192.168.43.143/add_user.php";
+    var url = "http://172.26.16.244/schoolapi/add_user.php";
    
     // File for Upload
     var targetPath = this.pathForImage(this.lastImage);
    
+
+    this.presentToast(targetPath);
+    
     // File name only
-    var filename = this.lastImage;
+    var filename = this.lastImage;  this.presentToast(filename);
    
     var options = {
       fileKey: "file",
@@ -304,6 +315,56 @@ export class AddUsersPage {
       this.presentToast('Error while uploading file.');
     });
   } 
+
+  // confirmation alert
+  async ConfirmCreationUser(a) {
+    const alert = await this.alertController.create({
+      inputs: [
+  
+        {
+          name: 'message',
+          type: 'text',
+          id: 'message-id',
+          value: 'Do You Really Want to Create This user :',
+          placeholder: 'Validate this Creation'
+        },
+        {
+          name: 'role',
+          type: 'text',
+          id: 'role-id',
+          value: 'user_role : '+ this.slideOneForm.getRawValue().userrole,
+          placeholder: 'role'
+        },
+        {
+          name: 'regNo',
+          type: 'number',
+          id: 'regNo-id',
+          value: 'regNo : '+this.service.userID,
+          placeholder: 'genre'
+        },
+     
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Confirm Cancel');
+          }
+        }, 
+        {
+          text: 'Confirm ',
+          handler: () => {
+            this.uploadImage(); // upload image in the server
+            this.service.postuser(a); // send the user infos to the provider  
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
 
 
 }

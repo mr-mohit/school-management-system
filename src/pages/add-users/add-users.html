@@ -17,10 +17,10 @@
   
 </ion-header>
 
-<ion-content scroll="true" >
+<ion-content>
 
- 
-   <ion-slides #signupSlider pager scroll="true">
+   <!-- style="height: auto" is used to make sure that, inputs will not go out of the screen -->
+   <ion-slides #signupSlider pager style="height: auto">
           <!-- slide1 -->
       <ion-slide  class="scroll">
 
@@ -120,7 +120,7 @@
                 </ion-item>
 
                 <ion-item *ngIf="!slideTwoForm.controls.useremail.valid  && (slideTwoForm.controls.useremail.dirty || submitAttempt)">
-                    <p>Please enter a valid email.</p>
+                    <p>Please enter a valid email ex : ali21@gmail.com.</p>
                 </ion-item>
                 
                   <!-- user password -->
@@ -130,7 +130,7 @@
                 </ion-item>
 
                 <ion-item *ngIf="!slideTwoForm.controls.userpassword.valid  && (slideTwoForm.controls.userpassword.dirty || submitAttempt)">
-                    <p>Please enter a valid name.</p>
+                    <p>Please enter a valid password. ex: Aabc@&123</p>
                 </ion-item>
                   <!-- user confirm password -->
                 <ion-item>
@@ -273,7 +273,7 @@
                 <ion-item>
                     <!-- <ion-label floating>User Picture</ion-label>
                     <ion-input formControlName="userpic" type="text" [class.invalid]="!slideOneForm.controls.userpic.valid && (slideOneForm.controls.userpic.dirty || submitAttempt)"></ion-input> -->
-                    <img src="{{pathForImage(lastImage)}}" style="width: 40%" [hidden]="lastImage === null">
+                    <img src="{{pathForImage(lastImage)}}" style="width: 100%; height:80% ;" [hidden]="lastImage === null">
                     <h5 [hidden]="lastImage !== null">Please Select Image!</h5>
                     <ion-buttons>
                             <button ion-button icon-right (click)="presentActionSheet()">
@@ -288,7 +288,9 @@
 
         </ion-list>
             
-             <button ion-button full color="primary" (click)="save()">Create Account!</button>
+             <button ion-button full color="primary" (click)="save()">
+                <ion-icon name="cloud-upload"></ion-icon> &nbsp; Create Account!
+             </button>
 
       </ion-slide>
  

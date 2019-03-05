@@ -2,7 +2,7 @@ page-add-users {
 
     p {
         font-size: 0.8em;
-        color: #d2d2d2;
+        color: 1px solid #ea6153;
     }
 
     .swiper-slide {
@@ -20,6 +20,8 @@ page-add-users {
     .scroll
     {
         overflow: scroll;
+        padding-bottom: 0 !important;
+        padding-top: 0 !important;
     }
 
     .invalid {

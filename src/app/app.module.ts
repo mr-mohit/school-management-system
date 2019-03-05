@@ -35,10 +35,10 @@ import { StudentProfilePage } from '../pages/student-profile/student-profile';
 import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
 import { ServiceAdduserProvider } from '../providers/service-adduser/service-adduser';
 
-import { File } from '@ionic-native/file/ngx';
+import { File } from '@ionic-native/file';
 import { Transfer} from '@ionic-native/transfer';
-import { FilePath } from '@ionic-native/file-path/ngx';
-import { Camera } from '@ionic-native/camera/ngx';
+import { FilePath } from '@ionic-native/file-path';
+import { Camera } from '@ionic-native/camera';
  
 
  @NgModule({ 
