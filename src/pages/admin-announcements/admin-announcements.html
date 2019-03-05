@@ -11,5 +11,69 @@
 </ion-header>
 
 <ion-content padding>
+  <form>
+  
+      <!-- Category Type here -->
 
+<ion-item>
+    <ion-label>
+      Category
+    </ion-label>
+    <ion-select name="subjecttype" [(ngModel)]="subjecttype">
+      <ion-option value="Core">
+        Academics
+      </ion-option >
+      <ion-option value="Selective">
+        Examinations
+      </ion-option>
+      <ion-option value="Selective">
+          Events
+        </ion-option>
+        <ion-option value="Selective">
+            Sports
+          </ion-option>
+    </ion-select>
+  </ion-item>
+
+  <!-- Title here -->
+  <ion-item>
+      <ion-label floating >
+        Title
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="AnnouncementsTitle" placeholder="" name="AnnouncementsTitle"></ion-input>
+    </ion-item>
+
+    <!-- DESCRIPTION here -->
+
+    <ion-item>
+        <ion-label floating >
+          Description
+        </ion-label>
+        <ion-textarea type="text" [(ngModel)]="AnnouncementsDescription" name="AnnouncementsDescription"></ion-textarea>
+      </ion-item>
+
+      <!-- Start Date -->
+
+
+
+
+      <!-- Ending Date -->
+
+
+
+
+
+
+
+  
+
+<!-- blank space -->
+<ion-label>
+
+</ion-label>
+
+<button id="AddAnnouncements" ion-button color="header" on-click="Announcements()" block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;">
+      Save
+     </button>
+     </form>
 </ion-content>
