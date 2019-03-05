@@ -40,7 +40,9 @@
       <ion-label floating >
         Title
       </ion-label>
-      <ion-input type="text" [(ngModel)]="AnnouncementsTitle" name="AnnouncementsTitle"></ion-input>
+      <ion-input type="text" [(ngModel)]="AnnouncementsTitle" ngModel pattern="[a-zA-Z ]*"> </ion-input>
+      <span ng-show="AnnouncementsTitle.$error.pattern">Invalid Title</span>
+     
     </ion-item>
 
     <!-- DESCRIPTION here -->
