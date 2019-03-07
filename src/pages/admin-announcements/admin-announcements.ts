@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ServiceLoginProvider } from '../../providers/service-login/service-login';
+import { ServiceAdminAnnouncements } from '../../providers/service-AdminAnnoucement/service-announcement';
 
 /**
  * Generated class for the AdminAnnouncementsPage page.
@@ -22,23 +24,41 @@ private category:any;
 private AnnouncementsTitle:any;
 private AnnouncementsDescription:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+public Announcement:any={
+  "UserId":"",
+  "category":"",
+  "AnnouncementsTitle":"",
+  "AnnouncementsDescription":"",
+  "timestarts":"",
+   "timeEnds":""
+};
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,public getuserid:ServiceLoginProvider,public AdminAnnouncements:ServiceAdminAnnouncements) {
+    
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AdminAnnouncementsPage');
+    console.log(this.date);
   }
 
   Announcements()
   {
     if(this.category!=undefined && this.AnnouncementsTitle!=undefined && this.AnnouncementsDescription!=undefined)
     {
-      alert("Okay");
-
-      //trying to remove not used warning by using them
-      console.log(this.date);
-      console.log(this.timestarts);
-      console.log(this.timeEnds);
+  
+     
+     
+      this.Announcement['UserId']=this.getuserid.details.USER_ID;
+       this.Announcement['category']=this.category;
+       this.Announcement['AnnouncementsTitle']=this.AnnouncementsTitle;
+       this.Announcement['AnnouncementsDescription']=this.AnnouncementsDescription;
+       this.Announcement['timestarts']=this.timestarts;
+       this.Announcement['timeEnds']=this.timeEnds;
+       this.AdminAnnouncements.postAnnouncements(this.Announcement);
+       
+      console.log(this.Announcement)
+     
     }
     else
     {

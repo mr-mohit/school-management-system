@@ -37,6 +37,7 @@ import { ServiceAdduserProvider } from '../providers/service-adduser/service-add
 import { StudentQuizPage } from '../pages/student-quiz/student-quiz';
 import { StudentProfilePage } from '../pages/student-profile/student-profile';
 import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
+import { ServiceAdminAnnouncements } from '../providers/service-AdminAnnoucement/service-announcement';
 
  @NgModule({ 
   declarations: [
@@ -119,7 +120,8 @@ import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
     ServiceAdduserProvider,
     QuizServiceProvider,
     ServiceAddsubjectProvider,
-    ServiceAdduserProvider
+    ServiceAdduserProvider,
+    ServiceAdminAnnouncements,
   ]
 })
 export class AppModule {}

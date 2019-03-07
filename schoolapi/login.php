@@ -57,7 +57,7 @@ if($con){
                      }
 					 
                        mysqli_close($con);
-				       $response['data']=$data;
+					   $response['data']=$data;
 					   $response['address']=$data1;
 				       $response['statuscode']=1;
 				       echo json_encode($response);

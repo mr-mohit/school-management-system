@@ -23,6 +23,9 @@ export class ServiceLoginProvider {
   }
   postData(url,data1){
     //console.log(data1);
+
+    // Passing Header
+
     return new Promise(resolve=>{
       this.http.post(url,JSON.stringify(data1)).subscribe(data=>{
         console.log(data);
