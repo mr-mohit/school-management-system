@@ -42,7 +42,7 @@ export class ServiceLoginProvider {
          }else
          {
            //console.log("Worng")
-           alert("Invalid User Name or Password");
+           alert("Invalid REGISTRATION NO or PASSWORD");
          }
         resolve(data);
       },error=>{

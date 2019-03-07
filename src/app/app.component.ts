@@ -15,6 +15,7 @@ import { AboutUsPage } from '../pages/about-us/about-us';
 import { SettingPage } from '../pages/setting/setting';
 import { ServiceLoginProvider } from '../providers/service-login/service-login';
 import { AdminHomePage } from '../pages/admin-home/admin-home';
+import { AddSessionPage } from '../pages/add-session/add-session';
 
 
 

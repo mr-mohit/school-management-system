@@ -34,6 +34,8 @@ import {AdminProfilePage} from '../pages/admin-profile/admin-profile';
 import { ServiceAdduserProvider } from '../providers/service-adduser/service-adduser';
 import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
 import { NativeStorage } from '@ionic-native/native-storage';
+import { AddSessionPage } from '../pages/add-session/add-session';
+import { ServiceAddSessionProvider } from '../providers/service-add-session/service-add-session';
 
 
 @NgModule({
@@ -64,7 +66,8 @@ import { NativeStorage } from '@ionic-native/native-storage';
     UserAddressPage,
     AddSubjectsPage,
     SettingPage,
-    StudentProfilePage
+    StudentProfilePage,
+    AddSessionPage
   ],
   imports: [
     BrowserModule,
@@ -99,7 +102,8 @@ import { NativeStorage } from '@ionic-native/native-storage';
     UserAddressPage,
     AddSubjectsPage,
     SettingPage,
-    StudentProfilePage
+    StudentProfilePage,
+    AddSessionPage,
   ],
   providers: [
     StatusBar,
@@ -109,7 +113,8 @@ import { NativeStorage } from '@ionic-native/native-storage';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ServiceLoginProvider,
     ServiceAdduserProvider,
-    NativeStorage
+    NativeStorage,
+    ServiceAddSessionProvider
   ]
 })
 export class AppModule {}
