@@ -38,7 +38,7 @@ export class AddUsersPage {
 
   userInfos =
   {
-     "userpic":"",
+     "userpic":"a",
      "username":"",
      "userrole":"",
      "userdob":"",
@@ -151,7 +151,8 @@ export class AddUsersPage {
           this.userInfos["userpincode"] =  this.slideThreeForm.getRawValue().pincode;
           this.userInfos["usercontact"] =  this.slideThreeForm.getRawValue().contact;
 
-          var a = 0;
+          var a = 0; 
+          //alert(this.userInfos["userpic"]);
           for(var index in this.userInfos) {
 
             //check if all the fields have been filled by the admin
@@ -170,13 +171,15 @@ export class AddUsersPage {
           // here we check if all the fields have been filled
           if(a == 15 && this.lastImage!==  null)
           {
+            this.userInfos['userpic']= this.lastImage;
             //this.uploadImage(); // upload image in the server
-            //this.service.postuser(this.userInfos); // send the user infos to the provider 
-            this.ConfirmCreationUser(this.userInfos); 
+           //this.service.postuser(this.userInfos); // send the user infos to the provider 
+             this.ConfirmCreationUser(this.userInfos); 
           }
           else if(this.lastImage ===  null)
           {
             alert("Select an image from your gallery");
+            
           }
             
       }
@@ -280,17 +283,17 @@ export class AddUsersPage {
   // upload image to the server
   public uploadImage() {
     // Destination URL
-    var url = "http://172.26.16.244/schoolapi/add_user.php";
+    var url = "http://172.26.17.78/schoolapi/uploadImage.php";
    
     // File for Upload
     var targetPath = this.pathForImage(this.lastImage);
    
 
-    this.presentToast(targetPath);
+   // this.presentToast(targetPath);
     
     // File name only
-    var filename = this.lastImage;  this.presentToast(filename);
-   
+    var filename = this.lastImage; // this.presentToast(filename);
+    this.userInfos['userpic']= filename; // file name 
     var options = {
       fileKey: "file",
       fileName: filename,
@@ -309,7 +312,6 @@ export class AddUsersPage {
     // Use the FileTransfer to upload the image
     fileTransfer.upload(targetPath, url, options).then(data => {
       this.loading.dismissAll()
-      this.presentToast('Image succesful uploaded.');
     }, err => {
       this.loading.dismissAll()
       this.presentToast('Error while uploading file.');
@@ -319,45 +321,23 @@ export class AddUsersPage {
   // confirmation alert
   async ConfirmCreationUser(a) {
     const alert = await this.alertController.create({
-      inputs: [
-  
-        {
-          name: 'message',
-          type: 'text',
-          id: 'message-id',
-          value: 'Do You Really Want to Create This user :',
-          placeholder: 'Validate this Creation'
-        },
-        {
-          name: 'role',
-          type: 'text',
-          id: 'role-id',
-          value: 'user_role : '+ this.slideOneForm.getRawValue().userrole,
-          placeholder: 'role'
-        },
-        {
-          name: 'regNo',
-          type: 'number',
-          id: 'regNo-id',
-          value: 'regNo : '+this.service.userID,
-          placeholder: 'genre'
-        },
      
-      ],
+      message: 'Message <strong>Do You Want toCreate This user :</strong>!!!',
       buttons: [
         {
           text: 'Cancel',
           role: 'cancel',
           cssClass: 'secondary',
-          handler: () => {
-            console.log('Confirm Cancel');
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
           }
-        }, 
-        {
-          text: 'Confirm ',
+        }, {
+          text: 'Okay',
           handler: () => {
-            this.uploadImage(); // upload image in the server
-            this.service.postuser(a); // send the user infos to the provider  
+           // console.log(a);
+              this.uploadImage(); // upload image in the server
+              this.service.postuser(a); // send the user infos to the provider  
+              this.navCtrl.pop();
           }
         }
       ]
