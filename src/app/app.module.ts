@@ -38,7 +38,6 @@ import { StudentQuizPage } from '../pages/student-quiz/student-quiz';
 import { StudentProfilePage } from '../pages/student-profile/student-profile';
 import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
 import { ServiceAdminAnnouncements } from '../providers/service-AdminAnnoucement/service-announcement';
-import { NativeStorage } from '@ionic-native/native-storage';
 import { AddSessionPage } from '../pages/add-session/add-session';
 import { ServiceAddSessionProvider } from '../providers/service-add-session/service-add-session';
 
@@ -129,7 +128,6 @@ import { ServiceAddSessionProvider } from '../providers/service-add-session/serv
     ServiceAddsubjectProvider,
     ServiceAdduserProvider,
     ServiceAdminAnnouncements,
-    NativeStorage,
     ServiceAddSessionProvider
   ]
 })

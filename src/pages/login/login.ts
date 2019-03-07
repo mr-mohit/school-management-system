@@ -24,6 +24,7 @@ public user:any=
     public service:ServiceLoginProvider) {
       this.Menu.enable(false);
   }
+  
   ValidateLogin(REG_NO,PASSWORD)
   {
   
@@ -67,7 +68,7 @@ public user:any=
           });
           alert.present();
          }
-})  //calling service function end
+});  //calling service function end
 }
 
    
