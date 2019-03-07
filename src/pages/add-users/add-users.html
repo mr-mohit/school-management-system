@@ -7,71 +7,259 @@
 <ion-header>
   <ion-navbar color="header">
     <ion-title>Add User</ion-title>
+     <ion-buttons start>
+        <button ion-button icon-left (click)="prev()"><ion-icon name="arrow-back"></ion-icon> Prev</button>
+      </ion-buttons>
+      <ion-buttons end>
+        <button ion-button icon-right (click)="next()">Next <ion-icon name="arrow-forward"></ion-icon></button>
+      </ion-buttons>
   </ion-navbar>
+  
 </ion-header>
 
-<ion-content padding>
-  <form>
-        <ion-item>
-          <ion-label>
-            Role Type
-          </ion-label>
-          <ion-select name="role">
-            <ion-option>
-              Teacher
-            </ion-option>
-            <ion-option>
-              Student
-            </ion-option>
-          </ion-select>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>
-            Name
-          </ion-label>
-          <ion-input type="text" placeholder="" name="name"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>
-            Gender
-          </ion-label>
-          <ion-select name="gender">
-            <ion-option>
-              Male
-            </ion-option>
-            <ion-option>
-              Female
-            </ion-option>
-          </ion-select>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>
-            Date of birth
-          </ion-label>
-          <ion-input type="date" placeholder="" name="dob"></ion-input>
-        </ion-item>
-        <ion-item >
-          <ion-label floating>
-            Email
-          </ion-label>
-          <ion-input type="email" placeholder="" name="email"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>
-            Password
-          </ion-label>
-          <ion-input type="password" placeholder="" name="password"></ion-input>
-        </ion-item>
+<ion-content scroll="true" >
 
-        <ion-label>
-           
-        </ion-label>
+ 
+   <ion-slides #signupSlider pager scroll="true">
+          <!-- slide1 -->
+      <ion-slide  class="scroll">
 
-      <button id="adduser" ion-button color="header"
-      block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;" on-click="getUserAddress()">
-            Next
-           </button>
-</form>
+        <p *ngIf="submitAttempt" style="color: #ea6153;">Please fill out all details accurately.</p>
+
+        <ion-list no-lines  scroll="true">
+
+            <form [formGroup]="slideOneForm"  scroll="true">
+                   <!-- user id -->
+                <ion-item>
+                    <ion-label floating>User Id</ion-label>
+                    <ion-input formControlName="userid" type="text" [class.invalid]="!slideOneForm.controls.userid.valid && (slideOneForm.controls.userid.dirty || submitAttempt)"></ion-input>
+                </ion-item>
+
+                <ion-item *ngIf="!slideOneForm.controls.userid.valid  && (slideOneForm.controls.userid.dirty || submitAttempt)">
+                    <p>Please enter a valid name.</p>
+                </ion-item>
+                       <!-- user pic -->
+                <ion-item>
+                    <ion-label floating>User Picture</ion-label>
+                    <ion-input formControlName="userpic" type="text" [class.invalid]="!slideOneForm.controls.userpic.valid && (slideOneForm.controls.userpic.dirty || submitAttempt)"></ion-input>
+                </ion-item>
+
+                <ion-item *ngIf="!slideOneForm.controls.userpic.valid  && (slideOneForm.controls.userpic.dirty || submitAttempt)">
+                    <p>Please enter a valid name.</p>
+                </ion-item>
+                  <!-- user name -->
+                <ion-item>
+                    <ion-label floating>User Name</ion-label>
+                    <ion-input formControlName="username" type="text" [class.invalid]="!slideOneForm.controls.username.valid && (slideOneForm.controls.username.dirty || submitAttempt)"></ion-input>
+                </ion-item>
+
+                <ion-item *ngIf="!slideOneForm.controls.username.valid  && (slideOneForm.controls.username.dirty || submitAttempt)">
+                    <p>Please enter a valid name.</p>
+                </ion-item>
+                
+                  <!-- user role -->
+                <ion-item>
+                    <ion-label floating>User Role</ion-label>
+                    <ion-select formControlName="userrole" [class.invalid]="!slideOneForm.controls.userrole.valid && (slideOneForm.controls.userrole.dirty || submitAttempt)">
+                          <ion-option value="student">
+                                student
+                          </ion-option>
+                          <ion-option value="teacher">
+                                teacher
+                          </ion-option >
+                    </ion-select>
+                </ion-item>
+
+                <ion-item *ngIf="!slideOneForm.controls.userrole.valid  && (slideOneForm.controls.userrole.dirty || submitAttempt)">
+                    <p>Please enter a valid name.</p>
+                </ion-item>
+                  <!-- user gender -->
+                <ion-item>
+                    <ion-label floating>User gender</ion-label>
+                    <ion-select formControlName="usergender" [class.invalid]="!slideOneForm.controls.usergender.valid && (slideOneForm.controls.usergender.dirty || submitAttempt)">
+                          <ion-option value="male">
+                                male
+                          </ion-option>
+                          <ion-option value="female">
+                                female
+                          </ion-option>
+                    </ion-select>
+                </ion-item>
+
+                <ion-item *ngIf="!slideOneForm.controls.usergender.valid  && (slideOneForm.controls.usergender.dirty || submitAttempt)">
+                    <p>Please enter a valid name.</p>
+                </ion-item>
+                  <!-- user date of birth -->
+                <ion-item>
+                    <ion-label floating>User Date of Birth</ion-label>
+                      <ion-datetime display-format="MMMM YYYY" min="1930" max="2020-01-31" formControlName="userdob" [class.invalid]="!slideOneForm.controls.userdob.valid && (slideOneForm.controls.userdob.dirty || submitAttempt)">
+                      </ion-datetime>
+                    
+                </ion-item>
+
+                <ion-item *ngIf="!slideOneForm.controls.userdob.valid  && (slideOneForm.controls.userdob.dirty || submitAttempt)">
+                    <p>Please enter a valid date.</p>
+                </ion-item>
+              
+            
+            </form>
+
+        </ion-list>
+
+      </ion-slide>
+
+      <!-- slide 2 -->
+      <ion-slide  class="scroll">
+
+        <ion-list no-lines >
+
+            <form [formGroup]="slideTwoForm">
+                 
+                  <!-- user email -->
+                <ion-item>
+                    <ion-label floating>User email </ion-label>
+                    <ion-input formControlName="useremail" type="email" [class.invalid]="!slideTwoForm.controls.useremail.valid && (slideTwoForm.controls.useremail.dirty || submitAttempt)"></ion-input>
+                </ion-item>
+
+                <ion-item *ngIf="!slideTwoForm.controls.useremail.valid  && (slideTwoForm.controls.useremail.dirty || submitAttempt)">
+                    <p>Please enter a valid email.</p>
+                </ion-item>
+                
+                  <!-- user password -->
+                <ion-item>
+                    <ion-label floating>User password</ion-label>
+                    <ion-input formControlName="userpassword" type="password" [class.invalid]="!slideTwoForm.controls.userpassword.valid && (slideTwoForm.controls.userpassword.dirty || submitAttempt)"></ion-input>
+                </ion-item>
+
+                <ion-item *ngIf="!slideTwoForm.controls.userpassword.valid  && (slideTwoForm.controls.userpassword.dirty || submitAttempt)">
+                    <p>Please enter a valid name.</p>
+                </ion-item>
+                  <!-- user confirm password -->
+                <ion-item>
+                    <ion-label floating>Confirm password</ion-label>
+                    <ion-input formControlName="userpassword2" type="password" [class.invalid]="!slideTwoForm.controls.userpassword2.valid && (slideTwoForm.controls.userpassword2.dirty || submitAttempt)"></ion-input>
+                </ion-item>
+
+                <ion-item *ngIf="!slideTwoForm.controls.userpassword2.valid  && (slideTwoForm.controls.userpassword2.dirty || submitAttempt)">
+                    <p>Please enter a valid password.</p>
+                </ion-item>
+
+                  <!-- user father's name -->
+                <ion-item>
+                    <ion-label floating>User father_Name</ion-label>
+                    <ion-input formControlName="userfathername" type="text" [class.invalid]="!slideTwoForm.controls.userfathername.valid && (slideTwoForm.controls.userfathername.dirty || submitAttempt)"></ion-input>
+                </ion-item>
+
+                <ion-item *ngIf="!slideTwoForm.controls.userfathername.valid  && (slideTwoForm.controls.userfathername.dirty || submitAttempt)">
+                    <p>Please enter a valid name.</p>
+                </ion-item>
+                       <!-- user mother's name -->
+                <ion-item>
+                    <ion-label floating>User Mother_Name </ion-label>
+                    <ion-input formControlName="usermothername" type="text" [class.invalid]="!slideTwoForm.controls.usermothername.valid && (slideTwoForm.controls.usermothername.dirty || submitAttempt)"></ion-input>
+                </ion-item>
+
+                <ion-item *ngIf="!slideTwoForm.controls.usermothername.valid  && (slideTwoForm.controls.usermothername.dirty || submitAttempt)">
+                    <p>Please enter a valid name.</p>
+                </ion-item>
+                 <!-- user activation -->
+                <ion-item>
+                    <ion-label floating>User activation</ion-label>
+                    <ion-select formControlName="useractive" [class.invalid]="!slideTwoForm.controls.useractive.valid && (slideTwoForm.controls.useractive.dirty || submitAttempt)">
+                          <ion-option>
+                                activate
+                          </ion-option>
+                          <ion-option>
+                                desactivate
+                          </ion-option>
+                    </ion-select>
+                </ion-item>
+
+                <ion-item *ngIf="!slideTwoForm.controls.useractive.valid  && (slideTwoForm.controls.useractive.dirty || submitAttempt)">
+                    <p>Please enter a valid value</p>
+                </ion-item> 
+
+
+            </form>
+
+        </ion-list>
+          
+      </ion-slide>
+      <!-- slide 3 -->
+      <ion-slide  class="scroll">
+
+        <ion-list no-lines >
+
+            <form [formGroup]="slideThreeForm">
+                 
+                  <!-- addressType -->
+                <ion-item>
+                    <ion-label floating>address Type </ion-label>
+                    <ion-input formControlName="addressType" type="text" [class.invalid]="!slideThreeForm.controls.addressType.valid && (slideThreeForm.controls.addressType.dirty || submitAttempt)"></ion-input>
+                </ion-item>
+
+                <ion-item *ngIf="!slideThreeForm.controls.addressType.valid  && (slideThreeForm.controls.addressType.dirty || submitAttempt)">
+                    <p>Please enter a valid email.</p>
+                </ion-item>
+                
+                  <!-- address Line 1 -->
+                <ion-item>
+                    <ion-label floating>address Line 1</ion-label>
+                    <ion-input formControlName="address1" type="text" [class.invalid]="!slideThreeForm.controls.address1.valid && (slideThreeForm.controls.addressType.dirty || submitAttempt)"></ion-input>
+                </ion-item>
+
+                <ion-item *ngIf="!slideThreeForm.controls.address1.valid  && (slideThreeForm.controls.address1.dirty || submitAttempt)">
+                    <p>Please enter a valid name.</p>
+                </ion-item>
+                  <!-- address Line 2 -->
+                <ion-item>
+                    <ion-label floating>address Line 2</ion-label>
+                    <ion-input formControlName="address2" type="text" [class.invalid]="!slideThreeForm.controls.address2.valid && (slideThreeForm.controls.address2.dirty || submitAttempt)"></ion-input>
+                </ion-item>
+
+                <ion-item *ngIf="!slideThreeForm.controls.address2.valid  && (slideThreeForm.controls.address2.dirty || submitAttempt)">
+                    <p>Please enter a valid password.</p>
+                </ion-item>
+
+                  <!-- state -->
+                <ion-item>
+                    <ion-label floating>state</ion-label>
+                    <ion-input formControlName="state" type="text" [class.invalid]="!slideThreeForm.controls.state.valid && (slideThreeForm.controls.state.dirty || submitAttempt)"></ion-input>
+                </ion-item>
+
+                <ion-item *ngIf="!slideThreeForm.controls.state.valid  && (slideThreeForm.controls.state.dirty || submitAttempt)">
+                    <p>Please enter a valid name.</p>
+                </ion-item>
+                   <!-- Pin Code -->
+                <ion-item>
+                    <ion-label floating>Pin Code </ion-label>
+                    <ion-input formControlName="pincode" type="number" [class.invalid]="!slideThreeForm.controls.pincode.valid && (slideThreeForm.controls.pincode.dirty || submitAttempt)"></ion-input>
+                </ion-item>
+
+                <ion-item *ngIf="!slideThreeForm.controls.pincode.valid  && (slideThreeForm.controls.pincode.dirty || submitAttempt)">
+                    <p>Please enter a valid name.</p>
+                </ion-item>
+                 <!-- contact -->
+                <ion-item>
+                    <ion-label floating>Mobile Contact </ion-label>
+                   <ion-input formControlName="contact" type="text" [class.invalid]="!slideThreeForm.controls.contact.valid && (slideThreeForm.controls.contact.dirty || submitAttempt)"></ion-input>
+
+                </ion-item>
+
+                <ion-item *ngIf="!slideThreeForm.controls.contact.valid  && (slideThreeForm.controls.contact.dirty || submitAttempt)">
+                    <p>Please enter a valid value</p>
+                </ion-item> 
+
+
+            </form>
+
+        </ion-list>
+
+      </ion-slide>
+ 
+
+    </ion-slides>
            
-      
+           <button ion-button full color="primary" (click)="save()">Create Account!</button>
+
 </ion-content>

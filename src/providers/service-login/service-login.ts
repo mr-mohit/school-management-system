@@ -16,7 +16,6 @@ export class ServiceLoginProvider {
   public recdata: any;//this variable will store info coming from API
   public address:any;//for storing address
   public details:any;//for storing other details
- // public tempobj:{};
   public user_role:any; //this variable is used to define side menu as per user role
 
 
@@ -25,9 +24,12 @@ export class ServiceLoginProvider {
   }
   postData(url,data1){
     //console.log(data1);
+
+    // Passing Header
+
     return new Promise(resolve=>{
       this.http.post(url,JSON.stringify(data1)).subscribe(data=>{
-        //console.log(data);
+        console.log(data);
         this.recdata=data;        
         if(data['statuscode'] == 1)
          {
@@ -44,9 +46,10 @@ export class ServiceLoginProvider {
            //console.log("Worng")
            alert("Invalid REGISTRATION NO or PASSWORD");
          }
-        resolve(data);
+         resolve(data);
+
       },error=>{
-        console.log("sorry,,error",error);
+        console.log("Error",error);
       });
     });
   }

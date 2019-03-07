@@ -16,6 +16,9 @@ import { SettingPage } from '../pages/setting/setting';
 import { ServiceLoginProvider } from '../providers/service-login/service-login';
 import { AdminHomePage } from '../pages/admin-home/admin-home';
 import { AddSessionPage } from '../pages/add-session/add-session';
+import { StudentdashboardPage } from '../pages/studentdashboard/studentdashboard';
+import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard';
+import { ServiceAddsubjectProvider} from '../providers/service-addsubject/service-addsubject';
 
 
 
@@ -24,13 +27,14 @@ import { AddSessionPage } from '../pages/add-session/add-session';
 })
 export class MyApp {
   @ViewChild(Nav) navCtrl: Nav;
-    rootPage:any = LoginPage;
+    rootPage:any =LoginPage;
     //declaration of array for side menu
     Student_a:Array<{title:string, icon:string,component:any,}>;    //array for student
     Teacher_a:Array<{title:string, icon:string,component:any,}>;    //array for teacher
     help:Array<{title:string, icon:string,component:any,}>;
 
   constructor(platform: Platform, statusBar: StatusBar,
+             public addSubject:ServiceAddsubjectProvider,
              public service:ServiceLoginProvider, splashScreen: SplashScreen,public altertCtrl:AlertController) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -42,6 +46,7 @@ export class MyApp {
     
     //initializing the student array elements for side menu
     this.Student_a=[
+      {title:'Home', icon:'home', component:StudentdashboardPage},
       {title:'School Info', icon:'contact', component:SchoolInfoPage},
       {title:'Events', icon:'contact',component:ViewEventsPage},
       {title:'Feedback', icon:'contact',component:StudentFeedbackPage},
@@ -51,9 +56,10 @@ export class MyApp {
 
     //initializing the teacher array elements for side menu
     this.Teacher_a=[
+      {title:'Home', icon:'home',component:TeacherdashboardPage},
       {title:'Send Messages', icon:'contact',component:TeacherSendMessagePage},
       {title:'Set Announcement',icon:'contact',component:TeacherAnnouncementPage},
-      {title:'feedback',icon:'contact',component:TeacherFeedbackPage},      
+      {title:'Feedback',icon:'contact',component:TeacherFeedbackPage},      
       {title:'Gallery',icon:'contact',component:GalleryPage},
       {title:'Events', icon:'contact',component:ViewEventsPage}
     ];

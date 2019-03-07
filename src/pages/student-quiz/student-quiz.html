@@ -5,11 +5,28 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
-    <ion-title>student_quiz</ion-title>
+  <ion-navbar color="header">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title> Quiz </ion-title>
+     <ion-buttons end>
+        <button ion-button icon-only color="royal">
+         <ion-icon name="information-circle"></ion-icon>
+        </button>
+      </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
+  <label> 
+      Click the button bellow if you want to start the quiz 
+     <ion-icon name="arrow-round-down"></ion-icon>
+  </label>
+  <br> <br> <br> <br> <br> <br>
+  <button full menuClose ion-button (click) = "start()">
+      <ion-icon name="fastfoward"></ion-icon>&nbsp;
+         Start the Quiz !!!     
+  </button>
 </ion-content>

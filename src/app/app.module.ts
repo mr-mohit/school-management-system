@@ -19,6 +19,8 @@ import { StudentResultPage } from '../pages/student-result/student-result';
 import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
 import { AdminHomePage } from '../pages/admin-home/admin-home';
 import { SettingPage } from '../pages/setting/setting';
+import { QuizServiceProvider } from '../providers/quiz-service/quiz-service';
+import { StudentQuiz1Page } from '../pages/student-quiz1/student-quiz1';
 import { AdminAddPage } from '../pages/admin-add/admin-add';
 import { AdminViewPage } from '../pages/admin-view/admin-view';
 import { AdminAnnouncementsPage } from '../pages/admin-announcements/admin-announcements';
@@ -28,17 +30,19 @@ import { AdminMessagesPage } from '../pages/admin-messages/admin-messages';
 import { AddUsersPage } from '../pages/add-users/add-users';
 import { UserAddressPage } from '../pages/user-address/user-address';
 import { ServiceLoginProvider } from '../providers/service-login/service-login';
-import {StudentProfilePage} from '../pages/student-profile/student-profile';
 import {TeacherProfilePage} from '../pages/teacher-profile/teacher-profile';
+import { ServiceAddsubjectProvider } from '../providers/service-addsubject/service-addsubject';
 import {AdminProfilePage} from '../pages/admin-profile/admin-profile';
 import { ServiceAdduserProvider } from '../providers/service-adduser/service-adduser';
+import { StudentQuizPage } from '../pages/student-quiz/student-quiz';
+import { StudentProfilePage } from '../pages/student-profile/student-profile';
 import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { AddSessionPage } from '../pages/add-session/add-session';
 import { ServiceAddSessionProvider } from '../providers/service-add-session/service-add-session';
+import { ServiceAdminAnnouncements } from '../providers/service-AdminAnnoucement/service-announcement';
 
-
-@NgModule({
+ @NgModule({ 
   declarations: [
     MyApp,
     HomePage,
@@ -55,7 +59,11 @@ import { ServiceAddSessionProvider } from '../providers/service-add-session/serv
     StudentResultPage,
     AdminDashboardPage,
     AdminProfilePage,
+    StudentQuizPage,
+    StudentQuiz1Page,
     AdminHomePage,
+    SettingPage,
+    StudentProfilePage,
     AdminAddPage,
     AdminViewPage,
     AdminAnnouncementsPage,
@@ -85,6 +93,8 @@ import { ServiceAddSessionProvider } from '../providers/service-add-session/serv
     TeacherdashboardPage,
     TeacherProfilePage,
     StudentExamsPage,
+    StudentQuizPage,
+    StudentQuiz1Page,
     StudentAttendancePage,
     StudentAnnouncementsPage,
     StudentTimeTablePage,
@@ -92,6 +102,8 @@ import { ServiceAddSessionProvider } from '../providers/service-add-session/serv
     AdminDashboardPage,
     AdminProfilePage,
     AdminHomePage,
+    SettingPage,
+    StudentProfilePage,
     AdminAddPage,
     AdminViewPage,
     AdminAnnouncementsPage,
@@ -115,6 +127,10 @@ import { ServiceAddSessionProvider } from '../providers/service-add-session/serv
     ServiceAdduserProvider,
     NativeStorage,
     ServiceAddSessionProvider
+    QuizServiceProvider,
+    ServiceAddsubjectProvider,
+    ServiceAdduserProvider,
+    ServiceAdminAnnouncements,
   ]
 })
 export class AppModule {}
