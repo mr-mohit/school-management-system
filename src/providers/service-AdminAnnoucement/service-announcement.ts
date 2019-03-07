@@ -17,13 +17,12 @@ export class ServiceAdminAnnouncements {
     
     // var header={"header":{"Content-Type":"application/json"}};
     
-    console.log("data passing",data1);
+    // console.log("data passing",JSON.stringify(data1));
     return new Promise(resolve=>{    
       this.http.post(url,JSON.stringify(data1)).subscribe(data=>{
         if(data['statuscode'] == 1)
         {
           alert("Added successfully");
-          console.log("data1 is here"+data1);
         }
         else
         {
@@ -42,8 +41,6 @@ export class ServiceAdminAnnouncements {
   {
   
     var url=this.URL+"announcement.php";
-    console.log("whole url",url);
-    console.log("whole data",Announcements);
     return this.postData(url,Announcements);
   }
 }

@@ -30,7 +30,7 @@ public Announcement:any={
   "AnnouncementsTitle":"",
   "AnnouncementsDescription":"",
   "timestarts":"",
-   "timeEnds":""
+  "timeEnds":""
 };
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public getuserid:ServiceLoginProvider,public AdminAnnouncements:ServiceAdminAnnouncements) {
@@ -39,7 +39,8 @@ public Announcement:any={
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AdminAnnouncementsPage');
-    console.log(this.date);
+    // console.log(this.date);
+    this.date;
   }
 
   Announcements()
@@ -56,14 +57,13 @@ public Announcement:any={
        this.Announcement['timestarts']=this.timestarts;
        this.Announcement['timeEnds']=this.timeEnds;
        this.AdminAnnouncements.postAnnouncements(this.Announcement);
-       
-      console.log(this.Announcement)
+      
      
     }
     else
     {
     
-       alert("Not Okay");
+       alert("Fields cannot be empty");
     }
   }
 }
