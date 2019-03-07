@@ -17,6 +17,8 @@ import { ServiceLoginProvider } from '../providers/service-login/service-login';
 import { StudentdashboardPage } from '../pages/studentdashboard/studentdashboard';
 import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard';
 import { ServiceAddsubjectProvider} from '../providers/service-addsubject/service-addsubject';
+import { AdminHomePage } from '../pages/admin-home/admin-home';
+import { AddSessionPage } from '../pages/add-session/add-session';
 
 
 

@@ -38,6 +38,9 @@ import { StudentQuizPage } from '../pages/student-quiz/student-quiz';
 import { StudentProfilePage } from '../pages/student-profile/student-profile';
 import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
 import { ServiceAdminAnnouncements } from '../providers/service-AdminAnnoucement/service-announcement';
+import { NativeStorage } from '@ionic-native/native-storage';
+import { AddSessionPage } from '../pages/add-session/add-session';
+import { ServiceAddSessionProvider } from '../providers/service-add-session/service-add-session';
 
  @NgModule({ 
   declarations: [
@@ -71,7 +74,8 @@ import { ServiceAdminAnnouncements } from '../providers/service-AdminAnnoucement
     UserAddressPage,
     AddSubjectsPage,
     SettingPage,
-    StudentProfilePage
+    StudentProfilePage,
+    AddSessionPage
   ],
   imports: [
     BrowserModule,
@@ -110,10 +114,13 @@ import { ServiceAdminAnnouncements } from '../providers/service-AdminAnnoucement
     UserAddressPage,
     AddSubjectsPage,
     SettingPage,
-    StudentProfilePage
+    StudentProfilePage,
+    AddSessionPage,
   ],
   providers: [
     StatusBar,
+    //SQLite,
+    //SQLiteObject,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ServiceLoginProvider,
@@ -122,6 +129,8 @@ import { ServiceAdminAnnouncements } from '../providers/service-AdminAnnoucement
     ServiceAddsubjectProvider,
     ServiceAdduserProvider,
     ServiceAdminAnnouncements,
+    NativeStorage,
+    ServiceAddSessionProvider
   ]
 })
 export class AppModule {}
