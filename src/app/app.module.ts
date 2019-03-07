@@ -33,8 +33,7 @@ import {TeacherProfilePage} from '../pages/teacher-profile/teacher-profile';
 import {AdminProfilePage} from '../pages/admin-profile/admin-profile';
 import { ServiceAdduserProvider } from '../providers/service-adduser/service-adduser';
 import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
-//import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
-
+import { NativeStorage } from '@ionic-native/native-storage';
 
 
 @NgModule({
@@ -109,7 +108,8 @@ import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ServiceLoginProvider,
-    ServiceAdduserProvider
+    ServiceAdduserProvider,
+    NativeStorage
   ]
 })
 export class AppModule {}
