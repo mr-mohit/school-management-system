@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController} from 'ionic-angular';
 import { AdminHomePage } from '../admin-home/admin-home';
 import { SettingPage } from '../setting/setting';
 import { AdminProfilePage } from '../admin-profile/admin-profile';
@@ -24,6 +24,7 @@ export class AdminDashboardPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public Menu:MenuController) {
     this.Menu.enable(true);
+    
   }
 
   ionViewDidLoad() {
