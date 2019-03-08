@@ -19,6 +19,8 @@ import { StudentResultPage } from '../pages/student-result/student-result';
 import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
 import { AdminHomePage } from '../pages/admin-home/admin-home';
 import { SettingPage } from '../pages/setting/setting';
+import { QuizServiceProvider } from '../providers/quiz-service/quiz-service';
+import { StudentQuiz1Page } from '../pages/student-quiz1/student-quiz1';
 import { AdminAddPage } from '../pages/admin-add/admin-add';
 import { AdminViewPage } from '../pages/admin-view/admin-view';
 import { AdminAnnouncementsPage } from '../pages/admin-announcements/admin-announcements';
@@ -26,22 +28,30 @@ import { AdminDeletePage } from '../pages/admin-delete/admin-delete';
 import { AdminUpdatePage } from '../pages/admin-update/admin-update';
 import { AdminMessagesPage } from '../pages/admin-messages/admin-messages';
 import { AddUsersPage } from '../pages/add-users/add-users';
-import { UserAddressPage } from '../pages/user-address/user-address';
 import { ServiceLoginProvider } from '../providers/service-login/service-login';
-import {StudentProfilePage} from '../pages/student-profile/student-profile';
 import {TeacherProfilePage} from '../pages/teacher-profile/teacher-profile';
-import {AdminProfilePage} from '../pages/admin-profile/admin-profile';
-import { ServiceAdduserProvider } from '../providers/service-adduser/service-adduser';
+import { StudentQuizPage } from '../pages/student-quiz/student-quiz';
+import { StudentProfilePage } from '../pages/student-profile/student-profile';
 import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
+import { ServiceAdduserProvider } from '../providers/service-adduser/service-adduser';
+import {AdminProfilePage} from '../pages/admin-profile/admin-profile';
 import { NativeStorage } from '@ionic-native/native-storage';
 
+import { File } from '@ionic-native/file';
+import { Transfer} from '@ionic-native/transfer';
+import { FilePath } from '@ionic-native/file-path';
+import { Camera } from '@ionic-native/camera';
+import { ServiceResetpasswordProvider } from '../providers/service-resetpassword/service-resetpassword';
+import { Resetpassword2Page } from '../pages/resetpassword2/resetpassword2';
+ 
 
-@NgModule({
+ @NgModule({ 
   declarations: [
     MyApp,
     HomePage,
     LoginPage,
     ResetpasswordPage,
+    Resetpassword2Page,
     TeacherHomePage,
     TeacherProfilePage,
     StudentdashboardPage,
@@ -52,6 +62,8 @@ import { NativeStorage } from '@ionic-native/native-storage';
     StudentTimeTablePage,
     StudentResultPage,
     AdminDashboardPage,
+    StudentQuizPage,
+    StudentQuiz1Page,
     AdminProfilePage,
     AdminHomePage,
     AdminAddPage,
@@ -61,7 +73,6 @@ import { NativeStorage } from '@ionic-native/native-storage';
     AdminUpdatePage,
     AdminMessagesPage,
     AddUsersPage,
-    UserAddressPage,
     AddSubjectsPage,
     SettingPage,
     StudentProfilePage
@@ -77,11 +88,14 @@ import { NativeStorage } from '@ionic-native/native-storage';
     HomePage,
     LoginPage,
     ResetpasswordPage,
+    Resetpassword2Page,
     TeacherHomePage,
     StudentdashboardPage,
     TeacherdashboardPage,
     TeacherProfilePage,
     StudentExamsPage,
+    StudentQuizPage,
+    StudentQuiz1Page,
     StudentAttendancePage,
     StudentAnnouncementsPage,
     StudentTimeTablePage,
@@ -96,7 +110,6 @@ import { NativeStorage } from '@ionic-native/native-storage';
     AdminUpdatePage,
     AdminMessagesPage,
     AddUsersPage,
-    UserAddressPage,
     AddSubjectsPage,
     SettingPage,
     StudentProfilePage
@@ -104,9 +117,18 @@ import { NativeStorage } from '@ionic-native/native-storage';
   providers: [
     StatusBar,
     SplashScreen,
+
+    File, 
+    Transfer,
+    Camera,
+    FilePath,
+
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+  
+    QuizServiceProvider,
     ServiceLoginProvider,
     ServiceAdduserProvider,
+    ServiceResetpasswordProvider,
     NativeStorage
   ]
 })

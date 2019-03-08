@@ -14,9 +14,10 @@ import { TeacherAnnouncementPage } from '../pages/teacher-announcement/teacher-a
 import { AboutUsPage } from '../pages/about-us/about-us';
 import { SettingPage } from '../pages/setting/setting';
 import { ServiceLoginProvider } from '../providers/service-login/service-login';
-import { NativeStorage } from '@ionic-native/native-storage';
 import { StudentdashboardPage } from '../pages/studentdashboard/studentdashboard';
 import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard';
+import { Resetpassword2Page } from '../pages/resetpassword2/resetpassword2';
+import { NativeStorage } from '@ionic-native/native-storage';
 import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
 
 
@@ -82,6 +83,7 @@ export class MyApp {
     
     //initializing the student array elements for side menu
     this.Student_a=[
+      {title:'Home', icon:'home', component:StudentdashboardPage},
       {title:'School Info', icon:'contact', component:SchoolInfoPage},
       {title:'Events', icon:'contact',component:ViewEventsPage},
       {title:'Feedback', icon:'contact',component:StudentFeedbackPage},
@@ -91,6 +93,7 @@ export class MyApp {
 
     //initializing the teacher array elements for side menu
     this.Teacher_a=[
+      {title:'Home', icon:'home',component:TeacherdashboardPage},
       {title:'Send Messages', icon:'contact',component:TeacherSendMessagePage},
       {title:'Set Announcement',icon:'contact',component:TeacherAnnouncementPage},
       {title:'feedback',icon:'contact',component:TeacherFeedbackPage},      
