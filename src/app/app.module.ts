@@ -30,13 +30,16 @@ import { AdminMessagesPage } from '../pages/admin-messages/admin-messages';
 import { AddUsersPage } from '../pages/add-users/add-users';
 import { ServiceLoginProvider } from '../providers/service-login/service-login';
 import {TeacherProfilePage} from '../pages/teacher-profile/teacher-profile';
+import { ServiceAddsubjectProvider } from '../providers/service-addsubject/service-addsubject';
+import {AdminProfilePage} from '../pages/admin-profile/admin-profile';
+import { ServiceAdduserProvider } from '../providers/service-adduser/service-adduser';
 import { StudentQuizPage } from '../pages/student-quiz/student-quiz';
 import { StudentProfilePage } from '../pages/student-profile/student-profile';
 import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
-import { ServiceAdduserProvider } from '../providers/service-adduser/service-adduser';
-import {AdminProfilePage} from '../pages/admin-profile/admin-profile';
+import { ServiceAdminAnnouncements } from '../providers/service-AdminAnnoucement/service-announcement';
+import { AddSessionPage } from '../pages/add-session/add-session';
+import { ServiceAddSessionProvider } from '../providers/service-add-session/service-add-session';
 import { NativeStorage } from '@ionic-native/native-storage';
-
 import { File } from '@ionic-native/file';
 import { Transfer} from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
@@ -62,10 +65,12 @@ import { Resetpassword2Page } from '../pages/resetpassword2/resetpassword2';
     StudentTimeTablePage,
     StudentResultPage,
     AdminDashboardPage,
+    AdminProfilePage,
     StudentQuizPage,
     StudentQuiz1Page,
-    AdminProfilePage,
     AdminHomePage,
+    SettingPage,
+    StudentProfilePage,
     AdminAddPage,
     AdminViewPage,
     AdminAnnouncementsPage,
@@ -75,7 +80,8 @@ import { Resetpassword2Page } from '../pages/resetpassword2/resetpassword2';
     AddUsersPage,
     AddSubjectsPage,
     SettingPage,
-    StudentProfilePage
+    StudentProfilePage,
+    AddSessionPage
   ],
   imports: [
     BrowserModule,
@@ -103,6 +109,8 @@ import { Resetpassword2Page } from '../pages/resetpassword2/resetpassword2';
     AdminDashboardPage,
     AdminProfilePage,
     AdminHomePage,
+    SettingPage,
+    StudentProfilePage,
     AdminAddPage,
     AdminViewPage,
     AdminAnnouncementsPage,
@@ -112,10 +120,13 @@ import { Resetpassword2Page } from '../pages/resetpassword2/resetpassword2';
     AddUsersPage,
     AddSubjectsPage,
     SettingPage,
-    StudentProfilePage
+    StudentProfilePage,
+    AddSessionPage,
   ],
   providers: [
     StatusBar,
+    //SQLite,
+    //SQLiteObject,
     SplashScreen,
 
     File, 
@@ -124,10 +135,12 @@ import { Resetpassword2Page } from '../pages/resetpassword2/resetpassword2';
     FilePath,
 
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-  
-    QuizServiceProvider,
     ServiceLoginProvider,
     ServiceAdduserProvider,
+    QuizServiceProvider,
+    ServiceAddsubjectProvider,
+    ServiceAdminAnnouncements,
+    ServiceAddSessionProvider,
     ServiceResetpasswordProvider,
     NativeStorage
   ]

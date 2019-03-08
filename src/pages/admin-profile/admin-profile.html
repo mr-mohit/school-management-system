@@ -6,7 +6,7 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>admin_profile</ion-title>
+    <ion-title>Admin : My Profile</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -15,14 +15,14 @@
   <div class="upperhalf">   
       <img src="assets/imgs/logo1.png" style="display:block;width: 30%;margin-left:auto;margin-right:auto;border-radius: 60%;height: 167px;" /> 
       <br>
-      <div  style=" margin-left:40vw">
+      <!-- <div  style=" margin-left:40vw">
       <strong><label>{{service?.details?.NAME}}</label></strong><br>
       <b><label>{{service?.details?.USER_ID}}</label></b>
-    </div>
+    </div> -->
   </div>
   <br>
 <hr>
-<h5>Basic Details</h5>
+<h5 text-center>Basic Details</h5>
 <hr>
 <strong><p>Father's Name</p></strong>
 <label > {{service?.address?.FATHER_NAME}}</label>
@@ -30,14 +30,14 @@
   <label > {{service?.address?.MOTHER_NAME}}</label>
 <strong><p>Address</p></strong>
 <label>
-  <span>{{service?.address?.ADDRESS_LINE_1}}</span>
-  <span> {{service?.address?.ADDRESS_LINE_2}}</span>
-  <span>{{service?.address?.STATE}}</span>
-  <span>{{service?.address?.CITY}}</span>
-  <span>{{service?.address?.PINCODE}}</span>
+  <span>Address Line 1: {{service?.address?.ADDRESS_LINE_1}}</span><br>
+  <span>Address Line 2: {{service?.address?.ADDRESS_LINE_2}}</span><br>
+  <span> State: {{service?.address?.STATE}}</span><br>
+  <span>City: {{service?.address?.CITY}}</span><br>
+  <span>Pincode: {{service?.address?.PINCODE}}</span><br>
 
 </label>
-  <h5>Academic Details</h5>
+  <h5 text-center>Academic Details</h5>
 <hr>
 <label >
     {{service?.address?.FATHER_NAME}}

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Direct School</name>
-    <description>An awesome Ionic/Cordova app.</description>
+    <name>EcoleDirecte</name>
+    <description>Prototype Application for EcoleDirecte School</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
     <content src="index.html" />
     <access origin="*" />
@@ -87,8 +87,8 @@
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.1.3" />
     <plugin name="cordova-plugin-camera" spec="4.0.3" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
+    <engine name="android" spec="7.1.4" />
     <plugin name="cordova-sqlite-storage" spec="3.1.0" />
     <plugin name="cordova-plugin-network-information" spec="2.0.1" />
-    <engine name="android" spec="7.1.4" />
     <plugin name="cordova-plugin-nativestorage" spec="2.3.2" />
 </widget>

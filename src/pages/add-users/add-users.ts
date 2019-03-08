@@ -21,6 +21,15 @@ declare var cordova: any;
   templateUrl: 'add-users.html',
 })
 export class AddUsersPage {
+  // private role:any;
+  // private name:any;
+  // private gender:any;
+  // private dob:any;
+  // private email:any;
+  // private username:any;
+  // private password:any;
+
+
 
   @ViewChild('signupSlider') signupSlider: any;
 
