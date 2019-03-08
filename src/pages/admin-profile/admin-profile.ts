@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ServiceLoginProvider } from '../../providers/service-login/service-login';
 
 /**
  * Generated class for the AdminProfilePage page.
@@ -15,7 +16,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AdminProfilePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public service:ServiceLoginProvider) {
+
   }
 
   ionViewDidLoad() {

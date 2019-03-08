@@ -17,7 +17,16 @@ export class ServiceAdduserProvider {
  
 
   constructor(public http: HttpClient) {
-    console.log('Hello ServiceAdduserProvider Provider');
+    //console.log('Hello ServiceLoginProvider Provider');
+  }
+  getData(url,data1){
+    
+  }
+
+  postlogin(data){
+    console.log(data);
+    var url=this.URL+"adduser.php";
+    return this.getData(url,data);
   }
 
 

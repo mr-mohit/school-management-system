@@ -10,12 +10,11 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ServiceLoginProvider {
   public data:any;
-  //public URL="http://localhost/schoolapi/"; //for local use
-  public URL="https://direct-school.000webhostapp.com/"; //for hosting
+  // public URL="http://localhost/schoolapi/"; //for local use
+ public URL="https://direct-school.000webhostapp.com/"; //for hosting
   public recdata: any;//this variable will store info coming from API
   public address:any;//for storing address
   public details:any;//for storing other details
- // public tempobj:{};
   public user_role:any; //this variable is used to define side menu as per user role
 
 
@@ -24,6 +23,9 @@ export class ServiceLoginProvider {
   }
   postData(url,data1){
     //console.log(data1);
+
+    // Passing Header
+
     return new Promise(resolve=>{
       this.http.post(url,JSON.stringify(data1)).subscribe(data=>{
         console.log(data);
@@ -41,13 +43,12 @@ export class ServiceLoginProvider {
          }else
          {
            //console.log("Worng")
-           alert("Invalid User Name or Password");
+           alert("Invalid REGISTRATION NO or PASSWORD");
          }
          resolve(data);
 
       },error=>{
-        console.log("invalid username and/or password");
-        alert("invalid username and/or password");
+        console.log("Error",error);
       });
     });
   }

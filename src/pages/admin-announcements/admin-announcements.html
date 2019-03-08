@@ -12,4 +12,76 @@
 
 <ion-content padding>
 
+      <!-- Category Type here -->
+<ion-list>
+<ion-item>
+    <ion-label>
+      Category
+    </ion-label>
+    <ion-select name="category" [(ngModel)]="category">
+      <ion-option value="Academics">
+        Academics
+      </ion-option >
+      <ion-option value="Examination">
+        Examination
+      </ion-option>
+      <ion-option value="Events">
+          Events
+        </ion-option>
+        <ion-option value="Sports">
+            Sports
+          </ion-option>
+    </ion-select>
+  </ion-item>
+
+  <!-- Title here -->
+  <ion-item>
+      <ion-label floating >
+        Title
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="AnnouncementsTitle"> </ion-input>
+    </ion-item>
+
+    <!-- DESCRIPTION here -->
+
+    <ion-item>
+        <ion-label floating >
+          Description
+        </ion-label>
+        <ion-textarea type="text" [(ngModel)]="AnnouncementsDescription" name="AnnouncementsDescription"></ion-textarea>
+      </ion-item>
+
+      <!-- blank space -->
+      <ion-label>
+
+      </ion-label>
+
+      <!--Start Date-->
+      
+      <ion-item>
+          <ion-label>Start Date</ion-label>
+          <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="date"></ion-datetime>
+        </ion-item>
+
+          <!--START TIME -->
+        <ion-item>
+          <ion-label>Start Time</ion-label>
+          <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="timestarts"></ion-datetime>
+        </ion-item>
+    <!-- END DATE -->
+        <ion-item>
+          <ion-label>Ends</ion-label>
+          <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="timeEnds"></ion-datetime>
+        </ion-item>
+
+<!-- blank space -->
+<ion-label>
+
+</ion-label>
+
+<button id="AddAnnouncements" ion-button color="header" on-click="Announcements()" block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;">
+      Save
+     </button>
+
+     </ion-list>
 </ion-content>
