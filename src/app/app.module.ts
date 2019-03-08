@@ -40,6 +40,7 @@ import { Transfer} from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
 import { ServiceResetpasswordProvider } from '../providers/service-resetpassword/service-resetpassword';
+import { Resetpassword2Page } from '../pages/resetpassword2/resetpassword2';
  
 
  @NgModule({ 
@@ -48,6 +49,7 @@ import { ServiceResetpasswordProvider } from '../providers/service-resetpassword
     HomePage,
     LoginPage,
     ResetpasswordPage,
+    Resetpassword2Page,
     TeacherHomePage,
     TeacherProfilePage,
     StudentdashboardPage,
@@ -83,6 +85,7 @@ import { ServiceResetpasswordProvider } from '../providers/service-resetpassword
     HomePage,
     LoginPage,
     ResetpasswordPage,
+    Resetpassword2Page,
     TeacherHomePage,
     StudentdashboardPage,
     TeacherdashboardPage,

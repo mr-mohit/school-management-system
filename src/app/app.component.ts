@@ -16,6 +16,7 @@ import { SettingPage } from '../pages/setting/setting';
 import { ServiceLoginProvider } from '../providers/service-login/service-login';
 import { StudentdashboardPage } from '../pages/studentdashboard/studentdashboard';
 import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard';
+import { Resetpassword2Page } from '../pages/resetpassword2/resetpassword2';
 
 
 
@@ -24,7 +25,7 @@ import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard
 })
 export class MyApp {
   @ViewChild(Nav) navCtrl: Nav;
-    rootPage:any = LoginPage;
+    rootPage:any = Resetpassword2Page;
     //declaration of array for side menu
     Student_a:Array<{title:string, icon:string,component:any,}>;    //array for student
     Teacher_a:Array<{title:string, icon:string,component:any,}>;    //array for teacher

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { ServiceResetpasswordProvider } from '../../providers/service-resetpassword/service-resetpassword';
+import { Resetpassword2Page } from '../resetpassword2/resetpassword2';
 
 /**
  * Generated class for the ResetpasswordPage page.
@@ -44,22 +45,8 @@ export class ResetpasswordPage {
      {
        const alert = this.alertCtrl.create({
         title: 'hello'+' '+this.recdata.data[0].USER_NAME, 
-        subTitle: 'Enter the otp that has been sent to your email',
-        inputs: [
-          {
-            name: 'otp',
-            id: 'otp',
-            type: 'tel',
-            placeholder: 'enter otp'
-          }, // enter the OTP receive through the email
-          {
-            name: 'pass',
-            type: 'password',
-            placeholder: 'new password',
-            min:8,
-            max:30
-          } // set the new password
-        ],
+        subTitle: 'The otp that has been sent to your email',
+        message: 'Click Ok -> to set the new password',
         buttons: [
         {
             text: 'Cancel',
@@ -70,29 +57,31 @@ export class ResetpasswordPage {
         {
            text: 'Ok',
            handler: abc => {
-           if(abc.otp==this.recdata.data[0].OTP && abc.pass!=null) // check if the otp entered is matching with stored one
-           {
-           // console.log("correct otp");
-            let data2={
-              regNo: this.recdata.data[0].USER_ID,
-              newpassword: abc.pass,
-              process:'2'
-            } // set the new password
-             this.service.resetpassword(data2).then((data:any)=>{
 
-              if(data['statuscode']==1)
-              {
-                this.navCtrl.pop();
-              }
+             this.navCtrl.push(Resetpassword2Page);
+          //  if(abc.otp==this.recdata.data[0].OTP && abc.pass!=null) // check if the otp entered is matching with stored one
+          //  {
+          //  // console.log("correct otp");
+          //   let data2={
+          //     regNo: this.recdata.data[0].USER_ID,
+          //     newpassword: abc.pass,
+          //     process:'2'
+          //   } // set the new password
+          //    this.service.resetpassword(data2).then((data:any)=>{
+
+          //     if(data['statuscode']==1)
+          //     {
+          //       this.navCtrl.pop();
+          //     }
       
 
-             }); // call the correct method 
-            // this.navCtrl.pop();
-          }
-          else{
-            this.service.showerrortoast('otp is invalid');
-            return false;
-          }
+          //    }); // call the correct method 
+          //   // this.navCtrl.pop();
+          // }
+          // else{
+          //   this.service.showerrortoast('otp is invalid');
+          //   return false;
+          // }
           
          }
         }]

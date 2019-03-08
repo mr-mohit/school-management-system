@@ -132,7 +132,8 @@ export class AddUsersPage {
 
   save()
   {
-        
+     if(this.slideOneForm.valid && this.slideTwoForm.valid && this.slideThreeForm.valid)
+     {
       if(this.slideTwoForm.getRawValue().userpassword == this.slideTwoForm.getRawValue().userpassword2)
       {
          // this.userInfos["userpic"] = this.slideOneForm.getRawValue().userpic;
@@ -186,6 +187,12 @@ export class AddUsersPage {
       else{
           alert("password and confirmation password are not matching");
       }
+     }
+     else
+     {
+      alert('Please fill all the fields properly, some of them are not valid');
+     }   
+      
 
   }
 
@@ -283,7 +290,7 @@ export class AddUsersPage {
   // upload image to the server
   public uploadImage() {
     // Destination URL
-    var url = "http://172.26.17.78/schoolapi/uploadImage.php";
+    var url = "http://172.26.17.114/schoolapi/uploadImage.php";
    
     // File for Upload
     var targetPath = this.pathForImage(this.lastImage);
