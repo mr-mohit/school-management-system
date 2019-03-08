@@ -11,7 +11,7 @@ import { Injectable } from '@angular/core';
 export class ServiceAddsubjectProvider {
 
   //public data:any;
-   //public URL="http://localhost/schoolapi/"; //for local use
+  // public URL="http://localhost/schoolapi/"; //for local use
   public URL="https://direct-school.000webhostapp.com/"; //for hosting
   constructor(public http: HttpClient) {
     console.log("Hello ServiceAddsubjectProvider Provider");
@@ -32,7 +32,7 @@ export class ServiceAddsubjectProvider {
         }
         else
         {
-          alert("Unable to Add");
+          alert("Subject ID Exist/Unable To Add");
         }
         resolve(data);
       },error=>{
