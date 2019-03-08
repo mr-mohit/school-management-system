@@ -34,6 +34,8 @@ import { StudentQuizPage } from '../pages/student-quiz/student-quiz';
 import { StudentProfilePage } from '../pages/student-profile/student-profile';
 import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
 import { ServiceAdduserProvider } from '../providers/service-adduser/service-adduser';
+import {AdminProfilePage} from '../pages/admin-profile/admin-profile';
+import { NativeStorage } from '@ionic-native/native-storage';
 
 import { File } from '@ionic-native/file';
 import { Transfer} from '@ionic-native/transfer';
@@ -62,6 +64,7 @@ import { Resetpassword2Page } from '../pages/resetpassword2/resetpassword2';
     AdminDashboardPage,
     StudentQuizPage,
     StudentQuiz1Page,
+    AdminProfilePage,
     AdminHomePage,
     AdminAddPage,
     AdminViewPage,
@@ -98,6 +101,7 @@ import { Resetpassword2Page } from '../pages/resetpassword2/resetpassword2';
     StudentTimeTablePage,
     StudentResultPage,
     AdminDashboardPage,
+    AdminProfilePage,
     AdminHomePage,
     AdminAddPage,
     AdminViewPage,
@@ -125,6 +129,7 @@ import { Resetpassword2Page } from '../pages/resetpassword2/resetpassword2';
     ServiceLoginProvider,
     ServiceAdduserProvider,
     ServiceResetpasswordProvider,
+    NativeStorage
   ]
 })
 export class AppModule {}
