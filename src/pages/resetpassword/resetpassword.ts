@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController, Loading } from 'ionic-angular';
 import { ServiceResetpasswordProvider } from '../../providers/service-resetpassword/service-resetpassword';
 import { Resetpassword2Page } from '../resetpassword2/resetpassword2';
 
@@ -21,9 +21,11 @@ export class ResetpasswordPage {
   email : any; // email address of the user who want to reset his password
   regNo : any; // registration number of the user 
   recdata: any;
+  loading :Loading;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-     public alertCtrl: AlertController,public service : ServiceResetpasswordProvider) {
+     public alertCtrl: AlertController, public loadingCtrl : LoadingController,
+     public service : ServiceResetpasswordProvider) {
   }
 
  // reset password
@@ -43,6 +45,12 @@ export class ResetpasswordPage {
      this.recdata=data;
      if(data['statuscode']==1)
      {
+        // wait during loading process 
+        this.loading = this.loadingCtrl.create({
+          content: 'Wait...',
+        });
+        this.loading.present();
+
        const alert = this.alertCtrl.create({
         title: 'hello'+' '+this.recdata.data[0].USER_NAME, 
         subTitle: 'The otp that has been sent to your email',
