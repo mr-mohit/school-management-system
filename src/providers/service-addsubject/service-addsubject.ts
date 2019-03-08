@@ -11,8 +11,8 @@ import { Injectable } from '@angular/core';
 export class ServiceAddsubjectProvider {
 
   //public data:any;
-   public URL="http://localhost/schoolapi/"; //for local use
- // public URL="https://direct-school.000webhostapp.com/"; //for hosting
+   //public URL="http://localhost/schoolapi/"; //for local use
+  public URL="https://direct-school.000webhostapp.com/"; //for hosting
   constructor(public http: HttpClient) {
     console.log("Hello ServiceAddsubjectProvider Provider");
   }
@@ -45,10 +45,8 @@ export class ServiceAddsubjectProvider {
 
   postSubject(subject)
   {
-    //console.log(subject);
+    console.log(subject);
     var url=this.URL+"addSubject.php";
-    console.log("whole url",url);
-    console.log("whole data",subject);
     return this.postData(url,subject);
   }
 }
