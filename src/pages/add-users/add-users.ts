@@ -152,6 +152,7 @@ export class AddUsersPage {
           this.userInfos["userpassword"] = this.slideTwoForm.getRawValue().userpassword;
           this.userInfos["userfathername"] =  this.slideTwoForm.getRawValue().userfathername;
           this.userInfos["usermothername"] =  this.slideTwoForm.getRawValue().usermothername;
+          this.userInfos["usercity"] =  this.slideTwoForm.getRawValue().usercity;
           this.userInfos["useraddresstype"] =  this.slideThreeForm.getRawValue().addressType;
           this.userInfos["useraddress1"] =  this.slideThreeForm.getRawValue().address1;
           this.userInfos["useraddress2"] =  this.slideThreeForm.getRawValue().address2;
