@@ -29,7 +29,7 @@ export class ServiceLoginProvider {
     return new Promise(resolve=>{
       this.http.post(url,JSON.stringify(data1)).subscribe(data=>{
         console.log(data);
-        this.recdata=data;        
+        this.recdata=data;          
         if(data['statuscode'] == 1)
          {
           this.user_role=this.recdata.data[0].ROLE;//storing the role of user into the variable named user_role

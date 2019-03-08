@@ -28,7 +28,6 @@ import { AdminDeletePage } from '../pages/admin-delete/admin-delete';
 import { AdminUpdatePage } from '../pages/admin-update/admin-update';
 import { AdminMessagesPage } from '../pages/admin-messages/admin-messages';
 import { AddUsersPage } from '../pages/add-users/add-users';
-import { UserAddressPage } from '../pages/user-address/user-address';
 import { ServiceLoginProvider } from '../providers/service-login/service-login';
 import {TeacherProfilePage} from '../pages/teacher-profile/teacher-profile';
 import { ServiceAddsubjectProvider } from '../providers/service-addsubject/service-addsubject';
@@ -40,6 +39,14 @@ import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
 import { ServiceAdminAnnouncements } from '../providers/service-AdminAnnoucement/service-announcement';
 import { AddSessionPage } from '../pages/add-session/add-session';
 import { ServiceAddSessionProvider } from '../providers/service-add-session/service-add-session';
+import { NativeStorage } from '@ionic-native/native-storage';
+import { File } from '@ionic-native/file';
+import { Transfer} from '@ionic-native/transfer';
+import { FilePath } from '@ionic-native/file-path';
+import { Camera } from '@ionic-native/camera';
+import { ServiceResetpasswordProvider } from '../providers/service-resetpassword/service-resetpassword';
+import { Resetpassword2Page } from '../pages/resetpassword2/resetpassword2';
+ 
 
  @NgModule({ 
   declarations: [
@@ -47,6 +54,7 @@ import { ServiceAddSessionProvider } from '../providers/service-add-session/serv
     HomePage,
     LoginPage,
     ResetpasswordPage,
+    Resetpassword2Page,
     TeacherHomePage,
     TeacherProfilePage,
     StudentdashboardPage,
@@ -70,7 +78,6 @@ import { ServiceAddSessionProvider } from '../providers/service-add-session/serv
     AdminUpdatePage,
     AdminMessagesPage,
     AddUsersPage,
-    UserAddressPage,
     AddSubjectsPage,
     SettingPage,
     StudentProfilePage,
@@ -87,6 +94,7 @@ import { ServiceAddSessionProvider } from '../providers/service-add-session/serv
     HomePage,
     LoginPage,
     ResetpasswordPage,
+    Resetpassword2Page,
     TeacherHomePage,
     StudentdashboardPage,
     TeacherdashboardPage,
@@ -110,7 +118,6 @@ import { ServiceAddSessionProvider } from '../providers/service-add-session/serv
     AdminUpdatePage,
     AdminMessagesPage,
     AddUsersPage,
-    UserAddressPage,
     AddSubjectsPage,
     SettingPage,
     StudentProfilePage,
@@ -121,14 +128,21 @@ import { ServiceAddSessionProvider } from '../providers/service-add-session/serv
     //SQLite,
     //SQLiteObject,
     SplashScreen,
+
+    File, 
+    Transfer,
+    Camera,
+    FilePath,
+
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ServiceLoginProvider,
     ServiceAdduserProvider,
     QuizServiceProvider,
     ServiceAddsubjectProvider,
-    ServiceAdduserProvider,
     ServiceAdminAnnouncements,
-    ServiceAddSessionProvider
+    ServiceAddSessionProvider,
+    ServiceResetpasswordProvider,
+    NativeStorage
   ]
 })
 export class AppModule {}
