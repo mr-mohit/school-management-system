@@ -39,7 +39,9 @@ export class AddUsersPage {
   userInfos =
   {
      "userpic":"a",
-     "username":"",
+     "userRegNo":"",
+     "userfirstname":"",
+     "userlastname":"",
      "userrole":"",
      "userdob":"",
      "usergender":"",
@@ -47,6 +49,7 @@ export class AddUsersPage {
      "userpassword":"",
      "userfathername":"",
      "usermothername":"",
+     "usercity":"",
      "useraddresstype":"",
      "useraddress1":"",
      "useraddress2":"",
@@ -68,7 +71,8 @@ export class AddUsersPage {
     this.slideOneForm = formBuilder.group({
       userid: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]+'), Validators.required])],
      // userpic: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]+'), Validators.required])],
-      username: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]+'), Validators.required])],
+      userfirstname: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]+'), Validators.required])],
+      userlastname: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]+'), Validators.required])],
       userrole: ['', Validators.compose([Validators.pattern('[a-zA-Z ]+'), Validators.required])],
       userdob: ['', Validators.compose([ Validators.required])],
       usergender: ['', Validators.compose([Validators.pattern('[a-zA-Z ]+'), Validators.required])],
@@ -81,6 +85,7 @@ export class AddUsersPage {
       userpassword2: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[#$^+=!*()@%&]).{8,35}$'), Validators.required])],
       userfathername: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
       usermothername: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
+      usercity: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
      
     });
 
@@ -137,7 +142,9 @@ export class AddUsersPage {
       if(this.slideTwoForm.getRawValue().userpassword == this.slideTwoForm.getRawValue().userpassword2)
       {
          // this.userInfos["userpic"] = this.slideOneForm.getRawValue().userpic;
-          this.userInfos["username"] = this.slideOneForm.getRawValue().username;
+          this.userInfos["userRegNo"] = this.service.userID;
+          this.userInfos["userfirstname"] = this.slideOneForm.getRawValue().userfirstname;
+          this.userInfos["userlastname"] = this.slideOneForm.getRawValue().userlastname;
           this.userInfos["userrole"] = this.slideOneForm.getRawValue().userrole;
           this.userInfos["userdob"] =  this.slideOneForm.getRawValue().userdob;
           this.userInfos["usergender"] =  this.slideOneForm.getRawValue().usergender;
@@ -170,7 +177,7 @@ export class AddUsersPage {
             }
           }
           // here we check if all the fields have been filled
-          if(a == 15 && this.lastImage!==  null)
+          if(a == 18 && this.lastImage!==  null)
           {
             this.userInfos['userpic']= this.lastImage;
             //this.uploadImage(); // upload image in the server
