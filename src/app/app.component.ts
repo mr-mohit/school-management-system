@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Platform, Nav, AlertController, ToastController, ToastOptions  } from 'ionic-angular';
+import { Platform, Nav, AlertController, ToastController} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from '../pages/login/login';
@@ -16,9 +16,6 @@ import { SettingPage } from '../pages/setting/setting';
 import { ServiceLoginProvider } from '../providers/service-login/service-login';
 import { StudentdashboardPage } from '../pages/studentdashboard/studentdashboard';
 import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard';
-import { ServiceAddsubjectProvider} from '../providers/service-addsubject/service-addsubject';
-
-import { Resetpassword2Page } from '../pages/resetpassword2/resetpassword2';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
 
