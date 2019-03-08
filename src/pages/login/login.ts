@@ -70,11 +70,6 @@ public user:any=
          else
          {
            //showing alert in case of wrong password and user 
-          const alert = this.alertCtrl.create({
-            title: 'Invaild User!',
-            buttons: ['OK']
-          });
-          alert.present();
          }
 })  //calling service function end
 }

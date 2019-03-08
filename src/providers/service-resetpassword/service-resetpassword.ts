@@ -11,7 +11,7 @@ import { AlertController, ToastController } from 'ionic-angular';
 @Injectable()
 export class ServiceResetpasswordProvider {
 
-  public URL="http://172.26.17.81/schoolapi/";
+  public URL="http://localhost/schoolapi/";
   recdata: any;
  
 

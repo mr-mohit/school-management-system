@@ -298,7 +298,7 @@ export class AddUsersPage {
   // upload image to the server
   public uploadImage() {
     // Destination URL
-    var url = "http://172.26.17.114/schoolapi/uploadImage.php";
+    var url = "http://localhost/schoolapi/uploadImage.php";
    
     // File for Upload
     var targetPath = this.pathForImage(this.lastImage);
