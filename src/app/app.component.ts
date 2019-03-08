@@ -46,12 +46,13 @@ export class MyApp {
       this.nativeStorage.getItem('LoginInfo')
   .then(
     data => {this.userId= data.RegistrationId;
-            this.pass=data.Password;
+            this.pass=data.PASSWORD;
             this.type=data.role;
 
-            if(this.userId!==undefined){
+            if(this.userId!=undefined){
               if(this.type.toLowerCase()==='admin'){
                   this.rootPage=AdminDashboardPage;
+                  console.log(this.userId+' '+this.pass);
               }else if(this.type.toLowerCase()==='student'){
                   this.rootPage=StudentdashboardPage;
               }else if(this.type.toLowerCase()==='teacher'){

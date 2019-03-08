@@ -30,8 +30,8 @@ public user:any=
   {
   
 
-        this.user['REG_NO']=this.REG_NO;//get user name from login.html
-        this.user['PASSWORD']=this.PASSWORD;//get password entered by user from login.html
+        this.user['REG_NO']=REG_NO;//get user name from login.html
+        this.user['PASSWORD']=PASSWORD;//get password entered by user from login.html
         
         //calling services for login and sending data to API
         this.service.postlogin(this.user).then(data=>{
