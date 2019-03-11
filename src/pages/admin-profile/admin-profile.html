@@ -12,8 +12,10 @@
 
 <ion-content padding class="text">
   <!-- used for display profile image of user -->
-  <div class="upperhalf">   
-      <img src="assets/imgs/logo1.png" style="display:block;width: 30%;margin-left:auto;margin-right:auto;border-radius: 60%;height: 167px;" /> 
+  <div class="upperhalf">  
+     <ion-avatar> 
+        <img src= "{{service?.recdata?.data[0]?.USER_PIC}}" style="display:block;width: 50%;margin-left:auto;margin-right:auto;border-radius: 60%;height: 167px;" /> 
+      </ion-avatar>
       <br>
       <!-- <div  style=" margin-left:40vw">
       <strong><label>{{service?.details?.NAME}}</label></strong><br>

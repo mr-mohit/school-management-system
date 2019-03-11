@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ViewUserPage } from '../view-user/view-user';
 
 /**
  * Generated class for the AdminViewPage page.
@@ -20,6 +21,12 @@ export class AdminViewPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AdminViewPage');
+  }
+
+  // view user 
+  ViewUser()
+  {
+      this.navCtrl.push(ViewUserPage);
   }
 
 }

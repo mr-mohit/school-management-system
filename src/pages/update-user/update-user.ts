@@ -1,28 +1,25 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, ActionSheetController, ToastController, LoadingController, Loading, Platform, AlertController} from 'ionic-angular';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ServiceAdduserProvider } from '../../providers/service-adduser/service-adduser';
+import { IonicPage, NavController, NavParams, Loading, ActionSheetController, ToastController, LoadingController, AlertController, Platform } from 'ionic-angular';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Camera } from '@ionic-native/camera';
 import { Transfer, TransferObject } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { File } from '@ionic-native/file';
 
-
 /**
- * Generated class for the AddUsersPage page.
+ * Generated class for the UpdateUserPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
+
 declare var cordova: any;
-@IonicPage()
+
 @Component({
-  selector: 'page-add-users',
-  templateUrl: 'add-users.html',
+  selector: 'page-update-user',
+  templateUrl: 'update-user.html',
 })
-export class AddUsersPage {
-
-
+export class UpdateUserPage {
 
 
   @ViewChild('signupSlider') signupSlider: any;
@@ -63,14 +60,14 @@ export class AddUsersPage {
   }
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform,
-              public formBuilder: FormBuilder, public service:ServiceAdduserProvider,
+  constructor(public navCtrl: NavController, public navParams: NavParams,public platform: Platform,
+              public formBuilder: FormBuilder,
               private camera: Camera, private transfer: Transfer, private file: File,
               private filePath: FilePath,public actionSheetCtrl: ActionSheetController,
               public toastCtrl: ToastController,public loadingCtrl: LoadingController,
               public alertController: AlertController) {
-  
-    // this slide is used to enter basics infos of the user
+
+                 // this slide is used to enter basics infos of the user
     this.slideOneForm = formBuilder.group({
       userid: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]+'), Validators.required])],
      // userpic: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]+'), Validators.required])],
@@ -106,11 +103,13 @@ export class AddUsersPage {
     this.slideFourForm = formBuilder.group({
  
     });
+
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AddUsersPage');
+    console.log('ionViewDidLoad UpdateUserPage');
   }
+
   // getUserAddress()
   // {
   //   this.navCtrl.push(UserAddressPage);
@@ -133,7 +132,7 @@ export class AddUsersPage {
       }
       else
       {
-        this.service.getID(this.slideOneForm.getRawValue().userrole);
+       // this.service.getID(this.slideOneForm.getRawValue().userrole);
       }
     }
 
@@ -144,7 +143,7 @@ export class AddUsersPage {
       if(this.slideTwoForm.getRawValue().userpassword == this.slideTwoForm.getRawValue().userpassword2)
       {
          // this.userInfos["userpic"] = this.slideOneForm.getRawValue().userpic;
-          this.userInfos["userRegNo"] = this.service.userID;
+        //  this.userInfos["userRegNo"] = this.service.userID;
           this.userInfos["userfirstname"] = this.slideOneForm.getRawValue().userfirstname;
           this.userInfos["userlastname"] = this.slideOneForm.getRawValue().userlastname;
           this.userInfos["userrole"] = this.slideOneForm.getRawValue().userrole;
@@ -353,7 +352,7 @@ export class AddUsersPage {
           handler: () => {
            // console.log(a);
               this.uploadImage(); // upload image in the server
-              this.service.postuser(a); // send the user infos to the provider  
+             // this.service.postuser(a); // send the user infos to the provider  
               this.navCtrl.pop();
           }
         }
