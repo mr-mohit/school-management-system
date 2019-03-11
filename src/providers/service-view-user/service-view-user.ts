@@ -11,7 +11,7 @@ import { Injectable } from '@angular/core';
 export class ServiceViewUserProvider {
 
   public data:any;
-  public URL="http://localhost/schoolapi/";
+  public URL="http://192.168.1.11/schoolapi/";
   recdata: any;
 
   constructor(public http: HttpClient) {
@@ -30,7 +30,7 @@ export class ServiceViewUserProvider {
         if(data['statuscode'] == 1)
          {
             this.recdata=data; 
-            console.log(this.recdata.statuscode);
+            console.log(this.recdata);
          }else
          {
            
