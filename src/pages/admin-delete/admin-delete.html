@@ -1,5 +1,5 @@
 <!--
-  Generated template for the AdminDeletePage page.
+  Generated template for the AdminAddPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -10,6 +10,63 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+  
+  <div  padding style="margin-top:10vh;">
+      <ion-row no-padding>
+      
+        <ion-col col-4 >
+       <ion-card class="bkgcolor"  no-margin on-click="DeleteUser()">
+      <p> <ion-icon name="close" style="margin-left:31%; margin-top:20%;color: white !important; font-size:400%;">
+       </ion-icon></p>
+       </ion-card>
+     <strong>  <ion-label text-wrap style="padding-left:8vw; color: white">User</ion-label> </strong> 
+     </ion-col>
+     <ion-col col-4>
+       <ion-card class="bkgcolor"  no-margin on-click="DeleteSubject()">
+        <p> <ion-icon name="close" style="margin-left:30%; margin-top:20%; font-size:400%;color: white !important;"></ion-icon></p>
+          
+       </ion-card>
+     <strong>  <ion-label text-wrap style="padding-left:8vw; color: white ">Subject</ion-label> </strong> 
+     </ion-col>
+     <ion-col col-4>
+      
+      <ion-card class="bkgcolor"  no-margin on-click="DeleteClass()">
+         <p> <ion-icon name="close" style="margin-left:30%; margin-top:20%;color: white !important; font-size:400%;"></ion-icon></p>
+
+       </ion-card>
+        <strong>  <ion-label style="padding-left:8vw; color: white; ">Class</ion-label> </strong> 
+
+     </ion-col>
+     </ion-row> 
+      <ion-row no-padding>
+      
+        <ion-col col-4 >
+       <ion-card class="bkgcolor"  no-margin on-click="DeleteTimeTable()">
+         <p> <ion-icon name="close" style="margin-left:31%; margin-top:20%;color: white !important; font-size:400%;"></ion-icon></p>
+
+       </ion-card>
+              <strong>  <ion-label text-wrap style="padding-left:4vw; color: white">Timetable</ion-label> </strong> 
+
+     </ion-col>
+     <ion-col col-4>
+       <ion-card class="bkgcolor"  no-margin on-click="DeleteSession()">
+          <p> <ion-icon name="close" style="margin-left:29%; margin-top:20%;color: white !important; font-size:400%;"></ion-icon></p>
+
+
+       </ion-card>
+        <strong>  <ion-label text-wrap style="padding-left:6vw; color: white">Session</ion-label> </strong> 
+     </ion-col>
+     <ion-col col-4>
+       <ion-card class="bkgcolor"  no-margin>
+           <p> <ion-icon name="close" style="margin-left:27%; margin-top:20%; color: white !important;font-size:400%;"></ion-icon></p>
+
+       </ion-card>
+             <strong>  <ion-label text-wrap style="padding-left:4vw; color: white"> Messages </ion-label> </strong> 
+
+     </ion-col>
+    </ion-row>
+   </div>
+
 
 </ion-content>

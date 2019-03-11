@@ -34,6 +34,8 @@ import { ServiceAddsubjectProvider } from '../providers/service-addsubject/servi
 import {AdminProfilePage} from '../pages/admin-profile/admin-profile';
 import { ServiceAdduserProvider } from '../providers/service-adduser/service-adduser';
 import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
+import { ServiceDeleteSubjectProvider } from '../providers/service-delete-subject/service-delete-subject';
+import { DeleteSubjectsPage } from '../pages/delete-subjects/delete-subjects';
 
 
 @NgModule({
@@ -66,7 +68,8 @@ import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
     UserAddressPage,
     AddSubjectsPage,
     SettingPage,
-    StudentProfilePage
+    StudentProfilePage,
+    DeleteSubjectsPage
   ],
   imports: [
     BrowserModule,
@@ -103,7 +106,8 @@ import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
     UserAddressPage,
     AddSubjectsPage,
     SettingPage,
-    StudentProfilePage
+    StudentProfilePage,
+    DeleteSubjectsPage
   ],
   providers: [
     StatusBar,
@@ -111,7 +115,8 @@ import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ServiceLoginProvider,
     ServiceAddsubjectProvider,
-    ServiceAdduserProvider
+    ServiceAdduserProvider,
+    ServiceDeleteSubjectProvider
   ]
 })
 export class AppModule {}

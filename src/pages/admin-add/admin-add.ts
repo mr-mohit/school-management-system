@@ -15,7 +15,7 @@ import { AddSubjectsPage } from '../add-subjects/add-subjects';
   selector: 'page-admin-add',
   templateUrl: 'admin-add.html',
 })
-export class AdminAddPage {
+export class AdminAddPage{
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

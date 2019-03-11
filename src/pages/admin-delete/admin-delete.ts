@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,AlertController } from 'ionic-angular';
+import { DeleteSubjectsPage } from '../delete-subjects/delete-subjects';
 
 /**
  * Generated class for the AdminDeletePage page.
@@ -15,11 +16,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AdminDeletePage {
 
+  public sujectlist:any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    console.log("data inside the adim delete interface",this.sujectlist);
+                
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AdminDeletePage');
-  }
-
+  DeleteSubject()
+  {
+    this.navCtrl.push(DeleteSubjectsPage);
+  }  
 }

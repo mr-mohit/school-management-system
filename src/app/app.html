@@ -15,14 +15,14 @@
         Logout
       </ion-item>
     </ion-list> -->
-    <ion-list *ngIf="service.user_role=='student'" >
+    <ion-list *ngIf="service.user_role=='STUDENT'" >
       <button menuClose ion-item *ngFor="let p of Student_a" (click)="openPage(p)" >
         <ion-icon name="{{p.icon}}" item-left>   </ion-icon>
         {{p.title}}
       </button>
     </ion-list>
     <!-- Techer Element -->
-    <ion-list *ngIf="service.user_role=='teacher'" >
+    <ion-list *ngIf="service.user_role=='TEACHER'" >
         <button menuClose ion-item *ngFor="let p of Teacher_a" (click)="openPage(p)" >
           <ion-icon name="{{p.icon}}" item-left>   </ion-icon>
           {{p.title}}

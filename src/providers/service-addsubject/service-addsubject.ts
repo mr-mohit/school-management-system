@@ -17,17 +17,16 @@ export class ServiceAddsubjectProvider {
   }
   postData(url,data1)
   {
-    
     return new Promise(resolve=>{
       this.http.post(url,JSON.stringify(data1)).subscribe(data=>{
-        if(data['statuscode'] == 1)
-        {
-          console.log("Inserted successfully");
-        }
-        else
-        {
-          console.log("Insertion unsuccessfull");
-        }
+        // if(data['statuscode'] == 1)
+        // {
+        //   //console.log("Inserted successfully");
+        // }
+        // else
+        // {
+        //   //console.log("Insertion unsuccessfull");
+        // }
         resolve(data);
       },error=>{
         //console.log(data1);
