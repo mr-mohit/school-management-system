@@ -5,6 +5,7 @@ import { AddSubjectsPage } from '../add-subjects/add-subjects';
 import { AddSessionPage } from '../add-session/add-session';
 import { ServiceViewSessionProvider } from '../../providers/service-view-session/service-view-session';
 import { AddTermPage } from '../add-term/add-term';
+import { AddClassPage } from '../add-class/add-class';
 
 /**
  * Generated class for the AdminAddPage page.
@@ -34,7 +35,7 @@ export class AdminAddPage {
   }
   AddClass()
   {
-
+     this.navCtrl.push(AddClassPage)
   }
   AddTimeTable()
   {
