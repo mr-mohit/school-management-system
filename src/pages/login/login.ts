@@ -32,7 +32,6 @@ public user:any=
       const loader = this.loadingCtrl.create({
         content: "Please wait...",
         dismissOnPageChange:true,
-        duration:20000,
       });
       loader.present();
 
@@ -77,7 +76,7 @@ public user:any=
          }
          else
          {
-           //showing alert in case of wrong password and user 
+              loader.dismiss();
          }
 });  //calling service function end
 }

@@ -14,14 +14,10 @@ import { TeacherAnnouncementPage } from '../pages/teacher-announcement/teacher-a
 import { AboutUsPage } from '../pages/about-us/about-us';
 import { SettingPage } from '../pages/setting/setting';
 import { ServiceLoginProvider } from '../providers/service-login/service-login';
-import { AdminHomePage } from '../pages/admin-home/admin-home';
-import { AddSessionPage } from '../pages/add-session/add-session';
 import { StudentdashboardPage } from '../pages/studentdashboard/studentdashboard';
 import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard';
-import { ServiceAddsubjectProvider} from '../providers/service-addsubject/service-addsubject';
-import { AddTermPage } from '../pages/add-term/add-term';
 import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
-import { AddClassPage } from '../pages/add-class/add-class';
+
 
 import { NativeStorage } from '@ionic-native/native-storage';
 
