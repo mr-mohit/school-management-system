@@ -18,7 +18,7 @@ export class AdminDeletePage {
 
   public sujectlist:any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    console.log("data inside the adim delete interface",this.sujectlist);
+    //console.log("data inside the adim delete interface",this.sujectlist);
                 
   }
   DeleteSubject()
