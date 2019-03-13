@@ -6,13 +6,9 @@ import { AddSessionPage } from '../add-session/add-session';
 import { ServiceViewSessionProvider } from '../../providers/service-view-session/service-view-session';
 import { AddTermPage } from '../add-term/add-term';
 import { AddClassPage } from '../add-class/add-class';
+import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 
-/**
- * Generated class for the AdminAddPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -21,13 +17,14 @@ import { AddClassPage } from '../add-class/add-class';
 })
 export class AdminAddPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public getSession:ServiceViewSessionProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public getSession:ServiceViewSessionProvider,public cid:ServiceGetClassMasterProvider) {
   
   }
 
-  AddUser()
+  AddUser()    //this function will open Addusers page and load all the classes so they can be used to set class for student
   {
     this.navCtrl.push(AddUsersPage);
+    this.cid.getClassFun();   //this will call the function of ServiceGetClassMaster through cid object of same service
   }
   AddSubject()
   {
@@ -57,4 +54,6 @@ export class AdminAddPage {
     });
    
   }
+
+
 }
