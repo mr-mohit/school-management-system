@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Platform, Nav, AlertController } from 'ionic-angular';
+import { Platform, Nav, AlertController, ToastController} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from '../pages/login/login';
@@ -23,6 +23,7 @@ import { AddTermPage } from '../pages/add-term/add-term';
 import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
 import { AddClassPage } from '../pages/add-class/add-class';
 
+import { NativeStorage } from '@ionic-native/native-storage';
 
 
 @Component({
@@ -30,14 +31,17 @@ import { AddClassPage } from '../pages/add-class/add-class';
 })
 export class MyApp {
   @ViewChild(Nav) navCtrl: Nav;
-    rootPage:any =AddClassPage;
+    rootPage:any;
+    toast:any;
+    public userId:any;
+    public pass:any;
+    public type:any;
     //declaration of array for side menu
     Student_a:Array<{title:string, icon:string,component:any,}>;    //array for student
     Teacher_a:Array<{title:string, icon:string,component:any,}>;    //array for teacher
     help:Array<{title:string, icon:string,component:any,}>;
 
-  constructor(platform: Platform, statusBar: StatusBar,
-             public addSubject:ServiceAddsubjectProvider,
+  constructor(platform: Platform, statusBar: StatusBar,private nativeStorage: NativeStorage,public toastCtrl: ToastController,
              public service:ServiceLoginProvider, splashScreen: SplashScreen,public altertCtrl:AlertController) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -45,7 +49,43 @@ export class MyApp {
       statusBar.styleBlackOpaque();
       splashScreen.hide();
 
-    });
+      this.nativeStorage.getItem('LoginInfo')
+  .then(
+    data => {this.userId= data.RegistrationId;
+            this.pass=data.PASSWORD;
+            this.type=data.role;
+
+            if(this.userId!=undefined){
+              if(this.type.toLowerCase()==='admin'){
+                  this.rootPage=AdminDashboardPage;
+                  console.log(this.userId+' '+this.pass);
+              }else if(this.type.toLowerCase()==='student'){
+                  this.rootPage=StudentdashboardPage;
+              }else if(this.type.toLowerCase()==='teacher'){
+                  this.rootPage=TeacherdashboardPage;
+              }
+            }else{
+              this.rootPage=LoginPage;
+           }
+          },
+    error => {console.error(error);
+              this.rootPage=LoginPage}
+  );
+
+  //Check if Internet is not connected
+  window.addEventListener('offline', () => {
+    //Do task when no internet connection
+    this.showToast('No Internet connection',0,false);
+    },false);
+
+    //Check if Internet is Connected
+    window.addEventListener('online', () => {
+      this.toast.dismiss();
+      this.showToast('Internet Connection Successfull',4000,true);
+      
+      },false);
+
+});
     
     //initializing the student array elements for side menu
     this.Student_a=[
@@ -98,12 +138,35 @@ export class MyApp {
         {
           text: 'Logout',
           handler: () => {
+            this.nativeStorage.remove('LoginInfo').then(
+                ()=>{'Removed Successfully'},
+                error=> console.log('Error Removing data '+error)
+            );
             this.navCtrl.setRoot(LoginPage);
           }
         }
       ]
     });
     confirm.present();
+  }
+
+  showToast(msg:any,time:number,dismiss:boolean){
+    this.toast = this.toastCtrl.create({
+      message: msg ,
+      duration: time ,
+      position: 'top',
+      showCloseButton: true,
+      closeButtonText: 'OK',
+  });
+ // if(dismiss===true)
+      
+  // Handle "ok" button action
+this.toast.onDidDismiss((data, role) => {
+  if (role == 'close') {
+      //Do something on press of "Ok" button
+  }
+});
+this.toast.present();
   }
  
 }

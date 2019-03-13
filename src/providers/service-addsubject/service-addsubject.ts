@@ -32,7 +32,7 @@ export class ServiceAddsubjectProvider {
         }
         else
         {
-          alert("Unable to Add");
+          alert("Subject ID Exist/Unable To Add");
         }
         resolve(data);
       },error=>{
@@ -45,10 +45,8 @@ export class ServiceAddsubjectProvider {
 
   postSubject(subject)
   {
-    //console.log(subject);
+    console.log(subject);
     var url=this.URL+"addSubject.php";
-    console.log("whole url",url);
-    console.log("whole data",subject);
     return this.postData(url,subject);
   }
 }

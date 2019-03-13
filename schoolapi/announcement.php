@@ -34,7 +34,7 @@ if($con)
        $Start_Time=test_input($obj['timestarts']);
        $End_Time=test_input($obj['timeEnds']);
     
-		$sql = "INSERT INTO announcement(USER_ID,CATEGORY,TITLE,DESCRIPTION,START_TIME,END_TIME) 
+		$sql = "INSERT INTO announcement(REG_NO,CATEGORY,TITLE,DESCRIPTION,START_TIME,END_TIME) 
 		VALUES('$User_id','$Category','$Title','$Description','$Start_Time','$End_Time')";
 		if(mysqli_query($con,$sql))
 		{

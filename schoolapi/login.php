@@ -27,19 +27,19 @@ if($con){
 			//echo"Connection Sucessfull";
              $postdata=file_get_contents("php://input");
 	         $obj=json_decode($postdata);
-	         $username=test_input($obj->{'username'});
-	         $password=test_input($obj->{'password'});
-             $sql="SELECT * FROM user WHERE USER_ID='$username' and PASSWORD='$password'";
+	         $regNo=test_input($obj->{'REG_NO'});
+	         $password=test_input($obj->{'PASSWORD'});
+             $sql="SELECT * FROM user WHERE REG_NO='$regNo' and PASSWORD='$password'";
              $query = mysqli_query($con,$sql);
 		         $count = mysqli_num_rows($query);
 				 
 		         if ($count == 0) {
 					 
-			         result(0,"Invalid username or Password");  
+			         result(0,"Invalid REG_NO or Password");  
                     }
 		          else{ 
 					     
-					   $query="SELECT * FROM user WHERE USER_ID='$username'";
+					   $query="SELECT * FROM user WHERE REG_NO='$regNo'";
 					   $result = mysqli_query($con,$query);
                        while($row=mysqli_fetch_assoc($result)){						   
                        $data[]=$row;
@@ -47,7 +47,7 @@ if($con){
 						//print_r($data);
 					   }
 						 //$temp=$data[0]['USER_ID'];
-						 $query1="SELECT * FROM user_address WHERE USER_ID='$username'";
+						 $query1="SELECT * FROM user_address WHERE REG_NO='$regNo'";
 					     $result = mysqli_query($con,$query1);
                          while($row=mysqli_fetch_assoc($result)){						   
                          $data1[]=$row;
@@ -57,7 +57,7 @@ if($con){
                      }
 					 
                        mysqli_close($con);
-					   $response['data']=$data;
+				       $response['data']=$data;
 					   $response['address']=$data1;
 				       $response['statuscode']=1;
 				       echo json_encode($response);

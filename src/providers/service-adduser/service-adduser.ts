@@ -10,26 +10,11 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ServiceAdduserProvider {
 
-  $role:any;
-  $name:any;
-  $gender:any;
-  $dob:any;
-  $email:any;
-  $username:any;
-  $password:any;
-  $Fname:any;
-  $AddressType:any;
-  $AddressOne:any;
-  $AddressTwo:any;
-  $State:any;
-  $Pincode:any;
-  $City:any;
-  $Contact:any;
-
   public data:any;
-  public URL="http://localhost/schoolapi/"; //for local use
+  public URL="http://172.26.17.114/schoolapi/"; //for local use
   // public URL="https://direct-school.000webhostapp.com/"; //for hosting
-
+  public userID = "";
+ 
 
   constructor(public http: HttpClient) {
     //console.log('Hello ServiceLoginProvider Provider');
@@ -43,5 +28,60 @@ export class ServiceAdduserProvider {
     var url=this.URL+"adduser.php";
     return this.getData(url,data);
   }
+
+
+  postData(url,data1){
+    return new Promise(resolve=>{
+      this.http.post(url,JSON.stringify(data1)).subscribe(data=>{
+        console.log(data);
+        if(data['statuscode'] == 1)
+         {
+            alert("Insertion succesfull")
+         }else
+         {  
+           alert("Insertion failed");
+         }
+         resolve(data);
+
+      },error=>{
+        console.log("error in insertion process");
+        alert("error in insertion process");
+      });
+    });
+  }
+
+  postuser(data){
+    console.log(data);
+    var url=this.URL+"add_user.php";
+    return this.postData(url,data);
+  }
+
+ /// function used to get user id
+ getID(role)
+ {
+       console.log(role);
+       var url=this.URL+"getID.php";
+       return new Promise(resolve=>{
+         this.http.post(url,JSON.stringify(role)).subscribe(data=>{
+           console.log(data);
+           if(data['statuscode'] == 1)
+            {
+               this.userID = data['id'];
+               console.log("servie user id : ", this.userID);
+            }else
+            {  
+              alert("get User ID failed");
+            }
+            resolve(data);
+   
+         },error=>{
+           console.log("error in get User ID process");
+           alert("error in get user ID proces");
+         });
+       });
+ }
+
+ // upload image to the server
+ 
 
 }

@@ -14,10 +14,12 @@ import { ServiceAddsubjectProvider } from '../../providers/service-addsubject/se
   templateUrl: 'add-subjects.html',
 })
 export class AddSubjectsPage {
+  private subject_id:any;
   private subjectname:any;
   private subjecttype:any;
   private subjectmaterial:any;
   public subject:any={
+    "subject_id":"",
     "subjectname":"",
     "subjecttype":"",
     "subjectmaterial":""
@@ -31,8 +33,9 @@ export class AddSubjectsPage {
   }
   getSubject()
   {
-    if(this.subjectname!=undefined && this.subjecttype!=undefined && this.subjectmaterial!=undefined)
+    if(this.subject_id!=undefined && this.subjectname!=undefined && this.subjecttype!=undefined && this.subjectmaterial!=undefined)
     {
+    this.subject['subject_id']=this.subject_id;
     this.subject['subjectname']=this.subjectname;
     this.subject['subjecttype']=this.subjecttype;
     this.subject['subjectmaterial']=this.subjectmaterial;

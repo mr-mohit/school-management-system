@@ -20,13 +20,13 @@
           <ion-card-content>
               <ion-item class="user">
                   <ion-label floating>
-                   REGISTRATION NO
+                   Registration No
                   </ion-label>
                   <ion-input type="text" name="REG_NO"  [(ngModel)]="REG_NO" ></ion-input>
                 </ion-item>
                 <ion-item class="pass-word">
                   <ion-label floating>
-                    PASSWORD
+                    Password
                   </ion-label> 
                   <ion-input type="password" name="PASSWORD" [(ngModel)]="PASSWORD"></ion-input>
                 </ion-item>
@@ -41,7 +41,7 @@
         </ion-card>
         <div class="log-in"> 
             <button id="login-button3" ion-button color="header"
-            block style="border-radius:2px 2px 2px 2px;width: 200px;" on-click="ValidateLogin()">
+            block style="border-radius:2px 2px 2px 2px;width: 200px;" on-click="ValidateLogin(REG_NO,PASSWORD)">
              Log in
            </button>
       </div>

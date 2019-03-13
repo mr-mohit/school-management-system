@@ -28,7 +28,6 @@ import { AdminDeletePage } from '../pages/admin-delete/admin-delete';
 import { AdminUpdatePage } from '../pages/admin-update/admin-update';
 import { AdminMessagesPage } from '../pages/admin-messages/admin-messages';
 import { AddUsersPage } from '../pages/add-users/add-users';
-import { UserAddressPage } from '../pages/user-address/user-address';
 import { ServiceLoginProvider } from '../providers/service-login/service-login';
 import {TeacherProfilePage} from '../pages/teacher-profile/teacher-profile';
 import { ServiceAddsubjectProvider } from '../providers/service-addsubject/service-addsubject';
@@ -49,6 +48,13 @@ import { ServiceAddClassProvider } from '../providers/service-add-class/service-
 import { ClassSubjectRegPage } from '../pages/class-subject-reg/class-subject-reg';
 import { ServiceGetClassMasterProvider } from '../providers/service-get-class-master/service-get-class-master';
 import { ServiceClassSubjectRegProvider } from '../providers/service-class-subject-reg/service-class-subject-reg';
+import { File } from '@ionic-native/file';
+import { Transfer} from '@ionic-native/transfer';
+import { FilePath } from '@ionic-native/file-path';
+import { Camera } from '@ionic-native/camera';
+import { ServiceResetpasswordProvider } from '../providers/service-resetpassword/service-resetpassword';
+import { Resetpassword2Page } from '../pages/resetpassword2/resetpassword2';
+ 
 
  @NgModule({ 
   declarations: [
@@ -56,6 +62,7 @@ import { ServiceClassSubjectRegProvider } from '../providers/service-class-subje
     HomePage,
     LoginPage,
     ResetpasswordPage,
+    Resetpassword2Page,
     TeacherHomePage,
     TeacherProfilePage,
     StudentdashboardPage,
@@ -79,7 +86,6 @@ import { ServiceClassSubjectRegProvider } from '../providers/service-class-subje
     AdminUpdatePage,
     AdminMessagesPage,
     AddUsersPage,
-    UserAddressPage,
     AddSubjectsPage,
     SettingPage,
     StudentProfilePage,
@@ -99,6 +105,7 @@ import { ServiceClassSubjectRegProvider } from '../providers/service-class-subje
     HomePage,
     LoginPage,
     ResetpasswordPage,
+    Resetpassword2Page,
     TeacherHomePage,
     StudentdashboardPage,
     TeacherdashboardPage,
@@ -122,7 +129,6 @@ import { ServiceClassSubjectRegProvider } from '../providers/service-class-subje
     AdminUpdatePage,
     AdminMessagesPage,
     AddUsersPage,
-    UserAddressPage,
     AddSubjectsPage,
     SettingPage,
     StudentProfilePage,
@@ -136,6 +142,12 @@ import { ServiceClassSubjectRegProvider } from '../providers/service-class-subje
     //SQLite,
     //SQLiteObject,
     SplashScreen,
+
+    File, 
+    Transfer,
+    Camera,
+    FilePath,
+
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ServiceLoginProvider,
     ServiceAdduserProvider,
@@ -143,13 +155,14 @@ import { ServiceClassSubjectRegProvider } from '../providers/service-class-subje
     ServiceAddSessionProvider,
     QuizServiceProvider,
     ServiceAddsubjectProvider,
-    ServiceAdduserProvider,
     ServiceAdminAnnouncements,
     ServiceAddTermProvider,
     ServiceViewSessionProvider,
     ServiceAddClassProvider,
     ServiceGetClassMasterProvider,
     ServiceClassSubjectRegProvider,
+    ServiceResetpasswordProvider,
+    NativeStorage
   ]
 })
 export class AppModule {}

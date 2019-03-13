@@ -11,21 +11,26 @@
 </ion-header>
 
 <ion-content padding>
-  <form>
-  
-  <ion-label>
+  <ion-list>
 
-  </ion-label>
+      <ion-item>
+          <ion-label floating >
+            Subject Code
+          </ion-label>
+          <ion-input type="text" [(ngModel)]="subject_id" placeholder="" name="subject_id"></ion-input>
+        </ion-item>
+  
   <ion-item>
     <ion-label floating >
       Subject Name
     </ion-label>
     <ion-input type="text" [(ngModel)]="subjectname" placeholder="" name="subjectname"></ion-input>
   </ion-item>
-  
-<ion-label>
 
-</ion-label>
+  <ion-label>
+
+  </ion-label>
+
 
   <ion-item>
     <ion-label>
@@ -64,5 +69,5 @@
 <button id="addsubject" ion-button color="header" on-click="getSubject()" block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;">
       Save
      </button>
-     </form>
+    </ion-list>
 </ion-content>
