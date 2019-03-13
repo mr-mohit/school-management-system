@@ -6,13 +6,13 @@ import { Injectable } from '@angular/core';
 export class ServiceAdminAnnouncements {
 
   //public data:any;
- // public URL="http://localhost/schoolapi/"; //for local use
+  //public URL="http://localhost/schoolapi/"; //for local use
    public URL="https://direct-school.000webhostapp.com/"; //for hosting
   constructor(public http: HttpClient) {
   }
   postData(url,data1)
   {
-
+console.log("data one"+data1);
     // For header problem
     
     // var header={"header":{"Content-Type":"application/json"}};
@@ -39,7 +39,8 @@ export class ServiceAdminAnnouncements {
 
   postAnnouncements(Announcements)
   {
-  
+    console.log(Announcements);
+    console.log(typeof(Announcements));
     var url=this.URL+"announcement.php";
     return this.postData(url,Announcements);
   }
