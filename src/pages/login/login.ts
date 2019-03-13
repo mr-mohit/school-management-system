@@ -27,14 +27,8 @@ public user:any=
   
   ValidateLogin(REG_NO,PASSWORD)
   {
-      //Showing Loading
 
-      const loader = this.loadingCtrl.create({
-        content: "Please wait...",
-        dismissOnPageChange:true,
-        duration:20000,
-      });
-      loader.present();
+    
 
 
         this.user['REG_NO']=REG_NO;//get user name from login.html
@@ -45,6 +39,14 @@ public user:any=
 
           this.dataitem = data; //getting response value from API
          console.log("response",data);
+
+           //Showing Loading
+
+      const loader = this.loadingCtrl.create({
+        content: "Please wait...",
+        dismissOnPageChange:true,
+      });
+      loader.present();
 
          if(data['statuscode'] === 1)
          {
@@ -77,7 +79,7 @@ public user:any=
          }
          else
          {
-           //showing alert in case of wrong password and user 
+              loader.dismiss();
          }
 });  //calling service function end
 }
