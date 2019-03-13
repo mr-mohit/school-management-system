@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,AlertController } from 'ionic-angular';
+import { ServiceAddSessionProvider } from '../../providers/service-add-session/service-add-session';
 
 /**
  * Generated class for the AddSessionPage page.
@@ -14,8 +15,16 @@ import { IonicPage, NavController, NavParams,AlertController } from 'ionic-angul
   templateUrl: 'add-session.html',
 })
 export class AddSessionPage {
+  public START_DATE:any;
+  public END_DATE:any;
+  
+public sessionData:any=
+{
+  "START_DATE":"",
+  "END_DATE":" "
+};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController,public addSession: ServiceAddSessionProvider,public navParams: NavParams,public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
@@ -27,8 +36,8 @@ export class AddSessionPage {
         if(START_DATE!=undefined && END_DATE!=undefined)
         {
           const confirm = this.alertCtrl.create({
-            title: 'Save Session',
-            message: 'Do you want to save this Session',
+            title: 'Save Session?',
+            message: 'Do you want to save the Session?',
             buttons: [
               {
                 text: 'Cancel',
@@ -40,6 +49,12 @@ export class AddSessionPage {
                text: 'Okey',
                handler: () => {
                               console.log('Agree clicked');
+                              this.START_DATE=START_DATE;
+                              this.END_DATE=END_DATE;
+                              this.sessionData['START_DATE']=this.START_DATE;
+                              this.sessionData['END_DATE']=this.END_DATE;
+                              //console.log("sending data",this.sessionData);
+                              this.addSession.addSessionFun(this.sessionData);
                               }
               }
           ]

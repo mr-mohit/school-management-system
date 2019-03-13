@@ -1,38 +1,28 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-/*
-  Generated class for the ServiceAddSessionProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
-export class ServiceAddSessionProvider {
+export class ServiceAddTermProvider {
   public URL="http://localhost/schoolapi/"; //for local use
   // public URL="https://direct-school.000webhostapp.com/"; //for hosting
-  
-
   constructor(public http: HttpClient) {
-    console.log('Hello ServiceAddSessionProvider Provider');
+    
   }
 
-
-
-
-  postData(url,sessionData)
+  postData(url,termData)
   {
     //console.log("service call",sessionData);
     return new Promise(resolve=>{
-      this.http.post(url,JSON.stringify(sessionData)).subscribe(data=>{
+      this.http.post(url,JSON.stringify(termData)).subscribe(data=>{
+        console.log("passing data",termData);
         if(data['statuscode']==1)
         {
-          alert("Session Added");
+          alert("Term Added");
 
         }
         else
         {
-          alert("Session Not-Added");
+          alert("Term Not-Added");
         }        
         
          resolve(data);
@@ -44,10 +34,10 @@ export class ServiceAddSessionProvider {
 
   }
 
-  addSessionFun(sessionData)
+  addTermFun(termData)
   {
-    var url=this.URL+"addSession.php";
-    return this.postData(url,sessionData);
+    var url=this.URL+"addTerm.php";
+    return this.postData(url,termData);
 
   }
 

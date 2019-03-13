@@ -50,7 +50,7 @@ public Announcement:any={
   
      
      
-      this.Announcement['UserId']=this.getuserid.details.USER_ID;
+      this.Announcement['UserId']=this.getuserid.details.REG_NO;
        this.Announcement['category']=this.category;
        this.Announcement['AnnouncementsTitle']=this.AnnouncementsTitle;
        this.Announcement['AnnouncementsDescription']=this.AnnouncementsDescription;

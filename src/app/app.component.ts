@@ -19,6 +19,9 @@ import { AddSessionPage } from '../pages/add-session/add-session';
 import { StudentdashboardPage } from '../pages/studentdashboard/studentdashboard';
 import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard';
 import { ServiceAddsubjectProvider} from '../providers/service-addsubject/service-addsubject';
+import { AddTermPage } from '../pages/add-term/add-term';
+import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
+import { AddClassPage } from '../pages/add-class/add-class';
 
 
 
@@ -27,7 +30,7 @@ import { ServiceAddsubjectProvider} from '../providers/service-addsubject/servic
 })
 export class MyApp {
   @ViewChild(Nav) navCtrl: Nav;
-    rootPage:any =LoginPage;
+    rootPage:any =AddClassPage;
     //declaration of array for side menu
     Student_a:Array<{title:string, icon:string,component:any,}>;    //array for student
     Teacher_a:Array<{title:string, icon:string,component:any,}>;    //array for teacher
