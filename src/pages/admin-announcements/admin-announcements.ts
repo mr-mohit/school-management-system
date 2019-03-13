@@ -18,13 +18,13 @@ import { ServiceAdminAnnouncements } from '../../providers/service-AdminAnnoucem
 export class AdminAnnouncementsPage {
 
 private date=new Date().toISOString();
-private timestarts='00:00';
+private timestarts= new Date().toISOString();
 private timeEnds=new Date().toISOString();
 private category:any;
 private AnnouncementsTitle:any;
 private AnnouncementsDescription:any;
 
-public Announcement:any={
+public Announcement={
   "REG_NO":"",
   "category":"",
   "AnnouncementsTitle":"",

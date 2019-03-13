@@ -28,10 +28,20 @@ public user:any=
   
   ValidateLogin(REG_NO,PASSWORD)
   {
-  
+      //Showing Loading
+
+      const loader = this.loadingCtrl.create({
+        content: "Please wait...",
+        dismissOnPageChange:true,
+        duration:5000,
+      });
+      loader.present();
+
 
         this.user['REG_NO']=this.REG_NO;//get user name from login.html
         this.user['PASSWORD']=this.PASSWORD;//get password entered by user from login.html
+
+        
         
         //calling services for login and sending data to API
         this.service.postlogin(this.user).then(data=>{
