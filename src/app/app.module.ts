@@ -19,6 +19,8 @@ import { StudentResultPage } from '../pages/student-result/student-result';
 import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
 import { AdminHomePage } from '../pages/admin-home/admin-home';
 import { SettingPage } from '../pages/setting/setting';
+import { QuizServiceProvider } from '../providers/quiz-service/quiz-service';
+import { StudentQuiz1Page } from '../pages/student-quiz1/student-quiz1';
 import { AdminAddPage } from '../pages/admin-add/admin-add';
 import { AdminViewPage } from '../pages/admin-view/admin-view';
 import { AdminAnnouncementsPage } from '../pages/admin-announcements/admin-announcements';
@@ -26,24 +28,35 @@ import { AdminDeletePage } from '../pages/admin-delete/admin-delete';
 import { AdminUpdatePage } from '../pages/admin-update/admin-update';
 import { AdminMessagesPage } from '../pages/admin-messages/admin-messages';
 import { AddUsersPage } from '../pages/add-users/add-users';
-import { UserAddressPage } from '../pages/user-address/user-address';
 import { ServiceLoginProvider } from '../providers/service-login/service-login';
-import {StudentProfilePage} from '../pages/student-profile/student-profile';
 import {TeacherProfilePage} from '../pages/teacher-profile/teacher-profile';
 import { ServiceAddsubjectProvider } from '../providers/service-addsubject/service-addsubject';
 import {AdminProfilePage} from '../pages/admin-profile/admin-profile';
 import { ServiceAdduserProvider } from '../providers/service-adduser/service-adduser';
+import { StudentQuizPage } from '../pages/student-quiz/student-quiz';
+import { StudentProfilePage } from '../pages/student-profile/student-profile';
 import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
 import { ServiceDeleteSubjectProvider } from '../providers/service-delete-subject/service-delete-subject';
 import { DeleteSubjectsPage } from '../pages/delete-subjects/delete-subjects';
+import { ServiceAdminAnnouncements } from '../providers/service-AdminAnnoucement/service-announcement';
+import { AddSessionPage } from '../pages/add-session/add-session';
+import { ServiceAddSessionProvider } from '../providers/service-add-session/service-add-session';
+import { NativeStorage } from '@ionic-native/native-storage';
+import { File } from '@ionic-native/file';
+import { Transfer} from '@ionic-native/transfer';
+import { FilePath } from '@ionic-native/file-path';
+import { Camera } from '@ionic-native/camera';
+import { ServiceResetpasswordProvider } from '../providers/service-resetpassword/service-resetpassword';
+import { Resetpassword2Page } from '../pages/resetpassword2/resetpassword2';
+ 
 
-
-@NgModule({
+ @NgModule({ 
   declarations: [
     MyApp,
     HomePage,
     LoginPage,
     ResetpasswordPage,
+    Resetpassword2Page,
     TeacherHomePage,
     TeacherProfilePage,
     StudentdashboardPage,
@@ -55,6 +68,8 @@ import { DeleteSubjectsPage } from '../pages/delete-subjects/delete-subjects';
     StudentResultPage,
     AdminDashboardPage,
     AdminProfilePage,
+    StudentQuizPage,
+    StudentQuiz1Page,
     AdminHomePage,
     SettingPage,
     StudentProfilePage,
@@ -65,11 +80,11 @@ import { DeleteSubjectsPage } from '../pages/delete-subjects/delete-subjects';
     AdminUpdatePage,
     AdminMessagesPage,
     AddUsersPage,
-    UserAddressPage,
     AddSubjectsPage,
     SettingPage,
     StudentProfilePage,
-    DeleteSubjectsPage
+    DeleteSubjectsPage,
+    AddSessionPage
   ],
   imports: [
     BrowserModule,
@@ -82,11 +97,14 @@ import { DeleteSubjectsPage } from '../pages/delete-subjects/delete-subjects';
     HomePage,
     LoginPage,
     ResetpasswordPage,
+    Resetpassword2Page,
     TeacherHomePage,
     StudentdashboardPage,
     TeacherdashboardPage,
     TeacherProfilePage,
     StudentExamsPage,
+    StudentQuizPage,
+    StudentQuiz1Page,
     StudentAttendancePage,
     StudentAnnouncementsPage,
     StudentTimeTablePage,
@@ -103,20 +121,34 @@ import { DeleteSubjectsPage } from '../pages/delete-subjects/delete-subjects';
     AdminUpdatePage,
     AdminMessagesPage,
     AddUsersPage,
-    UserAddressPage,
     AddSubjectsPage,
     SettingPage,
     StudentProfilePage,
-    DeleteSubjectsPage
+    DeleteSubjectsPage,
+    AddSessionPage,
   ],
   providers: [
     StatusBar,
+    //SQLite,
+    //SQLiteObject,
     SplashScreen,
+
+    File, 
+    Transfer,
+    Camera,
+    FilePath,
+
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ServiceLoginProvider,
+    ServiceAdduserProvider,
+    QuizServiceProvider,
     ServiceAddsubjectProvider,
     ServiceAdduserProvider,
-    ServiceDeleteSubjectProvider
+    ServiceDeleteSubjectProvider,
+    ServiceAdminAnnouncements,
+    ServiceAddSessionProvider,
+    ServiceResetpasswordProvider,
+    NativeStorage
   ]
 })
 export class AppModule {}

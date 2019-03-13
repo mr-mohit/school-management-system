@@ -11,7 +11,7 @@ import { Injectable } from '@angular/core';
 export class ServiceLoginProvider {
   public data:any;
   public URL="http://localhost/schoolapi/"; //for local use
-  // public URL="https://direct-school.000webhostapp.com/"; //for hosting
+  //public URL="https://direct-school.000webhostapp.com/"; //for hosting
   public recdata: any;//this variable will store info coming from API
   public address:any;//for storing address
   public details:any;//for storing other details
@@ -23,6 +23,9 @@ export class ServiceLoginProvider {
   }
   postData(url,data1){
     //console.log(data1);
+
+    // Passing Header
+
     return new Promise(resolve=>{
       this.http.post(url,JSON.stringify(data1)).subscribe(data=>{
        // console.log(data);
@@ -41,11 +44,13 @@ export class ServiceLoginProvider {
          else
          {
            //console.log("Worng")
-           alert("Invalid User Name or Password");
+           alert("Invalid REGISTRATION NO or PASSWORD");
          }
-        resolve(data);
+         resolve(data);
+
       },error=>{
-        console.log("Error",error);
+        console.log(" error: invalid username and/or password");
+        alert(" error: invalid username and/or password");
       });
     });
   }

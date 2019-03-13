@@ -11,22 +11,29 @@ import { Injectable } from '@angular/core';
 export class ServiceAddsubjectProvider {
 
   //public data:any;
-  public URL="http://localhost/schoolapi/";
+  // public URL="http://localhost/schoolapi/"; //for local use
+  public URL="https://direct-school.000webhostapp.com/"; //for hosting
   constructor(public http: HttpClient) {
-    console.log('Hello ServiceAddsubjectProvider Provider');
+    console.log("Hello ServiceAddsubjectProvider Provider");
   }
   postData(url,data1)
   {
+
+    // For header problem
+    
+    // var header={"header":{"Content-Type":"application/json"}};
+    
     return new Promise(resolve=>{
+    
       this.http.post(url,JSON.stringify(data1)).subscribe(data=>{
-        // if(data['statuscode'] == 1)
-        // {
-        //   //console.log("Inserted successfully");
-        // }
-        // else
-        // {
-        //   //console.log("Insertion unsuccessfull");
-        // }
+        if(data['statuscode'] == 1)
+        {
+          alert("Added successfully");
+        }
+        else
+        {
+          alert("Subject ID Exist/Unable To Add");
+        }
         resolve(data);
       },error=>{
         //console.log(data1);
@@ -38,7 +45,7 @@ export class ServiceAddsubjectProvider {
 
   postSubject(subject)
   {
-    //console.log(subject);
+    console.log(subject);
     var url=this.URL+"addSubject.php";
     return this.postData(url,subject);
   }
