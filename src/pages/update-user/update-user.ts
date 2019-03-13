@@ -1,28 +1,27 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, ActionSheetController, ToastController, LoadingController, Loading, Platform, AlertController} from 'ionic-angular';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ServiceAdduserProvider } from '../../providers/service-adduser/service-adduser';
+import { NavController, NavParams, Loading, ActionSheetController, ToastController, LoadingController, AlertController, Platform } from 'ionic-angular';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Camera } from '@ionic-native/camera';
 import { Transfer, TransferObject } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { File } from '@ionic-native/file';
-
+import { ServiceUpdateUserProvider } from '../../providers/service-update-user/service-update-user';
+import { ServiceViewUserProvider } from '../../providers/service-view-user/service-view-user';
 
 /**
- * Generated class for the AddUsersPage page.
+ * Generated class for the UpdateUserPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
+
 declare var cordova: any;
-@IonicPage()
+
 @Component({
-  selector: 'page-add-users',
-  templateUrl: 'add-users.html',
+  selector: 'page-update-user',
+  templateUrl: 'update-user.html',
 })
-export class AddUsersPage {
-
-
+export class UpdateUserPage {
 
 
   @ViewChild('signupSlider') signupSlider: any;
@@ -36,6 +35,8 @@ export class AddUsersPage {
   slideTwoForm: FormGroup;
   slideThreeForm: FormGroup;
   slideFourForm: FormGroup;
+ 
+  public Reg_No: any;
 
   submitAttempt: boolean = false;
 
@@ -61,18 +62,21 @@ export class AddUsersPage {
      "usercontact":"",
 
   }
+  
+  
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform,
-              public formBuilder: FormBuilder, public service:ServiceAdduserProvider,
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,public platform: Platform,
+              public formBuilder: FormBuilder, public service:ServiceViewUserProvider, public serviceUpdate:ServiceUpdateUserProvider,
               private camera: Camera, private transfer: Transfer, private file: File,
               private filePath: FilePath,public actionSheetCtrl: ActionSheetController,
               public toastCtrl: ToastController,public loadingCtrl: LoadingController,
               public alertController: AlertController) {
-  
-    // this slide is used to enter basics infos of the user
+
+                 // this slide is used to enter basics infos of the user
     this.slideOneForm = formBuilder.group({
-      userid: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]+'), Validators.required])],
+      userid: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('(?=.*[0-9]).{6,9}')])],
      // userpic: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]+'), Validators.required])],
       userfirstname: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]+'), Validators.required])],
       userlastname: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]+'), Validators.required])],
@@ -106,11 +110,13 @@ export class AddUsersPage {
     this.slideFourForm = formBuilder.group({
  
     });
+
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AddUsersPage');
+    console.log('ionViewDidLoad UpdateUserPage');
   }
+
   // getUserAddress()
   // {
   //   this.navCtrl.push(UserAddressPage);
@@ -133,7 +139,7 @@ export class AddUsersPage {
       }
       else
       {
-        this.service.getID(this.slideOneForm.getRawValue().userrole);
+       // this.service.getID(this.slideOneForm.getRawValue().userrole);
       }
     }
 
@@ -144,7 +150,7 @@ export class AddUsersPage {
       if(this.slideTwoForm.getRawValue().userpassword == this.slideTwoForm.getRawValue().userpassword2)
       {
          // this.userInfos["userpic"] = this.slideOneForm.getRawValue().userpic;
-          this.userInfos["userRegNo"] = this.service.userID;
+        //  this.userInfos["userRegNo"] = this.service.userID;
           this.userInfos["userfirstname"] = this.slideOneForm.getRawValue().userfirstname;
           this.userInfos["userlastname"] = this.slideOneForm.getRawValue().userlastname;
           this.userInfos["userrole"] = this.slideOneForm.getRawValue().userrole;
@@ -300,7 +306,7 @@ export class AddUsersPage {
   // upload image to the server
   public uploadImage() {
     // Destination URL
-    var url = "http://192.168.1.11/schoolapi/uploadImage.php";
+    var url = "http://localhost/schoolapi/uploadImage.php";
    
     // File for Upload
     var targetPath = this.pathForImage(this.lastImage);
@@ -353,7 +359,7 @@ export class AddUsersPage {
           handler: () => {
            // console.log(a);
               this.uploadImage(); // upload image in the server
-              this.service.postuser(a); // send the user infos to the provider  
+             // this.service.postuser(a); // send the user infos to the provider  
               this.navCtrl.pop();
           }
         }
@@ -363,5 +369,45 @@ export class AddUsersPage {
     await alert.present();
   }
 
+  // view user infos before updation
+  //get user infos
+UserInfos()
+{
+   
+  if(this.slideOneForm.controls.userid.valid)
+  {
+    // here we send the reg_No
+    this.service.postUserID(this.slideOneForm.getRawValue().userid).then((data:any)=>{
+      console.log("data coming in reponse",data.data[0]['FIRST_NAME'], typeof data);
+      //this.slideOneForm.controls.userfirstname=data.data[0]['FIRST_NAME'];
+
+      this.Reg_No=data.data[0]['REG_NO'];
+      
+      this.slideOneForm.controls.userfirstname.setValue( data.data[0]['FIRST_NAME']);
+      this.slideOneForm.controls.userlastname.setValue( data.data[0]['LAST_NAME']);
+      this.slideOneForm.controls.usergender.setValue( data.data[0]['GENDER']);
+      this.slideOneForm.controls.userrole.setValue( data.data[0]['ROLE']);
+      this.slideOneForm.controls.userdob.setValue( data.data[0]['DOB']);
+      this.slideTwoForm.controls.useremail.setValue(data.data[0]['E_MAIL']);
+      this.slideTwoForm.controls.userpassword.setValue(data.data[0]['PASSWORD']);
+      this.slideTwoForm.controls.userpassword2.setValue(data.data[0]['PASSWORD']);
+      this.slideTwoForm.controls.userfathername.setValue(data.address[0]['FATHER_NAME']);
+      this.slideTwoForm.controls.usermothername.setValue(data.address[0]['MOTHER_NAME']);
+      this.slideTwoForm.controls.usercity.setValue(data.address[0]['CITY']);
+      this.slideThreeForm.controls.addressType.setValue(data.address[0]['ADDRESS_TYPE']);
+      this.slideThreeForm.controls.address1.setValue(data.address[0]['ADDRESS_LINE_1']);
+      this.slideThreeForm.controls.address2.setValue(data.address[0]['ADDRESS_LINE_2']);
+      this.slideThreeForm.controls.state.setValue(data.address[0]['STATE']);
+      this.slideThreeForm.controls.pincode.setValue(data.address[0]['PINCODE']);
+      this.slideThreeForm.controls.contact.setValue(data.address[0]['CONTACT_NO']);
+    
+   
+    })
+  }
+  else
+  {
+    alert("enter a valid Registration ID");
+  }  
+}
 
 }
