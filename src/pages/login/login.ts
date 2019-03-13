@@ -13,8 +13,7 @@ import { NativeStorage } from '@ionic-native/native-storage';
   templateUrl: 'login.html'
 })
 export class LoginPage {
-private REG_NO:any;
-private PASSWORD:any;
+
 public dataitem:any;
 public user:any=
 {
@@ -38,10 +37,8 @@ public user:any=
       loader.present();
 
 
-        this.user['REG_NO']=this.REG_NO;//get user name from login.html
-        this.user['PASSWORD']=this.PASSWORD;//get password entered by user from login.html
-
-        
+        this.user['REG_NO']=REG_NO;//get user name from login.html
+        this.user['PASSWORD']=PASSWORD;//get password entered by user from login.html
         
         //calling services for login and sending data to API
         this.service.postlogin(this.user).then(data=>{
@@ -81,11 +78,6 @@ public user:any=
          else
          {
            //showing alert in case of wrong password and user 
-          const alert = this.alertCtrl.create({
-            title: 'Invaild User!',
-            buttons: ['OK']
-          });
-          alert.present();
          }
 });  //calling service function end
 }

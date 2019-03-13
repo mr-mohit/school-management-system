@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController, Loading } from 'ionic-angular';
 import { ServiceResetpasswordProvider } from '../../providers/service-resetpassword/service-resetpassword';
 import { Resetpassword2Page } from '../resetpassword2/resetpassword2';
 
@@ -21,20 +21,28 @@ export class ResetpasswordPage {
   email : any; // email address of the user who want to reset his password
   regNo : any; // registration number of the user 
   recdata: any;
+  loading :Loading;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-     public alertCtrl: AlertController,public service : ServiceResetpasswordProvider) {
+     public alertCtrl: AlertController, public loadingCtrl : LoadingController,
+     public service : ServiceResetpasswordProvider) {
   }
 
  // reset password
  reset(){
-  this.otp=Math.floor(10000000 + Math.random() * 90000000);
+  this.otp=Math.floor(100000 + Math.random() * 900000000);
   let userinfos={
     regNo: this.regNo, 
     email: this.email,
     otp: this.otp,
     process:'1'
   } // these infos are used to check if the user exists in the system and also to send him the otp
+
+  // start wait  loading process 
+  this.loading = this.loadingCtrl.create({
+    content: 'sending OTP...',
+  });
+  this.loading.present();
 
  // send user infos to the server 
   this.service.postemail((userinfos)).then((data:any)=>{
@@ -43,6 +51,9 @@ export class ResetpasswordPage {
      this.recdata=data;
      if(data['statuscode']==1)
      {
+          this.loading.dismissAll(); // stop the loading process
+        
+        //alert box
        const alert = this.alertCtrl.create({
         title: 'hello'+' '+this.recdata.data[0].USER_NAME, 
         subTitle: 'The otp that has been sent to your email',
@@ -59,37 +70,13 @@ export class ResetpasswordPage {
            handler: abc => {
 
              this.navCtrl.push(Resetpassword2Page);
-          //  if(abc.otp==this.recdata.data[0].OTP && abc.pass!=null) // check if the otp entered is matching with stored one
-          //  {
-          //  // console.log("correct otp");
-          //   let data2={
-          //     regNo: this.recdata.data[0].USER_ID,
-          //     newpassword: abc.pass,
-          //     process:'2'
-          //   } // set the new password
-          //    this.service.resetpassword(data2).then((data:any)=>{
-
-          //     if(data['statuscode']==1)
-          //     {
-          //       this.navCtrl.pop();
-          //     }
-      
-
-          //    }); // call the correct method 
-          //   // this.navCtrl.pop();
-          // }
-          // else{
-          //   this.service.showerrortoast('otp is invalid');
-          //   return false;
-          // }
-          
          }
         }]
       });
      alert.present();
      }
      else{
-      
+      this.loading.dismissAll(); // stop the loading process
       alert(data['msg']);
      }
    
