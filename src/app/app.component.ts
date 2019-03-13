@@ -16,8 +16,10 @@ import { SettingPage } from '../pages/setting/setting';
 import { ServiceLoginProvider } from '../providers/service-login/service-login';
 import { StudentdashboardPage } from '../pages/studentdashboard/studentdashboard';
 import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard';
-import { NativeStorage } from '@ionic-native/native-storage';
 import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
+
+
+import { NativeStorage } from '@ionic-native/native-storage';
 
 
 @Component({

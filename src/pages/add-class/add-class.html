@@ -1,0 +1,32 @@
+<ion-header>
+    <ion-navbar color="header" class="cus-center">
+      <ion-title class="center">Add Class</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+<ion-content padding >
+  <ion-item>
+    <ion-label floating >
+      Class Name
+    </ion-label>
+    <ion-input type="text" [(ngModel)]="CLASS" placeholder="" name="CLASS"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating >
+      Section
+    </ion-label>
+    <ion-input type="text" [(ngModel)]="SECTION" placeholder="" name="SECTION"></ion-input>
+  </ion-item>
+
+  <div class="center">
+    <button ion-button on-click="Submit(CLASS,SECTION)">
+      ADD
+    </button>
+    <button ion-button on-click="Class_Sub()">
+      ADD SUBJECTS UNDER CLASS
+    </button>
+  </div>
+
+
+</ion-content>
