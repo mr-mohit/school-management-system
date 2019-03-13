@@ -32,7 +32,7 @@ public user:any=
       const loader = this.loadingCtrl.create({
         content: "Please wait...",
         dismissOnPageChange:true,
-        duration:5000,
+        duration:20000,
       });
       loader.present();
 
