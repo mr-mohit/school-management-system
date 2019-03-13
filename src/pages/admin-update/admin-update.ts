@@ -23,7 +23,7 @@ export class AdminUpdatePage {
   }
 
   // update user
-  UpdateUser()
+  updateUser()
   {
     this.navCtrl.push(UpdateUserPage);
   }

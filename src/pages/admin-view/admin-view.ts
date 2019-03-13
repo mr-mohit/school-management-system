@@ -24,7 +24,7 @@ export class AdminViewPage {
   }
 
   // view user 
-  ViewUser()
+  viewUser()
   {
       this.navCtrl.push(ViewUserPage);
   }
