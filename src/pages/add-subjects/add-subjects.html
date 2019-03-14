@@ -11,15 +11,13 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
-
+  <form>
       <ion-item>
           <ion-label floating >
-            Subject Code
+            Subject ID
           </ion-label>
-          <ion-input type="text" [(ngModel)]="subject_id" placeholder="" name="subject_id"></ion-input>
+          <ion-input type="text" [(ngModel)]="subjectid" placeholder="" name="subjectid"></ion-input>
         </ion-item>
-  
   <ion-item>
     <ion-label floating >
       Subject Name
@@ -28,7 +26,6 @@
   </ion-item>
 
   <ion-label>
-
   </ion-label>
 
 
@@ -46,7 +43,8 @@
     </ion-select>
   </ion-item>
 
-  <ion-label> </ion-label>
+  <ion-label>
+  </ion-label>
   
     <ion-item>
       <ion-label>
@@ -63,11 +61,13 @@
     </ion-item>
 
   <ion-label>
-     
   </ion-label>
 
-<button id="addsubject" ion-button color="header" on-click="getSubject()" block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;">
+<button id="addsubject" ion-button color="header"  on-click="showConfirm()" 
+block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;">
       Save
      </button>
-    </ion-list>
+     <!-- <ion-button on-click="showConfirm()">ALERT</ion-button> -->
+     </form>
+     
 </ion-content>

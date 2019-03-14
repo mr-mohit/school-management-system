@@ -36,7 +36,7 @@ export class ServiceAddsubjectProvider {
         }
         resolve(data);
       },error=>{
-        //console.log(data1);
+        console.log(data1);
         console.log("data not transferred",error);
       });
     });
