@@ -6,6 +6,7 @@ import { Camera } from '@ionic-native/camera';
 import { Transfer, TransferObject } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { File } from '@ionic-native/file';
+import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 
 
 /**
@@ -21,13 +22,7 @@ declare var cordova: any;
   templateUrl: 'add-users.html',
 })
 export class AddUsersPage {
-  // private role:any;
-  // private name:any;
-  // private gender:any;
-  // private dob:any;
-  // private email:any;
-  // private username:any;
-  // private password:any;
+
 
 
 
@@ -74,7 +69,7 @@ export class AddUsersPage {
               private camera: Camera, private transfer: Transfer, private file: File,
               private filePath: FilePath,public actionSheetCtrl: ActionSheetController,
               public toastCtrl: ToastController,public loadingCtrl: LoadingController,
-              public alertController: AlertController) {
+              public alertController: AlertController,public cid:ServiceGetClassMasterProvider) {
   
     // this slide is used to enter basics infos of the user
     this.slideOneForm = formBuilder.group({
@@ -112,7 +107,6 @@ export class AddUsersPage {
     this.slideFourForm = formBuilder.group({
  
     });
-
   }
 
   ionViewDidLoad() {
@@ -174,7 +168,7 @@ export class AddUsersPage {
           for(var index in this.userInfos) {
 
             //check if all the fields have been filled by the admin
-            console.log(this.userInfos[index]);
+            //console.log(this.userInfos[index]);
             if(this.userInfos[index] == "")
             {
               // if one field is empty => print an alert 
@@ -307,7 +301,7 @@ export class AddUsersPage {
   // upload image to the server
   public uploadImage() {
     // Destination URL
-    var url = "http://localhost/schoolapi/uploadImage.php";
+    var url = "http://192.168.1.11/schoolapi/uploadImage.php";
    
     // File for Upload
     var targetPath = this.pathForImage(this.lastImage);

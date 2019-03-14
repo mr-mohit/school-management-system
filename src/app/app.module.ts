@@ -38,16 +38,28 @@ import { StudentProfilePage } from '../pages/student-profile/student-profile';
 import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
 import { ServiceDeleteSubjectProvider } from '../providers/service-delete-subject/service-delete-subject';
 import { DeleteSubjectsPage } from '../pages/delete-subjects/delete-subjects';
-import { ServiceAdminAnnouncements } from '../providers/service-AdminAnnoucement/service-announcement';
+import { NativeStorage } from '@ionic-native/native-storage';
 import { AddSessionPage } from '../pages/add-session/add-session';
 import { ServiceAddSessionProvider } from '../providers/service-add-session/service-add-session';
-import { NativeStorage } from '@ionic-native/native-storage';
+import { ServiceAdminAnnouncements } from '../providers/service-AdminAnnoucement/service-announcement';
+import { ServiceAddTermProvider } from '../providers/service-add-term/service-add-term';
+import { AddTermPage } from '../pages/add-term/add-term';
+import { ServiceViewSessionProvider } from '../providers/service-view-session/service-view-session';
+import { AddClassPage } from '../pages/add-class/add-class';
+import { ServiceAddClassProvider } from '../providers/service-add-class/service-add-class';
+import { ClassSubjectRegPage } from '../pages/class-subject-reg/class-subject-reg';
+import { ServiceGetClassMasterProvider } from '../providers/service-get-class-master/service-get-class-master';
+import { ServiceClassSubjectRegProvider } from '../providers/service-class-subject-reg/service-class-subject-reg';
 import { File } from '@ionic-native/file';
 import { Transfer} from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
 import { ServiceResetpasswordProvider } from '../providers/service-resetpassword/service-resetpassword';
 import { Resetpassword2Page } from '../pages/resetpassword2/resetpassword2';
+import { ViewUserPage } from '../pages/view-user/view-user';
+import { UpdateUserPage } from '../pages/update-user/update-user';
+import { ServiceUpdateUserProvider } from '../providers/service-update-user/service-update-user';
+import { ServiceViewUserProvider } from '../providers/service-view-user/service-view-user';
  
 
  @NgModule({ 
@@ -84,7 +96,12 @@ import { Resetpassword2Page } from '../pages/resetpassword2/resetpassword2';
     SettingPage,
     StudentProfilePage,
     DeleteSubjectsPage,
-    AddSessionPage
+    AddSessionPage,
+    AddTermPage,
+    AddClassPage,
+    ClassSubjectRegPage,
+    ViewUserPage,
+    UpdateUserPage
   ],
   imports: [
     BrowserModule,
@@ -126,6 +143,11 @@ import { Resetpassword2Page } from '../pages/resetpassword2/resetpassword2';
     StudentProfilePage,
     DeleteSubjectsPage,
     AddSessionPage,
+    AddTermPage,
+    AddClassPage,
+    ClassSubjectRegPage,
+    ViewUserPage,
+    UpdateUserPage
   ],
   providers: [
     StatusBar,
@@ -141,14 +163,22 @@ import { Resetpassword2Page } from '../pages/resetpassword2/resetpassword2';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ServiceLoginProvider,
     ServiceAdduserProvider,
+    NativeStorage,
+    ServiceAddSessionProvider,
     QuizServiceProvider,
     ServiceAddsubjectProvider,
     ServiceAdduserProvider,
     ServiceDeleteSubjectProvider,
     ServiceAdminAnnouncements,
-    ServiceAddSessionProvider,
+    ServiceAddTermProvider,
+    ServiceViewSessionProvider,
+    ServiceAddClassProvider,
+    ServiceGetClassMasterProvider,
+    ServiceClassSubjectRegProvider,
     ServiceResetpasswordProvider,
-    NativeStorage
+    NativeStorage,
+    ServiceUpdateUserProvider,
+    ServiceViewUserProvider
   ]
 })
 export class AppModule {}
