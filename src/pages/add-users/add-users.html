@@ -300,7 +300,46 @@
                             <!-- <button ion-button icon-right (click)="uploadImage()" [disabled]="lastImage === null">
                                 <ion-icon name="cloud-upload"></ion-icon>&nbsp; Upload
                             </button> -->
-                    </ion-buttons>       
+                    </ion-buttons>  
+                </ion-item>
+                 <!-- user class      -->
+                <ion-item [hidden]='slideOneForm.controls.userrole.value ==="teacher" || slideOneForm.controls.userrole.value ===""'>
+                    <ion-label floating  [hidden]='slideOneForm.controls.userrole.value ==="teacher" || slideOneForm.controls.userrole.value ==="" '>User Role </ion-label>
+                    <ion-select formControlName="studentClass" [class.invalid]="!slideFourForm.controls.studentClass.valid && (slideFourForm.controls.studentClass.dirty || submitAttempt)">
+                          <ion-option value="class1">
+                                class1
+                          </ion-option>
+                          <ion-option value="class2">
+                                class2
+                          </ion-option>
+                          
+                    </ion-select>
+                </ion-item>
+                 <!-- teacher Designation      -->
+                <ion-item [hidden]='slideOneForm.controls.userrole.value ==="student" || slideOneForm.controls.userrole.value ===""'>
+                    <ion-label floating  [hidden]='slideOneForm.controls.userrole.value ==="student" || slideOneForm.controls.userrole.value ==="" '>Teacher Designation</ion-label>
+                    <ion-select formControlName="teacherDesg" [class.invalid]="!slideFourForm.controls.teacherDesg.valid && (slideFourForm.controls.teacherDesg.dirty || submitAttempt)">
+                          <ion-option value="Software Developer">
+                                Software Developer
+                          </ion-option>
+                          <ion-option value="DataBase Admin">
+                                DataBase Admin
+                          </ion-option>
+                          
+                    </ion-select>
+                </ion-item>
+                 <!-- teacher Department      -->
+                <ion-item [hidden]='slideOneForm.controls.userrole.value ==="student" || slideOneForm.controls.userrole.value ===""'>
+                    <ion-label floating  [hidden]='slideOneForm.controls.userrole.value ==="student" || slideOneForm.controls.userrole.value ==="" '>Department</ion-label>
+                    <ion-select formControlName="teacherDepart" [class.invalid]="!slideFourForm.controls.teacherDepart.valid && (slideFourForm.controls.teacherDepart.dirty || submitAttempt)">
+                          <ion-option value="Department1">
+                                Department1
+                          </ion-option>
+                          <ion-option value="Department2">
+                                Department2
+                          </ion-option>
+                          
+                    </ion-select>
                 </ion-item>
             </form>
 

@@ -11,8 +11,8 @@ import { Injectable } from '@angular/core';
 export class ServiceAdduserProvider {
 
   public data:any;
-  public URL="http://192.168.1.11/schoolapi/"; //for local use
-  // public URL="https://direct-school.000webhostapp.com/"; //for hosting
+  public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/";
+ // public URL="https://direct-school.000webhostapp.com/"; //for hosting
   public userID = "";
  
 

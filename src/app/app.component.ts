@@ -18,6 +18,7 @@ import { StudentdashboardPage } from '../pages/studentdashboard/studentdashboard
 import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
+import { AddUsersPage } from '../pages/add-users/add-users';
 
 
 @Component({
@@ -25,7 +26,7 @@ import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
 })
 export class MyApp {
   @ViewChild(Nav) navCtrl: Nav;
-    rootPage:any;
+    rootPage:any ;
     toast:any;
     public userId:any;
     public pass:any;

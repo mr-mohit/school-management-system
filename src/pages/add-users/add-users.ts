@@ -104,6 +104,10 @@ export class AddUsersPage {
     
     // this slide is used to enter infos address of the user
     this.slideFourForm = formBuilder.group({
+      studentClass: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z]*')])],
+      teacherDepart: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z]*')])],
+      teacherDesg: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z]*')])],
+
  
     });
   }
