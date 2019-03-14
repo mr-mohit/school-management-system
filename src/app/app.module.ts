@@ -37,6 +37,8 @@ import { StudentQuizPage } from '../pages/student-quiz/student-quiz';
 import { StudentProfilePage } from '../pages/student-profile/student-profile';
 import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
 import { NativeStorage } from '@ionic-native/native-storage';
+import { ServiceDeleteSubjectProvider } from '../providers/service-delete-subject/service-delete-subject';
+import { DeleteSubjectsPage } from '../pages/delete-subjects/delete-subjects';
 import { AddSessionPage } from '../pages/add-session/add-session';
 import { ServiceAddSessionProvider } from '../providers/service-add-session/service-add-session';
 import { ServiceAdminAnnouncements } from '../providers/service-AdminAnnoucement/service-announcement';
@@ -98,7 +100,8 @@ import { ServiceViewUserProvider } from '../providers/service-view-user/service-
     AddClassPage,
     ClassSubjectRegPage,
     ViewUserPage,
-    UpdateUserPage
+    UpdateUserPage,
+    DeleteSubjectsPage
   ],
   imports: [
     BrowserModule,
@@ -138,6 +141,7 @@ import { ServiceViewUserProvider } from '../providers/service-view-user/service-
     AddSubjectsPage,
     SettingPage,
     StudentProfilePage,
+    DeleteSubjectsPage,
     AddSessionPage,
     AddTermPage,
     AddClassPage,
@@ -163,6 +167,8 @@ import { ServiceViewUserProvider } from '../providers/service-view-user/service-
     ServiceAddSessionProvider,
     QuizServiceProvider,
     ServiceAddsubjectProvider,
+    ServiceAdduserProvider,
+    ServiceDeleteSubjectProvider,
     ServiceAdminAnnouncements,
     ServiceAddTermProvider,
     ServiceViewSessionProvider,
