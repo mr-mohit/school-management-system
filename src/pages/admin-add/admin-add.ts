@@ -15,7 +15,7 @@ import { ServiceGetClassMasterProvider } from '../../providers/service-get-class
   selector: 'page-admin-add',
   templateUrl: 'admin-add.html',
 })
-export class AdminAddPage {
+export class AdminAddPage{
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public getSession:ServiceViewSessionProvider,public cid:ServiceGetClassMasterProvider) {
   

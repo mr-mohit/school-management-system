@@ -59,19 +59,19 @@ public user:any=
           );
 
            //console.log("login sucessfully implimented");
-           if(this.dataitem.data[0].ROLE=='student'|| this.dataitem.data[0].ROLE=='Student'|| this.dataitem.data[0].ROLE=='STUDENT')
+           if(this.dataitem.data[0].ROLE=='student'|| this.dataitem.data[0].ROLE=='Student' || this.dataitem.data[0].ROLE=='STUDENT')
            {
             //console.log("student");
             this.navCtrl.setRoot(StudentdashboardPage);
              //this.navCtrl.setRoot('StudentdashboardPage');//calling student dashboard
            }
-           else if(this.dataitem.data[0].ROLE=='teacher'|| this.dataitem.data[0].ROLE=='Teacher'|| this.dataitem.data[0].ROLE=='TEACHER')
+           else if(this.dataitem.data[0].ROLE=='teacher'|| this.dataitem.data[0].ROLE=='Teacher' || this.dataitem.data[0].ROLE=='TEACHER')
            {
             //console.log("teacher");
             this.navCtrl.setRoot(TeacherdashboardPage);
             //this.navCtrl.setRoot('TeacherdashboardPage');//calling teacher dashboardpage
            }
-           else if(this.dataitem.data[0].ROLE=='admin'|| this.dataitem.data[0].ROLE=='Admin'|| this.dataitem.data[0].ROLE=='ADMIN')
+           else if(this.dataitem.data[0].ROLE=='admin'|| this.dataitem.data[0].ROLE=='Admin' || this.dataitem.data[0].ROLE=='ADMIN')
            {
              //sending to Admin Page
              this.navCtrl.setRoot(AdminDashboardPage);

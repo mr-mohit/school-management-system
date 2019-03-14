@@ -21,8 +21,8 @@ export class ServiceLoginProvider {
 
     return new Promise(resolve=>{
       this.http.post(url,JSON.stringify(data1)).subscribe(data=>{
-        console.log(data);
-        this.recdata=data;          
+       // console.log(data);
+        this.recdata=data;        
         if(data['statuscode'] == 1)
          {
           this.user_role=this.recdata.data[0].ROLE;//storing the role of user into the variable named user_role
@@ -33,7 +33,8 @@ export class ServiceLoginProvider {
          this.details=this.recdata.data[0];
          //console.log("Address");
          //console.log(this.address);
-         }else
+         }
+         else
          {
            //console.log("Worng")
            alert("Invalid REGISTRATION NO or PASSWORD");
