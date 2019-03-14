@@ -6,6 +6,7 @@ import { Camera } from '@ionic-native/camera';
 import { Transfer, TransferObject } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { File } from '@ionic-native/file';
+import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 
 
 /**
@@ -68,7 +69,7 @@ export class AddUsersPage {
               private camera: Camera, private transfer: Transfer, private file: File,
               private filePath: FilePath,public actionSheetCtrl: ActionSheetController,
               public toastCtrl: ToastController,public loadingCtrl: LoadingController,
-              public alertController: AlertController) {
+              public alertController: AlertController,public cid:ServiceGetClassMasterProvider) {
   
     // this slide is used to enter basics infos of the user
     this.slideOneForm = formBuilder.group({

@@ -6,6 +6,8 @@ import { AdminAnnouncementsPage } from '../admin-announcements/admin-announcemen
 import { AdminDeletePage } from '../admin-delete/admin-delete';
 import { AdminUpdatePage } from '../admin-update/admin-update';
 import { AdminMessagesPage } from '../admin-messages/admin-messages';
+import { ServiceDeleteSubjectProvider } from '../../providers/service-delete-subject/service-delete-subject';
+import { DeleteSubjectsPage } from '../delete-subjects/delete-subjects';
 
 /**
  * Generated class for the AdminHomePage page.
@@ -21,7 +23,8 @@ import { AdminMessagesPage } from '../admin-messages/admin-messages';
 })
 export class AdminHomePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              public deleteSubjectService:ServiceDeleteSubjectProvider) {
   }
  
   gotoAdminAdd()
@@ -39,7 +42,14 @@ export class AdminHomePage {
   }
   gotoAdminDelete()
   {
-    this.navCtrl.push(AdminDeletePage);
+    let dataObj;
+    this.deleteSubjectService.postDelete().then(data=>{
+      dataObj=data;
+      //console.log("adminHome",dataObj);
+      this.navCtrl.push(AdminDeletePage);
+    });
+   //console.log("deleted subject",dataObj);
+   
   }
   gotoAdminUpdate()
   {
@@ -49,5 +59,4 @@ export class AdminHomePage {
   {
     this.navCtrl.push(AdminMessagesPage);
   }
-
 }

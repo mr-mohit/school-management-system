@@ -12,7 +12,7 @@ export class ServiceAdminAnnouncements {
   }
   postData(url,data1)
   {
-
+console.log("data one"+data1);
     // For header problem
     
     // var header={"header":{"Content-Type":"application/json"}};
@@ -39,7 +39,8 @@ export class ServiceAdminAnnouncements {
 
   postAnnouncements(Announcements)
   {
-  
+    console.log(Announcements);
+    console.log(typeof(Announcements));
     var url=this.URL+"announcement.php";
     return this.postData(url,Announcements);
   }
