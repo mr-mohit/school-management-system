@@ -5,6 +5,9 @@
   </ion-header>
 
 <ion-content padding >
+
+    <ion-label><!-- for Space --></ion-label>
+
   <ion-item>
     <ion-label floating >
       Class Name
@@ -12,8 +15,7 @@
     <ion-input type="text" [(ngModel)]="CLASS" placeholder="" name="CLASS"></ion-input>
   </ion-item>
 
-  <ion-label> 
-  </ion-label>
+  <ion-label><!-- for Space --></ion-label>
 
   <ion-item>
     <ion-label floating >
@@ -22,14 +24,16 @@
     <ion-input type="text" [(ngModel)]="SECTION" placeholder="" name="SECTION"></ion-input>
   </ion-item>
 
-  <ion-label>
-  </ion-label>
+  <ion-label><!-- for Space --></ion-label>
 
   <div class="center">
-    <button ion-button on-click="Submit(CLASS,SECTION)">
+    <button ion-button block on-click="Submit(CLASS,SECTION)">
       ADD
     </button>
-    <button ion-button on-click="Class_Sub()">
+
+    <ion-label><!-- for Space --></ion-label>
+      
+    <button ion-button block  on-click="Class_Sub()">
       ADD SUBJECTS UNDER CLASS
     </button>
   </div>

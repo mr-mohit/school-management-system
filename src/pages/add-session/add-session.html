@@ -10,14 +10,21 @@
           <ion-label>Start Date </ion-label>
           <ion-datetime name="START_DATE" displayFormat="DD MMM YYYY" min="2019" max="2050" [(ngModel)]="START_DATE"></ion-datetime>
         </ion-item>
+
+        <ion-label>  <!-- For Space --></ion-label>
+
         <ion-item>
           <ion-label>End Date </ion-label>
           <ion-datetime name="END_DATE" displayFormat="DD MMM YYYY" min="2020" max="2051" [(ngModel)]="END_DATE"></ion-datetime>
         </ion-item>
-        <ion-item class="cus-center" >
-          <button ion-button color="danger" on-click="Submit(START_DATE,END_DATE)" >
-            SUBMIT
+        
+      <ion-label>  <!-- For Space --></ion-label>
+      <ion-label>  <!-- For Space --></ion-label>
+
+        <div>
+          <button ion-button block on-click="Submit(START_DATE,END_DATE)" >
+            Submit
           </button>
-        </ion-item>
+        </div>
     </ion-list>
 </ion-content>
