@@ -37,6 +37,8 @@ import { StudentQuizPage } from '../pages/student-quiz/student-quiz';
 import { StudentProfilePage } from '../pages/student-profile/student-profile';
 import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
 import { NativeStorage } from '@ionic-native/native-storage';
+import { ServiceDeleteSubjectProvider } from '../providers/service-delete-subject/service-delete-subject';
+import { DeleteSubjectsPage } from '../pages/delete-subjects/delete-subjects';
 import { AddSessionPage } from '../pages/add-session/add-session';
 import { ServiceAddSessionProvider } from '../providers/service-add-session/service-add-session';
 import { ServiceAdminAnnouncements } from '../providers/service-AdminAnnoucement/service-announcement';
@@ -54,6 +56,16 @@ import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
 import { ServiceResetpasswordProvider } from '../providers/service-resetpassword/service-resetpassword';
 import { Resetpassword2Page } from '../pages/resetpassword2/resetpassword2';
+import { ViewUserPage } from '../pages/view-user/view-user';
+import { UpdateUserPage } from '../pages/update-user/update-user';
+import { ServiceUpdateUserProvider } from '../providers/service-update-user/service-update-user';
+import { ServiceViewUserProvider } from '../providers/service-view-user/service-view-user';
+import { ServiceDeleteClassProvider } from '../providers/service-delete-class/service-delete-class';
+import { DeleteClassPage } from '../pages/delete-class/delete-class';
+import { ServiceDeleteSessionProvider } from '../providers/service-delete-session/service-delete-session';
+import { ServiceDeleteTermProvider } from '../providers/service-delete-term/service-delete-term';
+import { DeleteSessionPage } from '../pages/delete-session/delete-session';
+import { DeleteTermPage } from '../pages/delete-term/delete-term';
  
 
  @NgModule({ 
@@ -93,6 +105,12 @@ import { Resetpassword2Page } from '../pages/resetpassword2/resetpassword2';
     AddTermPage,
     AddClassPage,
     ClassSubjectRegPage,
+    ViewUserPage,
+    UpdateUserPage,
+    DeleteSubjectsPage,
+    DeleteClassPage,
+    DeleteSessionPage,
+    DeleteTermPage,
   ],
   imports: [
     BrowserModule,
@@ -132,10 +150,16 @@ import { Resetpassword2Page } from '../pages/resetpassword2/resetpassword2';
     AddSubjectsPage,
     SettingPage,
     StudentProfilePage,
+    DeleteSubjectsPage,
     AddSessionPage,
     AddTermPage,
     AddClassPage,
     ClassSubjectRegPage,
+    ViewUserPage,
+    UpdateUserPage,
+    DeleteClassPage,
+    DeleteSessionPage,
+    DeleteTermPage,
   ],
   providers: [
     StatusBar,
@@ -155,6 +179,8 @@ import { Resetpassword2Page } from '../pages/resetpassword2/resetpassword2';
     ServiceAddSessionProvider,
     QuizServiceProvider,
     ServiceAddsubjectProvider,
+    ServiceAdduserProvider,
+    ServiceDeleteSubjectProvider,
     ServiceAdminAnnouncements,
     ServiceAddTermProvider,
     ServiceViewSessionProvider,
@@ -162,7 +188,12 @@ import { Resetpassword2Page } from '../pages/resetpassword2/resetpassword2';
     ServiceGetClassMasterProvider,
     ServiceClassSubjectRegProvider,
     ServiceResetpasswordProvider,
-    NativeStorage
+    NativeStorage,
+    ServiceUpdateUserProvider,
+    ServiceViewUserProvider,
+    ServiceDeleteClassProvider,
+    ServiceDeleteSessionProvider,
+    ServiceDeleteTermProvider
   ]
 })
 export class AppModule {}

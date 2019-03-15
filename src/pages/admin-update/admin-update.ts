@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { UpdateUserPage } from '../update-user/update-user';
 
 /**
  * Generated class for the AdminUpdatePage page.
@@ -8,7 +9,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-admin-update',
   templateUrl: 'admin-update.html',
@@ -22,4 +22,9 @@ export class AdminUpdatePage {
     console.log('ionViewDidLoad AdminUpdatePage');
   }
 
+  // update user
+  updateUser()
+  {
+    this.navCtrl.push(UpdateUserPage);
+  }
 }

@@ -25,7 +25,7 @@ if($con){
 				}
 
 			//echo"Connection Sucessfull";
-             $sql="SELECT * FROM session_master";
+             $sql="SELECT * FROM session_master WHERE IS_ACTIVE=1";
              $query = mysqli_query($con,$sql);
 		         $count = mysqli_num_rows($query);
 				 
