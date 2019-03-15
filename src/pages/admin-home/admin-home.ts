@@ -7,7 +7,6 @@ import { AdminDeletePage } from '../admin-delete/admin-delete';
 import { AdminUpdatePage } from '../admin-update/admin-update';
 import { AdminMessagesPage } from '../admin-messages/admin-messages';
 import { ServiceDeleteSubjectProvider } from '../../providers/service-delete-subject/service-delete-subject';
-import { DeleteSubjectsPage } from '../delete-subjects/delete-subjects';
 
 /**
  * Generated class for the AdminHomePage page.
@@ -42,9 +41,9 @@ export class AdminHomePage {
   }
   gotoAdminDelete()
   {
-    let dataObj;
+   // let dataObj;
     this.deleteSubjectService.postDelete().then(data=>{
-      dataObj=data;
+    //  dataObj=data;
       //console.log("adminHome",dataObj);
       this.navCtrl.push(AdminDeletePage);
     });

@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 import { ServiceDeleteClassProvider } from '../../providers/service-delete-class/service-delete-class';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 
 @IonicPage()
