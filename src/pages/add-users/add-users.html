@@ -306,30 +306,41 @@
                 </ion-item>
                  <!-- user class      -->
                 <ion-item [hidden]='slideOneForm.controls.userrole.value ==="teacher" || slideOneForm.controls.userrole.value ===""'>
-                    <ion-label floating  [hidden]='slideOneForm.controls.userrole.value ==="teacher" || slideOneForm.controls.userrole.value ==="" '>User Role </ion-label>
+                    <ion-label floating  [hidden]='slideOneForm.controls.userrole.value ==="teacher" || slideOneForm.controls.userrole.value ==="" '>Class </ion-label>
                     <ion-select formControlName="studentClass" [class.invalid]="!slideFourForm.controls.studentClass.valid && (slideFourForm.controls.studentClass.dirty || submitAttempt)">
-                          <ion-option value="class1">
-                                class1
+                          <ion-option  *ngFor=" let p of service.class" [value]="p.CLASS">
+                                {{p.CLASS}}
                           </ion-option>
-                          <ion-option value="class2">
-                                class2
+                          
+                    </ion-select>
+                </ion-item>
+                 <!-- user   SECTION   -->
+                <ion-item [hidden]='slideOneForm.controls.userrole.value ==="teacher" || slideOneForm.controls.userrole.value ===""'>
+                    <ion-label  floating  [hidden]='slideOneForm.controls.userrole.value ==="teacher" || slideOneForm.controls.userrole.value ==="" '>SECTION </ion-label>
+                    <ion-select formControlName="studentSection" [class.invalid]="!slideFourForm.controls.studentSection.valid && (slideFourForm.controls.studentSection.dirty || submitAttempt)">
+                          <ion-option  value="A">
+                                A
+                          </ion-option>
+                          <ion-option  value="B">
+                                B
                           </ion-option>
                           
                     </ion-select>
                 </ion-item>
                  <!-- teacher Designation      -->
+            
                 <ion-item [hidden]='slideOneForm.controls.userrole.value ==="student" || slideOneForm.controls.userrole.value ===""'>
                     <ion-label floating  [hidden]='slideOneForm.controls.userrole.value ==="student" || slideOneForm.controls.userrole.value ==="" '>Teacher Designation</ion-label>
-                    <ion-select formControlName="teacherDesg" [class.invalid]="!slideFourForm.controls.teacherDesg.valid && (slideFourForm.controls.teacherDesg.dirty || submitAttempt)">
-                          <ion-option value="Software Developer">
-                                Software Developer
-                          </ion-option>
-                          <ion-option value="DataBase Admin">
-                                DataBase Admin
-                          </ion-option>
-                          
-                    </ion-select>
+                    <ion-input formControlName="teacherDesg" [class.invalid]="!slideFourForm.controls.teacherDesg.valid && (slideFourForm.controls.teacherDesg.dirty || submitAttempt)">
+                    </ion-input>
+
                 </ion-item>
+
+                <ion-item *ngIf="!slideFourForm.controls.teacherDesg.valid  && (slideFourForm.controls.teacherDesg.dirty || submitAttempt)">
+                    <p>Please enter a valid value</p>
+                </ion-item> 
+               
+
                  <!-- teacher Department      -->
                 <ion-item [hidden]='slideOneForm.controls.userrole.value ==="student" || slideOneForm.controls.userrole.value ===""'>
                     <ion-label floating  [hidden]='slideOneForm.controls.userrole.value ==="student" || slideOneForm.controls.userrole.value ==="" '>Department</ion-label>

@@ -14,6 +14,7 @@ export class ServiceAdduserProvider {
   public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/";
  // public URL="https://direct-school.000webhostapp.com/"; //for hosting
   public userID = "";
+  public class = []; // used to get class infos 
  
 
   constructor(public http: HttpClient) {
@@ -67,7 +68,9 @@ export class ServiceAdduserProvider {
            if(data['statuscode'] == 1)
             {
                this.userID = data['id'];
-               console.log("servie user id : ", this.userID);
+               this.class = data['class'];
+               //console.log("service user id : ", this.userID);
+              // console.log("service class : ", this.class);
             }else
             {  
               alert("get User ID failed");

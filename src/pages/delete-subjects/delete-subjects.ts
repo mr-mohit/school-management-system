@@ -17,7 +17,8 @@ import { ServiceDeleteSubjectProvider } from '../../providers/service-delete-sub
 export class DeleteSubjectsPage {
   public subjectid:any=[];
   public subjects:any;
-  constructor(public navCtrl: NavController,public alertctrl:AlertController, public navParams: NavParams, public service:ServiceDeleteSubjectProvider ) {
+  constructor(public navCtrl: NavController,public alertctrl:AlertController, 
+              public navParams: NavParams, public service:ServiceDeleteSubjectProvider ) {
     //console.log("data inside delete subject",this.subjects ,typeof this.subjects);
     this.refresh();
 }

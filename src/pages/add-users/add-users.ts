@@ -60,7 +60,8 @@ export class AddUsersPage {
      "userstate":"",
      "userpincode":"",
      "usercontact":"",
-     "userclass":"c",
+     "studentclass":"c",
+     "studentsection":"s",
      "teacherdesgn":"t",
      "teacherdepart":"d",
 
@@ -108,7 +109,8 @@ export class AddUsersPage {
     
     // this slide is used to enter infos address of the user
     this.slideFourForm = formBuilder.group({
-      studentClass: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z]*')])],
+      studentClass: ['', Validators.compose([Validators.maxLength(30),Validators.required])],
+      studentSection: ['', Validators.compose([Validators.maxLength(30),Validators.required])],
       teacherDepart: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z]*')])],
       teacherDesg: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z]*')])],
 
@@ -170,9 +172,10 @@ export class AddUsersPage {
           this.userInfos["userpincode"] =  this.slideThreeForm.getRawValue().pincode;
           this.userInfos["usercontact"] =  this.slideThreeForm.getRawValue().contact;
 
-          if(this.userInfos["userrole"] =="student" && this.slideFourForm.controls.userclass.valid)
+          if(this.userInfos["userrole"] =="student" && this.slideFourForm.controls.studentClass.valid && this.slideFourForm.controls.studentSection.valid)
           {
-              this.userInfos["userclass"] = this.slideFourForm.getRawValue().studentClass;
+              this.userInfos["studentclass"] = this.slideFourForm.getRawValue().studentClass;
+              this.userInfos["studentsection"] = this.slideFourForm.getRawValue().studentSection;
           }
           else
           {
@@ -206,7 +209,7 @@ export class AddUsersPage {
             }
           }
           // here we check if all the fields have been filled
-          if(a == 21 && this.lastImage!==  null)
+          if(a == 22 && this.lastImage!==  null)
           {
             this.userInfos['userpic']= this.lastImage;
             //this.uploadImage(); // upload image in the server
