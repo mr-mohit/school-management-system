@@ -60,6 +60,9 @@ export class AddUsersPage {
      "userstate":"",
      "userpincode":"",
      "usercontact":"",
+     "userclass":"c",
+     "teacherdesgn":"t",
+     "teacherdepart":"d",
 
   }
 
@@ -167,6 +170,24 @@ export class AddUsersPage {
           this.userInfos["userpincode"] =  this.slideThreeForm.getRawValue().pincode;
           this.userInfos["usercontact"] =  this.slideThreeForm.getRawValue().contact;
 
+          if(this.userInfos["userrole"] =="student" && this.slideFourForm.controls.userclass.valid)
+          {
+              this.userInfos["userclass"] = this.slideFourForm.getRawValue().studentClass;
+          }
+          else
+          {
+             alert("Please Select a valid class for the student");
+          }
+          // in case of teacher
+          if(this.userInfos["userrole"] == "teacher" && this.slideFourForm.controls.teacherDepart.valid && this.slideFourForm.controls.teacherDesg.valid)
+          {
+              this.userInfos["teacherdepart"] = this.slideFourForm.getRawValue().teacherDepart;
+              this.userInfos["teacherdesg"] = this.slideFourForm.getRawValue().teacherDesg;
+          }
+          else
+          {
+            alert("Please select an appropirate designationand/or departement for teacher");
+          }
           var a = 0; 
           //alert(this.userInfos["userpic"]);
           for(var index in this.userInfos) {
@@ -185,7 +206,7 @@ export class AddUsersPage {
             }
           }
           // here we check if all the fields have been filled
-          if(a == 18 && this.lastImage!==  null)
+          if(a == 21 && this.lastImage!==  null)
           {
             this.userInfos['userpic']= this.lastImage;
             //this.uploadImage(); // upload image in the server
