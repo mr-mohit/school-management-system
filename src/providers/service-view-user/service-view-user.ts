@@ -11,7 +11,7 @@ import { Injectable } from '@angular/core';
 export class ServiceViewUserProvider {
 
   public data:any;
-  public URL="http://192.168.1.11/schoolapi/";
+  public URL="http://localhost/schoolapi/";
   recdata: any;
 
   constructor(public http: HttpClient) {
