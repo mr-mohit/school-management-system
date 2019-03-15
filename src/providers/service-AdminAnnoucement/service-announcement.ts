@@ -17,7 +17,7 @@ console.log("data one"+data1);
     
     // var header={"header":{"Content-Type":"application/json"}};
     
-    // console.log("data passing",JSON.stringify(data1));
+     console.log("data passing",JSON.stringify(data1));
     return new Promise(resolve=>{    
       this.http.post(url,JSON.stringify(data1)).subscribe(data=>{
         if(data['statuscode'] == 1)
