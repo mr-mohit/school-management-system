@@ -51,7 +51,7 @@ export class ServiceDeleteSubjectProvider {
   postSubject(url2,subjectid)
   {
     return new Promise(resolve=>{
-    this.http.post(url2,{'subjectid':subjectid}).subscribe(data1=>{
+    this.http.post(url2,subjectid).subscribe(data1=>{
       //this.temp=data;
       //this.arr1=this.temp[0]['SUBJECT_NAME'];
       console.log("service return",data1);
