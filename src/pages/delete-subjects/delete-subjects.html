@@ -13,19 +13,17 @@
 <ion-content padding>
     <form>
       <ion-item>
-        <ion-label floating>
-          Select Subject
-        </ion-label>
-        <ion-select name="getsubjectname" [(ngModel)]="getsubjectname">
-          <ion-option *ngFor=" let p of subjects" [value]="p.SUBJECT_ID" >
-               {{p.SUBJECT_NAME}}
-            </ion-option>
-        </ion-select>
+        <ion-label>Subject</ion-label>
+         <ion-select  name="SUBJECT" [(ngModel)]="SUBJECT">
+    
+          <ion-option *ngFor="let i of cid?.subjectData"  value="{{i.SUBJECT_ID}}" >{{i.SUBJECT_NAME}}</ion-option>
+          
+         </ion-select>
       </ion-item>
       <ion-label>
     
       </ion-label>
-      <button ion-button color="header" on-click="showConfirm(getsubjectname)"
+      <button ion-button color="header" on-click="deleteSubject(SUBJECT)"
           block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;">
           Delete
       </button>

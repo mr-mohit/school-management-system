@@ -54,7 +54,10 @@ public sessionData:any=
                               this.sessionData['START_DATE']=this.START_DATE;
                               this.sessionData['END_DATE']=this.END_DATE;
                               //console.log("sending data",this.sessionData);
-                              this.addSession.addSessionFun(this.sessionData);
+                              if(this.addSession.addSessionFun(this.sessionData))
+                              {
+                                this.navCtrl.pop();
+                              }
                               }
               }
           ]

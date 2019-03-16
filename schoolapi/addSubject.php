@@ -27,24 +27,20 @@ if($con)
 
        $postdata=file_get_contents("php://input");
        $obj=json_decode($postdata,true);
-	   //$subject_id=test_input($_POST['subject_id']);
+	   $subjectid=test_input($obj['subjectid']);
        $name=test_input($obj['subjectname']);
 	   $type=test_input($obj['subjecttype']);  
        $material=test_input($obj['subjectmaterial']);
-       //$isactive=test_input($_POST['isactive']);
-		$sql = "INSERT INTO subject(SUBJECT_NAME,SUBJECT_TYPE,SUBJECT_MATERIAL,IS_ACTIVE) 
-		VALUES('$name','$type','$material',1)";
+		$sql = "INSERT INTO subject(SUBJECT_ID,SUBJECT_NAME,SUBJECT_TYPE,SUBJECT_MATERIAL,IS_ACTIVE) VALUES('$subjectid','$name','$type','$material',1)";
 		if(mysqli_query($con,$sql))
 		{
 		   result(1,"success");
-		   //$response['statuscode']=1;
-		  // echo json_encode($response);
+
 		}
 		else
 		{
 			result(0,"fail");
-			//$response['statuscode']=0;
-		    //echo json_encode($response);
+		
 		}   
 	}
 }
