@@ -59,7 +59,10 @@ export class AddTermPage {
                           this.termData['START_DATE']=this.START_DATE;
                           this.termData['END_DATE']=this.END_DATE;
                           //console.log("sending data",this.sessionData);
-                          this.addTerm.addTermFun(this.termData);
+                          if(this.addTerm.addTermFun(this.termData))
+                          {
+                            this.navCtrl.pop();
+                          }
                           }
           }
       ]
