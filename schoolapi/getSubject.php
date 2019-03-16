@@ -25,13 +25,13 @@ if($con){
 				}
 
 			//echo"Connection Sucessfull";
-             $sql="SELECT * FROM session_master WHERE IS_ACTIVE=1";
+             $sql="SELECT * FROM subject";
              $query = mysqli_query($con,$sql);
 		         $count = mysqli_num_rows($query);
 				 
 		         if ($count == 0) {
 					 
-			         result(0,"Session Master is Empty.");  
+			         result(0,"Subject table is Empty.");  
                     }
 		          else{ 
 					     
