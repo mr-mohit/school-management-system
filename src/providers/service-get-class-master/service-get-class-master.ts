@@ -7,15 +7,17 @@ export class ServiceGetClassMasterProvider {
   public URL="http://localhost/schoolapi/"; //for local use
   // public URL="https://direct-school.000webhostapp.com/"; //for hosting
   public classData:any;
-
   public subjectData:any;
+  public sessionData:any;
+  public termData:any;
+
 
   constructor(public http: HttpClient) {
     
   }
 
 
-  getClassFun()
+  getClassFun() //GET DATA FROM CLASS_MASTER_TABLE IN DATABASE----------------------------------------------------->
   {
     var url=this.URL+"getClass_Master.php";
     return this.getClass(url);
@@ -48,7 +50,7 @@ export class ServiceGetClassMasterProvider {
 
   }
 
-  // GET SUBJECTS FOR CLASS SUBJECT REGISTRATION
+  // GET SUBJECTS FROM SUBJECT TABLE IN DATABASE---------------------------------------------------------------->
   getSubjectFun()
   {
     var url=this.URL+"getSubjects.php";
@@ -65,6 +67,74 @@ export class ServiceGetClassMasterProvider {
           // alert("Term Added");
           this.subjectData=data['data'];
           console.log("subjects",data);
+
+
+        }
+        else
+        {
+          alert("no data fetched");
+        }        
+        
+         resolve(data);
+
+      },error=>{
+        console.log("Error",error);
+      });
+    });
+
+  }
+
+  // GET DATA FROM SESION TABLE IN DATABASE---------------------------------------------------------------->
+  getSessionFun()
+  {
+    var url=this.URL+"getSession.php";
+    return this.getSession(url);
+
+  }
+  getSession(url)
+  {
+    //console.log("service call",sessionData);
+    return new Promise(resolve=>{
+      this.http.post(url,JSON.stringify(" ")).subscribe(data=>{
+        if(data['statuscode']==1)
+        {
+          // alert("Term Added");
+          this.sessionData=data['data'];
+          console.log("Session",this.sessionData);
+
+
+        }
+        else
+        {
+          alert("no data fetched");
+        }        
+        
+         resolve(data);
+
+      },error=>{
+        console.log("Error",error);
+      });
+    });
+
+  }
+
+  // GET THE INFO FROM TERM TABLE---------------------------------------------------------------->
+  getTermFun()
+  {
+    var url=this.URL+"getTerm.php";
+    return this.getTerm(url);
+
+  }
+  getTerm(url)
+  {
+    //console.log("service call",sessionData);
+    return new Promise(resolve=>{
+      this.http.post(url,JSON.stringify(" ")).subscribe(data=>{
+        if(data['statuscode']==1)
+        {
+          // alert("Term Added");
+          this.termData=data['data'];
+          console.log("Terms",data);
 
 
         }
