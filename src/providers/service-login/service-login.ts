@@ -3,8 +3,10 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ServiceLoginProvider {
   public data:any;
-   public URL="http://localhost/schoolapi/"; //for local use
+  public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; //for local use
   //public URL="https://direct-school.000webhostapp.com/"; //for hosting
+  //public URL="https://direct-school.000webhostapp.com/"; //for hosting
+  
   public recdata: any;//this variable will store info coming from API
   public address:any;//for storing address
   public details:any;//for storing other details
@@ -21,8 +23,8 @@ export class ServiceLoginProvider {
 
     return new Promise(resolve=>{
       this.http.post(url,JSON.stringify(data1)).subscribe(data=>{
-       // console.log(data);
-        this.recdata=data;        
+        console.log(data);
+        this.recdata=data;          
         if(data['statuscode'] == 1)
          {
           this.user_role=this.recdata.data[0].ROLE;//storing the role of user into the variable named user_role
@@ -33,8 +35,7 @@ export class ServiceLoginProvider {
          this.details=this.recdata.data[0];
          //console.log("Address");
          //console.log(this.address);
-         }
-         else
+         }else
          {
            //console.log("Worng")
            alert("Invalid REGISTRATION NO or PASSWORD");
