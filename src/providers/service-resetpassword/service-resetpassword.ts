@@ -24,7 +24,7 @@ export class ServiceResetpasswordProvider {
     console.log(data1);
     return new Promise(resolve=>{
       this.http.post(url,JSON.stringify(data1)).subscribe(data=>{
-        console.log(data);
+        console.log("email",data);
         this.recdata = data;
         resolve(data);
   

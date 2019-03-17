@@ -11,8 +11,8 @@ import { stringify } from '@angular/compiler/src/util';
 @Injectable()
 export class ServiceDeleteSubjectProvider {
   public subjectdata:any;
-  public URL="http://localhost/schoolapi/";
-  //public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; //for local use
+ // public URL="http://localhost/schoolapi/";
+  public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; //for local use
   // public URL="https://direct-school.000webhostapp.com/"; //for hosting
   public subjectData:any;
   constructor(public http: HttpClient) {
