@@ -12,6 +12,7 @@ import { AlertController, ToastController } from 'ionic-angular';
 export class ServiceResetpasswordProvider {
 
   public URL="http://localhost/schoolapi/";
+ // public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/";
   recdata: any;
  
 

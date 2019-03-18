@@ -15,10 +15,10 @@ import { ServiceAddsubjectProvider } from '../../providers/service-addsubject/se
   templateUrl: 'add-subjects.html',
 })
 export class AddSubjectsPage {
-  private subjectid:any;
-  private subjectname:any;
-  private subjecttype:any;
-  private subjectmaterial:any;
+  public subjectid:any;
+  public subjectname:any;
+  public subjecttype:any;
+  public subjectmaterial:any;
   public subject:any={
     "subjectid":"",
     "subjectname":"",
@@ -33,18 +33,9 @@ export class AddSubjectsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddSubjectsPage');
   }
-  getSubject()
-  {
-    this.subject['subjectid']=this.subjectid;
-    this.subject['subjectname']=this.subjectname;
-    this.subject['subjecttype']=this.subjecttype;
-    this.subject['subjectmaterial']=this.subjectmaterial;
-    this.addSubjectService.postSubject(this.subject);
-    return 1;
-    
-  }
-  showConfirm() {
-    if(this.subjectid!=undefined && this.subjectname!=undefined && this.subjecttype!=undefined && this.subjectmaterial!=undefined)
+
+  postSubject(subjectid,subjectname,subjecttype,subjectmaterial) {
+    if(subjectid!=undefined && subjectname!=undefined && subjecttype!=undefined && subjectmaterial!=undefined)
     {
     const confirm = this.alertctrl.create({
       title: 'Are you sure?',
@@ -53,19 +44,23 @@ export class AddSubjectsPage {
         {
           text: 'Confirm',
           handler: () => {
-            if(this.getSubject()==1)
+            this.subjectid=subjectid;
+            this.subjectname=subjectname;
+            this.subjecttype=subjecttype;
+            this.subjectmaterial=subjectmaterial;
+            this.subject['subjectid']=this.subjectid;
+            this.subject['subjectname']=this.subjectname;
+            this.subject['subjecttype']=this.subjecttype;
+            this.subject['subjectmaterial']=this.subjectmaterial;
+            if(this.addSubjectService.postSubject(this.subject))
             {
-              alert("Submission Successfull")
+              this.navCtrl.pop();
             }
-           // this.navCtrl.push(AddSubjectsPage);
-            //console.log('Confirm clicked');
-            this.navCtrl.pop();
           }
         },
         {
           text: 'Cancel',
           handler: () => {
-            //console.log('Agree clicked');
           }
         }
       ]

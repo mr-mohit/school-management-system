@@ -22,12 +22,11 @@ export class AdminDeletePage {
 
   public sujectlist:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,public cid:ServiceGetClassMasterProvider) {
-    //console.log("data inside the adim delete interface",this.sujectlist);
-                
   }
   DeleteSubject()
   {
     this.navCtrl.push(DeleteSubjectsPage);
+    this.cid.getSubjectFun();
   }  
 
   DeleteClass()

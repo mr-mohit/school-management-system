@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ViewUserPage } from '../view-user/view-user';
+import { ViewSubjectsPage } from '../view-subjects/view-subjects';
 
 /**
  * Generated class for the AdminViewPage page.
@@ -28,5 +29,9 @@ export class AdminViewPage {
   {
       this.navCtrl.push(ViewUserPage);
   }
-
+  
+  ViewSubject()
+  {
+    this.navCtrl.push(ViewSubjectsPage);
+  }
 }

@@ -32,20 +32,17 @@ if($con)
        $name=test_input($obj['subjectname']);
 	   $type=test_input($obj['subjecttype']);  
        $material=test_input($obj['subjectmaterial']);
-       //$isactive=test_input($_POST['isactive']);
 		$sql = "INSERT INTO subject(SUBJECT_ID,SUBJECT_NAME,SUBJECT_TYPE,SUBJECT_MATERIAL,IS_ACTIVE) 
 		VALUES('$subject_id','$name','$type','$material',1)";
 		if(mysqli_query($con,$sql))
 		{
 		   result(1,"success");
-		   //$response['statuscode']=1;
-		  // echo json_encode($response);
+
 		}
 		else
 		{
 			result(0,"fail");
-			//$response['statuscode']=0;
-		    //echo json_encode($response);
+		
 		}   
 	}
 }

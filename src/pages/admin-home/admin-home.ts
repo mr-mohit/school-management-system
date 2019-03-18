@@ -41,14 +41,7 @@ export class AdminHomePage {
   }
   gotoAdminDelete()
   {
-   // let dataObj;
-    this.deleteSubjectService.postDelete().then(data=>{
-    //  dataObj=data;
-      //console.log("adminHome",dataObj);
-      this.navCtrl.push(AdminDeletePage);
-    });
-   //console.log("deleted subject",dataObj);
-   
+    this.navCtrl.push(AdminDeletePage);
   }
   gotoAdminUpdate()
   {

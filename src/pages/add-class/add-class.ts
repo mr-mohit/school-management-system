@@ -46,7 +46,10 @@ export class AddClassPage {
                           this.classData['CLASS']= this.CLASS;
                           this.classData['SECTION']=this.SECTION;
                           console.log("sending data",this.classData);
-                          this.addClass.addClassFun(this.classData);
+                          if(this.addClass.addClassFun(this.classData))
+                          {
+                            this.navCtrl.pop();
+                          }
                           }
           }
       ]

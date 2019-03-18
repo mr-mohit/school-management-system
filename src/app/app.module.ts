@@ -69,6 +69,7 @@ import { DeleteTermPage } from '../pages/delete-term/delete-term';
 import { TeacherAnnouncementPage } from '../pages/teacher-announcement/teacher-announcement';
 import { ServiceAnnouncementProvider } from '../providers/service-announcement/service-announcement';
 import { AnnouncementDetailsPage } from '../pages/announcement-details/announcement-details';
+import { ViewSubjectsPage } from '../pages/view-subjects/view-subjects';
  
 
  @NgModule({ 
@@ -116,6 +117,7 @@ import { AnnouncementDetailsPage } from '../pages/announcement-details/announcem
     DeleteTermPage,
     TeacherAnnouncementPage,
     AnnouncementDetailsPage,
+    ViewSubjectsPage,
   ],
   imports: [
     BrowserModule,
@@ -167,6 +169,7 @@ import { AnnouncementDetailsPage } from '../pages/announcement-details/announcem
     DeleteTermPage,
     TeacherAnnouncementPage,
     AnnouncementDetailsPage,
+    ViewSubjectsPage,
   ],
   providers: [
     StatusBar,
