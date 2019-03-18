@@ -22,7 +22,7 @@ export class ServiceAnnouncementProvider {
 
     return new Promise(resolve=>{
       this.http.post(url,JSON.stringify("")).subscribe(data=>{ 
-        console.log(data);     
+        //console.log(data);     
         if(data['statuscode'] == 1)
          {
           this.data=data['data']; 
@@ -36,7 +36,6 @@ export class ServiceAnnouncementProvider {
          resolve(data);
 
       },error=>{
-       
         alert("Connection Error");
       });
     });
