@@ -16,12 +16,41 @@ import { ServiceAnnouncementProvider } from '../../providers/service-announcemen
 })
 export class TeacherAnnouncementPage {
 
+  public status:any;
+  public count=0;
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public Service:ServiceAnnouncementProvider) {
        this.Service.getData();
   
+    }
+    
+    enablecontent(item)
+    {
+      this.count=this.count+1;
+      if(this.count%2!=0)
+      {
+        this.status=true;
+      }
+      else
+      {
+         this.status=false;
+      }
+    }
+
+    // acceptedbuttonclicked(item)
+    // {
+    //   item.optiondiv=false;
+    //   item.optionvalue=true;
+    //   item.optiontext="Accepted";
+        
+    // }
+    // rejectedbuttonclicked(item)
+    // {
+    //   item.optiondiv=false;
+    //   item.optionvalue=true;
+    //   item.optiontext="Rejected";
+        
+    // }
+    
   }
-
-
-  
-}

@@ -10,8 +10,33 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-    <ion-item>
-      </ion-item>
-   
-   </ion-content>
+ <!-- <ion-item>
+    <ion-label>Select Class</ion-label>
+     <ion-select  name="AID" [(ngModel)]="AID">
+
+      <ion-option *ngFor="let i of Service?.data"  value="{{i.A_ID}}" >{{i.CATEGORY}} {{i.TITLE}}</ion-option>
+      
+     </ion-select>
+  </ion-item> -->
+
+  <ion-content padding>
+      <div  class="adv-map" *ngFor="let item of Service?.data;" >
+     <ion-card>
+         <ion-card-header class="header-style" (click)="enablecontent(item)">
+    
+          <h2 color="danger"><b>{{item.CATEGORY}}!!!</b></h2>
+          <h3>{{item.START_TIME}}</h3>
+          <h3>{{item.TITLE}}</h3>
+         </ion-card-header>
+       
+         <ion-card-content  *ngIf="status">
+           {{item.DESCRIPTION}}<br/>
+         </ion-card-content>
+       </ion-card>
+      
+       
+       
+     </div>
+     
+     
+     </ion-content>

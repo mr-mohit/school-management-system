@@ -27,6 +27,7 @@ export class ServiceAnnouncementProvider {
          {
           this.data=data['data']; 
           console.log(this.data); 
+          return this.data;
          }
          else
          {
