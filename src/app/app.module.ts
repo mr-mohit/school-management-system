@@ -68,6 +68,7 @@ import { DeleteSessionPage } from '../pages/delete-session/delete-session';
 import { DeleteTermPage } from '../pages/delete-term/delete-term';
 import { TeacherAnnouncementPage } from '../pages/teacher-announcement/teacher-announcement';
 import { ServiceAnnouncementProvider } from '../providers/service-announcement/service-announcement';
+import { AnnouncementDetailsPage } from '../pages/announcement-details/announcement-details';
  
 
  @NgModule({ 
@@ -113,7 +114,8 @@ import { ServiceAnnouncementProvider } from '../providers/service-announcement/s
     DeleteClassPage,
     DeleteSessionPage,
     DeleteTermPage,
-    TeacherAnnouncementPage
+    TeacherAnnouncementPage,
+    AnnouncementDetailsPage,
   ],
   imports: [
     BrowserModule,
@@ -163,7 +165,8 @@ import { ServiceAnnouncementProvider } from '../providers/service-announcement/s
     DeleteClassPage,
     DeleteSessionPage,
     DeleteTermPage,
-    TeacherAnnouncementPage
+    TeacherAnnouncementPage,
+    AnnouncementDetailsPage,
   ],
   providers: [
     StatusBar,

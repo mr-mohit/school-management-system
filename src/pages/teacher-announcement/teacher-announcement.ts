@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ServiceAnnouncementProvider } from '../../providers/service-announcement/service-announcement';
+import { AnnouncementDetailsPage } from '../announcement-details/announcement-details';
 
 /**
  * Generated class for the TeacherAnnouncementPage page.
@@ -16,41 +17,18 @@ import { ServiceAnnouncementProvider } from '../../providers/service-announcemen
 })
 export class TeacherAnnouncementPage {
 
-  public status:any;
-  public count=0;
-
-
   constructor(public navCtrl: NavController, public navParams: NavParams,public Service:ServiceAnnouncementProvider) {
        this.Service.getData();
+
+       }
+
+
+       enablecontent(item)
+       {
+        this.navCtrl.push(AnnouncementDetailsPage,{item});
+       }
   
     }
-    
-    enablecontent(item)
-    {
-      this.count=this.count+1;
-      if(this.count%2!=0)
-      {
-        this.status=true;
-      }
-      else
-      {
-         this.status=false;
-      }
-    }
 
-    // acceptedbuttonclicked(item)
-    // {
-    //   item.optiondiv=false;
-    //   item.optionvalue=true;
-    //   item.optiontext="Accepted";
-        
-    // }
-    // rejectedbuttonclicked(item)
-    // {
-    //   item.optiondiv=false;
-    //   item.optionvalue=true;
-    //   item.optiontext="Rejected";
-        
-    // }
+
     
-  }
