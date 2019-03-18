@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ServiceAnnouncementProvider } from '../../providers/service-announcement/service-announcement';
 
 /**
  * Generated class for the TeacherAnnouncementPage page.
@@ -15,11 +16,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class TeacherAnnouncementPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,public Service:ServiceAnnouncementProvider) {
+       this.Service.getData();
+  
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TeacherAnnouncementPage');
-  }
 
+  
 }

@@ -67,6 +67,7 @@ import { ServiceDeleteTermProvider } from '../providers/service-delete-term/serv
 import { DeleteSessionPage } from '../pages/delete-session/delete-session';
 import { DeleteTermPage } from '../pages/delete-term/delete-term';
 import { TeacherAnnouncementPage } from '../pages/teacher-announcement/teacher-announcement';
+import { ServiceAnnouncementProvider } from '../providers/service-announcement/service-announcement';
  
 
  @NgModule({ 
@@ -196,7 +197,9 @@ import { TeacherAnnouncementPage } from '../pages/teacher-announcement/teacher-a
     ServiceViewUserProvider,
     ServiceDeleteClassProvider,
     ServiceDeleteSessionProvider,
-    ServiceDeleteTermProvider
+    ServiceDeleteTermProvider,
+    ServiceAnnouncementProvider,
+  
   ]
 })
 export class AppModule {}
