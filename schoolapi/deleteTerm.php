@@ -1,7 +1,7 @@
 <?php
-     include 'connection.php';
-     header('Access-Control-Allow-Origin: *');
-	 $response=array();
+		 include 'connection.php';
+		 header('Access-Control-Allow-Origin:*');
+	     $response=array();
 if($con)
 {
 	if($_SERVER['REQUEST_METHOD'] == 'POST')
@@ -27,12 +27,12 @@ if($con)
 
        $postdata=file_get_contents("php://input");
        $obj=json_decode($postdata,true);
-	   $subjectid=test_input($obj['subjectid']);
-       $name=test_input($obj['subjectname']);
-	   $type=test_input($obj['subjecttype']);  
-       $material=test_input($obj['subjectmaterial']);
-		$sql = "INSERT INTO subject(SUBJECT_ID,SUBJECT_NAME,SUBJECT_TYPE,SUBJECT_MATERIAL,IS_ACTIVE) VALUES('$subjectid','$name','$type','$material',1)";
-		if(mysqli_query($con,$sql))
+	   
+	   $term=test_input($obj['TERM']);
+	   
+	   
+	   $sql="UPDATE term_master SET IS_ACTIVE=0 WHERE TERM_ID='$term'";
+	   if(mysqli_query($con,$sql))
 		{
 		   result(1,"success");
 
@@ -40,8 +40,8 @@ if($con)
 		else
 		{
 			result(0,"fail");
-		
-		}   
+
+		} 	   
 	}
 }
 ?>

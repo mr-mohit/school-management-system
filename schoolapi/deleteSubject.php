@@ -30,7 +30,7 @@ if($con)
 
         $postdata1=file_get_contents("php://input");
         $obj=json_decode($postdata1,true);
-	    $subjectid=test_input($obj['subjectid']);
+	    $subjectid=test_input($obj['SUBJECT']);
 		$sql1 = "UPDATE subject SET IS_ACTIVE=0 WHERE SUBJECT_ID='$subjectid'";
 		if (mysqli_query($con,$sql1)) 
 		{

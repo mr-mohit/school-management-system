@@ -36,9 +36,9 @@ import { ServiceAdduserProvider } from '../providers/service-adduser/service-add
 import { StudentQuizPage } from '../pages/student-quiz/student-quiz';
 import { StudentProfilePage } from '../pages/student-profile/student-profile';
 import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
+import { NativeStorage } from '@ionic-native/native-storage';
 import { ServiceDeleteSubjectProvider } from '../providers/service-delete-subject/service-delete-subject';
 import { DeleteSubjectsPage } from '../pages/delete-subjects/delete-subjects';
-import { NativeStorage } from '@ionic-native/native-storage';
 import { AddSessionPage } from '../pages/add-session/add-session';
 import { ServiceAddSessionProvider } from '../providers/service-add-session/service-add-session';
 import { ServiceAdminAnnouncements } from '../providers/service-AdminAnnoucement/service-announcement';
@@ -60,6 +60,12 @@ import { ViewUserPage } from '../pages/view-user/view-user';
 import { UpdateUserPage } from '../pages/update-user/update-user';
 import { ServiceUpdateUserProvider } from '../providers/service-update-user/service-update-user';
 import { ServiceViewUserProvider } from '../providers/service-view-user/service-view-user';
+import { ServiceDeleteClassProvider } from '../providers/service-delete-class/service-delete-class';
+import { DeleteClassPage } from '../pages/delete-class/delete-class';
+import { ServiceDeleteSessionProvider } from '../providers/service-delete-session/service-delete-session';
+import { ServiceDeleteTermProvider } from '../providers/service-delete-term/service-delete-term';
+import { DeleteSessionPage } from '../pages/delete-session/delete-session';
+import { DeleteTermPage } from '../pages/delete-term/delete-term';
  
 
  @NgModule({ 
@@ -95,13 +101,16 @@ import { ServiceViewUserProvider } from '../providers/service-view-user/service-
     AddSubjectsPage,
     SettingPage,
     StudentProfilePage,
-    DeleteSubjectsPage,
     AddSessionPage,
     AddTermPage,
     AddClassPage,
     ClassSubjectRegPage,
     ViewUserPage,
-    UpdateUserPage
+    UpdateUserPage,
+    DeleteSubjectsPage,
+    DeleteClassPage,
+    DeleteSessionPage,
+    DeleteTermPage,
   ],
   imports: [
     BrowserModule,
@@ -147,7 +156,10 @@ import { ServiceViewUserProvider } from '../providers/service-view-user/service-
     AddClassPage,
     ClassSubjectRegPage,
     ViewUserPage,
-    UpdateUserPage
+    UpdateUserPage,
+    DeleteClassPage,
+    DeleteSessionPage,
+    DeleteTermPage,
   ],
   providers: [
     StatusBar,
@@ -178,7 +190,10 @@ import { ServiceViewUserProvider } from '../providers/service-view-user/service-
     ServiceResetpasswordProvider,
     NativeStorage,
     ServiceUpdateUserProvider,
-    ServiceViewUserProvider
+    ServiceViewUserProvider,
+    ServiceDeleteClassProvider,
+    ServiceDeleteSessionProvider,
+    ServiceDeleteTermProvider
   ]
 })
 export class AppModule {}

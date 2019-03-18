@@ -8,13 +8,6 @@ import { FilePath } from '@ionic-native/file-path';
 import { File } from '@ionic-native/file';
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 
-
-/**
- * Generated class for the AddUsersPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 declare var cordova: any;
 @IonicPage()
 @Component({
@@ -60,6 +53,10 @@ export class AddUsersPage {
      "userstate":"",
      "userpincode":"",
      "usercontact":"",
+     "studentclass":"c",
+     "studentsection":"s",
+     "teacherdesgn":"t",
+     "teacherdepart":"d",
 
   }
 
@@ -105,6 +102,11 @@ export class AddUsersPage {
     
     // this slide is used to enter infos address of the user
     this.slideFourForm = formBuilder.group({
+      studentClass: ['', Validators.compose([Validators.maxLength(30),Validators.required])],
+      studentSection: ['', Validators.compose([Validators.maxLength(30),Validators.required])],
+      teacherDepart: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z]*')])],
+      teacherDesg: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z]*')])],
+
  
     });
   }
@@ -163,6 +165,25 @@ export class AddUsersPage {
           this.userInfos["userpincode"] =  this.slideThreeForm.getRawValue().pincode;
           this.userInfos["usercontact"] =  this.slideThreeForm.getRawValue().contact;
 
+          if(this.userInfos["userrole"] =="student" && this.slideFourForm.controls.studentClass.valid && this.slideFourForm.controls.studentSection.valid)
+          {
+              this.userInfos["studentclass"] = this.slideFourForm.getRawValue().studentClass;
+              this.userInfos["studentsection"] = this.slideFourForm.getRawValue().studentSection;
+          }
+          else
+          {
+             alert("Please Select a valid class for the student");
+          }
+          // in case of teacher
+          if(this.userInfos["userrole"] == "teacher" && this.slideFourForm.controls.teacherDepart.valid && this.slideFourForm.controls.teacherDesg.valid)
+          {
+              this.userInfos["teacherdepart"] = this.slideFourForm.getRawValue().teacherDepart;
+              this.userInfos["teacherdesg"] = this.slideFourForm.getRawValue().teacherDesg;
+          }
+          else
+          {
+            alert("Please select an appropirate designationand/or departement for teacher");
+          }
           var a = 0; 
           //alert(this.userInfos["userpic"]);
           for(var index in this.userInfos) {
@@ -181,7 +202,7 @@ export class AddUsersPage {
             }
           }
           // here we check if all the fields have been filled
-          if(a == 18 && this.lastImage!==  null)
+          if(a == 22 && this.lastImage!==  null)
           {
             this.userInfos['userpic']= this.lastImage;
             //this.uploadImage(); // upload image in the server

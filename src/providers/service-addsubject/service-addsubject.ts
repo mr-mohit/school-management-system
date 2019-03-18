@@ -9,20 +9,22 @@ import { Injectable } from '@angular/core';
 */
 @Injectable()
 export class ServiceAddsubjectProvider {
-
-  //public data:any;
   public URL="http://localhost/schoolapi/"; //for local use
-  //public URL="https://direct-school.000webhostapp.com/"; //for hosting
+  //public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/";
+   //public URL="https://direct-school.000webhostapp.com/"; //for hosting
   constructor(public http: HttpClient) {
     console.log("Hello ServiceAddsubjectProvider Provider");
   }
+
+  postSubject(subject)
+  {
+    var url=this.URL+"addSubject.php";
+    return this.postData(url,subject);
+  }
+
   postData(url,data1)
   {
-
-    // For header problem
-    
-    // var header={"header":{"Content-Type":"application/json"}};
-    
+    console.log("passing data",data1);
     return new Promise(resolve=>{
     
       this.http.post(url,JSON.stringify(data1)).subscribe(data=>{
@@ -42,11 +44,4 @@ export class ServiceAddsubjectProvider {
     });
   }
 
-
-  postSubject(subject)
-  {
-    console.log(subject);
-    var url=this.URL+"addSubject.php";
-    return this.postData(url,subject);
-  }
 }

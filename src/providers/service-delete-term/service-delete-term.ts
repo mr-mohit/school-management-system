@@ -1,33 +1,36 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 @Injectable()
-export class ServiceAddClassProvider {
-    public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; //for local use
+export class ServiceDeleteTermProvider {
+  public URL="http://localhost/schoolapi/"; //for local use
   // public URL="https://direct-school.000webhostapp.com/"; //for hosting
+
   constructor(public http: HttpClient) {
-    
+    console.log('Hello ServiceDeleteTermProvider Provider');
   }
-  addClassFun(classData)
+
+  deleteTermFun(TD)
   {
-    var url=this.URL+"addClass.php";
-    return this.postClass(url,classData);
+    var url=this.URL+"deleteTerm.php";
+    return this.deleteTerm(url,TD);
 
   }
 
-  postClass(url,classData)
+  deleteTerm(url,TD)
   {
     //console.log("service call",classData);
     return new Promise(resolve=>{
-      this.http.post(url,JSON.stringify(classData)).subscribe(data=>{
-        console.log("passing data",classData);
+      this.http.post(url,JSON.stringify(TD)).subscribe(data=>{
+        console.log("passing data",TD);
         if(data['statuscode']==1)
         {
-          alert("Class Added");
+          alert("Term Deleted");
 
         }
         else
         {
-          alert("Class Not-Added");
+          alert("Term Not-Deleted");
 
         }        
         
