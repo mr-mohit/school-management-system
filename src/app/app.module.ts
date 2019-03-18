@@ -66,6 +66,7 @@ import { ServiceDeleteSessionProvider } from '../providers/service-delete-sessio
 import { ServiceDeleteTermProvider } from '../providers/service-delete-term/service-delete-term';
 import { DeleteSessionPage } from '../pages/delete-session/delete-session';
 import { DeleteTermPage } from '../pages/delete-term/delete-term';
+import { ViewSubjectsPage } from '../pages/view-subjects/view-subjects';
  
 
  @NgModule({ 
@@ -111,6 +112,7 @@ import { DeleteTermPage } from '../pages/delete-term/delete-term';
     DeleteClassPage,
     DeleteSessionPage,
     DeleteTermPage,
+    ViewSubjectsPage,
   ],
   imports: [
     BrowserModule,
@@ -160,6 +162,7 @@ import { DeleteTermPage } from '../pages/delete-term/delete-term';
     DeleteClassPage,
     DeleteSessionPage,
     DeleteTermPage,
+    ViewSubjectsPage,
   ],
   providers: [
     StatusBar,
