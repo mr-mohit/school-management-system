@@ -25,6 +25,7 @@ export class TeacherAnnouncementPage {
 
        enablecontent(item)
        {
+         
         this.navCtrl.push(AnnouncementDetailsPage,{item});
        }
   

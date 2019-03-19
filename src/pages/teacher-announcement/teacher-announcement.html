@@ -16,9 +16,13 @@
       
      <ion-card *ngFor="let item of Service?.data;">
          <ion-card-header class="header-style" (click)="enablecontent(item)">
-    
-          <h2><b>{{item.CATEGORY}}  {{item.START_TIME}}</b></h2>
-          <h3>{{item.TITLE}}</h3>
+
+          <ion-icon ios="ios-information-circle" md="md-information-circle" style="color:red;">  
+            {{item.CATEGORY}}
+          </ion-icon>
+
+          <ion-label>Date: {{item.START_TIME}}</ion-label>
+          <ion-label text-wrap>{{item.TITLE}}</ion-label>
 
          </ion-card-header>
        
