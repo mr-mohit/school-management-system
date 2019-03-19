@@ -10,7 +10,7 @@ import { ResetpasswordPage } from '../pages/resetpassword/resetpassword';
 import { TeacherHomePage } from '../pages/teacher-home/teacher-home';
 import { StudentdashboardPage } from '../pages/studentdashboard/studentdashboard';
 import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient} from '@angular/common/http';
 import { StudentExamsPage } from '../pages/student-exams/student-exams';
 import { StudentAttendancePage } from '../pages/student-attendance/student-attendance';
 import { StudentAnnouncementsPage } from '../pages/student-announcements/student-announcements';
@@ -66,6 +66,8 @@ import { ServiceDeleteSessionProvider } from '../providers/service-delete-sessio
 import { ServiceDeleteTermProvider } from '../providers/service-delete-term/service-delete-term';
 import { DeleteSessionPage } from '../pages/delete-session/delete-session';
 import { DeleteTermPage } from '../pages/delete-term/delete-term';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TeacherAnnouncementPage } from '../pages/teacher-announcement/teacher-announcement';
 import { ServiceAnnouncementProvider } from '../providers/service-announcement/service-announcement';
 import { AnnouncementDetailsPage } from '../pages/announcement-details/announcement-details';
@@ -78,6 +80,7 @@ import { ViewSessionPage } from '../pages/view-session/view-session';
 import { UpdateSubjectsPage } from '../pages/update-subjects/update-subjects';
 import { UpdateTermPage } from '../pages/update-term/update-term';
 import { ServiceUpdateProvider } from '../providers/service-update/service-update';
+import { AddTimetablePage } from '../pages/add-timetable/add-timetable';
  
 
  @NgModule({ 
@@ -135,10 +138,18 @@ import { ServiceUpdateProvider } from '../providers/service-update/service-updat
     ViewSessionPage,
     UpdateSubjectsPage,
     UpdateTermPage,
+    AddTimetablePage,
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    }),
     HttpClientModule
   ],
   bootstrap: [IonicApp],
@@ -194,6 +205,7 @@ import { ServiceUpdateProvider } from '../providers/service-update/service-updat
     ViewSessionPage,
     UpdateSubjectsPage,
     UpdateTermPage,
+    AddTimetablePage,
   ],
   providers: [
     StatusBar,
@@ -234,3 +246,7 @@ import { ServiceUpdateProvider } from '../providers/service-update/service-updat
   ]
 })
 export class AppModule {}
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+ }
