@@ -10,7 +10,7 @@ import { ResetpasswordPage } from '../pages/resetpassword/resetpassword';
 import { TeacherHomePage } from '../pages/teacher-home/teacher-home';
 import { StudentdashboardPage } from '../pages/studentdashboard/studentdashboard';
 import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient} from '@angular/common/http';
 import { StudentExamsPage } from '../pages/student-exams/student-exams';
 import { StudentAttendancePage } from '../pages/student-attendance/student-attendance';
 import { StudentAnnouncementsPage } from '../pages/student-announcements/student-announcements';
@@ -66,6 +66,8 @@ import { ServiceDeleteSessionProvider } from '../providers/service-delete-sessio
 import { ServiceDeleteTermProvider } from '../providers/service-delete-term/service-delete-term';
 import { DeleteSessionPage } from '../pages/delete-session/delete-session';
 import { DeleteTermPage } from '../pages/delete-term/delete-term';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
  
 
  @NgModule({ 
@@ -115,6 +117,13 @@ import { DeleteTermPage } from '../pages/delete-term/delete-term';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    }),
     HttpClientModule
   ],
   bootstrap: [IonicApp],
@@ -197,3 +206,7 @@ import { DeleteTermPage } from '../pages/delete-term/delete-term';
   ]
 })
 export class AppModule {}
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+ }
