@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the StudentAnnouncementsPage page.
+ * Generated class for the ViewClassPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,18 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-student-announcements',
-  templateUrl: 'student-announcements.html',
+  selector: 'page-view-class',
+  templateUrl: 'view-class.html',
 })
-export class StudentAnnouncementsPage {
-
+export class ViewClassPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-  
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad StudentAnnouncementsPage');
+    console.log('ionViewDidLoad ViewClassPage');
   }
 
 }

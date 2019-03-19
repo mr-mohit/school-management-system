@@ -6,7 +6,9 @@ import { Injectable } from '@angular/core';
 export class ServiceAdminAnnouncements {
 
   //public data:any;
-  public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/";
+ public URL="http://localhost/schoolapi/"; //for local use
+ //  public URL="https://direct-school.000webhostapp.com/"; //for hosting
+ // public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/";
    //public URL="https://direct-school.000webhostapp.com/"; //for hosting
   constructor(public http: HttpClient) {
   }
@@ -17,7 +19,7 @@ export class ServiceAdminAnnouncements {
     
     // var header={"header":{"Content-Type":"application/json"}};
     
-    // console.log("data passing",JSON.stringify(data1));
+     console.log("data passing",JSON.stringify(data1));
     return new Promise(resolve=>{    
       this.http.post(url,JSON.stringify(data1)).subscribe(data=>{
         if(data['statuscode'] == 1)
@@ -39,8 +41,6 @@ export class ServiceAdminAnnouncements {
 
   postAnnouncements(Announcements)
   {
-    console.log(Announcements);
-    console.log(typeof(Announcements));
     var url=this.URL+"announcement.php";
     return this.postData(url,Announcements);
   }

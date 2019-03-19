@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { UpdateUserPage } from '../update-user/update-user';
 import { UpdateSubjectsPage } from '../update-subjects/update-subjects';
 import { UpdateTermPage } from '../update-term/update-term';

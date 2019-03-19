@@ -66,6 +66,9 @@ import { ServiceDeleteSessionProvider } from '../providers/service-delete-sessio
 import { ServiceDeleteTermProvider } from '../providers/service-delete-term/service-delete-term';
 import { DeleteSessionPage } from '../pages/delete-session/delete-session';
 import { DeleteTermPage } from '../pages/delete-term/delete-term';
+import { TeacherAnnouncementPage } from '../pages/teacher-announcement/teacher-announcement';
+import { ServiceAnnouncementProvider } from '../providers/service-announcement/service-announcement';
+import { AnnouncementDetailsPage } from '../pages/announcement-details/announcement-details';
 import { ViewSubjectsPage } from '../pages/view-subjects/view-subjects';
 import { ViewSessionPage } from '../pages/view-session/view-session';
 import { UpdateSubjectsPage } from '../pages/update-subjects/update-subjects';
@@ -116,6 +119,8 @@ import { ServiceUpdateProvider } from '../providers/service-update/service-updat
     DeleteClassPage,
     DeleteSessionPage,
     DeleteTermPage,
+    TeacherAnnouncementPage,
+    AnnouncementDetailsPage,
     ViewSubjectsPage,
     ViewSessionPage,
     UpdateSubjectsPage,
@@ -169,6 +174,8 @@ import { ServiceUpdateProvider } from '../providers/service-update/service-updat
     DeleteClassPage,
     DeleteSessionPage,
     DeleteTermPage,
+    TeacherAnnouncementPage,
+    AnnouncementDetailsPage,
     ViewSubjectsPage,
     ViewSessionPage,
     UpdateSubjectsPage,
@@ -208,6 +215,8 @@ import { ServiceUpdateProvider } from '../providers/service-update/service-updat
     ServiceDeleteSessionProvider,
     ServiceDeleteTermProvider,
     ServiceUpdateProvider,
+    ServiceAnnouncementProvider,
+  
   ]
 })
 export class AppModule {}

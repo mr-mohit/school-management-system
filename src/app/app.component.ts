@@ -14,12 +14,9 @@ import { TeacherAnnouncementPage } from '../pages/teacher-announcement/teacher-a
 import { AboutUsPage } from '../pages/about-us/about-us';
 import { SettingPage } from '../pages/setting/setting';
 import { ServiceLoginProvider } from '../providers/service-login/service-login';
-import { ServiceAddsubjectProvider} from '../providers/service-addsubject/service-addsubject';
-
 import { StudentdashboardPage } from '../pages/studentdashboard/studentdashboard';
 import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard';
 import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
-import { AddUsersPage } from '../pages/add-users/add-users';
 
 
 import { NativeStorage } from '@ionic-native/native-storage';
@@ -38,6 +35,7 @@ export class MyApp {
     //declaration of array for side menu
     Student_a:Array<{title:string, icon:string,component:any,}>;    //array for student
     Teacher_a:Array<{title:string, icon:string,component:any,}>;    //array for teacher
+    Admin_a:Array<{title:string,icon:string,Component:any}>;
     help:Array<{title:string, icon:string,component:any,}>;
 
   constructor(platform: Platform, statusBar: StatusBar,private nativeStorage: NativeStorage,public toastCtrl: ToastController,
@@ -105,6 +103,13 @@ export class MyApp {
       {title:'Gallery',icon:'contact',component:GalleryPage},
       {title:'Events', icon:'contact',component:ViewEventsPage}
     ];
+    //initializing the Admin array elements for side menu
+    this.Admin_a=[
+      {title:"Home",icon:"home",Component:AdminDashboardPage},
+      {title:"Gallery",icon:"contact",Component:GalleryPage},
+      
+    ];
+
     //initializing the common array elements for side menu
     this.help=[
       {title:'About Us', icon:'contact',component:AboutUsPage},
