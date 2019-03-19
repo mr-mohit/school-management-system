@@ -110,7 +110,6 @@ export class MyApp {
     this.Admin_a=[
       {title:"Home",icon:"home",Component:AdminDashboardPage},
       {title:"Gallery",icon:"images",Component:GalleryPage},
-
     ];
 
     //initializing the common array elements for side menu

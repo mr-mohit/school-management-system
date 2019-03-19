@@ -51,7 +51,7 @@ export class ResetpasswordPage {
         
         //alert box
        const alert = this.alertCtrl.create({
-        title: 'hello'+' '+this.recdata.data[0].USER_NAME, 
+        title: 'hello'+' '+this.recdata.data[0].FIRST_NAME, 
         subTitle: 'The otp has been sent to your email',
         message: 'Click Ok -> to set the new password',
         buttons: [
