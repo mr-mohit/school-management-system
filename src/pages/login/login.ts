@@ -10,6 +10,7 @@ import { NativeStorage } from '@ionic-native/native-storage';
 import { ViewSubjectsPage } from '../view-subjects/view-subjects';
 import { AdminViewPage } from '../admin-view/admin-view';
 import { AdminUpdatePage } from '../admin-update/admin-update';
+import { AdminAddPage } from '../admin-add/admin-add';
 
 @Component({
   selector: 'page-login',
@@ -91,7 +92,7 @@ ResetPassword()
   this.navCtrl.push(ResetpasswordPage);
 }
 
-click()
+VS()
 {
   this.navCtrl.push(AdminUpdatePage);
 }

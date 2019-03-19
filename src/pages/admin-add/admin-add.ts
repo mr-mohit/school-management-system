@@ -7,6 +7,7 @@ import { ServiceViewSessionProvider } from '../../providers/service-view-session
 import { AddTermPage } from '../add-term/add-term';
 import { AddClassPage } from '../add-class/add-class';
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
+import { AddTimetablePage } from '../add-timetable/add-timetable';
 
 
 
@@ -25,6 +26,7 @@ export class AdminAddPage{
   {
     this.navCtrl.push(AddUsersPage);
     this.cid.getClassFun();   //this will call the function of ServiceGetClassMaster through cid object of same service
+    this.getSession.getSessionFun();
   }
   AddSubject()
   {
@@ -36,7 +38,7 @@ export class AdminAddPage{
   }
   AddTimeTable()
   {
-
+     this.navCtrl.push(AddTimetablePage);
   }
   AddSession()
   {

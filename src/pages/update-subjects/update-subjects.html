@@ -9,7 +9,7 @@
         <ion-item>
           <ion-label floating>Old Subject Name</ion-label>
            <ion-select  name="SID" [(ngModel)]="SID">
-           <ion-option *ngFor="let u of updSubject?.subjectData"  value="{{u.SUBJECT_ID}}" >{{u.SUBJECT_NAME}}</ion-option> 
+           <ion-option *ngFor="let u of GS?.subjectData"  value="{{u.SUBJECT_ID}}" >{{u.SUBJECT_NAME}}</ion-option> 
            </ion-select>
         </ion-item>
 
@@ -51,7 +51,7 @@
               <ion-label></ion-label>
               
               <button id="updatesubject" ion-button color="header" block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;"
-                         on-click="updateSSubject(SID,SUBNAME,SUBTYPE,SUBMATERIAL)">
+                         on-click="USubject(SID,SUBNAME,SUBTYPE,SUBMATERIAL)">
                 Update
               </button>
         </form>

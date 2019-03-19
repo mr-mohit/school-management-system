@@ -7,6 +7,7 @@ import { Transfer, TransferObject } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { File } from '@ionic-native/file';
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
+import { ServiceViewSessionProvider } from '../../providers/service-view-session/service-view-session';
 
 declare var cordova: any;
 @IonicPage()
@@ -55,6 +56,7 @@ export class AddUsersPage {
      "usercontact":"",
      "studentclass":"c",
      "studentsection":"s",
+     "studentsession":0,
      "teacherdesgn":"t",
      "teacherdepart":"d",
 
@@ -63,6 +65,7 @@ export class AddUsersPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform,
               public formBuilder: FormBuilder, public service:ServiceAdduserProvider,
+              public getSession:ServiceViewSessionProvider,
               private camera: Camera, private transfer: Transfer, private file: File,
               private filePath: FilePath,public actionSheetCtrl: ActionSheetController,
               public toastCtrl: ToastController,public loadingCtrl: LoadingController,
@@ -70,7 +73,7 @@ export class AddUsersPage {
   
     // this slide is used to enter basics infos of the user
     this.slideOneForm = formBuilder.group({
-      userid: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]+'), Validators.required])],
+     //userid: [''],
      // userpic: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]+'), Validators.required])],
       userfirstname: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]+'), Validators.required])],
       userlastname: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]+'), Validators.required])],
@@ -104,11 +107,15 @@ export class AddUsersPage {
     this.slideFourForm = formBuilder.group({
       studentClass: ['', Validators.compose([Validators.maxLength(30),Validators.required])],
       studentSection: ['', Validators.compose([Validators.maxLength(30),Validators.required])],
+      studentSession: ['', Validators.compose([Validators.maxLength(30),Validators.required])],
       teacherDepart: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z]*')])],
       teacherDesg: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z]*')])],
 
  
     });
+  
+    // reset the user ID
+    this.service.userID = "";
   }
 
   ionViewDidLoad() {
@@ -129,6 +136,7 @@ export class AddUsersPage {
    //get the user id 
     getID()
     {
+      this.service.userID = "";
      console.log(this.slideOneForm.getRawValue().userrole);
       if(this.slideOneForm.getRawValue().userrole =="")
       {
@@ -142,6 +150,9 @@ export class AddUsersPage {
 
   save()
   {
+    // console.log("class",this.slideFourForm.getRawValue().studentClass);
+    // console.log("section",this.slideFourForm.getRawValue().studentSection);
+    // console.log("Session",this.slideFourForm.getRawValue().studentSession);
      if(this.slideOneForm.valid && this.slideTwoForm.valid && this.slideThreeForm.valid)
      {
       if(this.slideTwoForm.getRawValue().userpassword == this.slideTwoForm.getRawValue().userpassword2)
@@ -165,24 +176,37 @@ export class AddUsersPage {
           this.userInfos["userpincode"] =  this.slideThreeForm.getRawValue().pincode;
           this.userInfos["usercontact"] =  this.slideThreeForm.getRawValue().contact;
 
-          if(this.userInfos["userrole"] =="student" && this.slideFourForm.controls.studentClass.valid && this.slideFourForm.controls.studentSection.valid)
+         
+
+          if(this.userInfos["userrole"] =="student" && this.slideFourForm.controls.studentClass.valid &&
+             this.slideFourForm.controls.studentSession.valid && this.slideFourForm.controls.studentSection.valid)
           {
               this.userInfos["studentclass"] = this.slideFourForm.getRawValue().studentClass;
               this.userInfos["studentsection"] = this.slideFourForm.getRawValue().studentSection;
-          }
-          else
-          {
-             alert("Please Select a valid class for the student");
+              this.userInfos["studentsession"] = this.slideFourForm.getRawValue().studentSession;
           }
           // in case of teacher
-          if(this.userInfos["userrole"] == "teacher" && this.slideFourForm.controls.teacherDepart.valid && this.slideFourForm.controls.teacherDesg.valid)
+          else if(this.userInfos["userrole"] == "teacher" && this.slideFourForm.controls.teacherDepart.valid && this.slideFourForm.controls.teacherDesg.valid)
           {
               this.userInfos["teacherdepart"] = this.slideFourForm.getRawValue().teacherDepart;
               this.userInfos["teacherdesg"] = this.slideFourForm.getRawValue().teacherDesg;
           }
           else
           {
-            alert("Please select an appropirate designationand/or departement for teacher");
+              if(this.userInfos["userrole"] == "teacher")
+              {
+                this.userInfos["teacherdepart"] = "";
+                this.userInfos["teacherdesg"] = "";
+                alert("Please select an appropirate designationand/or departement for teacher");
+              }
+              else
+              {
+                this.userInfos["studentclass"] ="";
+                this.userInfos["studentsection"]= "";
+                this.userInfos["studentsession"]= 0;
+                 alert("Please Select a valid class/section/session infos for the student");
+              }
+              
           }
           var a = 0; 
           //alert(this.userInfos["userpic"]);
@@ -193,7 +217,7 @@ export class AddUsersPage {
             if(this.userInfos[index] == "")
             {
               // if one field is empty => print an alert 
-                alert(" You should fill all the fields properly / empty fields are not allowed");
+                alert("empty fields are not allowed / You should fill all the fields properly");
                 break;
             }
             else
@@ -202,12 +226,12 @@ export class AddUsersPage {
             }
           }
           // here we check if all the fields have been filled
-          if(a == 22 && this.lastImage!==  null)
+          if(a == 23)
           {
-            this.userInfos['userpic']= this.lastImage;
+            this.userInfos['userpic'] = this.lastImage;
             //this.uploadImage(); // upload image in the server
-           //this.service.postuser(this.userInfos); // send the user infos to the provider 
-             this.ConfirmCreationUser(this.userInfos); 
+            //this.service.postuser(this.userInfos); // send the user infos to the provider 
+            this.ConfirmCreationUser(this.userInfos); 
           }
           else if(this.lastImage ===  null)
           {
@@ -322,7 +346,7 @@ export class AddUsersPage {
   // upload image to the server
   public uploadImage() {
     // Destination URL
-    var url = "http://192.168.1.11/schoolapi/uploadImage.php";
+    var url = "http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/uploadImage.php";
    
     // File for Upload
     var targetPath = this.pathForImage(this.lastImage);
