@@ -32,7 +32,7 @@ export class ServiceGetClassMasterProvider {
         {
           // alert("Term Added");
           this.classData=data['data'];
-          console.log("classes",data);
+          console.log("classes",this.classData);
 
 
         }
@@ -84,7 +84,7 @@ export class ServiceGetClassMasterProvider {
 
   }
 
-  // GET DATA FROM SESION TABLE IN DATABASE---------------------------------------------------------------->
+  // GET DATA FROM SESSION TABLE IN DATABASE---------------------------------------------------------------->
   getSessionFun()
   {
     var url=this.URL+"getSession.php";

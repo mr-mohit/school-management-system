@@ -69,8 +69,7 @@ export class ServiceAdduserProvider {
             {
                this.userID = data['id'];
                this.class = data['class'];
-               //console.log("service user id : ", this.userID);
-              // console.log("service class : ", this.class);
+              
             }else
             {  
               alert("get User ID failed");
