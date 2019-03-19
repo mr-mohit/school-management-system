@@ -21,10 +21,10 @@ export class ResetpasswordPage {
   email : any; // email address of the user who want to reset his password
   regNo : any; // registration number of the user 
   recdata: any;
-  loading :Loading;
+ 
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-     public alertCtrl: AlertController, public loadingCtrl : LoadingController,
+     public alertCtrl: AlertController,
      public service : ServiceResetpasswordProvider) {
   }
 
@@ -38,11 +38,7 @@ export class ResetpasswordPage {
     process:'1'
   } // these infos are used to check if the user exists in the system and also to send him the otp
 
-  // start wait  loading process 
-  this.loading = this.loadingCtrl.create({
-    content: 'sending OTP...',
-  });
-  this.loading.present();
+ 
 
  // send user infos to the server 
   this.service.postemail((userinfos)).then((data:any)=>{
@@ -51,12 +47,12 @@ export class ResetpasswordPage {
      this.recdata=data;
      if(data['statuscode']==1)
      {
-          this.loading.dismissAll(); // stop the loading process
+          this.service.loading.dismissAll(); // stop the loading process
         
         //alert box
        const alert = this.alertCtrl.create({
         title: 'hello'+' '+this.recdata.data[0].USER_NAME, 
-        subTitle: 'The otp that has been sent to your email',
+        subTitle: 'The otp has been sent to your email',
         message: 'Click Ok -> to set the new password',
         buttons: [
         {
@@ -76,11 +72,12 @@ export class ResetpasswordPage {
      alert.present();
      }
      else{
-      this.loading.dismissAll(); // stop the loading process
+      this.service.loading.dismissAll(); // stop the loading process
       alert(data['msg']);
      }
    
   })
+  
 
 }
   

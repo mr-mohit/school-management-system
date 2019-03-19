@@ -26,6 +26,7 @@ export class AdminAddPage{
   {
     this.navCtrl.push(AddUsersPage);
     this.cid.getClassFun();   //this will call the function of ServiceGetClassMaster through cid object of same service
+    this.getSession.getSessionFun();
   }
   AddSubject()
   {

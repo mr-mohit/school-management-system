@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { ServiceAddClassProvider } from '../../providers/service-add-class/service-add-class';
 import { ClassSubjectRegPage } from '../class-subject-reg/class-subject-reg';
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 
 
-@IonicPage()
+
 @Component({
   selector: 'page-add-class',
   templateUrl: 'add-class.html',

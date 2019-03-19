@@ -27,7 +27,7 @@ export class Resetpassword2Page {
 
     // this slide is used to enter basics infos of the user
     this.slideOneForm = formBuilder.group({
-      OTP:  ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('(?=.*[0-9]).{6,8}')])],
+      OTP:  ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('(?=.*[0-9]).{6,9}')])],
       newpassword: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[#$^+=!*()@%&]).{8,35}$'), Validators.required])],
 
      
@@ -46,7 +46,7 @@ export class Resetpassword2Page {
           {
               let datainfos=
               {
-                regNo: this.service.recdata.data[0].USER_ID,
+                regNo: this.service.recdata.data[0].REG_NO,
                 newpassword: this.slideOneForm.getRawValue().newpassword,
                 process:'2'
               }
