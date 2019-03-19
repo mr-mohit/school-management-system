@@ -14,9 +14,11 @@ import { TeacherAnnouncementPage } from '../pages/teacher-announcement/teacher-a
 import { AboutUsPage } from '../pages/about-us/about-us';
 import { SettingPage } from '../pages/setting/setting';
 import { ServiceLoginProvider } from '../providers/service-login/service-login';
+import { ServiceAddsubjectProvider} from '../providers/service-addsubject/service-addsubject';
 import { StudentdashboardPage } from '../pages/studentdashboard/studentdashboard';
 import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard';
 import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
+import { TranslateService } from '@ngx-translate/core';
 
 
 import { NativeStorage } from '@ionic-native/native-storage';
@@ -39,8 +41,9 @@ export class MyApp {
     help:Array<{title:string, icon:string,component:any,}>;
 
   constructor(platform: Platform, statusBar: StatusBar,private nativeStorage: NativeStorage,public toastCtrl: ToastController,
-             public service:ServiceLoginProvider, splashScreen: SplashScreen,public altertCtrl:AlertController) {
-    platform.ready().then(() => {
+             public service:ServiceLoginProvider, splashScreen: SplashScreen,public altertCtrl:AlertController,public translate:TranslateService) {
+              translate.setDefaultLang('en');
+              platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleBlackOpaque();

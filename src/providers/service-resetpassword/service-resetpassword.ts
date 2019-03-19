@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AlertController, ToastController } from 'ionic-angular';
+import { AlertController, ToastController, LoadingController } from 'ionic-angular';
 
 /*
   Generated class for the ServiceResetpasswordProvider provider.
@@ -14,22 +14,31 @@ export class ServiceResetpasswordProvider {
   public URL="http://localhost/schoolapi/";
  // public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/";
   recdata: any;
+  loading: any;
  
 
   constructor(public http: HttpClient,public alertCtrl: AlertController,
-    public toastCtrl: ToastController) {
+    public toastCtrl: ToastController,public loadingCtrl:LoadingController) {
     console.log('Hello ServiceResetpasswordProvider Provider');
   }
 
   postData(url,data1){
     console.log(data1);
+
+     // start wait  loading process 
+  this.loading = this.loadingCtrl.create({
+    content: 'sending OTP...',
+  });
+  this.loading.present();
+
     return new Promise(resolve=>{
       this.http.post(url,JSON.stringify(data1)).subscribe(data=>{
-        console.log(data);
+        console.log("email",data);
         this.recdata = data;
         resolve(data);
   
       },error=>{
+        this.loading.dismissAll();
         console.log("Error in reset Process");
         alert("Error during the Reset password process");
       });
