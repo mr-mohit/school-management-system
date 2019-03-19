@@ -28,7 +28,7 @@ export class ServiceAddClassProvider {
         }
         else
         {
-          alert("Class Not-Added");
+          alert("Unable to add class");
 
         }        
         

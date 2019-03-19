@@ -5,14 +5,22 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-label>
+
+  </ion-label>
+  
   <ion-item>
-    <ion-label>Class</ion-label>
+    <ion-label>Select Class</ion-label>
      <ion-select  name="CLASS" [(ngModel)]="CLASS">
 
       <ion-option *ngFor="let i of cid?.classData"  value="{{i.CLASS_MASTER_ID}}" >{{i.CLASS}} {{i.SECTION}}</ion-option>
       
      </ion-select>
   </ion-item>
+
+  <ion-label>
+
+  </ion-label>
 
   <ion-item>
     <ion-label>SUBJECTS</ion-label>
@@ -22,6 +30,10 @@
       
      </ion-select>
   </ion-item>
+  <ion-label>
+
+  </ion-label>
+
 
   <div class="center">
     <button ion-button on-click="Submit(CLASS,SUBJECT)">

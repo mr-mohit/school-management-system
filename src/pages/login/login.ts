@@ -30,10 +30,6 @@ public user:any=
   
   ValidateLogin(REG_NO,PASSWORD)
   {
-
-    
-
-
         this.user['REG_NO']=REG_NO;//get user name from login.html
         this.user['PASSWORD']=PASSWORD;//get password entered by user from login.html
         
@@ -95,13 +91,9 @@ ResetPassword()
   this.navCtrl.push(ResetpasswordPage);
 }
 
-
-VS()
+click()
 {
   this.navCtrl.push(AdminUpdatePage);
 }
-  
-  
 }
-
 
