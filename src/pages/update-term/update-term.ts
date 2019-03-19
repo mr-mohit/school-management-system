@@ -1,43 +1,40 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-import { ServiceAddTermProvider } from '../../providers/service-add-term/service-add-term';
-import { ServiceViewSessionProvider } from '../../providers/service-view-session/service-view-session';
-
+import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
+import { ServiceUpdateProvider } from '../../providers/service-update/service-update';
 
 @IonicPage()
 @Component({
-  selector: 'page-add-term',
-  templateUrl: 'add-term.html',
+  selector: 'page-update-term',
+  templateUrl: 'update-term.html',
 })
-export class AddTermPage {
+export class UpdateTermPage {
+  public TID:any;
   public SESSION:any;
   public TERM:any;
   public START_DATE:any;
   public END_DATE:any;
   public termData:any=
    {
+     "TID":"",
      "SESSION":"",
-    "TERM":"",
-    "START_DATE":"",
-    "END_DATE":" "
+     "TERM":"",
+     "START_DATE":"",
+     "END_DATE":" "
    };
 
-   public indata:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl:AlertController,public addTerm:ServiceAddTermProvider,public SVS:ServiceViewSessionProvider ) {
-  
-  this.indata=this.navParams.get('datavalue');
-  
+  constructor(public navCtrl: NavController, public navParams: NavParams,public TS:ServiceGetClassMasterProvider
+    ,public updateTerm:ServiceUpdateProvider, public alertCtrl:AlertController) {
   }
-  
 
-  Submit(SESSION,TERM,START_DATE,END_DATE) 
+  Submit(TID,SESSION,TERM,START_DATE,END_DATE) 
   {
-    if(SESSION!=undefined && TERM!=undefined && START_DATE!=undefined && END_DATE!=undefined)
+    if(TID!=undefined && SESSION!=undefined && TERM!=undefined && START_DATE!=undefined && END_DATE!=undefined)
     {
       const confirm = this.alertCtrl.create({
-        title: 'Save Term?',
-        message: 'Do you want to save the Term?',
+        title: 'Update Term?',
+        message: 'Do you want to Update this term?',
         buttons: [
           {
             text: 'Cancel',
@@ -48,18 +45,19 @@ export class AddTermPage {
           {
            text: 'Okay',
            handler: () => {
-
+                          this.TID=TID;
                           this.SESSION=SESSION;
                           this.TERM=TERM;
                           this.START_DATE=START_DATE;
                           this.END_DATE=END_DATE;
-
+ 
+                          this.termData['TID']= this.TID;
                           this.termData['SESSION']= this.SESSION;
                           this.termData['TERM']=this.TERM;
                           this.termData['START_DATE']=this.START_DATE;
                           this.termData['END_DATE']=this.END_DATE;
-                          
-                          if(this.addTerm.addTermFun(this.termData))
+                          //console.log("sending data",this.sessionData);
+                          if(this.updateTerm.updateTermFun(this.termData))
                           {
                             this.navCtrl.pop();
                           }
@@ -73,8 +71,6 @@ export class AddTermPage {
     else{
       alert("plese fill required fields");
     }
-    console.log("last",this.indata);
 }
-
 
 }

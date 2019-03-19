@@ -67,6 +67,12 @@ import { ServiceDeleteTermProvider } from '../providers/service-delete-term/serv
 import { DeleteSessionPage } from '../pages/delete-session/delete-session';
 import { DeleteTermPage } from '../pages/delete-term/delete-term';
 import { ViewSubjectsPage } from '../pages/view-subjects/view-subjects';
+import { ViewClassPage } from '../pages/view-class/view-class';
+import { ViewTermPage } from '../pages/view-term/view-term';
+import { UpdateClassPage } from '../pages/update-class/update-class';
+import { UpdateSessionPage } from '../pages/update-session/update-session';
+import { ServiceUpdateProvider } from '../providers/service-update/service-update';
+import { UpdateTermPage } from '../pages/update-term/update-term';
  
 
  @NgModule({ 
@@ -113,6 +119,12 @@ import { ViewSubjectsPage } from '../pages/view-subjects/view-subjects';
     DeleteSessionPage,
     DeleteTermPage,
     ViewSubjectsPage,
+    ViewClassPage,
+    ViewTermPage,
+    UpdateClassPage,
+    UpdateSessionPage,
+    UpdateTermPage,
+
   ],
   imports: [
     BrowserModule,
@@ -163,6 +175,11 @@ import { ViewSubjectsPage } from '../pages/view-subjects/view-subjects';
     DeleteSessionPage,
     DeleteTermPage,
     ViewSubjectsPage,
+    ViewClassPage,
+    ViewTermPage,
+    UpdateClassPage,
+    UpdateSessionPage,
+    UpdateTermPage,
   ],
   providers: [
     StatusBar,
@@ -196,7 +213,8 @@ import { ViewSubjectsPage } from '../pages/view-subjects/view-subjects';
     ServiceViewUserProvider,
     ServiceDeleteClassProvider,
     ServiceDeleteSessionProvider,
-    ServiceDeleteTermProvider
+    ServiceDeleteTermProvider,
+    ServiceUpdateProvider
   ]
 })
 export class AppModule {}

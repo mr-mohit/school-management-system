@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 
 /**
  * Generated class for the ViewTermPage page.
@@ -15,11 +16,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ViewTermPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public VT:ServiceGetClassMasterProvider) {
+    this.VT.getTermFun();
+    console.log(this.VT.termData);
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ViewTermPage');
-  }
 
 }
