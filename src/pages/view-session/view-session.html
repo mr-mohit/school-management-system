@@ -1,0 +1,48 @@
+
+<ion-header >
+  <ion-navbar color="header">
+    <ion-title>View Session</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid class="head" style="border:solid 1px;">
+    <ion-row >
+      <ion-col >
+        <div>
+         SESSION ID
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+         START DATE
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+         END DATE
+        </div>
+      </ion-col>
+    </ion-row>
+    
+  </ion-grid>
+  <ion-grid *ngFor="let i of viewSession?.sessionData" style="border:solid 1px;">
+    <ion-row >
+      <ion-col>
+        <div>
+          {{i.SESSION_MASTER_ID}} 
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          {{i.SESSION_START_DATE}}
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          {{i.SESSION_END_DATE}}
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

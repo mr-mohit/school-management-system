@@ -70,6 +70,10 @@ import { TeacherAnnouncementPage } from '../pages/teacher-announcement/teacher-a
 import { ServiceAnnouncementProvider } from '../providers/service-announcement/service-announcement';
 import { AnnouncementDetailsPage } from '../pages/announcement-details/announcement-details';
 import { ViewSubjectsPage } from '../pages/view-subjects/view-subjects';
+import { ViewSessionPage } from '../pages/view-session/view-session';
+import { UpdateSubjectsPage } from '../pages/update-subjects/update-subjects';
+import { UpdateTermPage } from '../pages/update-term/update-term';
+import { ServiceUpdateProvider } from '../providers/service-update/service-update';
  
 
  @NgModule({ 
@@ -118,6 +122,9 @@ import { ViewSubjectsPage } from '../pages/view-subjects/view-subjects';
     TeacherAnnouncementPage,
     AnnouncementDetailsPage,
     ViewSubjectsPage,
+    ViewSessionPage,
+    UpdateSubjectsPage,
+    UpdateTermPage,
   ],
   imports: [
     BrowserModule,
@@ -170,6 +177,9 @@ import { ViewSubjectsPage } from '../pages/view-subjects/view-subjects';
     TeacherAnnouncementPage,
     AnnouncementDetailsPage,
     ViewSubjectsPage,
+    ViewSessionPage,
+    UpdateSubjectsPage,
+    UpdateTermPage,
   ],
   providers: [
     StatusBar,
@@ -204,6 +214,7 @@ import { ViewSubjectsPage } from '../pages/view-subjects/view-subjects';
     ServiceDeleteClassProvider,
     ServiceDeleteSessionProvider,
     ServiceDeleteTermProvider,
+    ServiceUpdateProvider,
     ServiceAnnouncementProvider,
   
   ]

@@ -1,40 +1,34 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-/*
-  Generated class for the ServiceAddsubjectProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
-export class ServiceAddsubjectProvider {
+export class ServiceUpdateProvider {
   public URL="http://localhost/schoolapi/"; //for local use
   //public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/";
   //public URL="https://direct-school.000webhostapp.com/"; //for hosting
   constructor(public http: HttpClient) {
-    console.log("Hello ServiceAddsubjectProvider Provider");
+    console.log('Hello ServiceUpdateProvider Provider');
   }
 
-  postSubject(subject)
+  uSubject(updateSubject)
   {
-    var url=this.URL+"addSubject.php";
-    return this.postData(url,subject);
+    var url=this.URL+"updateSubject.php";
+    return this.postData(url,updateSubject);
   }
 
   postData(url,data1)
   {
-    console.log("passing data",data1);
+    console.log("Passing data",data1);
     return new Promise(resolve=>{
-    
       this.http.post(url,JSON.stringify(data1)).subscribe(data=>{
         if(data['statuscode'] == 1)
         {
-          alert("Added successfully");
+          console.log("coming data",data);
+          alert("Updated successfully");
         }
         else
         {
-          alert("Subject ID Exist/Unable To Add");
+          alert("Updation unsuccessful");
         }
         resolve(data);
       },error=>{
