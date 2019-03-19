@@ -70,6 +70,10 @@ import { TeacherAnnouncementPage } from '../pages/teacher-announcement/teacher-a
 import { ServiceAnnouncementProvider } from '../providers/service-announcement/service-announcement';
 import { AnnouncementDetailsPage } from '../pages/announcement-details/announcement-details';
 import { ViewSubjectsPage } from '../pages/view-subjects/view-subjects';
+import { ViewClassPage } from '../pages/view-class/view-class';
+import { ViewTermPage } from '../pages/view-term/view-term';
+import { UpdateClassPage } from '../pages/update-class/update-class';
+import { UpdateSessionPage } from '../pages/update-session/update-session';
 import { ViewSessionPage } from '../pages/view-session/view-session';
 import { UpdateSubjectsPage } from '../pages/update-subjects/update-subjects';
 import { UpdateTermPage } from '../pages/update-term/update-term';
@@ -123,6 +127,12 @@ import { AddTimetablePage } from '../pages/add-timetable/add-timetable';
     TeacherAnnouncementPage,
     AnnouncementDetailsPage,
     ViewSubjectsPage,
+    ViewClassPage,
+    ViewTermPage,
+    UpdateClassPage,
+    UpdateSessionPage,
+    UpdateTermPage,
+
     ViewSessionPage,
     UpdateSubjectsPage,
     UpdateTermPage,
@@ -179,6 +189,10 @@ import { AddTimetablePage } from '../pages/add-timetable/add-timetable';
     TeacherAnnouncementPage,
     AnnouncementDetailsPage,
     ViewSubjectsPage,
+    ViewClassPage,
+    ViewTermPage,
+    UpdateClassPage,
+    UpdateSessionPage,
     ViewSessionPage,
     UpdateSubjectsPage,
     UpdateTermPage,
