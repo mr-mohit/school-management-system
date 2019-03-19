@@ -31,8 +31,8 @@
      </ion-col>
      <ion-col col-4>
       
-      <ion-card class="bkgcolor"  no-margin>
-         <p> <ion-icon name="refresh" style="margin-left:30%; margin-top:20%;color: white !important; font-size:400%;"></ion-icon></p>
+      <ion-card class="bkgcolor"  no-margin on-click="UpdateClass()">
+         <p> <ion-icon name="add" style="margin-left:30%; margin-top:20%;color: white !important; font-size:400%;"></ion-icon></p>
 
        </ion-card>
         <strong>  <ion-label style="padding-left:8vw; color: white; ">Class</ion-label> </strong> 
@@ -50,22 +50,23 @@
 
      </ion-col>
      <ion-col col-4>
-       <ion-card class="bkgcolor"  no-margin >
-          <p> <ion-icon name="refresh" style="margin-left:29%; margin-top:20%;color: white !important; font-size:400%;"></ion-icon></p>
+       <ion-card class="bkgcolor"  no-margin on-click="UpdateSession()">
+          <p> <ion-icon name="add" style="margin-left:29%; margin-top:20%;color: white !important; font-size:400%;"></ion-icon></p>
 
 
        </ion-card>
         <strong>  <ion-label text-wrap style="padding-left:6vw; color: white">Session</ion-label> </strong> 
      </ion-col>
-     <ion-col col-4 >
-        <ion-card class="bkgcolor"  no-margin on-click="updateTerm()">
+     
+
+     <ion-col col-4>
+        <ion-card class="bkgcolor"  no-margin on-click="UpdateTerm()">
+           <p> <ion-icon name="add" style="margin-left:29%; margin-top:20%;color: white !important; font-size:400%;"></ion-icon></p>
  
-       <p> <ion-icon name="refresh" style="margin-left:30%; margin-top:20%;color: white !important; font-size:400%"></ion-icon></p>
  
         </ion-card>
-      <strong>  <ion-label text-wrap style="padding-left:8vw; color: white">Term</ion-label> </strong> 
+         <strong>  <ion-label text-wrap style="padding-left:6vw; color: white">Term</ion-label> </strong> 
       </ion-col>
-    
     </ion-row>
    </div>
 

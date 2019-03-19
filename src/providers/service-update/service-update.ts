@@ -4,38 +4,108 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ServiceUpdateProvider {
   public URL="http://localhost/schoolapi/"; //for local use
-  //public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/";
-  //public URL="https://direct-school.000webhostapp.com/"; //for hosting
+  //public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; //for local use
+  // public URL="https://direct-school.000webhostapp.com/"; //for hosting
   constructor(public http: HttpClient) {
-    console.log('Hello ServiceUpdateProvider Provider');
+  
+  }
+  // THESE FUNCTION ARE USED IN UDATING CLASS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  updateClassFun(classData)
+  {
+    var url=this.URL+"updateClass.php";
+    return this.postClass(url,classData);
   }
 
-  uSubject(updateSubject)
+  postClass(url,classData)
   {
-    var url=this.URL+"updateSubject.php";
-    return this.postData(url,updateSubject);
-  }
-
-  postData(url,data1)
-  {
-    console.log("Passing data",data1);
+    //console.log("service call",classData);
     return new Promise(resolve=>{
-      this.http.post(url,JSON.stringify(data1)).subscribe(data=>{
-        if(data['statuscode'] == 1)
+      this.http.post(url,JSON.stringify(classData)).subscribe(data=>{
+        console.log("passing data",classData);
+        if(data['statuscode']==1)
         {
-          console.log("coming data",data);
-          alert("Updated successfully");
+          alert("Updated");
+
         }
         else
         {
-          alert("Updation unsuccessful");
-        }
-        resolve(data);
+          alert("Not-Updated");
+
+        }        
+        
+         resolve(data);
+
       },error=>{
-        console.log(data1);
-        console.log("data not transferred",error);
+        console.log("Error",error);
       });
     });
+
+  }
+
+
+  updateSessionFun(sessionData)
+  {
+    var url=this.URL+"updateSession.php";
+    return this.postClass(url,sessionData);
+  }
+  // THESE FUNCTION ARE USED IN UDATING SESSION >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+  updateSession(url,sessionData)
+  {
+    return new Promise(resolve=>{
+      this.http.post(url,JSON.stringify(sessionData)).subscribe(data=>{
+        console.log("passing data",sessionData);
+        if(data['statuscode']==1)
+        {
+          alert("Updated");
+
+        }
+        else
+        {
+          alert("Not-Updated");
+
+        }        
+        
+         resolve(data);
+
+      },error=>{
+        console.log("Error",error);
+      });
+    });
+
+  }
+
+// THESE FUNCTION ARE USED IN UDATING TERM >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  updateTermFun(termData)
+  {
+    var url=this.URL+"updateTerm.php";
+    return this.postClass(url,termData);
+  }
+
+
+  updateTerm(url,termData)
+  {
+    return new Promise(resolve=>{
+      this.http.post(url,JSON.stringify(termData)).subscribe(data=>{
+        console.log("passing data",termData);
+        if(data['statuscode']==1)
+        {
+          alert("Updated");
+
+        }
+        else
+        {
+          alert("Not-Updated");
+
+        }        
+        
+         resolve(data);
+
+      },error=>{
+        console.log("Error",error);
+      });
+    });
+
   }
 
 }
