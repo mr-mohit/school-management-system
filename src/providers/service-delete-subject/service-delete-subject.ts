@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { stringify } from '@angular/compiler/src/util';
 
 /*
   Generated class for the ServiceDeleteSubjectProvider provider.

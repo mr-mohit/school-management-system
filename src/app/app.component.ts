@@ -14,12 +14,9 @@ import { TeacherAnnouncementPage } from '../pages/teacher-announcement/teacher-a
 import { AboutUsPage } from '../pages/about-us/about-us';
 import { SettingPage } from '../pages/setting/setting';
 import { ServiceLoginProvider } from '../providers/service-login/service-login';
-import { ServiceAddsubjectProvider} from '../providers/service-addsubject/service-addsubject';
-
 import { StudentdashboardPage } from '../pages/studentdashboard/studentdashboard';
 import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard';
 import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
-import { AddUsersPage } from '../pages/add-users/add-users';
 
 
 import { NativeStorage } from '@ionic-native/native-storage';

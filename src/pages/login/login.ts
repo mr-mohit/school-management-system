@@ -8,6 +8,8 @@ import { AdminDashboardPage } from '../admin-dashboard/admin-dashboard';
 import { ServiceLoginProvider } from '../../providers/service-login/service-login';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { ViewSubjectsPage } from '../view-subjects/view-subjects';
+import { AdminViewPage } from '../admin-view/admin-view';
+import { AdminUpdatePage } from '../admin-update/admin-update';
 
 @Component({
   selector: 'page-login',
@@ -28,10 +30,6 @@ public user:any=
   
   ValidateLogin(REG_NO,PASSWORD)
   {
-
-    
-
-
         this.user['REG_NO']=REG_NO;//get user name from login.html
         this.user['PASSWORD']=PASSWORD;//get password entered by user from login.html
         
@@ -93,13 +91,9 @@ ResetPassword()
   this.navCtrl.push(ResetpasswordPage);
 }
 
-
-VS()
+click()
 {
-  this.navCtrl.push(ViewSubjectsPage)
+  this.navCtrl.push(AdminUpdatePage);
 }
-  
-  
 }
-
 

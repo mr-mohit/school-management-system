@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the ViewClassPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 
 @IonicPage()
 @Component({
@@ -15,11 +9,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ViewClassPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public VC:ServiceGetClassMasterProvider) {
+    this.VC.getClassFun();
+  console.log(this.VC.classData);
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ViewClassPage');
-  }
 
 }

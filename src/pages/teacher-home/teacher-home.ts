@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MenuController } from 'ionic-angular';
+import { TeacherAnnouncementPage } from '../teacher-announcement/teacher-announcement';
 
 /**
  * Generated class for the TeacherHomePage page.
@@ -18,6 +19,12 @@ export class TeacherHomePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public Menu: MenuController) {
     this.Menu.enable(true);
+  }
+
+  //Announces Function
+  gotoTeacherAnnounces()
+  {
+    this.navCtrl.push(TeacherAnnouncementPage);
   }
 
 }
