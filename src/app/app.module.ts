@@ -67,6 +67,10 @@ import { ServiceDeleteTermProvider } from '../providers/service-delete-term/serv
 import { DeleteSessionPage } from '../pages/delete-session/delete-session';
 import { DeleteTermPage } from '../pages/delete-term/delete-term';
 import { ViewSubjectsPage } from '../pages/view-subjects/view-subjects';
+import { ViewSessionPage } from '../pages/view-session/view-session';
+import { UpdateSubjectsPage } from '../pages/update-subjects/update-subjects';
+import { UpdateTermPage } from '../pages/update-term/update-term';
+import { ServiceUpdateProvider } from '../providers/service-update/service-update';
  
 
  @NgModule({ 
@@ -113,6 +117,9 @@ import { ViewSubjectsPage } from '../pages/view-subjects/view-subjects';
     DeleteSessionPage,
     DeleteTermPage,
     ViewSubjectsPage,
+    ViewSessionPage,
+    UpdateSubjectsPage,
+    UpdateTermPage,
   ],
   imports: [
     BrowserModule,
@@ -163,6 +170,9 @@ import { ViewSubjectsPage } from '../pages/view-subjects/view-subjects';
     DeleteSessionPage,
     DeleteTermPage,
     ViewSubjectsPage,
+    ViewSessionPage,
+    UpdateSubjectsPage,
+    UpdateTermPage,
   ],
   providers: [
     StatusBar,
@@ -196,7 +206,8 @@ import { ViewSubjectsPage } from '../pages/view-subjects/view-subjects';
     ServiceViewUserProvider,
     ServiceDeleteClassProvider,
     ServiceDeleteSessionProvider,
-    ServiceDeleteTermProvider
+    ServiceDeleteTermProvider,
+    ServiceUpdateProvider,
   ]
 })
 export class AppModule {}

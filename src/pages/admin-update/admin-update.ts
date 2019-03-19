@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UpdateUserPage } from '../update-user/update-user';
+import { UpdateSubjectsPage } from '../update-subjects/update-subjects';
+import { UpdateTermPage } from '../update-term/update-term';
 
 /**
  * Generated class for the AdminUpdatePage page.
@@ -26,5 +28,13 @@ export class AdminUpdatePage {
   updateUser()
   {
     this.navCtrl.push(UpdateUserPage);
+  }
+  updateSubject()
+  {
+    this.navCtrl.push(UpdateSubjectsPage);
+  }
+  updateTerm()
+  {
+    this.navCtrl.push(UpdateTermPage);
   }
 }
