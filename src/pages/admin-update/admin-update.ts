@@ -5,6 +5,7 @@ import { UpdateClassPage } from '../update-class/update-class';
 import { UpdateSessionPage } from '../update-session/update-session';
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 import { UpdateTermPage } from '../update-term/update-term';
+import { UpdateSubjectsPage } from '../update-subjects/update-subjects';
 
 /**
  * Generated class for the AdminUpdatePage page.
@@ -42,5 +43,10 @@ export class AdminUpdatePage {
     this.navCtrl.push(UpdateTermPage);
     this.GS.getTermFun();
     this.GS.getSessionFun();
+  }
+  UpdateSubject()
+  {
+    this.navCtrl.push(UpdateSubjectsPage);
+    this.GS.getSubjectFun();
   }
 }

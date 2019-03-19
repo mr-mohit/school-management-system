@@ -9,7 +9,7 @@ export class ServiceUpdateProvider {
   constructor(public http: HttpClient) {
   
   }
-  // THESE FUNCTION ARE USED IN UDATING CLASS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  // THESE FUNCTION ARE USED IN UPDATING CLASS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
   updateClassFun(classData)
   {
     var url=this.URL+"updateClass.php";
@@ -48,7 +48,7 @@ export class ServiceUpdateProvider {
     var url=this.URL+"updateSession.php";
     return this.postClass(url,sessionData);
   }
-  // THESE FUNCTION ARE USED IN UDATING SESSION >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  // THESE FUNCTION ARE USED IN UPDATING SESSION >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
   updateSession(url,sessionData)
   {
@@ -75,7 +75,7 @@ export class ServiceUpdateProvider {
 
   }
 
-// THESE FUNCTION ARE USED IN UDATING TERM >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+// THESE FUNCTION ARE USED IN UPDATING TERM >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
   updateTermFun(termData)
   {
     var url=this.URL+"updateTerm.php";
@@ -107,5 +107,38 @@ export class ServiceUpdateProvider {
     });
 
   }
+
+// THESE FUNCTION ARE USED IN UPDATING TERM >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+uSubject(updateSub)
+{
+  var url=this.URL+"updateSubject.php";
+  return this.updateSubject(url,updateSub);
+}
+
+
+updateSubject(url,updateSub)
+{
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(updateSub)).subscribe(data=>{
+      console.log("passing data",updateSub);
+      if(data['statuscode']==1)
+      {
+        alert("Updated");
+
+      }
+      else
+      {
+        alert("Not-Updated");
+
+      }        
+      
+       resolve(data);
+
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+
+}
 
 }
