@@ -91,10 +91,10 @@ export class MyApp {
     this.Student_a=[
       {title:'Home', icon:'home', component:StudentdashboardPage},
       {title:'School Info', icon:'contact', component:SchoolInfoPage},
-      {title:'Events', icon:'contact',component:ViewEventsPage},
+      {title:'Events', icon:'clock',component:ViewEventsPage},
       {title:'Feedback', icon:'contact',component:StudentFeedbackPage},
       {title:'Quiz', icon:'contact', component:StudentQuizPage},
-      {title:'Gallery',icon:'contact',component:GalleryPage}
+      {title:'Gallery',icon:'images',component:GalleryPage}
     ];
 
     //initializing the teacher array elements for side menu
@@ -103,21 +103,20 @@ export class MyApp {
       {title:'Send Messages', icon:'contact',component:TeacherSendMessagePage},
       {title:'Set Announcement',icon:'contact',component:TeacherAnnouncementPage},
       {title:'Feedback',icon:'contact',component:TeacherFeedbackPage},      
-      {title:'Gallery',icon:'contact',component:GalleryPage},
-      {title:'Events', icon:'contact',component:ViewEventsPage}
+      {title:'Gallery',icon:'images',component:GalleryPage},
+      {title:'Events', icon:'clock',component:ViewEventsPage},
     ];
     //initializing the Admin array elements for side menu
     this.Admin_a=[
       {title:"Home",icon:"home",Component:AdminDashboardPage},
-      {title:"Gallery",icon:"contact",Component:GalleryPage},
-      
+      {title:"Gallery",icon:"images",Component:GalleryPage},
+
     ];
 
     //initializing the common array elements for side menu
     this.help=[
       {title:'About Us', icon:'contact',component:AboutUsPage},
-      {title:'Settings',icon:'contact',component:SettingPage}
-           
+      {title:'Settings',icon:'contact',component:SettingPage},           
     ];
 
   }
