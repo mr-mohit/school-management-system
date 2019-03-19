@@ -29,10 +29,10 @@ export class UpdateSubjectsPage {
   };
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              public updSubject:ServiceGetClassMasterProvider,
+              public GS:ServiceGetClassMasterProvider,
               public updobj:ServiceUpdateProvider,
               public alertctrl:AlertController) {
-              this.updSubject.getSubjectFun();
+              // this.updSubject.getSubjectFun();
               //console.log(this.updSubject.subjectData);
   }
 
@@ -40,7 +40,7 @@ export class UpdateSubjectsPage {
     console.log('ionViewDidLoad UpdateSubjectsPage');
   }
 
-  updateSSubject(SID,SUBNAME,SUBTYPE,SUBMATERIAL)
+  USubject(SID,SUBNAME,SUBTYPE,SUBMATERIAL)
   {
     if(SID!=undefined && SUBNAME!=undefined && SUBTYPE!=undefined && SUBMATERIAL!=undefined)
     {
