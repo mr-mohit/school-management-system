@@ -108,4 +108,37 @@ export class ServiceUpdateProvider {
 
   }
 
+// THESE FUNCTION ARE USED IN UPDATING TERM >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+uSubject(updateSub)
+{
+  var url=this.URL+"updateSubject.php";
+  return this.updateSubject(url,updateSub);
+}
+
+
+updateSubject(url,updateSub)
+{
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(updateSub)).subscribe(data=>{
+      console.log("passing data",updateSub);
+      if(data['statuscode']==1)
+      {
+        alert("Updated");
+
+      }
+      else
+      {
+        alert("Not-Updated");
+
+      }        
+      
+       resolve(data);
+
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+
+}
+
 }

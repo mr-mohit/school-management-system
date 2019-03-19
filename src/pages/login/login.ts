@@ -92,9 +92,9 @@ ResetPassword()
   this.navCtrl.push(ResetpasswordPage);
 }
 
-click()
+VS()
 {
-  this.navCtrl.push(AdminAddPage);
+  this.navCtrl.push(AdminUpdatePage);
 }
 }
 
