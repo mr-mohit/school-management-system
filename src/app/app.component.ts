@@ -17,7 +17,6 @@ import { ServiceLoginProvider } from '../providers/service-login/service-login';
 import { StudentdashboardPage } from '../pages/studentdashboard/studentdashboard';
 import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard';
 import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
-import { AddUsersPage } from '../pages/add-users/add-users';
 
 
 import { NativeStorage } from '@ionic-native/native-storage';
