@@ -1,0 +1,73 @@
+<!--
+  Generated template for the ViewTermPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>view_term</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid class="head" style="border:solid 1px;">
+    <ion-row >
+      <ion-col >
+        <div>
+         TERM ID
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+         SESSION ID
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+         TERM
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+         START DATE
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+         END DATE
+        </div>
+      </ion-col>
+    </ion-row>
+    
+  </ion-grid>
+  <ion-grid *ngFor="let i of VT?.termData" style="border:solid 1px;">
+    <ion-row >
+      <ion-col>
+        <div>
+          {{i.TERM_ID}} 
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          {{i.SESSION_MASTER_ID}}
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          {{i.TERM}}
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          {{i.START_DATE}}
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          {{i.END_DATE}}
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

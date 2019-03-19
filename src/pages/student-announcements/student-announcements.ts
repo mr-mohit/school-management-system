@@ -15,7 +15,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class StudentAnnouncementsPage {
 
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+  
   }
 
   ionViewDidLoad() {

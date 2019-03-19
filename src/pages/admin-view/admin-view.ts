@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ViewUserPage } from '../view-user/view-user';
+import { ViewSubjectsPage } from '../view-subjects/view-subjects';
+import { ViewClassPage } from '../view-class/view-class';
+import { ViewTermPage } from '../view-term/view-term';
 
 /**
  * Generated class for the AdminViewPage page.
@@ -19,14 +22,23 @@ export class AdminViewPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AdminViewPage');
-  }
+ ViewClass()
+ {
+   this.navCtrl.push(ViewClassPage);
+ }
 
   // view user 
   viewUser()
   {
       this.navCtrl.push(ViewUserPage);
   }
-
+  
+  ViewSubject()
+  {
+    this.navCtrl.push(ViewSubjectsPage);
+  }
+  ViewTerm()
+  {
+    this.navCtrl.push(ViewTermPage);
+  }
 }

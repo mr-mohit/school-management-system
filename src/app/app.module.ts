@@ -68,6 +68,19 @@ import { DeleteSessionPage } from '../pages/delete-session/delete-session';
 import { DeleteTermPage } from '../pages/delete-term/delete-term';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TeacherAnnouncementPage } from '../pages/teacher-announcement/teacher-announcement';
+import { ServiceAnnouncementProvider } from '../providers/service-announcement/service-announcement';
+import { AnnouncementDetailsPage } from '../pages/announcement-details/announcement-details';
+import { ViewSubjectsPage } from '../pages/view-subjects/view-subjects';
+import { ViewClassPage } from '../pages/view-class/view-class';
+import { ViewTermPage } from '../pages/view-term/view-term';
+import { UpdateClassPage } from '../pages/update-class/update-class';
+import { UpdateSessionPage } from '../pages/update-session/update-session';
+import { ViewSessionPage } from '../pages/view-session/view-session';
+import { UpdateSubjectsPage } from '../pages/update-subjects/update-subjects';
+import { UpdateTermPage } from '../pages/update-term/update-term';
+import { ServiceUpdateProvider } from '../providers/service-update/service-update';
+import { AddTimetablePage } from '../pages/add-timetable/add-timetable';
  
 
  @NgModule({ 
@@ -113,6 +126,19 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     DeleteClassPage,
     DeleteSessionPage,
     DeleteTermPage,
+    TeacherAnnouncementPage,
+    AnnouncementDetailsPage,
+    ViewSubjectsPage,
+    ViewClassPage,
+    ViewTermPage,
+    UpdateClassPage,
+    UpdateSessionPage,
+    UpdateTermPage,
+
+    ViewSessionPage,
+    UpdateSubjectsPage,
+    UpdateTermPage,
+    AddTimetablePage,
   ],
   imports: [
     BrowserModule,
@@ -169,6 +195,17 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     DeleteClassPage,
     DeleteSessionPage,
     DeleteTermPage,
+    TeacherAnnouncementPage,
+    AnnouncementDetailsPage,
+    ViewSubjectsPage,
+    ViewClassPage,
+    ViewTermPage,
+    UpdateClassPage,
+    UpdateSessionPage,
+    ViewSessionPage,
+    UpdateSubjectsPage,
+    UpdateTermPage,
+    AddTimetablePage,
   ],
   providers: [
     StatusBar,
@@ -202,7 +239,10 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     ServiceViewUserProvider,
     ServiceDeleteClassProvider,
     ServiceDeleteSessionProvider,
-    ServiceDeleteTermProvider
+    ServiceDeleteTermProvider,
+    ServiceUpdateProvider,
+    ServiceAnnouncementProvider,
+  
   ]
 })
 export class AppModule {}

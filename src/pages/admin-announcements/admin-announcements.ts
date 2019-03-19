@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { ServiceLoginProvider } from '../../providers/service-login/service-login';
 import { ServiceAdminAnnouncements } from '../../providers/service-AdminAnnoucement/service-announcement';
 
@@ -17,9 +17,11 @@ import { ServiceAdminAnnouncements } from '../../providers/service-AdminAnnoucem
 })
 export class AdminAnnouncementsPage {
 
-private date=new Date().toISOString();
-private timestarts= new Date().toISOString();
-private timeEnds=new Date().toISOString();
+private Date=new Date().getDate();
+private Month=new Date().getMonth()+1;
+private Year=new Date().getFullYear();
+private timestarts:any;
+private timeEnds:any;
 private category:any;
 private AnnouncementsTitle:any;
 private AnnouncementsDescription:any;
@@ -33,14 +35,16 @@ public Announcement={
   "timeEnds":""
 };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public getuserid:ServiceLoginProvider,public AdminAnnouncements:ServiceAdminAnnouncements) {
-    
+  constructor(public navCtrl: NavController, public navParams: NavParams,public getuserid:ServiceLoginProvider,public AdminAnnouncements:ServiceAdminAnnouncements,public alertCtrl:AlertController) {
+    this.timestarts=this.Date+"-"+this.Month+"-"+this.Year;
+    this.timeEnds=this.Date+"-"+this.Month+"-"+this.Year;
+    console.log(this.timestarts);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AdminAnnouncementsPage');
     // console.log(this.date);
-    this.date;
+   
   }
 
   Announcements()
@@ -48,17 +52,34 @@ public Announcement={
     if(this.category!=undefined && this.AnnouncementsTitle!=undefined && this.AnnouncementsDescription!=undefined)
     {
   
-     
-     
-      this.Announcement['REG_NO']=this.getuserid.recdata.data[0].REG_NO;
+         const confirm=this.alertCtrl.create({
+          title:'Publish Announcement?',
+          buttons:[
+            {
+              text:'Yes',
+              handler:()=>
+              {
+       this.Announcement['REG_NO']=this.getuserid.recdata.data[0].REG_NO;
        this.Announcement['category']=this.category;
        this.Announcement['AnnouncementsTitle']=this.AnnouncementsTitle;
        this.Announcement['AnnouncementsDescription']=this.AnnouncementsDescription;
        this.Announcement['timestarts']=this.timestarts;
        this.Announcement['timeEnds']=this.timeEnds;
        this.AdminAnnouncements.postAnnouncements(this.Announcement);
-      
-     
+              }
+            },
+            {
+              text:'No',
+              handler:()=>
+              {
+
+              }
+            }
+          ]
+
+
+         });
+         confirm.present();
     }
     else
     {

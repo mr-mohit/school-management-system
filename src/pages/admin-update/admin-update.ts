@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { UpdateUserPage } from '../update-user/update-user';
+import { UpdateClassPage } from '../update-class/update-class';
+import { UpdateSessionPage } from '../update-session/update-session';
+import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
+import { UpdateTermPage } from '../update-term/update-term';
 
 /**
  * Generated class for the AdminUpdatePage page.
@@ -15,16 +19,28 @@ import { UpdateUserPage } from '../update-user/update-user';
 })
 export class AdminUpdatePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AdminUpdatePage');
+  constructor(public navCtrl: NavController, public navParams: NavParams,public GS:ServiceGetClassMasterProvider) {
   }
 
   // update user
   updateUser()
   {
     this.navCtrl.push(UpdateUserPage);
+  }
+  UpdateClass()
+  {
+    this.navCtrl.push(UpdateClassPage);
+    this.GS.getClassFun();
+  }
+  UpdateSession()
+  {
+    this.navCtrl.push(UpdateSessionPage);
+    this.GS.getSessionFun();
+  }
+  UpdateTerm()
+  {
+    this.navCtrl.push(UpdateTermPage);
+    this.GS.getTermFun();
+    this.GS.getSessionFun();
   }
 }

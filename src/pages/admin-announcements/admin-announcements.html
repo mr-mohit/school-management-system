@@ -39,7 +39,7 @@
       <ion-label floating >
         Title
       </ion-label>
-      <ion-input type="text" [(ngModel)]="AnnouncementsTitle"> </ion-input>
+      <ion-textarea type="text" [(ngModel)]="AnnouncementsTitle"> </ion-textarea>
     </ion-item>
 
     <!-- DESCRIPTION here -->
@@ -60,18 +60,13 @@
       
       <ion-item>
           <ion-label>Start Date</ion-label>
-          <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="date"></ion-datetime>
+          <ion-datetime displayFormat="DD-MMMM-YYYY" placeholder="Select Date" [(ngModel)]="timestarts"></ion-datetime>
         </ion-item>
 
-          <!--START TIME -->
-        <ion-item>
-          <ion-label>Start Time</ion-label>
-          <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="timestarts"></ion-datetime>
-        </ion-item>
     <!-- END DATE -->
         <ion-item>
-          <ion-label>Ends</ion-label>
-          <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="timeEnds"></ion-datetime>
+          <ion-label>End Date</ion-label>
+          <ion-datetime displayFormat="DD-MMMM-YYYY" placeholder="Select Date" [(ngModel)]="timeEnds" max="2050"></ion-datetime>
         </ion-item>
 
 <!-- blank space -->
