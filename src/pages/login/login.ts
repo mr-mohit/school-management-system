@@ -9,6 +9,7 @@ import { ServiceLoginProvider } from '../../providers/service-login/service-logi
 import { NativeStorage } from '@ionic-native/native-storage';
 import { ViewSubjectsPage } from '../view-subjects/view-subjects';
 import { AdminUpdatePage } from '../admin-update/admin-update';
+import { AdminAddPage } from '../admin-add/admin-add';
 
 @Component({
   selector: 'page-login',
@@ -92,7 +93,7 @@ ResetPassword()
 
 click()
 {
-  this.navCtrl.push(AdminUpdatePage);
+  this.navCtrl.push(AdminAddPage);
 }
 }
 
