@@ -66,9 +66,7 @@ export class ServiceGetClassMasterProvider {
         {
           // alert("Term Added");
           this.subjectData=data['data'];
-          console.log("subjects",data);
-
-
+          //console.log("subjects",this.subjectData);
         }
         else
         {

@@ -66,6 +66,14 @@ import { ServiceDeleteSessionProvider } from '../providers/service-delete-sessio
 import { ServiceDeleteTermProvider } from '../providers/service-delete-term/service-delete-term';
 import { DeleteSessionPage } from '../pages/delete-session/delete-session';
 import { DeleteTermPage } from '../pages/delete-term/delete-term';
+import { TeacherAnnouncementPage } from '../pages/teacher-announcement/teacher-announcement';
+import { ServiceAnnouncementProvider } from '../providers/service-announcement/service-announcement';
+import { AnnouncementDetailsPage } from '../pages/announcement-details/announcement-details';
+import { ViewSubjectsPage } from '../pages/view-subjects/view-subjects';
+import { ViewSessionPage } from '../pages/view-session/view-session';
+import { UpdateSubjectsPage } from '../pages/update-subjects/update-subjects';
+import { UpdateTermPage } from '../pages/update-term/update-term';
+import { ServiceUpdateProvider } from '../providers/service-update/service-update';
  
 
  @NgModule({ 
@@ -111,6 +119,12 @@ import { DeleteTermPage } from '../pages/delete-term/delete-term';
     DeleteClassPage,
     DeleteSessionPage,
     DeleteTermPage,
+    TeacherAnnouncementPage,
+    AnnouncementDetailsPage,
+    ViewSubjectsPage,
+    ViewSessionPage,
+    UpdateSubjectsPage,
+    UpdateTermPage,
   ],
   imports: [
     BrowserModule,
@@ -160,6 +174,12 @@ import { DeleteTermPage } from '../pages/delete-term/delete-term';
     DeleteClassPage,
     DeleteSessionPage,
     DeleteTermPage,
+    TeacherAnnouncementPage,
+    AnnouncementDetailsPage,
+    ViewSubjectsPage,
+    ViewSessionPage,
+    UpdateSubjectsPage,
+    UpdateTermPage,
   ],
   providers: [
     StatusBar,
@@ -193,7 +213,10 @@ import { DeleteTermPage } from '../pages/delete-term/delete-term';
     ServiceViewUserProvider,
     ServiceDeleteClassProvider,
     ServiceDeleteSessionProvider,
-    ServiceDeleteTermProvider
+    ServiceDeleteTermProvider,
+    ServiceUpdateProvider,
+    ServiceAnnouncementProvider,
+  
   ]
 })
 export class AppModule {}

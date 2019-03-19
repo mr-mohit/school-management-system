@@ -19,7 +19,6 @@ export class ServiceAddTermProvider {
         if(data['statuscode']==1)
         {
           alert("Term Added");
-
         }
         else
         {
@@ -39,7 +38,5 @@ export class ServiceAddTermProvider {
   {
     var url=this.URL+"addTerm.php";
     return this.postData(url,termData);
-
   }
-
 }

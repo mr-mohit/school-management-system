@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar color="header">
+    <ion-title>Update Subjects</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <form>
+        <ion-item>
+          <ion-label floating>Old Subject Name</ion-label>
+           <ion-select  name="SID" [(ngModel)]="SID">
+           <ion-option *ngFor="let u of updSubject?.subjectData"  value="{{u.SUBJECT_ID}}" >{{u.SUBJECT_NAME}}</ion-option> 
+           </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>
+            New Subject Name
+          </ion-label>
+          <ion-input  [(ngModel)]="SUBNAME" placeholder="" name="SUBNAME"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>
+              Change Subject Type
+            </ion-label>
+              <ion-select name="SUBTYPE" [(ngModel)]="SUBTYPE">
+                <ion-option value="Core">
+                  Core
+                </ion-option >
+                <ion-option value="Selective">
+                  Selective
+                </ion-option>
+              </ion-select>
+            </ion-item>
+            
+              <ion-item>
+                <ion-label floating>
+                  Change Subject Material
+                </ion-label>
+                <ion-select name="SUBMATERIAL" [(ngModel)]="SUBMATERIAL">
+                  <ion-option value="Practical">
+                    Practical
+                  </ion-option>
+                  <ion-option value="Theory">
+                    Theory
+                  </ion-option>
+                </ion-select>
+              </ion-item>
+
+              <ion-label></ion-label>
+              
+              <button id="updatesubject" ion-button color="header" block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;"
+                         on-click="updateSSubject(SID,SUBNAME,SUBTYPE,SUBMATERIAL)">
+                Update
+              </button>
+        </form>
+
+</ion-content>
