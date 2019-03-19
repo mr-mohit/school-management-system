@@ -36,8 +36,8 @@ export class AddTermPage {
     if(SESSION!=undefined && TERM!=undefined && START_DATE!=undefined && END_DATE!=undefined)
     {
       const confirm = this.alertCtrl.create({
-        title: 'Save Session?',
-        message: 'Do you want to save the Session?',
+        title: 'Save Term?',
+        message: 'Do you want to save the Term?',
         buttons: [
           {
             text: 'Cancel',
@@ -48,7 +48,7 @@ export class AddTermPage {
           {
            text: 'Okay',
            handler: () => {
-                          console.log('Add clicked');
+
                           this.SESSION=SESSION;
                           this.TERM=TERM;
                           this.START_DATE=START_DATE;
@@ -58,7 +58,7 @@ export class AddTermPage {
                           this.termData['TERM']=this.TERM;
                           this.termData['START_DATE']=this.START_DATE;
                           this.termData['END_DATE']=this.END_DATE;
-                          //console.log("sending data",this.sessionData);
+                          
                           if(this.addTerm.addTermFun(this.termData))
                           {
                             this.navCtrl.pop();

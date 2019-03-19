@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { UpdateUserPage } from '../update-user/update-user';
-import { UpdateSubjectsPage } from '../update-subjects/update-subjects';
+import { UpdateClassPage } from '../update-class/update-class';
+import { UpdateSessionPage } from '../update-session/update-session';
+import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 import { UpdateTermPage } from '../update-term/update-term';
 
 /**
@@ -17,11 +19,7 @@ import { UpdateTermPage } from '../update-term/update-term';
 })
 export class AdminUpdatePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AdminUpdatePage');
+  constructor(public navCtrl: NavController, public navParams: NavParams,public GS:ServiceGetClassMasterProvider) {
   }
 
   // update user
@@ -29,12 +27,20 @@ export class AdminUpdatePage {
   {
     this.navCtrl.push(UpdateUserPage);
   }
-  updateSubject()
+  UpdateClass()
   {
-    this.navCtrl.push(UpdateSubjectsPage);
+    this.navCtrl.push(UpdateClassPage);
+    this.GS.getClassFun();
   }
-  updateTerm()
+  UpdateSession()
+  {
+    this.navCtrl.push(UpdateSessionPage);
+    this.GS.getSessionFun();
+  }
+  UpdateTerm()
   {
     this.navCtrl.push(UpdateTermPage);
+    this.GS.getTermFun();
+    this.GS.getSessionFun();
   }
 }
