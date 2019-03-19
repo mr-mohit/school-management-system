@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams} from 'ionic-angular';
 import { DeleteSubjectsPage } from '../delete-subjects/delete-subjects';
 import { DeleteClassPage } from '../delete-class/delete-class';
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';

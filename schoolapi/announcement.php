@@ -27,7 +27,7 @@ if($con)
 
        $postdata=file_get_contents("php://input");
        $obj=json_decode($postdata,true);    
-		   $User_id=test_input($obj['UserId']);
+		   $User_id=test_input($obj['REG_NO']);
        $Category=test_input($obj['category']);
 	     $Title=test_input($obj['AnnouncementsTitle']);  
        $Description=test_input($obj['AnnouncementsDescription']);
