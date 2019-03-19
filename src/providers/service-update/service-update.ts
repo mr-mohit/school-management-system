@@ -9,7 +9,7 @@ export class ServiceUpdateProvider {
   constructor(public http: HttpClient) {
   
   }
-  // THESE FUNCTION ARE USED IN UDATING CLASS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  // THESE FUNCTION ARE USED IN UPDATING CLASS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
   updateClassFun(classData)
   {
     var url=this.URL+"updateClass.php";
@@ -48,7 +48,7 @@ export class ServiceUpdateProvider {
     var url=this.URL+"updateSession.php";
     return this.postClass(url,sessionData);
   }
-  // THESE FUNCTION ARE USED IN UDATING SESSION >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  // THESE FUNCTION ARE USED IN UPDATING SESSION >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
   updateSession(url,sessionData)
   {
@@ -75,7 +75,7 @@ export class ServiceUpdateProvider {
 
   }
 
-// THESE FUNCTION ARE USED IN UDATING TERM >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+// THESE FUNCTION ARE USED IN UPDATING TERM >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
   updateTermFun(termData)
   {
     var url=this.URL+"updateTerm.php";
