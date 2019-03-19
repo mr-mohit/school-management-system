@@ -1,15 +1,47 @@
-<!--
-  Generated template for the UpdateTermPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-  <ion-navbar color="header">
-    <ion-title>Update Term</ion-title>
+  <ion-navbar>
+    <ion-title>update_term</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
+  <ion-list>
+    <ion-item>
+        <ion-label floating >
+            Select Term
+          </ion-label>
+      <ion-select name="TID" [(ngModel)]="TID">
+       <ion-option *ngFor="let i of TS?.termData"  value="{{i.TERM_ID}}" >{{i.TERM}} {{i.START_DATE}} {{i.END_DATE}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+        <ion-label>Session</ion-label>
+         <ion-select  name="SESSION" [(ngModel)]="SESSION">
+  
+          <ion-option *ngFor="let p of TS?.sessionData"  value="{{p.SESSION_MASTER_ID}}" >{{p.SESSION_MASTER_ID}} {{p.SESSION_START_DATE}} TO {{p.SESSION_END_DATE}}</ion-option>
+          
+         </ion-select>
+          </ion-item>
+      <ion-item>
+        <ion-label>Term</ion-label>
+        <ion-select name="TERM" [(ngModel)]="TERM">
+          <ion-option value="1">FIRST</ion-option>
+          <ion-option value="2">SECOND</ion-option>
+          <ion-option value="3">THIRD</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Start Date </ion-label>
+        <ion-datetime name="START_DATE" displayFormat="DD MMM YYYY" min="2019" max="2050" [(ngModel)]="START_DATE"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>End Date </ion-label>
+        <ion-datetime name="END_DATE" displayFormat="DD MMM YYYY" min="2020" max="2051" [(ngModel)]="END_DATE"></ion-datetime>
+      </ion-item>
+      <ion-item class="cus-center" >
+        <button ion-button color="danger" on-click="Submit(TID,SESSION,TERM,START_DATE,END_DATE)" >
+          SUBMIT
+        </button>
+      </ion-item>
+    </ion-list>
 </ion-content>

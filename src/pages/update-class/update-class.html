@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>update_class</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+      <ion-label floating >
+          Old Class Name
+        </ion-label>
+    <ion-select name="CID" [(ngModel)]="CID">
+     <ion-option *ngFor="let i of GS?.classData"  value="{{i.CLASS_MASTER_ID}}" >{{i.CLASS}} {{i.SECTION}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+    <ion-item>
+      <ion-label floating >
+        New Class Name
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="CLASS" placeholder="" name="CLASS"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label floating >
+        Section
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="SECTION" placeholder="" name="SECTION"></ion-input>
+    </ion-item>
+  
+    <div class="center">
+      <button ion-button on-click="Submit(CID,CLASS,SECTION)">
+        ADD
+      </button>
+      <button ion-button on-click="Class_Sub()">
+        ADD SUBJECTS UNDER CLASS
+      </button>
+    </div>
+
+</ion-content>
