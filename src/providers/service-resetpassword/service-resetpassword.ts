@@ -11,8 +11,8 @@ import { AlertController, ToastController, LoadingController } from 'ionic-angul
 @Injectable()
 export class ServiceResetpasswordProvider {
 
-  public URL="http://localhost/schoolapi/";
- // public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/";
+ // public URL="http://localhost/schoolapi/";
+ public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/";
   recdata: any;
   loading: any;
  
