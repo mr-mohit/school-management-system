@@ -19,8 +19,6 @@ import { StudentdashboardPage } from '../pages/studentdashboard/studentdashboard
 import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard';
 import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
 import { TranslateService } from '@ngx-translate/core';
-
-
 import { NativeStorage } from '@ionic-native/native-storage';
 
 
@@ -91,7 +89,7 @@ export class MyApp {
     this.Student_a=[
       {title:'Home', icon:'home', component:StudentdashboardPage},
       {title:'School Info', icon:'contact', component:SchoolInfoPage},
-      {title:'Events', icon:'clock',component:ViewEventsPage},
+      {title:'Events', icon:'contact',component:ViewEventsPage},
       {title:'Feedback', icon:'contact',component:StudentFeedbackPage},
       {title:'Quiz', icon:'contact', component:StudentQuizPage},
       {title:'Gallery',icon:'images',component:GalleryPage}
@@ -104,18 +102,20 @@ export class MyApp {
       {title:'Set Announcement',icon:'contact',component:TeacherAnnouncementPage},
       {title:'Feedback',icon:'contact',component:TeacherFeedbackPage},      
       {title:'Gallery',icon:'images',component:GalleryPage},
-      {title:'Events', icon:'clock',component:ViewEventsPage},
+      {title:'Events', icon:'contact',component:ViewEventsPage}
     ];
     //initializing the Admin array elements for side menu
     this.Admin_a=[
       {title:"Home",icon:"home",Component:AdminDashboardPage},
       {title:"Gallery",icon:"images",Component:GalleryPage},
+      
     ];
 
     //initializing the common array elements for side menu
     this.help=[
       {title:'About Us', icon:'contact',component:AboutUsPage},
-      {title:'Settings',icon:'contact',component:SettingPage},           
+      {title:'Settings',icon:'contact',component:SettingPage}
+           
     ];
 
   }
