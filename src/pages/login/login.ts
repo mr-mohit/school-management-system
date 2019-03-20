@@ -94,7 +94,7 @@ ResetPassword()
 
 VS()
 {
-  this.navCtrl.push(AdminUpdatePage);
+  this.navCtrl.push(AdminAddPage);
 }
 }
 
