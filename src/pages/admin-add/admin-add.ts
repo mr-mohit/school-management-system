@@ -39,6 +39,8 @@ export class AdminAddPage{
   AddTimeTable()
   {
      this.navCtrl.push(AddTimetablePage);
+     this.cid.getClassFun();
+     this.cid.getSubjectFun();
   }
   AddSession()
   {
