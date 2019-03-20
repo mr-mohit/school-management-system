@@ -7,6 +7,8 @@ import { FilePath } from '@ionic-native/file-path';
 import { File } from '@ionic-native/file';
 import { ServiceUpdateUserProvider } from '../../providers/service-update-user/service-update-user';
 import { ServiceViewUserProvider } from '../../providers/service-view-user/service-view-user';
+import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
+import { ServiceViewSessionProvider } from '../../providers/service-view-session/service-view-session';
 
 /**
  * Generated class for the UpdateUserPage page.
@@ -60,6 +62,11 @@ export class UpdateUserPage {
      "userstate":"",
      "userpincode":"",
      "usercontact":"",
+     "studentclass":"c",
+     "studentsection":"s",
+     "studentsession":0,
+     "teacherdesgn":"t",
+     "teacherdepart":"d",
 
   }
   
@@ -71,8 +78,8 @@ export class UpdateUserPage {
               public formBuilder: FormBuilder, public service:ServiceViewUserProvider, public serviceUpdate:ServiceUpdateUserProvider,
               private camera: Camera, private transfer: Transfer, private file: File,
               private filePath: FilePath,public actionSheetCtrl: ActionSheetController,
-              public toastCtrl: ToastController,public loadingCtrl: LoadingController,
-              public alertController: AlertController) {
+              public toastCtrl: ToastController,public loadingCtrl: LoadingController,public getSession:ServiceViewSessionProvider,
+              public alertController: AlertController, public cid:ServiceGetClassMasterProvider) {
 
                  // this slide is used to enter basics infos of the user
     this.slideOneForm = formBuilder.group({
@@ -108,7 +115,11 @@ export class UpdateUserPage {
     
     // this slide is used to enter infos address of the user
     this.slideFourForm = formBuilder.group({
- 
+      studentClass: ['', Validators.compose([Validators.maxLength(30),Validators.required])],
+      studentSection: ['', Validators.compose([Validators.maxLength(30),Validators.required])],
+      studentSession: ['', Validators.compose([Validators.maxLength(30),Validators.required])],
+      teacherDepart: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z]*')])],
+      teacherDesg: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z]*')])],
     });
 
   }
@@ -120,7 +131,7 @@ export class UpdateUserPage {
   // getUserAddress()
   // {
   //   this.navCtrl.push(UserAddressPage);
-  // }
+  // }  
 
   next(){
     this.signupSlider.slideNext();
@@ -400,14 +411,32 @@ UserInfos()
       this.slideThreeForm.controls.state.setValue(data.address[0]['STATE']);
       this.slideThreeForm.controls.pincode.setValue(data.address[0]['PINCODE']);
       this.slideThreeForm.controls.contact.setValue(data.address[0]['CONTACT_NO']);
-    
-   
-    })
+
+          if(data.data[0]['ROLE'] =="student")
+          {
+              
+              this.slideFourForm.controls.studentClass.setValue(data.class[0].CLASS);
+              this.slideFourForm.controls.studentSection.setValue(data.class[0].SECTION);
+              this.slideFourForm.controls.studentSession.setValue(data.session[0].SESSION_START_DATE +'--'+data.session[0].SESSION_END_DATE);
+          }
+          // in case of teacher
+          else if(this.userInfos["userrole"] == "teacher" )
+          {
+            this.slideFourForm.controls.teacherDepart.setValue('');
+            this.slideFourForm.controls.teacherDesg.setValue('');
+          }
+          else
+          {
+              
+              
+          }    
+      
+      })
+    }
+    else
+    {
+      alert("enter a valid Registration ID");
+    }  
   }
-  else
-  {
-    alert("enter a valid Registration ID");
-  }  
-}
 
 }

@@ -110,8 +110,6 @@ export class AddUsersPage {
       studentSession: ['', Validators.compose([Validators.maxLength(30),Validators.required])],
       teacherDepart: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z]*')])],
       teacherDesg: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z]*')])],
-
- 
     });
   
     // reset the user ID
