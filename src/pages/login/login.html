@@ -22,7 +22,7 @@
                   <ion-label floating>
                    Registration No
                   </ion-label>
-                  <ion-input type="text" name="REG_NO"  [(ngModel)]="REG_NO" ></ion-input>
+                  <ion-input type="text" name="REG_NO"  [(ngModel)]="REG_NO"  (keyup)="REG_NOCHECK($event)"></ion-input>
                 </ion-item>
                 <ion-item class="pass-word">
                   <ion-label floating>

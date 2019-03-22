@@ -14,7 +14,7 @@ import { AdminUpdatePage } from '../admin-update/admin-update';
   templateUrl: 'login.html'
 })
 export class LoginPage {
-
+private status:boolean;
 public dataitem:any;
 public user:any=
 {
@@ -28,6 +28,8 @@ public user:any=
   
   ValidateLogin(REG_NO,PASSWORD)
   {
+    if(REG_NO!=undefined && PASSWORD!=undefined &&this.status!=false || this.status!=undefined)
+    {
         this.user['REG_NO']=REG_NO;//get user name from login.html
         this.user['PASSWORD']=PASSWORD;//get password entered by user from login.html
         
@@ -81,6 +83,14 @@ public user:any=
 });  //calling service function end
 }
 
+else
+{
+  alert("Cannot be empty");
+}
+
+  
+}
+
    
 
 
@@ -93,5 +103,23 @@ VS()
 {
   this.navCtrl.push(AdminUpdatePage);
 }
+
+//Pattern Check
+REG_NOCHECK(event:any)
+{
+  let newValue=event.target.value;
+  let regExp= RegExp('[0-9]+$');
+  if(regExp.test(newValue))
+  {
+    this.status=true;
+  }
+  else
+  {
+   alert("Characters/Symbols are not allowed");
+   this.status=false;
+
+  }
+}
+
 }
 
