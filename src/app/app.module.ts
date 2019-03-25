@@ -81,6 +81,7 @@ import { UpdateSubjectsPage } from '../pages/update-subjects/update-subjects';
 import { UpdateTermPage } from '../pages/update-term/update-term';
 import { ServiceUpdateProvider } from '../providers/service-update/service-update';
 import { AddTimetablePage } from '../pages/add-timetable/add-timetable';
+import { AboutUsPage } from '../pages/about-us/about-us';
  
 
  @NgModule({ 
@@ -134,11 +135,11 @@ import { AddTimetablePage } from '../pages/add-timetable/add-timetable';
     UpdateClassPage,
     UpdateSessionPage,
     UpdateTermPage,
-
     ViewSessionPage,
     UpdateSubjectsPage,
     UpdateTermPage,
     AddTimetablePage,
+    AboutUsPage,
   ],
   imports: [
     BrowserModule,
@@ -206,6 +207,7 @@ import { AddTimetablePage } from '../pages/add-timetable/add-timetable';
     UpdateSubjectsPage,
     UpdateTermPage,
     AddTimetablePage,
+    AboutUsPage,
   ],
   providers: [
     StatusBar,

@@ -21,6 +21,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 
 import { NativeStorage } from '@ionic-native/native-storage';
+import { AddUsersPage } from '../pages/add-users/add-users';
 
 
 @Component({
@@ -36,8 +37,8 @@ export class MyApp {
     //declaration of array for side menu
     Student_a:Array<{title:string, icon:string,component:any,}>;    //array for student
     Teacher_a:Array<{title:string, icon:string,component:any,}>;    //array for teacher
-    Admin_a:Array<{title:string,icon:string,Component:any}>;
-    help:Array<{title:string, icon:string,component:any,}>;
+    Admin_a:Array<{title:string,icon:string,component:any}>;        //for Admin
+    help:Array<{title:string, icon:string,component:any,}>;         //Same For All
 
   constructor(platform: Platform, statusBar: StatusBar,private nativeStorage: NativeStorage,public toastCtrl: ToastController,
              public service:ServiceLoginProvider, splashScreen: SplashScreen,public altertCtrl:AlertController,public translate:TranslateService) {
@@ -107,15 +108,15 @@ export class MyApp {
     ];
     //initializing the Admin array elements for side menu
     this.Admin_a=[
-      {title:"Home",icon:"home",Component:AdminDashboardPage},
-      {title:"Gallery",icon:"contact",Component:GalleryPage},
+      {title:"Home",icon:"home",component:AdminDashboardPage},
+      {title:"New User",icon:"add",component:AddUsersPage},
       
     ];
 
     //initializing the common array elements for side menu
     this.help=[
-      {title:'About Us', icon:'contact',component:AboutUsPage},
-      {title:'Settings',icon:'contact',component:SettingPage}
+      {title:'About Us', icon:'information-circle',component:AboutUsPage},
+      {title:'Settings',icon:'settings',component:SettingPage}
            
     ];
 
@@ -123,7 +124,8 @@ export class MyApp {
 
   openPage(page)
   {
-    this.navCtrl.setRoot(page.component);
+    console.log(page.component);
+    this.navCtrl.push(page.component);
   }
   // goToHome(params){
   //   if (!params) params = {};
