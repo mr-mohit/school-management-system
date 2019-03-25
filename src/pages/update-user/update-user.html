@@ -31,33 +31,25 @@
             <form [formGroup]="slideOneForm"  >
 
                <!-- user id -->
-                <ion-item *ngIf="!slideOneForm.controls.userrole">
-                    <ion-label *ngIf="!slideOneForm.controls.userrole" floating > Enter Registration number here :  </ion-label>
-                    <ion-input *ngIf="!slideOneForm.controls.userrole" type="number" name="userid"  formControlName="userid" [class.invalid]="!slideOneForm.controls.userid.valid && (slideOneForm.controls.userid.dirty || submitAttempt)" > </ion-input>
+                <ion-item *ngIf="!slideOneForm.controls.userrole.value">
+                    <ion-label *ngIf="!slideOneForm.controls.userrole.value" floating > Enter Registration number here :  </ion-label>
+                    <ion-input *ngIf="!slideOneForm.controls.userrole.value" type="number" formControlName="userid" [class.invalid]="!slideOneForm.controls.userid.valid && (slideOneForm.controls.userid.dirty || submitAttempt)" > </ion-input>
                 </ion-item> 
-                <button *ngIf="!slideOneForm.controls.userrole" ion-button full color="primary" (click)="UserInfos()">
+                <button *ngIf="!slideOneForm.controls.userrole.value" ion-button full color="primary" (click)="UserInfos()">
                         <ion-icon name="eye"></ion-icon> &nbsp; View User
                     </button>
     
                 <ion-item *ngIf="!slideOneForm.controls.userid.valid  && (slideOneForm.controls.userid.dirty || submitAttempt)">
                     <p>Please enter a valid registration id.</p>
                 </ion-item>
-                <ion-item *ngIf="slideOneForm.controls.userrole">
-                    <ion-label *ngIf="slideOneForm.controls.userrole" > Registration number :  </ion-label>
-                    <ion-label *ngIf="slideOneForm.controls.userrole" class="printid" formControlName="userid" [class.invalid]="!slideOneForm.controls.userid.valid && (slideOneForm.controls.userid.dirty || submitAttempt)" > </ion-label>
-                </ion-item> 
+                
              
                    <!-- user role -->
                 <ion-item>
-                    <ion-label floating>User Role</ion-label>
-                    <ion-select  [placeholder]="slideOneForm.controls.userrole.value" formControlName="userrole" [class.invalid]="!slideOneForm.controls.userrole.valid && (slideOneForm.controls.userrole.dirty || submitAttempt)">
-                          <ion-option value="student">
-                                student
-                          </ion-option>
-                          <ion-option value="teacher">
-                                teacher
-                          </ion-option >
-                    </ion-select>
+                    <ion-label class="printid">User Role : </ion-label>
+                    <ion-label class="printid" *ngIf="service.recdata" >
+                           {{slideOneForm.controls.userrole.value}}             
+                    </ion-label>
                 </ion-item>
 
                 <ion-item *ngIf="!slideOneForm.controls.userrole.valid  && (slideOneForm.controls.userrole.dirty || submitAttempt)">
@@ -347,28 +339,33 @@
                     </ion-select>
                 </ion-item>
                  <!-- teacher Designation      -->
-            
+        
                 <ion-item [hidden]='slideOneForm.controls.userrole.value !=="teacher" '>
-                    <ion-label floating  [hidden]='slideOneForm.controls.userrole.value !=="teacher" '>Teacher Designation</ion-label>
-                    <ion-input [hidden]='slideOneForm.controls.userrole.value !=="teacher"' formControlName="teacherDesg" [class.invalid]="!slideFourForm.controls.teacherDesg.valid && (slideFourForm.controls.teacherDesg.dirty || submitAttempt)">
+                    <ion-label floating>Teacher designation </ion-label>
+                    <ion-input  formControlName="teacherDesg" type="text" [class.invalid]="!slideFourForm.controls.teacherDesg.valid && (slideFourForm.controls.teacherDesg.dirty || submitAttempt)" >  
                     </ion-input>
-
                 </ion-item>
 
-                <ion-item  [hidden]='slideOneForm.controls.userrole.value !=="teacher"' *ngIf="!slideFourForm.controls.teacherDesg.valid  && (slideFourForm.controls.teacherDesg.dirty || submitAttempt)">
-                    <p>Please enter a valid value</p>
-                </ion-item> 
-               
+                <ion-item *ngIf="!slideFourForm.controls.teacherDesg.valid  && (slideFourForm.controls.teacherDesg.dirty || submitAttempt)">
+                    <p>Please enter a valid name.</p>
+                </ion-item>
+
 
                  <!-- teacher Department      -->
                 <ion-item [hidden]='slideOneForm.controls.userrole.value !=="teacher"'>
                     <ion-label floating  [hidden]='slideOneForm.controls.userrole.value !=="teacher"'>Department</ion-label>
-                    <ion-select [hidden]='slideOneForm.controls.userrole.value !=="teacher"' formControlName="teacherDepart" [class.invalid]="!slideFourForm.controls.teacherDepart.valid && (slideFourForm.controls.teacherDepart.dirty || submitAttempt)">
-                          <ion-option value="Department1">
-                                Department1
+                    <ion-select [placeholder]="slideFourForm.controls.teacherDepart.value" formControlName="teacherDepart" [class.invalid]="!slideFourForm.controls.teacherDepart.valid && (slideFourForm.controls.teacherDepart.dirty || submitAttempt)">
+                          <ion-option value=" computer application">
+                                computer application
                           </ion-option>
-                          <ion-option value="Department2">
-                                Department2
+                          <ion-option value="computer science engineering">
+                                computer science engineering
+                          </ion-option>
+                           <ion-option value=" Business">
+                                Business
+                          </ion-option>
+                          <ion-option value="Machine Learning">
+                                Machine Learning
                           </ion-option>
                           
                     </ion-select>

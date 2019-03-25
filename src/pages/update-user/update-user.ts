@@ -62,13 +62,14 @@ export class UpdateUserPage {
      "userstate":"",
      "userpincode":"",
      "usercontact":"",
-     "studentclass":"c",
-     "studentsection":"s",
-     "studentsession":0,
      "teacherdesgn":"t",
      "teacherdepart":"d",
-
+     "studentclass":"c",
+     "studentsection":"s",
+     "studentsession":-1
+    
   }
+
   
   
 
@@ -85,8 +86,8 @@ export class UpdateUserPage {
     this.slideOneForm = formBuilder.group({
       userid: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('(?=.*[0-9]).{6,9}')])],
      // userpic: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]+'), Validators.required])],
-      userfirstname: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]+'), Validators.required])],
-      userlastname: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]+'), Validators.required])],
+      userfirstname: ['', Validators.compose([Validators.maxLength(30), Validators.required])],
+      userlastname: ['', Validators.compose([Validators.maxLength(30), Validators.required])],
       userrole: ['', Validators.compose([Validators.pattern('[a-zA-Z ]+'), Validators.required])],
       userdob: ['', Validators.compose([ Validators.required])],
       usergender: ['', Validators.compose([Validators.pattern('[a-zA-Z ]+'), Validators.required])],
@@ -97,18 +98,18 @@ export class UpdateUserPage {
       useremail: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'), Validators.required])],
       userpassword: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[#$^+=!*()@%&]).{8,35}$'), Validators.required])],
       userpassword2: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[#$^+=!*()@%&]).{8,35}$'), Validators.required])],
-      userfathername: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
-      usermothername: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
-      usercity: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
+      userfathername: ['', Validators.compose([Validators.maxLength(30), Validators.required])],
+      usermothername: ['', Validators.compose([Validators.maxLength(30), Validators.required])],
+      usercity: ['', Validators.compose([Validators.maxLength(30), Validators.required])],
      
     });
 
     // this slide is used to enter infos address of the user
     this.slideThreeForm = formBuilder.group({
-        addressType: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z]*')])],
-        address1: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z]*')])],
-        address2: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z]*')])],
-        state: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z]*')])],
+        addressType: ['', Validators.compose([Validators.maxLength(30),Validators.required])],
+        address1: ['', Validators.compose([Validators.maxLength(30),Validators.required])],
+        address2: ['', Validators.compose([Validators.maxLength(30),Validators.required])],
+        state: ['', Validators.compose([Validators.maxLength(30),Validators.required])],
         pincode: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('(?=.*[0-9]).{6}')])],
         contact: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('(?=.*[0-9]).{8,15}')])]  
     });
@@ -118,8 +119,8 @@ export class UpdateUserPage {
       studentClass: ['', Validators.compose([Validators.maxLength(30),Validators.required])],
       studentSection: ['', Validators.compose([Validators.maxLength(30),Validators.required])],
       studentSession: ['', Validators.compose([Validators.maxLength(30),Validators.required])],
-      teacherDepart: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z]*')])],
-      teacherDesg: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z]*')])],
+      teacherDepart: ['', Validators.compose([Validators.maxLength(30),Validators.required])],
+      teacherDesg: ['', Validators.compose([Validators.maxLength(30),Validators.required])]
     });
 
   }
@@ -154,74 +155,113 @@ export class UpdateUserPage {
       }
     }
 
-  save()
-  {
-     if(this.slideOneForm.valid && this.slideTwoForm.valid && this.slideThreeForm.valid)
-     {
-      if(this.slideTwoForm.getRawValue().userpassword == this.slideTwoForm.getRawValue().userpassword2)
-      {
-         // this.userInfos["userpic"] = this.slideOneForm.getRawValue().userpic;
-        //  this.userInfos["userRegNo"] = this.service.userID;
-          this.userInfos["userfirstname"] = this.slideOneForm.getRawValue().userfirstname;
-          this.userInfos["userlastname"] = this.slideOneForm.getRawValue().userlastname;
-          this.userInfos["userrole"] = this.slideOneForm.getRawValue().userrole;
-          this.userInfos["userdob"] =  this.slideOneForm.getRawValue().userdob;
-          this.userInfos["usergender"] =  this.slideOneForm.getRawValue().usergender;
-          this.userInfos["useremail"] = this.slideTwoForm.getRawValue().useremail;
-          this.userInfos["userpassword"] = this.slideTwoForm.getRawValue().userpassword;
-          this.userInfos["userfathername"] =  this.slideTwoForm.getRawValue().userfathername;
-          this.userInfos["usermothername"] =  this.slideTwoForm.getRawValue().usermothername;
-          this.userInfos["usercity"] =  this.slideTwoForm.getRawValue().usercity;
-          this.userInfos["useraddresstype"] =  this.slideThreeForm.getRawValue().addressType;
-          this.userInfos["useraddress1"] =  this.slideThreeForm.getRawValue().address1;
-          this.userInfos["useraddress2"] =  this.slideThreeForm.getRawValue().address2;
-          this.userInfos["userstate"] =  this.slideThreeForm.getRawValue().state;
-          this.userInfos["userpincode"] =  this.slideThreeForm.getRawValue().pincode;
-          this.userInfos["usercontact"] =  this.slideThreeForm.getRawValue().contact;
-
-          var a = 0; 
-          //alert(this.userInfos["userpic"]);
-          for(var index in this.userInfos) {
-
-            //check if all the fields have been filled by the admin
-            //console.log(this.userInfos[index]);
-            if(this.userInfos[index] == "")
+    save()
+    {
+      // console.log("class",this.slideFourForm.getRawValue().studentClass);
+      // console.log("section",this.slideFourForm.getRawValue().studentSection);
+      // console.log("Session",this.slideFourForm.getRawValue().studentSession);
+       if(this.slideOneForm.valid && this.slideTwoForm.valid && this.slideThreeForm.valid)
+       {
+        if(this.slideTwoForm.getRawValue().userpassword == this.slideTwoForm.getRawValue().userpassword2)
+        {
+           // this.userInfos["userpic"] = this.slideOneForm.getRawValue().userpic;
+            this.userInfos["userRegNo"] = this.service.recdata.data[0].REG_NO;
+            this.userInfos["userfirstname"] = this.slideOneForm.getRawValue().userfirstname;
+            this.userInfos["userlastname"] = this.slideOneForm.getRawValue().userlastname;
+            this.userInfos["userrole"] = this.slideOneForm.getRawValue().userrole;
+            this.userInfos["userdob"] =  this.slideOneForm.getRawValue().userdob;
+            this.userInfos["usergender"] =  this.slideOneForm.getRawValue().usergender;
+            this.userInfos["useremail"] = this.slideTwoForm.getRawValue().useremail;
+            this.userInfos["userpassword"] = this.slideTwoForm.getRawValue().userpassword;
+            this.userInfos["userfathername"] =  this.slideTwoForm.getRawValue().userfathername;
+            this.userInfos["usermothername"] =  this.slideTwoForm.getRawValue().usermothername;
+            this.userInfos["usercity"] =  this.slideTwoForm.getRawValue().usercity;
+            this.userInfos["useraddresstype"] =  this.slideThreeForm.getRawValue().addressType;
+            this.userInfos["useraddress1"] =  this.slideThreeForm.getRawValue().address1;
+            this.userInfos["useraddress2"] =  this.slideThreeForm.getRawValue().address2;
+            this.userInfos["userstate"] =  this.slideThreeForm.getRawValue().state;
+            this.userInfos["userpincode"] =  this.slideThreeForm.getRawValue().pincode;
+            this.userInfos["usercontact"] =  this.slideThreeForm.getRawValue().contact;
+  
+             console.log("user-role",this.userInfos["userrole"])  ;
+      
+            if(this.userInfos["userrole"] =="student" && this.slideFourForm.controls.studentClass.valid &&
+               this.slideFourForm.controls.studentSession.valid && this.slideFourForm.controls.studentSection.valid)
             {
-              // if one field is empty => print an alert 
-                alert(" You should fill all the fields properly / empty fields are not allowed");
-                break;
+                this.userInfos["studentclass"] = this.slideFourForm.getRawValue().studentClass;
+                this.userInfos["studentsection"] = this.slideFourForm.getRawValue().studentSection;
+                this.userInfos["studentsession"] = this.slideFourForm.getRawValue().studentSession;
+            }          
+            else if(this.userInfos["userrole"] == "teacher" && this.slideFourForm.controls.teacherDepart.valid && this.slideFourForm.controls.teacherDesg.valid) 
+            {
+              this.userInfos["teacherdepart"] = this.slideFourForm.getRawValue().teacherDepart;
+              this.userInfos["teacherdesgn"] = this.slideFourForm.getRawValue().teacherDesg;
+            }
+            else if(this.userInfos["userrole"] == "admin")
+            {
+               
             }
             else
             {
-              a +=1 ; 
+                if(this.userInfos["userrole"] == "teacher")
+                {
+                  this.userInfos["teacherdepart"] = "";
+                  this.userInfos["teacherdesg"] = "";
+                  alert("Please select an appropirate designationand/or departement for teacher");
+                }
+                else
+                {
+                  this.userInfos["studentclass"] ="";
+                  this.userInfos["studentsection"]= "";
+                  this.userInfos["studentsession"]= 0;
+                   alert("Please Select a valid class/section/session infos for the student");
+                }
+                
             }
-          }
-          // here we check if all the fields have been filled
-          if(a == 18 && this.lastImage!==  null)
-          {
-            this.userInfos['userpic']= this.lastImage;
-            //this.uploadImage(); // upload image in the server
-           //this.service.postuser(this.userInfos); // send the user infos to the provider 
-             this.ConfirmCreationUser(this.userInfos); 
-          }
-          else if(this.lastImage ===  null)
-          {
-            alert("Select an image from your gallery");
-            
-          }
-            
-      }
-      else{
-          alert("password and confirmation password are not matching");
-      }
-     }
-     else
-     {
-      alert('Please fill all the fields properly, some of them are not valid');
-     }   
-      
-
-  }
+            var a = 0; 
+            //alert(this.userInfos["userpic"]);
+            for(var index in this.userInfos) {
+  
+              //check if all the fields have been filled by the admin
+              //console.log(this.userInfos[index]);
+              if(this.userInfos[index] == "")
+              {
+                // if one field is empty => print an alert 
+                console.log("index: ",index,"---",this.userInfos[index]);
+                  alert("empty fields are not allowed / You should fill all the fields properly");
+                  break;
+              }
+              else
+              {
+                a +=1 ; 
+              }
+            }
+            // here we check if all the fields have been filled
+            if(a == 23 && this.lastImage !==  null)
+            {
+              this.userInfos['userpic'] = this.lastImage;
+              //this.uploadImage(); // upload image in the server
+              //this.service.postuser(this.userInfos); // send the user infos to the provider 
+              this.ConfirmCreationUser(this.userInfos); 
+            }
+            else if(this.lastImage ===  null)
+            {
+              alert("Select an image from your gallery");
+              
+            }
+              
+        }
+        else{
+            alert("password and confirmation password are not matching");
+        }
+       }
+       else
+       {
+        alert('Please fill all the fields properly, some of them are not valid or some selection are not done');
+       }   
+        
+  
+    }
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////
  // ask the user to find image from camera or gallery
@@ -317,7 +357,7 @@ export class UpdateUserPage {
   // upload image to the server
   public uploadImage() {
     // Destination URL
-    var url = "http://localhost/schoolapi/uploadImage.php";
+    var url = "http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/uploadImage.php";
    
     // File for Upload
     var targetPath = this.pathForImage(this.lastImage);
@@ -356,7 +396,7 @@ export class UpdateUserPage {
   async ConfirmCreationUser(a) {
     const alert = await this.alertController.create({
      
-      message: 'Message <strong>Do You Want toCreate This user :</strong>!!!',
+      message: 'Message <strong>Do You Want to update This user :</strong>!!!',
       buttons: [
         {
           text: 'Cancel',
@@ -368,9 +408,9 @@ export class UpdateUserPage {
         }, {
           text: 'Okay',
           handler: () => {
-           // console.log(a);
-              this.uploadImage(); // upload image in the server
-             // this.service.postuser(a); // send the user infos to the provider  
+            console.log(a);
+           //   this.uploadImage(); // upload image in the server
+              this.serviceUpdate.postuser(a); // send the user infos to the provider  
               this.navCtrl.pop();
           }
         }
@@ -389,7 +429,7 @@ UserInfos()
   {
     // here we send the reg_No
     this.service.postUserID(this.slideOneForm.getRawValue().userid).then((data:any)=>{
-      console.log("data coming in reponse",data.data[0]['FIRST_NAME'], typeof data);
+     // console.log("data coming in reponse",data.data[0]['FIRST_NAME'], typeof data);
       //this.slideOneForm.controls.userfirstname=data.data[0]['FIRST_NAME'];
 
       this.Reg_No=data.data[0]['REG_NO'];
@@ -420,10 +460,10 @@ UserInfos()
               this.slideFourForm.controls.studentSession.setValue(data.session[0].SESSION_START_DATE +'--'+data.session[0].SESSION_END_DATE);
           }
           // in case of teacher
-          else if(this.userInfos["userrole"] == "teacher" )
+          else if(data.data[0]['ROLE'] == "teacher")
           {
-            this.slideFourForm.controls.teacherDepart.setValue('');
-            this.slideFourForm.controls.teacherDesg.setValue('');
+            this.slideFourForm.controls.teacherDepart.setValue(data.teacher[0].DEPARTMENT);
+            this.slideFourForm.controls.teacherDesg.setValue(data.teacher[0].DESIGNATION);
           }
           else
           {

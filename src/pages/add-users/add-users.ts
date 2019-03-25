@@ -224,7 +224,7 @@ export class AddUsersPage {
             }
           }
           // here we check if all the fields have been filled
-          if(a == 23)
+          if(a == 23 && this.lastImage !==  null)
           {
             this.userInfos['userpic'] = this.lastImage;
             //this.uploadImage(); // upload image in the server
