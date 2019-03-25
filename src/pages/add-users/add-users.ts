@@ -110,8 +110,6 @@ export class AddUsersPage {
       studentSession: ['', Validators.compose([Validators.maxLength(30),Validators.required])],
       teacherDepart: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z]*')])],
       teacherDesg: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z]*')])],
-
- 
     });
   
     // reset the user ID
@@ -226,7 +224,7 @@ export class AddUsersPage {
             }
           }
           // here we check if all the fields have been filled
-          if(a == 23)
+          if(a == 23 && this.lastImage !==  null)
           {
             this.userInfos['userpic'] = this.lastImage;
             //this.uploadImage(); // upload image in the server

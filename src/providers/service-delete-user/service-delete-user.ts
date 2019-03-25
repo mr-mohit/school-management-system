@@ -2,53 +2,44 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 /*
-  Generated class for the ServiceViewUserProvider provider.
+  Generated class for the ServiceDeleteUserProvider provider.
 
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
 @Injectable()
-export class ServiceViewUserProvider {
+export class ServiceDeleteUserProvider {
 
-  public data:any;
-  //public URL="http://localhost/schoolapi/";
   public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/";
   recdata: any;
 
   constructor(public http: HttpClient) {
-    console.log('Hello ServiceViewUserProvider Provider');
+    console.log('Hello ServiceDeleteUserProvider Provider');
   }
 
   postData(url,data1){
-    //console.log(data1);
-
-    // Passing Header
-
     return new Promise(resolve=>{
       this.http.post(url,JSON.stringify(data1)).subscribe(data=>{
         console.log(data);
-                 
         if(data['statuscode'] == 1)
          {
-            this.recdata=data; 
-            console.log(this.recdata);
+            alert(data['msg']);
          }else
-         {
-           
-           alert("Registration Number Doesn't exist");
+         {  
+          alert(data['msg']);
          }
          resolve(data);
 
       },error=>{
-        console.log(" error : data not sent");
-        alert(" error : data not sent");
+        console.log("error in deletion process");
+        alert("error in deletion process");
       });
     });
   }
 
   postUserID(data){
     console.log(data);
-    var url=this.URL+"view_user.php";
+    var url=this.URL+"deleteUser.php";
     return this.postData(url,data);
   }
 

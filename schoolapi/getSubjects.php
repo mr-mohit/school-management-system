@@ -25,7 +25,7 @@ if($con){
 				}
 
 			//echo"Connection Sucessfull";
-             $sql="SELECT * FROM SUBJECT WHERE IS_ACTIVE=1";
+             $sql="SELECT * FROM subject WHERE IS_ACTIVE=1";
              $query = mysqli_query($con,$sql);
 		         $count = mysqli_num_rows($query);
 				 

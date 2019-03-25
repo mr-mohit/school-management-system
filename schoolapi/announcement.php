@@ -27,7 +27,7 @@ if($con)
 
        $postdata=file_get_contents("php://input");
        $obj=json_decode($postdata,true);    
-		   $User_id=test_input($obj['REG_NO']);
+		   $REG_NO=test_input($obj['REG_NO']);
        $Category=test_input($obj['category']);
 	     $Title=test_input($obj['AnnouncementsTitle']);  
        $Description=test_input($obj['AnnouncementsDescription']);
@@ -35,7 +35,7 @@ if($con)
        $End_Time=test_input($obj['timeEnds']);
     
 		$sql = "INSERT INTO announcement(REG_NO,CATEGORY,TITLE,DESCRIPTION,START_TIME,END_TIME) 
-		VALUES('$User_id','$Category','$Title','$Description','$Start_Time','$End_Time')";
+		VALUES('$REG_NO','$Category','$Title','$Description','$Start_Time','$End_Time')";
 		if(mysqli_query($con,$sql))
 		{
 		   result(1,"success");

@@ -81,6 +81,8 @@ import { UpdateSubjectsPage } from '../pages/update-subjects/update-subjects';
 import { UpdateTermPage } from '../pages/update-term/update-term';
 import { ServiceUpdateProvider } from '../providers/service-update/service-update';
 import { AddTimetablePage } from '../pages/add-timetable/add-timetable';
+import { ServiceDeleteUserProvider } from '../providers/service-delete-user/service-delete-user';
+import { DeleteUserPage } from '../pages/delete-user/delete-user';
  
 
  @NgModule({ 
@@ -126,6 +128,7 @@ import { AddTimetablePage } from '../pages/add-timetable/add-timetable';
     DeleteClassPage,
     DeleteSessionPage,
     DeleteTermPage,
+    DeleteUserPage,
     TeacherAnnouncementPage,
     AnnouncementDetailsPage,
     ViewSubjectsPage,
@@ -206,6 +209,7 @@ import { AddTimetablePage } from '../pages/add-timetable/add-timetable';
     UpdateSubjectsPage,
     UpdateTermPage,
     AddTimetablePage,
+    DeleteUserPage
   ],
   providers: [
     StatusBar,
@@ -242,6 +246,7 @@ import { AddTimetablePage } from '../pages/add-timetable/add-timetable';
     ServiceDeleteTermProvider,
     ServiceUpdateProvider,
     ServiceAnnouncementProvider,
+    ServiceDeleteUserProvider,
   
   ]
 })
