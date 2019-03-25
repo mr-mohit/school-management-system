@@ -1,6 +1,6 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>update_term</ion-title>
+  <ion-navbar color="header">
+    <ion-title>Update Term</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -39,7 +39,7 @@
         <ion-datetime name="END_DATE" displayFormat="DD MMM YYYY" min="2020" max="2051" [(ngModel)]="END_DATE"></ion-datetime>
       </ion-item>
       <ion-item class="cus-center" >
-        <button ion-button color="danger" on-click="Submit(TID,SESSION,TERM,START_DATE,END_DATE)" >
+        <button ion-button color="header" block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;" on-click="Submit(TID,SESSION,TERM,START_DATE,END_DATE)" >
           SUBMIT
         </button>
       </ion-item>
