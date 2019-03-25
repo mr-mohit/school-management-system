@@ -13,7 +13,6 @@ import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard
 import { HttpClientModule, HttpClient} from '@angular/common/http';
 import { StudentExamsPage } from '../pages/student-exams/student-exams';
 import { StudentAttendancePage } from '../pages/student-attendance/student-attendance';
-import { StudentAnnouncementsPage } from '../pages/student-announcements/student-announcements';
 import { StudentTimeTablePage } from '../pages/student-time-table/student-time-table';
 import { StudentResultPage } from '../pages/student-result/student-result';
 import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
@@ -97,7 +96,6 @@ import { AboutUsPage } from '../pages/about-us/about-us';
     TeacherdashboardPage,
     StudentExamsPage,
     StudentAttendancePage,
-    StudentAnnouncementsPage,
     StudentTimeTablePage,
     StudentResultPage,
     AdminDashboardPage,
@@ -168,7 +166,6 @@ import { AboutUsPage } from '../pages/about-us/about-us';
     StudentQuizPage,
     StudentQuiz1Page,
     StudentAttendancePage,
-    StudentAnnouncementsPage,
     StudentTimeTablePage,
     StudentResultPage,
     AdminDashboardPage,

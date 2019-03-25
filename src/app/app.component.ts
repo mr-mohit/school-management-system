@@ -3,7 +3,6 @@ import { Platform, Nav, AlertController, ToastController} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from '../pages/login/login';
-import { SchoolInfoPage } from '../pages/school-info/school-info';
 import { ViewEventsPage } from '../pages/view-events/view-events';
 import { StudentQuizPage } from '../pages/student-quiz/student-quiz';
 import { GalleryPage } from '../pages/gallery/gallery';
@@ -22,6 +21,10 @@ import { TranslateService } from '@ngx-translate/core';
 
 import { NativeStorage } from '@ionic-native/native-storage';
 import { AddUsersPage } from '../pages/add-users/add-users';
+import { AddClassPage } from '../pages/add-class/add-class';
+import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
+import { StudentTimeTablePage } from '../pages/student-time-table/student-time-table';
+import { StudentResultPage } from '../pages/student-result/student-result';
 
 
 @Component({
@@ -90,18 +93,19 @@ export class MyApp {
     //initializing the student array elements for side menu
     this.Student_a=[
       {title:'Home', icon:'home', component:StudentdashboardPage},
-      {title:'School Info', icon:'contact', component:SchoolInfoPage},
+      {title:'Messages', icon:'text',component:StudentdashboardPage},
+      {title:'Time Table', icon:'time', component:StudentTimeTablePage},
+      {title:'Result', icon:'trophy',component:StudentResultPage},
       {title:'Events', icon:'contact',component:ViewEventsPage},
+      {title:'Quiz', icon:'podium', component:StudentQuizPage},
       {title:'Feedback', icon:'contact',component:StudentFeedbackPage},
-      {title:'Quiz', icon:'contact', component:StudentQuizPage},
-      {title:'Gallery',icon:'contact',component:GalleryPage}
     ];
 
     //initializing the teacher array elements for side menu
     this.Teacher_a=[
       {title:'Home', icon:'home',component:TeacherdashboardPage},
-      {title:'Send Messages', icon:'contact',component:TeacherSendMessagePage},
-      {title:'Set Announcement',icon:'contact',component:TeacherAnnouncementPage},
+      {title:'Messages', icon:'text',component:TeacherSendMessagePage},
+      {title:'Announcements',icon:'megaphone',component:TeacherAnnouncementPage},
       {title:'Feedback',icon:'contact',component:TeacherFeedbackPage},      
       {title:'Gallery',icon:'contact',component:GalleryPage},
       {title:'Events', icon:'contact',component:ViewEventsPage}
@@ -109,13 +113,17 @@ export class MyApp {
     //initializing the Admin array elements for side menu
     this.Admin_a=[
       {title:"Home",icon:"home",component:AdminDashboardPage},
-      {title:"New User",icon:"add",component:AddUsersPage},
-      
+      {title:"New User",icon:"person-add",component:AddUsersPage},
+      {title:"New Class",icon:"add-circle",component:AddClassPage},
+      {title:"Add Subject",icon:"add-circle",component:AddSubjectsPage},
+      {title:"New User",icon:"person-add",component:AddUsersPage},
+      {title:"New User",icon:"person-add",component:AddUsersPage},
+  
     ];
 
     //initializing the common array elements for side menu
     this.help=[
-      {title:'About Us', icon:'information-circle',component:AboutUsPage},
+      {title:'About Us', icon:'mail',component:AboutUsPage},
       {title:'Settings',icon:'settings',component:SettingPage}
            
     ];

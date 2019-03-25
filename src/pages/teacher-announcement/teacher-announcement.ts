@@ -21,8 +21,6 @@ export class TeacherAnnouncementPage {
        this.Service.getData();
 
        }
-
-
        enablecontent(item)
        {
          
