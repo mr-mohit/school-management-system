@@ -22,7 +22,8 @@
                   <ion-label floating>
                    Registration No
                   </ion-label>
-                  <ion-input type="tel" name="REG_NO" maxlength="8"  [(ngModel)]="REG_NO"  (keyup)="REG_NOCHECK($event)"></ion-input>
+                  <!-- (keyup)="REG_NOCHECK($event)" -->
+                  <ion-input type="number" name="REG_NO" maxlength="8"  [(ngModel)]="REG_NO"  ></ion-input>
                 </ion-item>
                 <ion-item class="pass-word">
                   <ion-label floating>
