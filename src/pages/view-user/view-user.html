@@ -186,14 +186,13 @@
              <!-- teacher designation  -->
                 <ion-item *ngIf='service.recdata'  [hidden]='service.recdata.data[0].ROLE !=="teacher"'>
                     <ion-label  [hidden]='service.recdata.data[0].ROLE !=="teacher" '>designation : </ion-label>
-                    <!-- <ion-label text-wrap class="printid" *ngIf='service.recdata.data[0].ROLE ==="teacher"' [hidden]='service.recdata.data[0].ROLE !=="teacher" '>{{service.recdata.class[0].CLASS}} </ion-label> -->
+                    <ion-label text-wrap class="printid" *ngIf='service.recdata.data[0].ROLE ==="teacher"' [hidden]='service.recdata.data[0].ROLE !=="teacher" '>{{service.recdata.teacher[0].DESIGNATION}} </ion-label>
                     
                 </ion-item>
-             <!-- student teacher Departement  -->
+             <!-- teacher Departement  -->
                 <ion-item *ngIf='service.recdata' [hidden]='service.recdata.data[0].ROLE !=="teacher" '>
                     <ion-label  [hidden]='service.recdata.data[0].ROLE !=="teacher" '>department : </ion-label>
-                    <!-- <ion-label text-wrap class="printid" *ngIf='service.recdata.data[0].ROLE ==="teacher"' [hidden]='service.recdata.data[0].ROLE !=="teacher" '>{{service.recdata.class[0].SECTION}} </ion-label> -->
-                    
+                    <ion-label text-wrap class="printid" *ngIf='service.recdata.data[0].ROLE ==="teacher"' [hidden]='service.recdata.data[0].ROLE !=="teacher" '>{{service.recdata.teacher[0].DEPARTMENT}} </ion-label>    
                 </ion-item>
                  
                    <!-- user pic -->

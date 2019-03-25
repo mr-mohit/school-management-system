@@ -409,7 +409,7 @@ export class UpdateUserPage {
           text: 'Okay',
           handler: () => {
             console.log(a);
-           //   this.uploadImage(); // upload image in the server
+              this.uploadImage(); // upload image in the server
               this.serviceUpdate.postuser(a); // send the user infos to the provider  
               this.navCtrl.pop();
           }
