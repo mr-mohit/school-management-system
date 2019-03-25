@@ -4,7 +4,8 @@ import { Injectable } from '@angular/core';
 export class ServiceLoginProvider {
   public data:any;
   //public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; //for server use
-  public URL="http://localhost/schoolapi/"; //for local use
+ // public URL= "192.168.137.1/localhost/schoolapi/";
+ public URL="http://localhost/schoolapi/"; //for local use
  // public URL="https://direct-school.000webhostapp.com/"; //for hosting
   
   public recdata: any;//this variable will store info coming from API

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, LoadingController } from 'ionic-angular';
+import { NavController, AlertController, LoadingController, ToastController } from 'ionic-angular';
 import { MenuController } from 'ionic-angular';
 import { ResetpasswordPage } from '../resetpassword/resetpassword';
 import { StudentdashboardPage } from '../studentdashboard/studentdashboard';
@@ -7,7 +7,7 @@ import { TeacherdashboardPage } from '../teacherdashboard/teacherdashboard';
 import { AdminDashboardPage } from '../admin-dashboard/admin-dashboard';
 import { ServiceLoginProvider } from '../../providers/service-login/service-login';
 import { NativeStorage } from '@ionic-native/native-storage';
-import { AdminUpdatePage } from '../admin-update/admin-update';
+
 
 @Component({
   selector: 'page-login',
@@ -22,7 +22,7 @@ public user:any=
   "PASSWORD":" "
 };
   constructor(private nativeStorage: NativeStorage,public Menu: MenuController,public navCtrl: NavController,public alertCtrl:AlertController,public loadingCtrl: LoadingController,
-    public service:ServiceLoginProvider) {
+    public service:ServiceLoginProvider,public toast:ToastController) {
       this.Menu.enable(false);
   }
   
@@ -99,11 +99,6 @@ ResetPassword()
   this.navCtrl.push(ResetpasswordPage);
 }
 
-VS()
-{
-  this.navCtrl.push(AdminUpdatePage);
-}
-
 //Pattern Check
 REG_NOCHECK(event:any)
 {
@@ -115,10 +110,15 @@ REG_NOCHECK(event:any)
   }
   else
   {
-   alert("Characters/Symbols are not allowed");
+  const toast = this.toast.create({
+    message: 'Characters/Symbols/Space are not allowed',
+    duration: 3000,
+    position: 'top'
+  });
+  toast.present();
+}
    this.status=false;
 
-  }
 }
 
 }

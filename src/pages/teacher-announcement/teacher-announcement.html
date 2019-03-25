@@ -15,10 +15,11 @@
   <ion-content padding>
       
      <ion-card *ngFor="let item of Service?.data;">
+       
          <ion-card-header class="header-style" (click)="enablecontent(item)">
 
           <ion-icon ios="ios-information-circle" md="md-information-circle" style="color:red;">  
-            {{item.CATEGORY}}
+            {{item.CATEGORY}} 
           </ion-icon>
 
           <ion-label>Date: {{item.START_TIME}}</ion-label>
