@@ -81,6 +81,8 @@ import { UpdateTermPage } from '../pages/update-term/update-term';
 import { ServiceUpdateProvider } from '../providers/service-update/service-update';
 import { AddTimetablePage } from '../pages/add-timetable/add-timetable';
 import { AboutUsPage } from '../pages/about-us/about-us';
+import { AddEventPage } from '../pages/add-event/add-event';
+import { ServiceAddEventProvider } from '../providers/service-add-event/service-add-event';
  
 
  @NgModule({ 
@@ -138,6 +140,7 @@ import { AboutUsPage } from '../pages/about-us/about-us';
     UpdateTermPage,
     AddTimetablePage,
     AboutUsPage,
+    AddEventPage,
   ],
   imports: [
     BrowserModule,
@@ -205,6 +208,7 @@ import { AboutUsPage } from '../pages/about-us/about-us';
     UpdateTermPage,
     AddTimetablePage,
     AboutUsPage,
+    AddEventPage,
   ],
   providers: [
     StatusBar,
@@ -241,6 +245,7 @@ import { AboutUsPage } from '../pages/about-us/about-us';
     ServiceDeleteTermProvider,
     ServiceUpdateProvider,
     ServiceAnnouncementProvider,
+    ServiceAddEventProvider,
   
   ]
 })
