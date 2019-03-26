@@ -96,9 +96,9 @@ export class MyApp {
       {title:'Messages', icon:'text',component:StudentdashboardPage},
       {title:'Time Table', icon:'time', component:StudentTimeTablePage},
       {title:'Result', icon:'trophy',component:StudentResultPage},
-      {title:'Events', icon:'contact',component:ViewEventsPage},
+      {title:'Events', icon:'calendar',component:ViewEventsPage},
       {title:'Quiz', icon:'podium', component:StudentQuizPage},
-      {title:'Feedback', icon:'contact',component:StudentFeedbackPage},
+      {title:'Feedback', icon:'thumbs-up',component:StudentFeedbackPage},
     ];
 
     //initializing the teacher array elements for side menu
