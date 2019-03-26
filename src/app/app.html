@@ -1,8 +1,9 @@
 <ion-menu [content]="mainContent">
   <ion-header>
-    <ion-toolbar>
+    <ion-toolbar color="header">
       <ion-title>
-        Menu
+          <ion-icon name="school"></ion-icon>&nbsp;&nbsp;
+        EcoleDirecte
       </ion-title>
     </ion-toolbar>
   </ion-header>
@@ -29,20 +30,21 @@
         </button>
       </ion-list>
       <!-- Admin Element -->
-      <ion-list *ngIf="service.user_role=='ADMIN' || service.user_role=='Admin'||service.user_role=='admin'" >
+      <ion-list class="item" *ngIf="service.user_role=='ADMIN' || service.user_role=='Admin'||service.user_role=='admin'" >
         <button menuClose ion-item *ngFor="let p of Admin_a" (click)="openPage(p)" >
-          <ion-icon name="{{p.icon}}" item-left>   </ion-icon>
+          <ion-icon name="{{p.icon}}" item-left></ion-icon>
           {{p.title}}
         </button>
       </ion-list>
-    <strong>
+    <!-- <strong>
         <ion-label>&nbsp;&nbsp;&nbsp;&nbsp;
             HELP
           </ion-label>
-    </strong>
-    <ion-list>
+    </strong> -->
+
+    <ion-list class="item">
         <button menuClose ion-item *ngFor="let p of help" (click)="openPage(p)" >
-            <ion-icon name="{{p.icon}}" item-left>   </ion-icon>
+            <ion-icon name="{{p.icon}}" item-left></ion-icon>
             {{p.title}}
           </button>
     </ion-list>

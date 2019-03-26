@@ -17,8 +17,11 @@ import { TeacherAnnouncementPage } from '../teacher-announcement/teacher-announc
 })
 export class TeacherHomePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public Menu: MenuController) {
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public Menu: MenuController,) {
     this.Menu.enable(true);
+   
+    
   }
 
   //Announces Function

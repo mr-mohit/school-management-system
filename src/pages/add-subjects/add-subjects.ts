@@ -15,11 +15,12 @@ import { ServiceAddsubjectProvider } from '../../providers/service-addsubject/se
   templateUrl: 'add-subjects.html',
 })
 export class AddSubjectsPage {
-  public subjectid:any;
-  public subjectname:any;
-  public subjecttype:any;
-  public subjectmaterial:any;
-  public subject:any={
+  public status:boolean;
+  private subjectid:any;
+  private subjectname:any;
+  private subjecttype:any;
+  private subjectmaterial:any;
+  private subject:any={
     "subjectid":"",
     "subjectname":"",
     "subjecttype":"",
@@ -35,7 +36,9 @@ export class AddSubjectsPage {
   }
 
   postSubject(subjectid,subjectname,subjecttype,subjectmaterial) {
-    if(subjectid!=undefined && subjectname!=undefined && subjecttype!=undefined && subjectmaterial!=undefined)
+    if(subjectid!=undefined && subjectname!=undefined && 
+      subjecttype!=undefined && subjectmaterial!=undefined && 
+      this.status!=false||undefined)
     {
     const confirm = this.alertctrl.create({
       title: 'Are you sure?',
@@ -72,5 +75,42 @@ export class AddSubjectsPage {
     alert("Please fill required information")
     }
 
+  }
+
+  //Check SubjectName With Pattern
+  namecheck(event: any) 
+  {
+      let newValue = event.target.value;
+
+     let regExp = new RegExp('[A-Za-z ]+$');
+
+  
+     if(regExp.test(newValue))
+     {
+       this.status=true;
+     }
+     else
+     {
+      alert("Special Characters/Numbers are not allowed");
+      this.status=false;
+      //  console.log(regExp.test(newValue));
+     }
+  }
+
+  //Check SubjectID with Pattern
+  idcheck(event:any)
+  {
+    let newValue=event.target.value;
+    let regExp= RegExp('[A-Za-z0-9 ]+$');
+    if(regExp.test(newValue))
+    {
+      this.status=true;
+    }
+    else
+    {
+     alert("Special Characters are not allowed");
+     this.status=false;
+     //  console.log(regExp.test(newValue));
+    }
   }
 }
