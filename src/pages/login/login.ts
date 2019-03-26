@@ -7,6 +7,9 @@ import { TeacherdashboardPage } from '../teacherdashboard/teacherdashboard';
 import { AdminDashboardPage } from '../admin-dashboard/admin-dashboard';
 import { ServiceLoginProvider } from '../../providers/service-login/service-login';
 import { NativeStorage } from '@ionic-native/native-storage';
+import { AdminHomePage } from '../admin-home/admin-home';
+import { HomePage } from '../home/home';
+import { TeacherHomePage } from '../teacher-home/teacher-home';
 
 
 @Component({
@@ -119,6 +122,19 @@ REG_NOCHECK(event:any)
 }
    this.status=false;
 
+}
+
+Admin()
+{
+  this.navCtrl.push(AdminHomePage);
+}
+Student()
+{
+  this.navCtrl.push(HomePage);
+}
+Teacher()
+{
+  this.navCtrl.push(TeacherHomePage);
 }
 
 }
