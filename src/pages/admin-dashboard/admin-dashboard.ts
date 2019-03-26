@@ -24,7 +24,6 @@ export class AdminDashboardPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public Menu:MenuController) {
     this.Menu.enable(true);
-    
   }
 
   ionViewDidLoad() {
