@@ -81,6 +81,10 @@ import { UpdateSubjectsPage } from '../pages/update-subjects/update-subjects';
 import { UpdateTermPage } from '../pages/update-term/update-term';
 import { ServiceUpdateProvider } from '../providers/service-update/service-update';
 import { AddTimetablePage } from '../pages/add-timetable/add-timetable';
+import { MarkAttendancePage } from '../pages/mark-attendance/mark-attendance';
+import { CalendarModule } from 'ionic3-calendar-en';
+import { ViewCalendarPage } from '../pages/view-calendar/view-calendar';
+import { AttendenceInfoPage } from '../pages/attendence-info/attendence-info';
 import { ServiceDeleteUserProvider } from '../providers/service-delete-user/service-delete-user';
 import { DeleteUserPage } from '../pages/delete-user/delete-user';
  
@@ -128,7 +132,6 @@ import { DeleteUserPage } from '../pages/delete-user/delete-user';
     DeleteClassPage,
     DeleteSessionPage,
     DeleteTermPage,
-    DeleteUserPage,
     TeacherAnnouncementPage,
     AnnouncementDetailsPage,
     ViewSubjectsPage,
@@ -137,14 +140,18 @@ import { DeleteUserPage } from '../pages/delete-user/delete-user';
     UpdateClassPage,
     UpdateSessionPage,
     UpdateTermPage,
-
     ViewSessionPage,
     UpdateSubjectsPage,
     UpdateTermPage,
     AddTimetablePage,
+    MarkAttendancePage,
+    ViewCalendarPage,
+    AttendenceInfoPage,
+    DeleteUserPage,
   ],
   imports: [
     BrowserModule,
+    CalendarModule,
     IonicModule.forRoot(MyApp),
     TranslateModule.forRoot({
       loader: {
@@ -209,7 +216,10 @@ import { DeleteUserPage } from '../pages/delete-user/delete-user';
     UpdateSubjectsPage,
     UpdateTermPage,
     AddTimetablePage,
-    DeleteUserPage
+    MarkAttendancePage,
+    ViewCalendarPage,
+    AttendenceInfoPage,
+    DeleteUserPage,
   ],
   providers: [
     StatusBar,
