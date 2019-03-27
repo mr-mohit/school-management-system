@@ -14,14 +14,18 @@
 <ion-content>
     <ion-card>
         <ion-card-header text-wrap>
-          <strong>{{TITLE}}</strong>
+
+          <ion-icon name="megaphone">  
+            <strong>{{TITLE}}</strong>
+            </ion-icon>
+        
         </ion-card-header>
         <ion-card-content>
           <ion-label text-wrap text-justify>
               {{DESCRIPTION}}
           </ion-label>
          
-         <strong> Valid From {{START_TIME}} upto {{END_TIME}}</strong>
+         <strong> Valid:<br/>{{START_TIME}} To {{END_TIME}}</strong>
         </ion-card-content>
       </ion-card>
 

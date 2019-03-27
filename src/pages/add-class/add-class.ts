@@ -11,6 +11,7 @@ import { ServiceGetClassMasterProvider } from '../../providers/service-get-class
   templateUrl: 'add-class.html',
 })
 export class AddClassPage {
+public status:boolean;
  public CLASS:any;
  public SECTION:any;
  public classData:any=
@@ -25,7 +26,7 @@ export class AddClassPage {
 
   Submit(CLASS,SECTION) 
   {
-    if(CLASS!=undefined && SECTION!=undefined)
+    if(CLASS!=undefined && SECTION!=undefined && this.status!=false||undefined)
     {
       const confirm = this.alertCtrl.create({
         title: 'Save Class?',
@@ -68,6 +69,46 @@ export class AddClassPage {
     this.navCtrl.push(ClassSubjectRegPage);
     this.cid.getClassFun();
     this.cid.getSubjectFun();
+  }
+
+  classnamecheck(event:any)
+  {
+    let newValue = event.target.value;
+
+    let regExp = new RegExp('[A-Za-z0-9 ]+$');
+
+ 
+    if(regExp.test(newValue))
+    {
+      this.status=true;
+    }
+    else
+    {
+     alert("Special Characters are not allowed");
+     this.status=false;
+     //  console.log(regExp.test(newValue));
+    }
+
+  }
+  
+
+  sectioncheck(event:any)
+  {
+    let newValue = event.target.value;
+
+    let regExp = new RegExp('[A-Za-z ]+$');
+
+ 
+    if(regExp.test(newValue))
+    {
+      this.status=true;
+    }
+    else
+    {
+     alert("Special Characters are not allowed");
+     this.status=false;
+     //  console.log(regExp.test(newValue));
+    }
   }
 
 }

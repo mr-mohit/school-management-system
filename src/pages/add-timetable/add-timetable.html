@@ -13,12 +13,49 @@
 <ion-content padding>
 
     <ion-item>
-        <ion-label floating>Class Master</ion-label>
-         <ion-select  name="SUBJECT" [(ngModel)]="SUBJECT">
-    
-          <ion-option *ngFor="let i of cid?.subjectData"  value="{{i.SUBJECT_ID}}" >{{i.SUBJECT_NAME}}</ion-option>
-          
+        <ion-label floating>Class and Section</ion-label>
+         <ion-select  name="classId" [(ngModel)]="classId">
+          <ion-option *ngFor="let i of service?.classData"  value="{{i.CLASS_MASTER_ID}}" >{{i.CLASS}} {{i.SECTION}}</ion-option>
          </ion-select>
     </ion-item>
 
+    <ion-item>
+      <ion-label floating>Subject Name</ion-label>
+       <ion-select  name="subjectId" [(ngModel)]="subjectId">
+        <ion-option *ngFor="let i of service?.subjectData"  value="{{i.SUBJECT_ID}}" >{{i.SUBJECT_NAME}}</ion-option>
+       </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>
+        Time Slot
+      </ion-label>
+      <ion-select name="slot" [(ngModel)]="slot">
+        <ion-option value="9_10">
+          09-10
+        </ion-option >
+        <ion-option value="10_11">
+          10-11
+        </ion-option>
+        <ion-option value="11_12">
+          11-12
+        </ion-option>
+        <ion-option value="12_1">
+          12-01
+        </ion-option>
+        <ion-option value="1_2">
+          01-02
+        </ion-option>
+        <ion-option value="2_3">
+          02-03
+        </ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-label>
+    </ion-label>
+  
+    <button id="addTimeTable" ion-button color="header" block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;">
+        Save
+    </button>
 </ion-content>

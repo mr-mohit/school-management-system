@@ -16,6 +16,8 @@ export class TeacherHomePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public Menu: MenuController,public GU:ServiceGetClassMasterProvider) {
     this.Menu.enable(true);
+   
+    
   }
 
   //Announces Function
