@@ -16,7 +16,7 @@ export class AddClassPage {
  public classData:any=
  {
    "CLASS":"",
-  "SESSION":""
+  "SECTION":""
  };
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl:AlertController,public addClass:ServiceAddClassProvider,public cid:ServiceGetClassMasterProvider) {

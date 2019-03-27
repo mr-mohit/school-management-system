@@ -81,6 +81,7 @@ import { UpdateSubjectsPage } from '../pages/update-subjects/update-subjects';
 import { UpdateTermPage } from '../pages/update-term/update-term';
 import { ServiceUpdateProvider } from '../providers/service-update/service-update';
 import { AddTimetablePage } from '../pages/add-timetable/add-timetable';
+import { ServiceAddTimetableProvider } from '../providers/service-add-timetable/service-add-timetable';
  
 
  @NgModule({ 
@@ -242,6 +243,7 @@ import { AddTimetablePage } from '../pages/add-timetable/add-timetable';
     ServiceDeleteTermProvider,
     ServiceUpdateProvider,
     ServiceAnnouncementProvider,
+    ServiceAddTimetableProvider,
   
   ]
 })

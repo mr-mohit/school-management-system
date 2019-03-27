@@ -11,7 +11,8 @@ import { Injectable } from '@angular/core';
 export class QuizServiceProvider {
 
   public data:any;
-  public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/";
+  //public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/";
+  public URL="http://localhost/schoolapi/";
   public recdata: any;//this variable will store info coming from API
   public index; // index use to fetch element from quiz API 
   public question; // get the question from dthe API

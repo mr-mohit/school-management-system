@@ -37,14 +37,14 @@
       </ion-list>
     <strong>
         <ion-label>&nbsp;&nbsp;&nbsp;&nbsp;
-            HELP
-          </ion-label>
+          HELP
+       </ion-label>
     </strong>
     <ion-list>
         <button menuClose ion-item *ngFor="let p of help" (click)="openPage(p)" >
             <ion-icon name="{{p.icon}}" item-left>   </ion-icon>
-            {{p.title}}
-          </button>
+         {{p.title}}
+        </button>
     </ion-list>
   </ion-content>
   <ion-footer>
