@@ -5,12 +5,14 @@ import { Injectable } from '@angular/core';
 export class ServiceGetClassMasterProvider {
   public URL="http://localhost/schoolapi/"; //for local use
   //public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; //for hosting use
- // public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; //for hosting use
   // public URL="https://direct-school.000webhostapp.com/"; //for hosting
   public classData:any;
   public subjectData:any;
   public sessionData:any;
   public termData:any;
+  public userData:any;
+  public eventData:any;
+  public attsubject:any;
 
 
   constructor(public http: HttpClient) {
@@ -151,5 +153,103 @@ export class ServiceGetClassMasterProvider {
 
   }
 
+// GET THE INFO FROM USER TABLE---------------------------------------------------------------->
+getUserFun()
+{
+  var url=this.URL+"getUser.php";
+  return this.getUser(url);
 
 }
+getUser(url)
+{
+  //console.log("service call",sessionData);
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(" ")).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        // alert("Term Added");
+        this.userData=data['data'];
+        console.log("User",data);
+
+
+      }
+      else
+      {
+        alert("no data fetched");
+      }        
+      
+       resolve(data);
+
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+
+}
+
+
+
+// GET THE INFO FROM USER TABLE---------------------------------------------------------------->
+getEventFun(CalendarData)
+{
+  var url=this.URL+"getEvent.php";
+  return this.getEvent(url,CalendarData);
+
+}
+getEvent(url,CalendarData)
+{
+  //console.log("service call",sessionData);
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(CalendarData)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        // alert("Term Added");
+        this.eventData=data['data'][0];
+        console.log("Event",this.eventData);
+        //return 1;
+      }
+      else
+      {
+        alert("no data fetched");
+        //return 0;
+      }        
+       resolve(data);
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+}
+
+// GET THE INFO FROM USER TABLE---------------------------------------------------------------->
+getAttSubjectFun(postId)
+{
+  var url=this.URL+"getAttSubject.php";
+  return this.getEvent(url,postId);
+
+}
+getAttSubject(url,postId)
+{
+  //console.log("service call",sessionData);
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(postId)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.attsubject=data['data'];
+        console.log("Event",data);
+        //return 1;
+      }
+      else
+      {
+        alert("no data fetched");
+        //return 0;
+      }        
+       resolve(data);
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+}
+
+
+}
+/////////////////////////////

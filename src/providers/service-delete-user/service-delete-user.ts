@@ -2,23 +2,20 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 /*
-  Generated class for the ServiceUpdateUserProvider provider.
+  Generated class for the ServiceDeleteUserProvider provider.
 
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
 @Injectable()
-export class ServiceUpdateUserProvider {
+export class ServiceDeleteUserProvider {
 
-  public URL="http://localhost/schoolapi/";
-  //public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/";
+  public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/";
   recdata: any;
 
   constructor(public http: HttpClient) {
-    console.log('Hello ServiceUpdateUserProvider Provider');
+    console.log('Hello ServiceDeleteUserProvider Provider');
   }
-
-
 
   postData(url,data1){
     return new Promise(resolve=>{
@@ -34,15 +31,15 @@ export class ServiceUpdateUserProvider {
          resolve(data);
 
       },error=>{
-        console.log("error in updation process");
-        alert("error in updation process");
+        console.log("error in deletion process");
+        alert("error in deletion process");
       });
     });
   }
 
-  postuser(data){
+  postUserID(data){
     console.log(data);
-    var url=this.URL+"updateUser.php";
+    var url=this.URL+"deleteUser.php";
     return this.postData(url,data);
   }
 

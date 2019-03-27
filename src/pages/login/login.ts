@@ -11,6 +11,9 @@ import { AdminHomePage } from '../admin-home/admin-home';
 import { HomePage } from '../home/home';
 import { TeacherHomePage } from '../teacher-home/teacher-home';
 
+import { ViewCalendarPage } from '../view-calendar/view-calendar';
+import { TeacherHomePage } from '../teacher-home/teacher-home';
+import { AttendenceInfoPage } from '../attendence-info/attendence-info';
 
 @Component({
   selector: 'page-login',
@@ -122,6 +125,10 @@ REG_NOCHECK(event:any)
 }
    this.status=false;
 
+}
+VS()
+{
+  this.navCtrl.push(AttendenceInfoPage);
 }
 
 Admin()

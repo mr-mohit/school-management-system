@@ -17,9 +17,8 @@ import { StudentdashboardPage } from '../pages/studentdashboard/studentdashboard
 import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard';
 import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
 import { TranslateService } from '@ngx-translate/core';
-
-
 import { NativeStorage } from '@ionic-native/native-storage';
+import { SchoolInfoPage } from '../pages/school-info/school-info';
 import { AddUsersPage } from '../pages/add-users/add-users';
 import { AddClassPage } from '../pages/add-class/add-class';
 import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
@@ -93,12 +92,11 @@ export class MyApp {
     //initializing the student array elements for side menu
     this.Student_a=[
       {title:'Home', icon:'home', component:StudentdashboardPage},
-      {title:'Messages', icon:'text',component:StudentdashboardPage},
-      {title:'Time Table', icon:'time', component:StudentTimeTablePage},
-      {title:'Result', icon:'trophy',component:StudentResultPage},
-      {title:'Events', icon:'calendar',component:ViewEventsPage},
-      {title:'Quiz', icon:'podium', component:StudentQuizPage},
-      {title:'Feedback', icon:'thumbs-up',component:StudentFeedbackPage},
+      {title:'School Info', icon:'contact', component:SchoolInfoPage},
+      {title:'Events', icon:'contact',component:ViewEventsPage},
+      {title:'Feedback', icon:'contact',component:StudentFeedbackPage},
+      {title:'Quiz', icon:'contact', component:StudentQuizPage},
+      {title:'Gallery',icon:'images',component:GalleryPage}
     ];
 
     //initializing the teacher array elements for side menu
@@ -107,18 +105,14 @@ export class MyApp {
       {title:'Messages', icon:'text',component:TeacherSendMessagePage},
       {title:'Announcements',icon:'megaphone',component:TeacherAnnouncementPage},
       {title:'Feedback',icon:'contact',component:TeacherFeedbackPage},      
-      {title:'Gallery',icon:'contact',component:GalleryPage},
+      {title:'Gallery',icon:'images',component:GalleryPage},
       {title:'Events', icon:'contact',component:ViewEventsPage}
     ];
     //initializing the Admin array elements for side menu
     this.Admin_a=[
       {title:"Home",icon:"home",component:AdminDashboardPage},
-      {title:"New User",icon:"person-add",component:AddUsersPage},
-      {title:"New Class",icon:"add-circle",component:AddClassPage},
-      {title:"Add Subject",icon:"add-circle",component:AddSubjectsPage},
-      {title:"New User",icon:"person-add",component:AddUsersPage},
-      {title:"New User",icon:"person-add",component:AddUsersPage},
-  
+      {title:"Gallery",icon:"images",component:GalleryPage},
+      
     ];
 
     //initializing the common array elements for side menu

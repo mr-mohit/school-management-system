@@ -85,6 +85,14 @@ import { AboutUsPage } from '../pages/about-us/about-us';
 import { AddEventPage } from '../pages/add-event/add-event';
 import { ServiceAddEventProvider } from '../providers/service-add-event/service-add-event';
 import { ServiceChangepasswordProvider } from '../providers/service-changepassword/service-changepassword';
+import { MarkAttendancePage } from '../pages/mark-attendance/mark-attendance';
+import { CalendarModule } from 'ionic3-calendar-en';
+import { ViewCalendarPage } from '../pages/view-calendar/view-calendar';
+import { AttendenceInfoPage } from '../pages/attendence-info/attendence-info';
+import { ServiceDeleteUserProvider } from '../providers/service-delete-user/service-delete-user';
+import { DeleteUserPage } from '../pages/delete-user/delete-user';
+import { SchoolInfoPage } from '../pages/school-info/school-info';
+import { GalleryPage } from '../pages/gallery/gallery';
  
 
  @NgModule({ 
@@ -144,9 +152,16 @@ import { ServiceChangepasswordProvider } from '../providers/service-changepasswo
     AboutUsPage,
     AddEventPage,
     ChangePasswordPage,
+    SchoolInfoPage,
+    GalleryPage,
+    MarkAttendancePage,
+    ViewCalendarPage,
+    AttendenceInfoPage,
+    DeleteUserPage,
   ],
   imports: [
     BrowserModule,
+    CalendarModule,
     IonicModule.forRoot(MyApp),
     TranslateModule.forRoot({
       loader: {
@@ -213,6 +228,13 @@ import { ServiceChangepasswordProvider } from '../providers/service-changepasswo
     AboutUsPage,
     AddEventPage,
     ChangePasswordPage,
+    DeleteUserPage,
+    SchoolInfoPage,
+    GalleryPage,
+    MarkAttendancePage,
+    ViewCalendarPage,
+    AttendenceInfoPage,
+    DeleteUserPage,
   ],
   providers: [
     StatusBar,
@@ -252,7 +274,8 @@ import { ServiceChangepasswordProvider } from '../providers/service-changepasswo
     ServiceAddEventProvider,
     ChangePasswordPage,
     ServiceChangepasswordProvider,
-    
+    ServiceDeleteUserProvider,
+  
   ]
 })
 export class AppModule {}

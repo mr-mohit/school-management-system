@@ -6,6 +6,7 @@ import { StudentTimeTablePage } from '../student-time-table/student-time-table';
 import { StudentAttendancePage } from '../student-attendance/student-attendance';
 import { TeacherAnnouncementPage } from '../teacher-announcement/teacher-announcement';
 import { StudentResultPage } from '../student-result/student-result';
+import { ViewCalendarPage } from '../view-calendar/view-calendar';
 
 
 @Component({
@@ -44,5 +45,9 @@ export class HomePage {
     this.navCtrl.push(StudentResultPage);
   }
  
+  gotoViewCalendar()
+  {
+    this.navCtrl.push(ViewCalendarPage);
+  }
   
 }
