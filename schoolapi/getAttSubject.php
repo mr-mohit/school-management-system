@@ -23,9 +23,14 @@ if($con){
 				$response['msg']=$msg;
 				echo json_encode($response);
 				}
+				
+				
+				$postdata=file_get_contents("php://input");
+                 $obj=json_decode($postdata,true);
+	             $id=test_input($obj);
 
 			//echo"Connection Sucessfull";
-             $sql="SELECT * FROM SUBJECT WHERE IS_ACTIVE=1";
+             $sql="SELECT * FROM class_reg WHERE CLASS_MASTER_ID='$id' and IS_ACTIVE=1";
              $query = mysqli_query($con,$sql);
 		         $count = mysqli_num_rows($query);
 				 
