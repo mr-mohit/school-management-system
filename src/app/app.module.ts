@@ -83,6 +83,10 @@ import { AddTimetablePage } from '../pages/add-timetable/add-timetable';
 import { AboutUsPage } from '../pages/about-us/about-us';
 import { AddEventPage } from '../pages/add-event/add-event';
 import { ServiceAddEventProvider } from '../providers/service-add-event/service-add-event';
+import { ServiceDeleteUserProvider } from '../providers/service-delete-user/service-delete-user';
+import { DeleteUserPage } from '../pages/delete-user/delete-user';
+import { SchoolInfoPage } from '../pages/school-info/school-info';
+import { GalleryPage } from '../pages/gallery/gallery';
  
 
  @NgModule({ 
@@ -127,6 +131,7 @@ import { ServiceAddEventProvider } from '../providers/service-add-event/service-
     DeleteClassPage,
     DeleteSessionPage,
     DeleteTermPage,
+    DeleteUserPage,
     TeacherAnnouncementPage,
     AnnouncementDetailsPage,
     ViewSubjectsPage,
@@ -141,6 +146,8 @@ import { ServiceAddEventProvider } from '../providers/service-add-event/service-
     AddTimetablePage,
     AboutUsPage,
     AddEventPage,
+    SchoolInfoPage,
+    GalleryPage,
   ],
   imports: [
     BrowserModule,
@@ -209,6 +216,9 @@ import { ServiceAddEventProvider } from '../providers/service-add-event/service-
     AddTimetablePage,
     AboutUsPage,
     AddEventPage,
+    DeleteUserPage,
+    SchoolInfoPage,
+    GalleryPage,
   ],
   providers: [
     StatusBar,
@@ -246,6 +256,7 @@ import { ServiceAddEventProvider } from '../providers/service-add-event/service-
     ServiceUpdateProvider,
     ServiceAnnouncementProvider,
     ServiceAddEventProvider,
+    ServiceDeleteUserProvider,
   
   ]
 })
