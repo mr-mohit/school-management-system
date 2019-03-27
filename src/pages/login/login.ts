@@ -10,6 +10,7 @@ import { NativeStorage } from '@ionic-native/native-storage';
 import { ViewCalendarPage } from '../view-calendar/view-calendar';
 import { TeacherHomePage } from '../teacher-home/teacher-home';
 import { AttendenceInfoPage } from '../attendence-info/attendence-info';
+import { AddTimetablePage } from '../add-timetable/add-timetable';
 
 @Component({
   selector: 'page-login',
@@ -93,7 +94,7 @@ ResetPassword()
 
 VS()
 {
-  this.navCtrl.push(AdminAddPage);
+  this.navCtrl.push(AddTimetablePage);
 }
 
 
