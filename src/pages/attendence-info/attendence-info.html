@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>attendence_info</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <form>
+        <ion-item>
+          <ion-label floating>Class</ion-label>
+           <ion-select  name="Class" [(ngModel)]="Class" (ionChange)="getSubject(Class)">
+            <ion-option *ngFor="let i of GU?.classData"  value="{{i.CLASS_MASTER_ID}}" >{{i.CLASS}} {{i.SECTION}}</ion-option>
+           </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>SUBJECT</ion-label>
+             <ion-select  name="Class" [(ngModel)]="Class">
+              <ion-option *ngFor="let i of GU?.classData"  value="{{i.CLASS_MASTER_ID}}" >{{i.CLASS}} {{i.SECTION}}</ion-option>
+             </ion-select>
+          </ion-item>
+        <button ion-button color="header" on-click="Submit()"
+            block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;">
+            Next
+        </button>
+      </form>
+</ion-content>
