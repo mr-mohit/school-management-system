@@ -39,6 +39,7 @@ import { NativeStorage } from '@ionic-native/native-storage';
 import { ServiceDeleteSubjectProvider } from '../providers/service-delete-subject/service-delete-subject';
 import { DeleteSubjectsPage } from '../pages/delete-subjects/delete-subjects';
 import { AddSessionPage } from '../pages/add-session/add-session';
+import { ChangePasswordPage } from '../pages/change-password/change-password';
 import { ServiceAddSessionProvider } from '../providers/service-add-session/service-add-session';
 import { ServiceAdminAnnouncements } from '../providers/service-AdminAnnoucement/service-announcement';
 import { ServiceAddTermProvider } from '../providers/service-add-term/service-add-term';
@@ -83,6 +84,7 @@ import { AddTimetablePage } from '../pages/add-timetable/add-timetable';
 import { AboutUsPage } from '../pages/about-us/about-us';
 import { AddEventPage } from '../pages/add-event/add-event';
 import { ServiceAddEventProvider } from '../providers/service-add-event/service-add-event';
+import { ServiceChangepasswordProvider } from '../providers/service-changepassword/service-changepassword';
  
 
  @NgModule({ 
@@ -141,6 +143,7 @@ import { ServiceAddEventProvider } from '../providers/service-add-event/service-
     AddTimetablePage,
     AboutUsPage,
     AddEventPage,
+    ChangePasswordPage,
   ],
   imports: [
     BrowserModule,
@@ -209,6 +212,7 @@ import { ServiceAddEventProvider } from '../providers/service-add-event/service-
     AddTimetablePage,
     AboutUsPage,
     AddEventPage,
+    ChangePasswordPage,
   ],
   providers: [
     StatusBar,
@@ -246,7 +250,9 @@ import { ServiceAddEventProvider } from '../providers/service-add-event/service-
     ServiceUpdateProvider,
     ServiceAnnouncementProvider,
     ServiceAddEventProvider,
-  
+    ChangePasswordPage,
+    ServiceChangepasswordProvider,
+    
   ]
 })
 export class AppModule {}

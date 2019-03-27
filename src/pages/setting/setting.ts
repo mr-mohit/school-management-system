@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ChangePasswordPage } from '../change-password/change-password';
 
 /**
  * Generated class for the SettingPage page.
@@ -18,8 +19,9 @@ export class SettingPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SettingPage');
+  ChangePassword()
+  {
+    this.navCtrl.push(ChangePasswordPage);
   }
 
 }
