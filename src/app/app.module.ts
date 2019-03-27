@@ -81,6 +81,10 @@ import { UpdateSubjectsPage } from '../pages/update-subjects/update-subjects';
 import { UpdateTermPage } from '../pages/update-term/update-term';
 import { ServiceUpdateProvider } from '../providers/service-update/service-update';
 import { AddTimetablePage } from '../pages/add-timetable/add-timetable';
+import { MarkAttendancePage } from '../pages/mark-attendance/mark-attendance';
+import { CalendarModule } from 'ionic3-calendar-en';
+import { ViewCalendarPage } from '../pages/view-calendar/view-calendar';
+import { AttendenceInfoPage } from '../pages/attendence-info/attendence-info';
  
 
  @NgModule({ 
@@ -134,14 +138,17 @@ import { AddTimetablePage } from '../pages/add-timetable/add-timetable';
     UpdateClassPage,
     UpdateSessionPage,
     UpdateTermPage,
-
     ViewSessionPage,
     UpdateSubjectsPage,
     UpdateTermPage,
     AddTimetablePage,
+    MarkAttendancePage,
+    ViewCalendarPage,
+    AttendenceInfoPage,
   ],
   imports: [
     BrowserModule,
+    CalendarModule,
     IonicModule.forRoot(MyApp),
     TranslateModule.forRoot({
       loader: {
@@ -206,6 +213,9 @@ import { AddTimetablePage } from '../pages/add-timetable/add-timetable';
     UpdateSubjectsPage,
     UpdateTermPage,
     AddTimetablePage,
+    MarkAttendancePage,
+    ViewCalendarPage,
+    AttendenceInfoPage,
   ],
   providers: [
     StatusBar,
