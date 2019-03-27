@@ -19,9 +19,6 @@ import { StudentdashboardPage } from '../pages/studentdashboard/studentdashboard
 import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard';
 import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
 import { TranslateService } from '@ngx-translate/core';
-
-
-
 import { NativeStorage } from '@ionic-native/native-storage';
 
 

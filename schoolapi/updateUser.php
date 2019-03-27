@@ -33,10 +33,10 @@ if($con){
 		   $obj=json_decode($postdata);
 		  
 			//basic infos
-			$RegNo = test_input($obj->{'userRegNo'});
+			$regNo = test_input($obj->{'userRegNo'});
 			$userfirstname= test_input($obj->{'userfirstname'});
 			$userlastname= test_input($obj->{'userlastname'});
-			$userpic = "http://localhost/schoolapi/image_uploads/".test_input($obj->{'userpic'});
+			$userpic = "http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/image_uploads/".test_input($obj->{'userpic'});
 			$role = test_input($obj->{'userrole'});
 			$password=test_input($obj->{'userpassword'});  
 			$dob=test_input($obj->{'userdob'});
@@ -51,7 +51,7 @@ if($con){
 			$city=test_input($obj->{'usercity'});
 			$contact=test_input($obj->{'usercontact'});
 			$fathername=test_input($obj->{'userfathername'});
-			$mothername=test_input($obj->{'usermothername'}); // should add this column in data base
+			$mothername=test_input($obj->{'usermothername'}); 
 			$pincode=test_input($obj->{'userpincode'});
 			$state=test_input($obj->{'userstate'});
 		  
@@ -64,25 +64,21 @@ if($con){
 			$teacherdepart = test_input($obj->{'teacherdepart'});
 			$teacherdesg = test_input($obj->{'teacherdesg'});
 			
-			//insert user into user table
-			$sql = "INSERT INTO user (REG_NO,USER_PIC,ROLE,FIRST_NAME,LAST_NAME,DOB,GENDER,E_MAIL,PASSWORD,IS_ACTIVE) 
-					 VALUES ('$RegNo','$userpic','$role','$userfirstname','$userlastname','$dob','$gender','$email','$password','1')";
+			//update user into user table
+			$sql = "UPDATE user SET USER_PIC='$userpic',ROLE='$role',FIRST_NAME='$userfirstname',LAST_NAME='$userlastname',
+							DOB='$dob',GENDER='$gender',E_MAIL='$email',PASSWORD='$password'
+										WHERE REG_NO='$regNo' ";
+					 
 			if(mysqli_query($con,$sql))
 			{	
 		
-				$sql1 = "SELECT user.REG_NO from user ORDER BY user.USER_ID DESC LIMIT 1"; // select the id of the last user inserted
-				$query = mysqli_query($con,$sql1); // execute the query
-				if($query)
-				{
-					$row=mysqli_fetch_assoc($query);
-					$id = $row['REG_NO'];  // fetch or get the REG_NO into $id
-					
-					// insert user address in the data base
-					$addr = "INSERT INTO user_address (REG_NO,FATHER_NAME,ADDRESS_TYPE,ADDRESS_LINE_1,ADDRESS_LINE_2,STATE,PINCODE,CITY,CONTACT_NO) 
-							 VALUES ('$id','$fathername','$addresstype','$address1','$address2','$state','$pincode','$city','$contact')";
+				// update user address in the data base
+				$addr = "UPDATE user_address SET  FATHER_NAME='$fathername',MOTHER_NAME='$mothername',ADDRESS_TYPE='$addresstype',ADDRESS_LINE_1='$address1',
+									ADDRESS_LINE_2='address2',STATE='$state',PINCODE='$pincode',CITY='$city',CONTACT_NO='$contact' 
+									   WHERE REG_NO='$regNo'";
 					if(mysqli_query($con,$addr))
 					{ 
-				              // insert infos into student-class-reg table
+				              // update infos into student-class-reg table
 						if($role =='student')
 						{
 							$sql2 = " SELECT CLASS_MASTER_ID from class_master where CLASS ='$studentclass' and SECTION='$studentsection'";
@@ -91,13 +87,13 @@ if($con){
 							{
 								$row=mysqli_fetch_assoc($query2);
 								$idclass = $row['CLASS_MASTER_ID'];
-								// insert infos into student-class-reg table
-								$sql =" INSERT INTO student_class_reg (REG_NO,CLASS_MASTER_ID,SESSION_MASTER_ID,IS_ACTIVE)
-								        VALUES('$id','$idclass','$studentsession',1)";
+								// update infos into student-class-reg table
+								$sql =" UPDATE student_class_reg SET CLASS_MASTER_ID='$idclass',
+										SESSION_MASTER_ID='$studentsession' WHERE REG_NO='$regNo'";
 								$query=mysqli_query($con,$sql);
 								if($query)
 								{
-									result(1,"student has been created and assigned to a class successfully");
+									result(1,"student has been updated and assigned to a class successfully");
 								}
 								else
 								{
@@ -111,30 +107,30 @@ if($con){
 						}
 						elseif($role =='teacher')
 						{
-						  // insert the designation and department infos of the teacher into teacher_master table
-							$sql2 = " INSERT INTO teacher_master(REG_NO,DESIGNATION,DEPARTMENT,IS_ACTIVE) 
-										VALUES('$id','$teacherdesg','$teacherdepart',1)";
+						  // update the designation and department infos of the teacher into teacher_master table
+							$sql2 = "UPDATE teacher_master SET DESIGNATION='$teacherdesg',DEPARTMENT='$teacherdepart'
+											WHERE REG_NO='$regNo' ";
 							$query2 = mysqli_query($con,$sql2);
 							if($query2)
 							{
-								result(1,"teacher has been created successfully");
+								result(1,"teacher has been updated successfully");
 
 							}
 							else
 							{
-								result(0," teacher not created ");
+								result(0," teacher not updated ");
 							}
 						}
 						else
 						{
-							result(1,"admin has been created successfully");
+								result(1,"admin has been updated successfully");
 						}
 					}
 					else
 					{
-						result(0," user_address insertion failed");
+						result(0," user_address updation failed");
 					}
-				}
+				
 			   
 			}else{
 				 result(0,"fail");
