@@ -11,13 +11,17 @@ import { AdminHomePage } from '../admin-home/admin-home';
 import { HomePage } from '../home/home';
 import { TeacherHomePage } from '../teacher-home/teacher-home';
 import { AttendenceInfoPage } from '../attendence-info/attendence-info';
-import { AddTimetablePage } from '../add-timetable/add-timetable';
+
 
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
 })
 export class LoginPage {
+
+ passwordType:string='password';  
+ passwordShown:boolean=false;
+
 private status:boolean;
 public dataitem:any;
 public user:any=
@@ -141,6 +145,22 @@ Student()
 Teacher()
 {
   this.navCtrl.push(TeacherHomePage);
+}
+
+public togglePassword()
+{
+  console.log("Toggle");
+  if(this.passwordShown)
+  {
+    this.passwordShown=false;
+    this.passwordType='password';
+  }
+  else
+  {
+    this.passwordShown=true;
+    this.passwordType='password';
+
+  }
 }
 
 }
