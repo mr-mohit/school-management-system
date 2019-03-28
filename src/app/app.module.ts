@@ -85,6 +85,7 @@ import { AboutUsPage } from '../pages/about-us/about-us';
 import { AddEventPage } from '../pages/add-event/add-event';
 import { ServiceAddEventProvider } from '../providers/service-add-event/service-add-event';
 import { ServiceChangepasswordProvider } from '../providers/service-changepassword/service-changepassword';
+import { ServiceAddTimetableProvider } from '../providers/service-add-timetable/service-add-timetable';
 import { MarkAttendancePage } from '../pages/mark-attendance/mark-attendance';
 import { CalendarModule } from 'ionic3-calendar-en';
 import { ViewCalendarPage } from '../pages/view-calendar/view-calendar';
@@ -274,6 +275,7 @@ import { GalleryPage } from '../pages/gallery/gallery';
     ServiceAddEventProvider,
     ChangePasswordPage,
     ServiceChangepasswordProvider,
+    ServiceAddTimetableProvider,
     ServiceDeleteUserProvider,
   
   ]
