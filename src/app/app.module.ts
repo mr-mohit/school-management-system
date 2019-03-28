@@ -13,7 +13,6 @@ import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard
 import { HttpClientModule, HttpClient} from '@angular/common/http';
 import { StudentExamsPage } from '../pages/student-exams/student-exams';
 import { StudentAttendancePage } from '../pages/student-attendance/student-attendance';
-import { StudentAnnouncementsPage } from '../pages/student-announcements/student-announcements';
 import { StudentTimeTablePage } from '../pages/student-time-table/student-time-table';
 import { StudentResultPage } from '../pages/student-result/student-result';
 import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
@@ -81,10 +80,19 @@ import { UpdateSubjectsPage } from '../pages/update-subjects/update-subjects';
 import { UpdateTermPage } from '../pages/update-term/update-term';
 import { ServiceUpdateProvider } from '../providers/service-update/service-update';
 import { AddTimetablePage } from '../pages/add-timetable/add-timetable';
+import { AboutUsPage } from '../pages/about-us/about-us';
+import { AddEventPage } from '../pages/add-event/add-event';
+import { ServiceAddEventProvider } from '../providers/service-add-event/service-add-event';
+import { MarkAttendancePage } from '../pages/mark-attendance/mark-attendance';
+import { CalendarModule } from 'ionic3-calendar-en';
+import { ViewCalendarPage } from '../pages/view-calendar/view-calendar';
+import { AttendenceInfoPage } from '../pages/attendence-info/attendence-info';
 import { ServiceDeleteUserProvider } from '../providers/service-delete-user/service-delete-user';
 import { DeleteUserPage } from '../pages/delete-user/delete-user';
 import { Push } from '@ionic-native/push';
 import { LocalNotifications } from '@ionic-native/local-notifications';
+import { SchoolInfoPage } from '../pages/school-info/school-info';
+import { GalleryPage } from '../pages/gallery/gallery';
  
 
  @NgModule({ 
@@ -100,7 +108,6 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     TeacherdashboardPage,
     StudentExamsPage,
     StudentAttendancePage,
-    StudentAnnouncementsPage,
     StudentTimeTablePage,
     StudentResultPage,
     AdminDashboardPage,
@@ -130,7 +137,6 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     DeleteClassPage,
     DeleteSessionPage,
     DeleteTermPage,
-    DeleteUserPage,
     TeacherAnnouncementPage,
     AnnouncementDetailsPage,
     ViewSubjectsPage,
@@ -139,14 +145,22 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     UpdateClassPage,
     UpdateSessionPage,
     UpdateTermPage,
-
     ViewSessionPage,
     UpdateSubjectsPage,
     UpdateTermPage,
     AddTimetablePage,
+    AboutUsPage,
+    AddEventPage,
+    SchoolInfoPage,
+    GalleryPage,
+    MarkAttendancePage,
+    ViewCalendarPage,
+    AttendenceInfoPage,
+    DeleteUserPage,
   ],
   imports: [
     BrowserModule,
+    CalendarModule,
     IonicModule.forRoot(MyApp),
     TranslateModule.forRoot({
       loader: {
@@ -172,7 +186,6 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     StudentQuizPage,
     StudentQuiz1Page,
     StudentAttendancePage,
-    StudentAnnouncementsPage,
     StudentTimeTablePage,
     StudentResultPage,
     AdminDashboardPage,
@@ -211,7 +224,15 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     UpdateSubjectsPage,
     UpdateTermPage,
     AddTimetablePage,
-    DeleteUserPage
+    AboutUsPage,
+    AddEventPage,
+    DeleteUserPage,
+    SchoolInfoPage,
+    GalleryPage,
+    MarkAttendancePage,
+    ViewCalendarPage,
+    AttendenceInfoPage,
+    DeleteUserPage,
   ],
   providers: [
     StatusBar,
@@ -250,6 +271,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     ServiceDeleteTermProvider,
     ServiceUpdateProvider,
     ServiceAnnouncementProvider,
+    ServiceAddEventProvider,
     ServiceDeleteUserProvider,
   
   ]

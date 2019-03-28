@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, LoadingController } from 'ionic-angular';
+import { NavController, AlertController, LoadingController, ToastController } from 'ionic-angular';
 import { MenuController } from 'ionic-angular';
 import { ResetpasswordPage } from '../resetpassword/resetpassword';
 import { StudentdashboardPage } from '../studentdashboard/studentdashboard';
@@ -7,17 +7,17 @@ import { TeacherdashboardPage } from '../teacherdashboard/teacherdashboard';
 import { AdminDashboardPage } from '../admin-dashboard/admin-dashboard';
 import { ServiceLoginProvider } from '../../providers/service-login/service-login';
 import { NativeStorage } from '@ionic-native/native-storage';
-import { ViewSubjectsPage } from '../view-subjects/view-subjects';
-import { AdminViewPage } from '../admin-view/admin-view';
-import { AdminUpdatePage } from '../admin-update/admin-update';
-import { AdminAddPage } from '../admin-add/admin-add';
+
+import { ViewCalendarPage } from '../view-calendar/view-calendar';
+import { TeacherHomePage } from '../teacher-home/teacher-home';
+import { AttendenceInfoPage } from '../attendence-info/attendence-info';
 
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
 })
 export class LoginPage {
-
+private status:boolean;
 public dataitem:any;
 public user:any=
 {
@@ -25,12 +25,14 @@ public user:any=
   "PASSWORD":" "
 };
   constructor(private nativeStorage: NativeStorage,public Menu: MenuController,public navCtrl: NavController,public alertCtrl:AlertController,public loadingCtrl: LoadingController,
-    public service:ServiceLoginProvider) {
+    public service:ServiceLoginProvider,public toast:ToastController) {
       this.Menu.enable(false);
   }
   
   ValidateLogin(REG_NO,PASSWORD)
   {
+    if(REG_NO!=undefined && PASSWORD!=undefined &&this.status!=false || this.status!=undefined)
+    {
         this.user['REG_NO']=REG_NO;//get user name from login.html
         this.user['PASSWORD']=PASSWORD;//get password entered by user from login.html
         
@@ -84,6 +86,14 @@ public user:any=
 });  //calling service function end
 }
 
+else
+{
+  alert("Cannot be empty");
+}
+
+  
+}
+
    
 
 
@@ -92,9 +102,31 @@ ResetPassword()
   this.navCtrl.push(ResetpasswordPage);
 }
 
+//Pattern Check
+REG_NOCHECK(event:any)
+{
+  let newValue=event.target.value;
+  let regExp= RegExp('[0-9]+$');
+  if(regExp.test(newValue))
+  {
+    this.status=true;
+  }
+  else
+  {
+  const toast = this.toast.create({
+    message: 'Characters/Symbols/Space are not allowed',
+    duration: 3000,
+    position: 'top'
+  });
+  toast.present();
+}
+   this.status=false;
+
+}
 VS()
 {
-  this.navCtrl.push(AdminUpdatePage);
+  this.navCtrl.push(AttendenceInfoPage);
 }
+
 }
 

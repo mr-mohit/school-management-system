@@ -21,10 +21,9 @@ export class TeacherAnnouncementPage {
        this.Service.getData();
 
        }
-
-
        enablecontent(item)
        {
+         
         this.navCtrl.push(AnnouncementDetailsPage,{item});
        }
   

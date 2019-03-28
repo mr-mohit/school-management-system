@@ -3,7 +3,6 @@ import { Platform, Nav, AlertController, ToastController} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from '../pages/login/login';
-import { SchoolInfoPage } from '../pages/school-info/school-info';
 import { ViewEventsPage } from '../pages/view-events/view-events';
 import { StudentQuizPage } from '../pages/student-quiz/student-quiz';
 import { GalleryPage } from '../pages/gallery/gallery';
@@ -21,7 +20,12 @@ import { TranslateService } from '@ngx-translate/core';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
 import { LocalNotifications } from '@ionic-native/local-notifications';
-
+import { SchoolInfoPage } from '../pages/school-info/school-info';
+import { AddUsersPage } from '../pages/add-users/add-users';
+import { AddClassPage } from '../pages/add-class/add-class';
+import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
+import { StudentTimeTablePage } from '../pages/student-time-table/student-time-table';
+import { StudentResultPage } from '../pages/student-result/student-result';
 
 
 @Component({
@@ -37,8 +41,8 @@ export class MyApp {
     //declaration of array for side menu
     Student_a:Array<{title:string, icon:string,component:any,}>;    //array for student
     Teacher_a:Array<{title:string, icon:string,component:any,}>;    //array for teacher
-    Admin_a:Array<{title:string,icon:string,Component:any}>;
-    help:Array<{title:string, icon:string,component:any,}>;
+    Admin_a:Array<{title:string,icon:string,component:any}>;        //for Admin
+    help:Array<{title:string, icon:string,component:any,}>;         //Same For All
 
   constructor(platform: Platform, statusBar: StatusBar,private nativeStorage: NativeStorage,public toastCtrl: ToastController,
              public service:ServiceLoginProvider, splashScreen: SplashScreen, private push: Push,
@@ -101,23 +105,23 @@ export class MyApp {
     //initializing the teacher array elements for side menu
     this.Teacher_a=[
       {title:'Home', icon:'home',component:TeacherdashboardPage},
-      {title:'Send Messages', icon:'contact',component:TeacherSendMessagePage},
-      {title:'Set Announcement',icon:'contact',component:TeacherAnnouncementPage},
+      {title:'Messages', icon:'text',component:TeacherSendMessagePage},
+      {title:'Announcements',icon:'megaphone',component:TeacherAnnouncementPage},
       {title:'Feedback',icon:'contact',component:TeacherFeedbackPage},      
       {title:'Gallery',icon:'images',component:GalleryPage},
       {title:'Events', icon:'contact',component:ViewEventsPage}
     ];
     //initializing the Admin array elements for side menu
     this.Admin_a=[
-      {title:"Home",icon:"home",Component:AdminDashboardPage},
-      {title:"Gallery",icon:"images",Component:GalleryPage},
+      {title:"Home",icon:"home",component:AdminDashboardPage},
+      {title:"Gallery",icon:"images",component:GalleryPage},
       
     ];
 
     //initializing the common array elements for side menu
     this.help=[
-      {title:'About Us', icon:'contact',component:AboutUsPage},
-      {title:'Settings',icon:'contact',component:SettingPage}
+      {title:'About Us', icon:'mail',component:AboutUsPage},
+      {title:'Settings',icon:'settings',component:SettingPage}
            
     ];
 
@@ -125,7 +129,8 @@ export class MyApp {
 
   openPage(page)
   {
-    this.navCtrl.setRoot(page.component);
+    console.log(page.component);
+    this.navCtrl.push(page.component);
   }
   // goToHome(params){
   //   if (!params) params = {};
