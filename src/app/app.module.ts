@@ -83,6 +83,7 @@ import { ServiceUpdateProvider } from '../providers/service-update/service-updat
 import { AddTimetablePage } from '../pages/add-timetable/add-timetable';
 import { ServiceDeleteUserProvider } from '../providers/service-delete-user/service-delete-user';
 import { DeleteUserPage } from '../pages/delete-user/delete-user';
+import { Push } from '@ionic-native/push';
  
 
  @NgModule({ 
@@ -221,7 +222,7 @@ import { DeleteUserPage } from '../pages/delete-user/delete-user';
     Transfer,
     Camera,
     FilePath,
-
+    Push,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ServiceLoginProvider,
     ServiceAdduserProvider,
