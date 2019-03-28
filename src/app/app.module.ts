@@ -89,6 +89,8 @@ import { ViewCalendarPage } from '../pages/view-calendar/view-calendar';
 import { AttendenceInfoPage } from '../pages/attendence-info/attendence-info';
 import { ServiceDeleteUserProvider } from '../providers/service-delete-user/service-delete-user';
 import { DeleteUserPage } from '../pages/delete-user/delete-user';
+import { Push } from '@ionic-native/push';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 import { SchoolInfoPage } from '../pages/school-info/school-info';
 import { GalleryPage } from '../pages/gallery/gallery';
  
@@ -242,6 +244,8 @@ import { GalleryPage } from '../pages/gallery/gallery';
     Transfer,
     Camera,
     FilePath,
+    Push,
+    LocalNotifications,
 
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ServiceLoginProvider,
