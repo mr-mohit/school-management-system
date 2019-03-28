@@ -41,7 +41,11 @@ export class ChangePasswordPage {
         this.Data['REG_NO']=this.getuserid.recdata.data[0].REG_NO;;
         this.Data['PASSWORD']=this.CurrentPassword;
         this.Data['NEWPASSWORD']=this.ConfirmPassword;
-        this.ChangeService.postChangeData(this.Data);
+        if(this.ChangeService.postChangeData(this.Data))
+        {
+          this.navCtrl.pop();
+        }
+      
 
       }
       else

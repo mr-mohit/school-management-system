@@ -32,7 +32,7 @@ if($con)
 	   $REG_NO=test_input($obj['REG_NO']);
 	   $NEWPASSWORD=test_input($obj['NEWPASSWORD']);
 	   
-	    $sql="UPDATE user SET PASSWORD='$NEWPASSWORD' WHERE REG_NO=='$REG_NO' AND PASSWORD='$PASSWORD'";
+	    $sql="UPDATE user SET PASSWORD='$NEWPASSWORD' WHERE REG_NO='$REG_NO' AND PASSWORD='$PASSWORD'";
 		
 	   if(mysqli_query($con,$sql))
 		{

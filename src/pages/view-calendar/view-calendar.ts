@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { CalendarModule } from 'ionic3-calendar-en';
-import * as moment from 'moment';
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 
 
@@ -21,6 +19,7 @@ export class ViewCalendarPage {
  };
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public VCal:ServiceGetClassMasterProvider) {
+   
   }
 
   onDaySelect($event)

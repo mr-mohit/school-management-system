@@ -28,11 +28,13 @@
       <ion-label>New End Date </ion-label>
       <ion-datetime name="END_DATE" displayFormat="DD MMM YYYY" min="2020" max="2051" [(ngModel)]="END_DATE"></ion-datetime>
     </ion-item>
-    <ion-item class="cus-center" >
-      <button ion-button color="header" block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;"on-click="Submit(SID,START_DATE,END_DATE)" >
-        SUBMIT
-      </button>
-      </div>
     
+    <ion-item class="cus-center" >
+      <button ion-button color="header"
+       block style="border-radius:2px 2px 2px 2px;width: 200px; 
+        margin:auto;"on-click="Submit(SID,START_DATE,END_DATE)" >
+        SUBMIT
+      </button> 
+      </ion-item>  
 </ion-list>
 </ion-content>

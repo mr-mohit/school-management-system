@@ -19,11 +19,6 @@ import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
 import { TranslateService } from '@ngx-translate/core';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { SchoolInfoPage } from '../pages/school-info/school-info';
-import { AddUsersPage } from '../pages/add-users/add-users';
-import { AddClassPage } from '../pages/add-class/add-class';
-import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
-import { StudentTimeTablePage } from '../pages/student-time-table/student-time-table';
-import { StudentResultPage } from '../pages/student-result/student-result';
 
 
 @Component({
