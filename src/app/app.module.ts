@@ -84,6 +84,7 @@ import { AddTimetablePage } from '../pages/add-timetable/add-timetable';
 import { ServiceDeleteUserProvider } from '../providers/service-delete-user/service-delete-user';
 import { DeleteUserPage } from '../pages/delete-user/delete-user';
 import { Push } from '@ionic-native/push';
+import { LocalNotifications } from '@ionic-native/local-notifications';
  
 
  @NgModule({ 
@@ -223,6 +224,8 @@ import { Push } from '@ionic-native/push';
     Camera,
     FilePath,
     Push,
+    LocalNotifications,
+
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ServiceLoginProvider,
     ServiceAdduserProvider,
