@@ -147,7 +147,7 @@ Teacher()
   this.navCtrl.push(TeacherHomePage);
 }
 
-public togglePassword()
+togglePassword()
 {
   console.log("Toggle");
   if(this.passwordShown)
@@ -158,7 +158,7 @@ public togglePassword()
   else
   {
     this.passwordShown=true;
-    this.passwordType='password';
+    this.passwordType='text';
 
   }
 }
