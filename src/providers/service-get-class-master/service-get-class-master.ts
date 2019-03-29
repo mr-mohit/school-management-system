@@ -41,7 +41,7 @@ export class ServiceGetClassMasterProvider {
         }
         else
         {
-          alert("no data fetched");
+          alert("No data Found");
         }        
         
          resolve(data);

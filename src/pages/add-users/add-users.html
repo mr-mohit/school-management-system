@@ -32,13 +32,13 @@
 
                    <!-- user role -->
                 <ion-item>
-                    <ion-label floating>User Role</ion-label>
+                    <ion-label floating>User Role Type</ion-label>
                     <ion-select formControlName="userrole" [class.invalid]="!slideOneForm.controls.userrole.valid && (slideOneForm.controls.userrole.dirty || submitAttempt)">
                           <ion-option value="student" >
-                                student
+                                Student
                           </ion-option>
                           <ion-option value="teacher">
-                                teacher
+                                Teacher
                           </ion-option >
                     </ion-select>
                 </ion-item>
@@ -48,7 +48,7 @@
                 </ion-item>   <br>         
                    <!-- user id -->
                 <ion-item>
-                    <ion-label class="printid" (click)="getID()"> Reg_No (click) :  </ion-label>
+                    <ion-label class="printid" (click)="getID()"> Reg No (click) :  </ion-label>
                     <ion-label class="printid"(click)="getID()"> {{service.userID}} </ion-label>
                     
                 </ion-item> 
@@ -59,7 +59,7 @@
                 </ion-item> -->
                   <!-- user first name -->
                 <ion-item>
-                    <ion-label floating>User First Name</ion-label>
+                    <ion-label floating>First Name</ion-label>
                     <ion-input formControlName="userfirstname" type="text" [class.invalid]="!slideOneForm.controls.userfirstname.valid && (slideOneForm.controls.userfirstname.dirty || submitAttempt)"></ion-input>
                 </ion-item>
 
@@ -68,7 +68,7 @@
                 </ion-item>
                   <!-- user last name -->
                 <ion-item>
-                    <ion-label floating>User Last Name</ion-label>
+                    <ion-label floating>Last Name</ion-label>
                     <ion-input formControlName="userlastname" type="text" [class.invalid]="!slideOneForm.controls.userlastname.valid && (slideOneForm.controls.userlastname.dirty || submitAttempt)"></ion-input>
                 </ion-item>
 
@@ -78,13 +78,13 @@
                 
                   <!-- user gender -->
                 <ion-item>
-                    <ion-label floating>User gender</ion-label>
+                    <ion-label floating>Gender</ion-label>
                     <ion-select formControlName="usergender" [class.invalid]="!slideOneForm.controls.usergender.valid && (slideOneForm.controls.usergender.dirty || submitAttempt)">
                           <ion-option value="male">
-                                male
+                                Male
                           </ion-option>
                           <ion-option value="female">
-                                female
+                                Female
                           </ion-option>
                     </ion-select>
                 </ion-item>
@@ -94,7 +94,7 @@
                 </ion-item>
                   <!-- user date of birth -->
                 <ion-item>
-                    <ion-label floating>User Date of Birth</ion-label>
+                    <ion-label floating>Date of Birth</ion-label>
                       <ion-datetime display-format="MMMM YYYY" min="1930" max="2012-12-31" formControlName="userdob" [class.invalid]="!slideOneForm.controls.userdob.valid && (slideOneForm.controls.userdob.dirty || submitAttempt)">
                       </ion-datetime>
                     
@@ -120,7 +120,7 @@
                  
                   <!-- user email -->
                 <ion-item>
-                    <ion-label floating>User email </ion-label>
+                    <ion-label floating>Email </ion-label>
                     <ion-input formControlName="useremail" type="email" [class.invalid]="!slideTwoForm.controls.useremail.valid && (slideTwoForm.controls.useremail.dirty || submitAttempt)"></ion-input>
                 </ion-item>
 
@@ -130,7 +130,7 @@
                 
                   <!-- user password -->
                 <ion-item>
-                    <ion-label floating>User password</ion-label>
+                    <ion-label floating>Password</ion-label>
                     <ion-input formControlName="userpassword" type="password" [class.invalid]="!slideTwoForm.controls.userpassword.valid && (slideTwoForm.controls.userpassword.dirty || submitAttempt)"></ion-input>
                 </ion-item>
 
@@ -139,7 +139,7 @@
                 </ion-item>
                   <!-- user confirm password -->
                 <ion-item>
-                    <ion-label floating>Confirm password</ion-label>
+                    <ion-label floating>Confirm Password</ion-label>
                     <ion-input formControlName="userpassword2" type="password" [class.invalid]="!slideTwoForm.controls.userpassword2.valid && (slideTwoForm.controls.userpassword2.dirty || submitAttempt)"></ion-input>
                 </ion-item>
 
@@ -149,7 +149,7 @@
 
                   <!-- user father's name -->
                 <ion-item>
-                    <ion-label floating>User father_Name</ion-label>
+                    <ion-label floating>Father Name</ion-label>
                     <ion-input formControlName="userfathername" type="text" [class.invalid]="!slideTwoForm.controls.userfathername.valid && (slideTwoForm.controls.userfathername.dirty || submitAttempt)"></ion-input>
                 </ion-item>
 
@@ -158,7 +158,7 @@
                 </ion-item>
                        <!-- user mother's name -->
                 <ion-item>
-                    <ion-label floating>User Mother_Name </ion-label>
+                    <ion-label floating>Mother Name </ion-label>
                     <ion-input formControlName="usermothername" type="text" [class.invalid]="!slideTwoForm.controls.usermothername.valid && (slideTwoForm.controls.usermothername.dirty || submitAttempt)"></ion-input>
                 </ion-item>
 
@@ -167,7 +167,7 @@
                 </ion-item>
                        <!-- user city -->
                 <ion-item>
-                    <ion-label floating>User City </ion-label>
+                    <ion-label floating>City </ion-label>
                     <ion-input formControlName="usercity" type="text" [class.invalid]="!slideTwoForm.controls.usercity.valid && (slideTwoForm.controls.usercity.dirty || submitAttempt)"></ion-input>
                 </ion-item>
 
@@ -206,7 +206,7 @@
                  
                   <!-- addressType -->
                 <ion-item>
-                    <ion-label floating>address Type </ion-label>
+                    <ion-label floating>Address Type </ion-label>
                    <ion-select formControlName="addressType" [class.invalid]="!slideThreeForm.controls.addressType.valid && (slideThreeForm.controls.addressType.dirty || submitAttempt)">
                           <ion-option value="Permanent">
                                 Permanent
@@ -223,7 +223,7 @@
                 
                   <!-- address Line 1 -->
                 <ion-item>
-                    <ion-label floating>address Line 1</ion-label>
+                    <ion-label floating>Address Line 1</ion-label>
                     <ion-input formControlName="address1" type="text" [class.invalid]="!slideThreeForm.controls.address1.valid && (slideThreeForm.controls.addressType.dirty || submitAttempt)"></ion-input>
                 </ion-item>
 
@@ -232,7 +232,7 @@
                 </ion-item>
                   <!-- address Line 2 -->
                 <ion-item>
-                    <ion-label floating>address Line 2</ion-label>
+                    <ion-label floating>Address Line 2</ion-label>
                     <ion-input formControlName="address2" type="text" [class.invalid]="!slideThreeForm.controls.address2.valid && (slideThreeForm.controls.address2.dirty || submitAttempt)"></ion-input>
                 </ion-item>
 
@@ -242,7 +242,7 @@
 
                   <!-- state -->
                 <ion-item>
-                    <ion-label floating>state</ion-label>
+                    <ion-label floating>State</ion-label>
                     <ion-input formControlName="state" type="text" [class.invalid]="!slideThreeForm.controls.state.valid && (slideThreeForm.controls.state.dirty || submitAttempt)"></ion-input>
                 </ion-item>
 
@@ -285,6 +285,7 @@
                  
                 <!-- user pic -->
                 <ion-item>
+                        <div style="width: 100%; text-align: center;">
                     <!-- <ion-label floating>User Picture</ion-label>
                     <ion-input formControlName="userpic" type="text" [class.invalid]="!slideOneForm.controls.userpic.valid && (slideOneForm.controls.userpic.dirty || submitAttempt)"></ion-input> -->
                     <img src="{{pathForImage(lastImage)}}" style="width: 100%; height:80% ;" [hidden]="lastImage === null">
@@ -297,6 +298,7 @@
                                 <ion-icon name="cloud-upload"></ion-icon>&nbsp; Upload
                             </button> -->
                     </ion-buttons>  
+                    </div>
                 </ion-item>
                  <!-- student class   -->
                 <ion-item [hidden]='slideOneForm.controls.userrole.value ==="teacher" || slideOneForm.controls.userrole.value ===""'>
