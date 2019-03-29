@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, LoadingController, Loading } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController,} from 'ionic-angular';
 import { ServiceResetpasswordProvider } from '../../providers/service-resetpassword/service-resetpassword';
 import { Resetpassword2Page } from '../resetpassword2/resetpassword2';
 
@@ -47,11 +47,11 @@ export class ResetpasswordPage {
      this.recdata=data;
      if(data['statuscode']==1)
      {
-          this.service.loading.dismissAll(); // stop the loading process
+        //  this.service.loading.dismissAll(); // stop the loading process
         
         //alert box
        const alert = this.alertCtrl.create({
-        title: 'hello'+' '+this.recdata.data[0].USER_NAME, 
+        title: 'hello'+' '+this.recdata.data[0].FIRST_NAME, 
         subTitle: 'The otp has been sent to your email',
         message: 'Click Ok -> to set the new password',
         buttons: [
@@ -72,7 +72,7 @@ export class ResetpasswordPage {
      alert.present();
      }
      else{
-      this.service.loading.dismissAll(); // stop the loading process
+    //  this.service.loading.dismissAll(); // stop the loading process
       alert(data['msg']);
      }
    

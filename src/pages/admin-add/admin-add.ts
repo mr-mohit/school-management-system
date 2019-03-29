@@ -8,6 +8,7 @@ import { AddTermPage } from '../add-term/add-term';
 import { AddClassPage } from '../add-class/add-class';
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 import { AddTimetablePage } from '../add-timetable/add-timetable';
+import { AddEventPage } from '../add-event/add-event';
 
 
 
@@ -39,6 +40,8 @@ export class AdminAddPage{
   AddTimeTable()
   {
      this.navCtrl.push(AddTimetablePage);
+     this.cid.getClassFun();
+     this.cid.getSubjectFun();
   }
   AddSession()
   {
@@ -52,9 +55,11 @@ export class AdminAddPage{
       Dataobj=data;
       console.log("load data",Dataobj);
       this.navCtrl.push(AddTermPage,{"datavalue":Dataobj});
-
     });
-   
+  }
+  AddEvent()
+  {
+    this.navCtrl.push(AddEventPage);
   }
 
 

@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-navbar color="header">
+    <ion-title>Mark_Attendance</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-grid  style="border:solid 1px;">
+        <ion-row color="header">
+          <ion-col>
+            <div>
+              <ion-label>REG.NO</ion-label> 
+            </div>
+          </ion-col>
+          <ion-col>
+              <div>
+                  <ion-label>NAME</ion-label>             
+              </div>
+            </ion-col>
+          <ion-col class="button-container">
+            <div>
+              <ion-label>STATUS</ion-label>
+            </div>
+          </ion-col>
+          <!-- <ion-col>
+            <div>
+              {{i.SECTION}}
+            </div>
+          </ion-col> -->
+        </ion-row>
+      </ion-grid>
+
+  <ion-grid *ngFor="let i of GU?.userData; let j = index" style="border:solid 1px;">
+    <ion-row >
+      <ion-col>
+        <div>
+          {{i.REG_NO}} 
+        </div>
+      </ion-col>
+      <ion-col>
+          <div>
+           {{i.FIRST_NAME}} {{i.LAST_NAME}} 
+          </div>
+        </ion-col>
+      <ion-col>
+        <!-- <div>
+          <ion-input type="text" [(ngModel)]="STATUS" placeholder="" name="STATUS"></ion-input>
+        </div> -->
+        <ion-item >
+          <ion-select    [(ngModel)]="i[j]" col-12 class="status" (ionChange)="Submit(i.REG_NO,i[j])">
+            <ion-option selected value="A">Absent </ion-option>
+            <ion-option value="P">Present </ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+      <!-- <ion-col>
+        <div>
+          {{i.SECTION}}
+        </div>
+      </ion-col> -->
+    </ion-row>
+    </ion-grid>
+    <button ion-button block (click)="Submit();" [ngStyle]="{'background-color': buttonColor}">Submit</button>
+</ion-content>

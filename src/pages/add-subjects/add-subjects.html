@@ -1,9 +1,3 @@
-<!--
-  Generated template for the AddSubjectsPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar color="header">
     <ion-title>Add Subjects</ion-title>
@@ -16,14 +10,15 @@
           <ion-label floating >
             Subject ID
           </ion-label>
-          <ion-input type="text" [(ngModel)]="subjectid" placeholder="" name="subjectid"></ion-input>
+          <ion-input type="text" [(ngModel)]="subjectid" (keyup)="idcheck($event)" name="subjectid"></ion-input>
         </ion-item>
         
   <ion-item>
     <ion-label floating >
       Subject Name
     </ion-label>
-    <ion-input type="text" [(ngModel)]="subjectname" placeholder="" name="subjectname"></ion-input>
+    
+    <ion-input type="text" [(ngModel)]="subjectname"  (keyup)="namecheck($event)" name="subjectname"></ion-input>
   </ion-item>
 
   <ion-item>

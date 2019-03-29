@@ -6,6 +6,7 @@ import { UpdateSessionPage } from '../update-session/update-session';
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 import { UpdateTermPage } from '../update-term/update-term';
 import { UpdateSubjectsPage } from '../update-subjects/update-subjects';
+import { ServiceViewSessionProvider } from '../../providers/service-view-session/service-view-session';
 
 /**
  * Generated class for the AdminUpdatePage page.
@@ -20,13 +21,16 @@ import { UpdateSubjectsPage } from '../update-subjects/update-subjects';
 })
 export class AdminUpdatePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public GS:ServiceGetClassMasterProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public GS:ServiceGetClassMasterProvider,public getSession:ServiceViewSessionProvider) {
   }
 
   // update user
   updateUser()
   {
     this.navCtrl.push(UpdateUserPage);
+    this.GS.getClassFun();   //this will call the function of ServiceGetClassMaster through cid object of same service
+    this.getSession.getSessionFun(); // get session 
   }
   UpdateClass()
   {

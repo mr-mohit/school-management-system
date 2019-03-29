@@ -4,8 +4,9 @@ import { MenuController } from 'ionic-angular';
 import { StudentExamsPage } from '../student-exams/student-exams';
 import { StudentTimeTablePage } from '../student-time-table/student-time-table';
 import { StudentAttendancePage } from '../student-attendance/student-attendance';
-import { StudentAnnouncementsPage } from '../student-announcements/student-announcements';
+import { TeacherAnnouncementPage } from '../teacher-announcement/teacher-announcement';
 import { StudentResultPage } from '../student-result/student-result';
+import { ViewCalendarPage } from '../view-calendar/view-calendar';
 
 
 @Component({
@@ -26,7 +27,7 @@ export class HomePage {
 
   gotoStudentAnnouncements()
   {
-    this.navCtrl.push(StudentAnnouncementsPage);
+    this.navCtrl.push(TeacherAnnouncementPage);
   }
   
   gotoStudentTimeTable()
@@ -44,5 +45,9 @@ export class HomePage {
     this.navCtrl.push(StudentResultPage);
   }
  
+  gotoViewCalendar()
+  {
+    this.navCtrl.push(ViewCalendarPage);
+  }
   
 }
