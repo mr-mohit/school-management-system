@@ -20,13 +20,17 @@
           <ion-card-content>
               <ion-item class="user">
                   <ion-label floating>
+                      <ion-icon ios="ios-contact" md="md-contact"  danger></ion-icon>
                    Registration No
                   </ion-label>
                   <!-- (keyup)="REG_NOCHECK($event)" -->
-                  <ion-input type="number" name="REG_NO" maxlength="8"  [(ngModel)]="REG_NO"  ></ion-input>
+                  <ion-input type="number" name="REG_NO" maxlength="8"  [(ngModel)]="REG_NO"  >  
+                      <i class="icon ion-android-person placeholder-icon"></i>
+                  </ion-input>
                 </ion-item>
                 <ion-item class="pass-word">
                   <ion-label floating>
+                      <ion-icon ios="ios-lock" md="md-lock"  danger></ion-icon>
                     Password
                   </ion-label> 
                   <ion-input type="password" name="PASSWORD" [(ngModel)]="PASSWORD"></ion-input>
@@ -51,5 +55,6 @@
       <button ion-button clear style="margin-left:68px;margin-top: -21px;" on-click="ResetPassword()">Forgot Password ?</button>
          <!-- </div> --> 
       </div>
+      <button ion-button on-click="ts()">teacher</button>
   </div>
 </ion-content>

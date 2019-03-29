@@ -1,9 +1,3 @@
-<!--
-  Generated template for the AddTimetablePage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar color="header">
     <ion-title>Add Timetable</ion-title>
@@ -13,14 +7,20 @@
 <ion-content padding>
 
     <ion-item>
-        <ion-label floating>Class and Section</ion-label>
+        <ion-label floating>
+            <ion-icon ios="ios-people" md="md-people"></ion-icon>
+          Class and Section
+        </ion-label>
          <ion-select  name="classId" [(ngModel)]="classId">
           <ion-option *ngFor="let i of service?.classData"  value="{{i.CLASS_MASTER_ID}}" >{{i.CLASS}} {{i.SECTION}}</ion-option>
          </ion-select>
     </ion-item>
 
     <ion-item>
-      <ion-label floating>Subject Name</ion-label>
+      <ion-label floating>
+        <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>
+          Subject Name
+        </ion-label>
        <ion-select  name="subjectId" [(ngModel)]="subjectId">
         <ion-option *ngFor="let i of service?.subjectData"  value="{{i.SUBJECT_ID}}" >{{i.SUBJECT_NAME}}</ion-option>
        </ion-select>
@@ -28,6 +28,7 @@
 
     <ion-item>
       <ion-label floating>
+          <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>
         Time Slot
       </ion-label>
       <ion-select name="slot" [(ngModel)]="slot">

@@ -123,9 +123,9 @@ REG_NOCHECK(event:any)
    this.status=false;
 
 }
-VS()
+ts()
 {
-  this.navCtrl.push(AttendenceInfoPage);
+  this.navCtrl.push(TeacherHomePage);
 }
 
 }

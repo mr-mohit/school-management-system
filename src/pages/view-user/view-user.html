@@ -1,9 +1,3 @@
-<!--
-  Generated template for the ViewUserPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar color="header">
     <ion-title>View User</ion-title>
@@ -32,7 +26,9 @@
 
                    <!-- user id -->
                 <ion-item>
-                    <ion-label floating > Enter Registration number here :  </ion-label>
+                    <ion-label floating > 
+                      Enter Registration number here :  
+                    </ion-label>
                     <ion-input  type="number" name="userid"  formControlName="userid" [class.invalid]="!slideOneForm.controls.userid.valid && (slideOneForm.controls.userid.dirty || submitAttempt)" > </ion-input>
                 </ion-item> 
                 <button ion-button full color="primary" (click)="UserInfos()">
@@ -51,7 +47,9 @@
               
                   <!-- user first name -->
                 <ion-item>
-                    <ion-label >FirstName :</ion-label>
+                    <ion-label >
+                      FirstName :
+                    </ion-label>
                     <ion-label text-wrap  class="printid" *ngIf="service.recdata" > {{service?.recdata.data[0]?.FIRST_NAME}}</ion-label>
                 </ion-item>
                   <!-- user last name -->

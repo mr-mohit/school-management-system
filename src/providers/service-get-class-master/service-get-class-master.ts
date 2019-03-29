@@ -69,7 +69,7 @@ export class ServiceGetClassMasterProvider {
         {
           // alert("Term Added");
           this.subjectData=data['data'];
-          //console.log("subjects",this.subjectData);
+          console.log("subjects",this.subjectData);
         }
         else
         {
@@ -135,9 +135,7 @@ export class ServiceGetClassMasterProvider {
         {
           // alert("Term Added");
           this.termData=data['data'];
-          console.log("Terms",data);
-
-
+          console.log("Terms",this.termData);
         }
         else
         {
@@ -169,7 +167,7 @@ getUser(url)
       {
         // alert("Term Added");
         this.userData=data['data'];
-        console.log("User",data);
+        console.log("User",this.userData);
 
 
       }

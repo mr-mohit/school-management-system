@@ -6,6 +6,7 @@ import { TeacherAnnouncementPage } from '../teacher-announcement/teacher-announc
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 import { AttendenceInfoPage } from '../attendence-info/attendence-info';
 import { ViewCalendarPage } from '../view-calendar/view-calendar';
+import { CreateTestPage } from '../create-test/create-test';
 
 @IonicPage()
 @Component({
@@ -14,7 +15,8 @@ import { ViewCalendarPage } from '../view-calendar/view-calendar';
 })
 export class TeacherHomePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public Menu: MenuController,public GU:ServiceGetClassMasterProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public Menu: MenuController,
+    public GU:ServiceGetClassMasterProvider,public GCM:ServiceGetClassMasterProvider) {
     this.Menu.enable(true);
    
     
@@ -35,6 +37,15 @@ export class TeacherHomePage {
   gotoCalendar()
   {
     this.navCtrl.push(ViewCalendarPage);
+  }
+
+  CreateTest()
+  {
+    this.navCtrl.push(CreateTestPage);
+    this.GCM.getClassFun();
+    this.GCM.getSessionFun();
+    this.GCM.getTermFun();
+    this.GCM.getSubjectFun();
   }
 
 }

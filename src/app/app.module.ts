@@ -91,6 +91,8 @@ import { ServiceDeleteUserProvider } from '../providers/service-delete-user/serv
 import { DeleteUserPage } from '../pages/delete-user/delete-user';
 import { SchoolInfoPage } from '../pages/school-info/school-info';
 import { GalleryPage } from '../pages/gallery/gallery';
+import { CreateTestPage } from '../pages/create-test/create-test';
+import { ServiceCreateTestProvider } from '../providers/service-create-test/service-create-test';
  
 
  @NgModule({ 
@@ -155,6 +157,7 @@ import { GalleryPage } from '../pages/gallery/gallery';
     ViewCalendarPage,
     AttendenceInfoPage,
     DeleteUserPage,
+    CreateTestPage,
   ],
   imports: [
     BrowserModule,
@@ -231,6 +234,7 @@ import { GalleryPage } from '../pages/gallery/gallery';
     ViewCalendarPage,
     AttendenceInfoPage,
     DeleteUserPage,
+    CreateTestPage,
   ],
   providers: [
     StatusBar,
@@ -269,6 +273,7 @@ import { GalleryPage } from '../pages/gallery/gallery';
     ServiceAnnouncementProvider,
     ServiceAddEventProvider,
     ServiceDeleteUserProvider,
+    ServiceCreateTestProvider,
   
   ]
 })

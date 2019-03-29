@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-navbar color="header">
+    <ion-title>Create Test</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list >
+    <ion-item>
+      <ion-label floating>
+        <ion-icon ios="ios-people" md="md-people"></ion-icon>
+        Select Class
+      </ion-label>
+       <ion-select  name="CLASS" [(ngModel)]="CLASS">
+  
+        <ion-option *ngFor="let a of cid?.classData"  value="{{a.CLASS_MASTER_ID}}" >{{a.CLASS}} {{a.SECTION}}</ion-option>
+        
+       </ion-select>
+    </ion-item>
+      
+              <ion-item>
+                  <ion-label floating>
+                    <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
+                    Select Term
+                  </ion-label>
+                   <ion-select  name="TERM" [(ngModel)]="TERM">
+            
+                    <ion-option *ngFor="let c of cid?.termData"  value="{{c.TERM_ID}}" >{{c.TERM}} {{c.START_DATE}} TO {{c.END_DATE}}</ion-option>
+                    
+                   </ion-select>
+              </ion-item>
+
+              <ion-item>
+                <ion-label floating>
+                  <ion-icon ios="ios-book" md="md-book"></ion-icon>
+                  Subject
+                </ion-label>
+                 <ion-select  name="SUBJECT" [(ngModel)]="SUBJECT">
+            
+                  <ion-option *ngFor="let d of cid?.subjectData"  value="{{d.SUBJECT_ID}}" > {{d.SUBJECT_ID}} {{d.SUBJECT_NAME}}</ion-option>
+                  
+                 </ion-select>
+              </ion-item>
+            
+         <ion-item>
+           <ion-label>
+            <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
+            Date 
+           </ion-label>
+           <ion-datetime name="DATE" displayFormat="DD MMM YYYY" placeholder="Select Date" min="2019"  [(ngModel)]="DATE"></ion-datetime>
+         </ion-item>
+
+
+    <ion-item>
+        <ion-label floating >
+            <ion-icon ios="ios-text" md="md-text"></ion-icon>
+          Test Name
+        </ion-label>
+        <ion-input type="text" [(ngModel)]="NAME" name="NAME"></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label floating >
+              <ion-icon ios="ios-text" md="md-text"></ion-icon>
+            Topic
+          </ion-label>
+          <ion-input type="text" [(ngModel)]="TOPIC" name="TOPIC"></ion-input>
+      </ion-item>
+
+        <ion-item>
+            <ion-label floating >
+                <ion-icon ios="ios-calculator" md="md-calculator"></ion-icon>
+             Total Marks
+            </ion-label>
+            <ion-input type="text" [(ngModel)]="TM"  name="TM"></ion-input>
+        </ion-item>
+          
+          <ion-item>
+              <ion-label floating >
+                  <ion-icon ios="ios-calculator" md="md-calculator"></ion-icon>
+               Weightage Marks
+              </ion-label>
+              <ion-input type="text" [(ngModel)]="WM" name="WM"></ion-input>
+          </ion-item>
+
+      <div>
+          <button ion-button block on-click="Submit(CLASS,SUBJECT,TERM,DATE,NAME,TOPIC,TM,WM)" >
+        SUBMIT
+      </button>
+    </div>
+</ion-list>
+</ion-content>
