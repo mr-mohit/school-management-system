@@ -34,6 +34,7 @@ export class MyApp {
     public userId:any;
     public pass:any;
     public type:any;
+    public lang:string;
     //declaration of array for side menu
     Student_a:Array<{title:string, icon:string,component:any,}>;    //array for student
     Teacher_a:Array<{title:string, icon:string,component:any,}>;    //array for teacher
@@ -42,10 +43,24 @@ export class MyApp {
 
   constructor(platform: Platform, statusBar: StatusBar,private nativeStorage: NativeStorage,public toastCtrl: ToastController,
              public service:ServiceLoginProvider, splashScreen: SplashScreen,public altertCtrl:AlertController,public translate:TranslateService) {
-              translate.setDefaultLang('en');
+              
               platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
+      translate.addLangs(["en", "fr"]);
+      translate.setDefaultLang('en');
+      //let browserLang = translate.getBrowserLang();
+      //translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');  used as a fallback procedure
+
+      this.nativeStorage.getItem('languageInfo')
+      .then(
+        data1 => {this.lang=data1.Language,
+                  console.log(this.lang),
+                  translate.use(this.lang); },
+        error => {console.error(error)}
+      
+      );
+  
       statusBar.styleBlackOpaque();
       splashScreen.hide();
 
