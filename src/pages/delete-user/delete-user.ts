@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { ServiceViewUserProvider } from '../../providers/service-view-user/service-view-user';
 import { ServiceDeleteUserProvider } from '../../providers/service-delete-user/service-delete-user';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';

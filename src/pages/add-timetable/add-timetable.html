@@ -31,24 +31,24 @@
           <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>
         Time Slot
       </ion-label>
-      <ion-select name="slot" [(ngModel)]="slot">
+      <ion-select name="SLOT" [(ngModel)]="SLOT">
         <ion-option value="9_10">
-          09-10
+          09 AM - 10 AM
         </ion-option >
         <ion-option value="10_11">
-          10-11
+          10 AM - 11 AM
         </ion-option>
         <ion-option value="11_12">
-          11-12
+          11 AM - 12 PM
         </ion-option>
         <ion-option value="12_1">
-          12-01
+          12 PM - 01 PM
         </ion-option>
-        <ion-option value="1_2">
-          01-02
+        <ion-option value="01 PM - 02 PM">
+          01 PM - 02 PM
         </ion-option>
-        <ion-option value="2_3">
-          02-03
+        <ion-option value="02 PM - 03 PM">
+          02 PM - 03 PM
         </ion-option>
       </ion-select>
     </ion-item>
@@ -56,7 +56,7 @@
     <ion-label>
     </ion-label>
   
-    <button id="addTimeTable" ion-button color="header" block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;">
+    <button id="addTimeTable" on-click="submitTimetable(CLASSID,SUBJECTID,SLOT)" ion-button color="header" block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;">
         Save
     </button>
 </ion-content>

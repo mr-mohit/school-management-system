@@ -4,7 +4,7 @@
     <button ion-button menuToggle>
         <ion-icon name="menu" left></ion-icon>
     </button>
-    <ion-title> Admin Dashboard </ion-title>
+    <ion-title>Admin : Home</ion-title>
     <ion-buttons end>
         <button ion-button icon-only color="royal">
          <ion-icon name="information-circle"></ion-icon>
@@ -27,14 +27,14 @@
         <p> <ion-icon name="add-circle" style="margin-left:24%; color: white !important; margin-top:20%; font-size:400%"></ion-icon></p>
 
          </ion-card>
-       <strong>  <ion-label style="padding-left:8vw; color:white;">Add</ion-label> </strong> 
+       <strong>  <ion-label style="padding-left:8vw; color:white;">{{'add' | translate}}</ion-label> </strong> 
        </ion-col>
        <ion-col col-4>
          <ion-card class="bkgcolor"  no-margin on-click="gotoAdminView()">
           <p> <ion-icon name="eye" style="margin-left:25%; margin-top:20%; font-size:400%;color: white !important;"></ion-icon></p>
             
          </ion-card>
-       <strong>  <ion-label style="padding-left:8vw; color:white;">View</ion-label> </strong> 
+       <strong>  <ion-label style="padding-left:8vw; color:white;">{{'view' | translate}}</ion-label> </strong> 
        </ion-col>
        <ion-col col-4>
         
@@ -42,7 +42,7 @@
            <p> <ion-icon name="megaphone" style="margin-left:27%; margin-top:20%; font-size:400%;color: white !important;"></ion-icon></p>
 
          </ion-card>
-          <strong>  <ion-label style="padding-left:2vw; color:white;">Announce</ion-label> </strong> 
+          <strong>  <ion-label style="padding-left:2vw; color:white;">{{'announcement' | translate}}</ion-label> </strong> 
 
        </ion-col>
        </ion-row> 
@@ -53,7 +53,7 @@
            <p> <ion-icon name="trash" style="margin-left:31%; margin-top:20%; font-size:400%;color: white !important;"></ion-icon></p>
 
          </ion-card>
-                <strong>  <ion-label style="padding-left:4vw;color:white;">Delete</ion-label> </strong> 
+                <strong>  <ion-label style="padding-left:4vw;color:white;">{{'delete' | translate}}</ion-label> </strong> 
 
        </ion-col>
        <ion-col col-4>
@@ -62,7 +62,7 @@
 
 
          </ion-card>
-          <strong>  <ion-label style="padding-left:6vw; color:white;">Update</ion-label> </strong> 
+          <strong>  <ion-label style="padding-left:6vw; color:white;">{{'update' | translate}}</ion-label> </strong> 
        </ion-col>
        <ion-col col-4>
          <ion-card class="bkgcolor"  no-margin on-click="gotoAdminMessages()">
@@ -77,6 +77,3 @@
 
 
 </ion-content>
-
-
-

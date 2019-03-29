@@ -7,16 +7,21 @@ import { TeacherdashboardPage } from '../teacherdashboard/teacherdashboard';
 import { AdminDashboardPage } from '../admin-dashboard/admin-dashboard';
 import { ServiceLoginProvider } from '../../providers/service-login/service-login';
 import { NativeStorage } from '@ionic-native/native-storage';
-
-import { ViewCalendarPage } from '../view-calendar/view-calendar';
+import { AdminHomePage } from '../admin-home/admin-home';
+import { HomePage } from '../home/home';
 import { TeacherHomePage } from '../teacher-home/teacher-home';
 import { AttendenceInfoPage } from '../attendence-info/attendence-info';
+
 
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
 })
 export class LoginPage {
+
+ passwordType:string='password';  
+ passwordShown:boolean=false;
+
 private status:boolean;
 public dataitem:any;
 public user:any=
@@ -126,6 +131,37 @@ REG_NOCHECK(event:any)
 ts()
 {
   this.navCtrl.push(TeacherHomePage);
+  this.navCtrl.push(AttendenceInfoPage);
+  //this.navCtrl.push(AddTimetablePage);
+}
+
+Admin()
+{
+  this.navCtrl.push(AdminHomePage);
+}
+Student()
+{
+  this.navCtrl.push(HomePage);
+}
+Teacher()
+{
+  this.navCtrl.push(TeacherHomePage);
+}
+
+togglePassword()
+{
+  console.log("Toggle");
+  if(this.passwordShown)
+  {
+    this.passwordShown=false;
+    this.passwordType='password';
+  }
+  else
+  {
+    this.passwordShown=true;
+    this.passwordType='text';
+
+  }
 }
 
 }

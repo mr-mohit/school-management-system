@@ -18,12 +18,9 @@ import { TeacherdashboardPage } from '../pages/teacherdashboard/teacherdashboard
 import { AdminDashboardPage } from '../pages/admin-dashboard/admin-dashboard';
 import { TranslateService } from '@ngx-translate/core';
 import { NativeStorage } from '@ionic-native/native-storage';
+import { Push, PushObject, PushOptions } from '@ionic-native/push';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 import { SchoolInfoPage } from '../pages/school-info/school-info';
-import { AddUsersPage } from '../pages/add-users/add-users';
-import { AddClassPage } from '../pages/add-class/add-class';
-import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
-import { StudentTimeTablePage } from '../pages/student-time-table/student-time-table';
-import { StudentResultPage } from '../pages/student-result/student-result';
 
 
 @Component({
@@ -36,6 +33,7 @@ export class MyApp {
     public userId:any;
     public pass:any;
     public type:any;
+    public lang:string;
     //declaration of array for side menu
     Student_a:Array<{title:string, icon:string,component:any,}>;    //array for student
     Teacher_a:Array<{title:string, icon:string,component:any,}>;    //array for teacher
@@ -43,11 +41,26 @@ export class MyApp {
     help:Array<{title:string, icon:string,component:any,}>;         //Same For All
 
   constructor(platform: Platform, statusBar: StatusBar,private nativeStorage: NativeStorage,public toastCtrl: ToastController,
-             public service:ServiceLoginProvider, splashScreen: SplashScreen,public altertCtrl:AlertController,public translate:TranslateService) {
+             public service:ServiceLoginProvider, splashScreen: SplashScreen, private push: Push,
+             public alertCtrl:AlertController,public translate:TranslateService, private localNotifications: LocalNotifications) {
               translate.setDefaultLang('en');
               platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
+      translate.addLangs(["en", "fr"]);
+      translate.setDefaultLang('en');
+      //let browserLang = translate.getBrowserLang();
+      //translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');  used as a fallback procedure
+
+      this.nativeStorage.getItem('languageInfo')
+      .then(
+        data1 => {this.lang=data1.Language,
+                  console.log(this.lang),
+                  translate.use(this.lang); },
+        error => {console.error(error)}
+      
+      );
+  
       statusBar.styleBlackOpaque();
       splashScreen.hide();
 
@@ -136,7 +149,7 @@ export class MyApp {
   goToLogin()
   {
    
-    const confirm = this.altertCtrl.create({
+    const confirm = this.alertCtrl.create({
       title: 'Are You Sure?',
       buttons: [
         {
@@ -178,5 +191,64 @@ this.toast.onDidDismiss((data, role) => {
 });
 this.toast.present();
   }
+
+  //push notification :
+   // for push notification
+   pushSetup() {
+    const options: PushOptions = {
+      android: {
+        senderID: '954708913827'
+      },
+      ios: {
+        alert: 'true',
+        badge: true,
+        sound: 'false'
+      },
+      windows: {},
+      browser: {
+        pushServiceURL: 'http://push.api.phonegap.com/v1/push'
+      }
+    };
+
+    const pushObject: PushObject = this.push.init(options);
+
+     // Here you get the recived Notification Object
+    pushObject.on('notification').subscribe((notification: any) => {
+      //this.showAlert(notification);
+      console.log("Recieved Notification",notification);
+      this.getnotification(notification);
+    });
+
+     //Here we get the FCM id for specific user
+    pushObject.on('registration').subscribe((registration: any) =>{
+       console.log('Device registered', registration)
+    });
+
+    pushObject.on('error').subscribe(error => console.error('Error with Push plugin', error));
+  }
+
+  showAlert(data) {
+    const alert = this.alertCtrl.create({
+      title: data.title,
+      subTitle: data.message,
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
+  // Schedule delayed notification
+  getnotification(notification) {
+    console.log("Recieved Notification Inside Local",notification);
+    this.localNotifications.schedule({
+     
+      title:notification.title,
+      text:notification.message,
+      trigger: { at: new Date(new Date().getTime() + 3600) },
+      data:{'id':1,'name':"nhdhsdjh"}
+      //led: 'FF0000',
+      //sound: isAndroid ? 'file://sound.mp3': 'file://beep.caf',
+    });
+  }
+
  
 }

@@ -33,8 +33,10 @@
                       <ion-icon ios="ios-lock" md="md-lock"  danger></ion-icon>
                     Password
                   </ion-label> 
-                  <ion-input type="password" name="PASSWORD" [(ngModel)]="PASSWORD"></ion-input>
+                  <ion-input [type]="passwordType" name="PASSWORD" [(ngModel)]="PASSWORD"></ion-input>
+                  <ion-icon class="finder" name="eye" [color]="passwordShown === true ? 'dark':'gray'"  on-click="togglePassword()" item-end></ion-icon>
                 </ion-item>
+
                 
                 <ion-item class="Space">
                     <ion-label>
@@ -54,6 +56,11 @@
       </div>
       <button ion-button clear style="margin-left:68px;margin-top: -21px;" on-click="ResetPassword()">Forgot Password ?</button>
          <!-- </div> --> 
+         <!-- <div> 
+           <button  ion-button on-click="Admin()">Admin</button>
+          <button  ion-button on-click="Student()">Student</button>
+          <button  ion-button on-click="Teacher()">Teacher</button>
+        </div> -->
       </div>
       <button ion-button on-click="ts()">teacher</button>
   </div>

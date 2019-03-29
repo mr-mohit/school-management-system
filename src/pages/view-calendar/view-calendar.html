@@ -1,15 +1,21 @@
 <ion-header>
   <ion-navbar color="header">
-    <ion-title>View Calendar</ion-title>
+    <ion-title>View Event Calendar</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+
+  <ion-label><!-- Space Here --></ion-label>
+
   <ion-calendar #calendar (onDaySelect)="onDaySelect($event)"></ion-calendar>
   <ion-list *ngFor="let item of eventlist">
     <ion-item>
       <ion-label>
-        <ion-icon name="attach"  danger></ion-icon>       {{item.EVENT}}
+
+          <ion-label><!-- Space Here --></ion-label>
+          
+        <ion-icon name="attach"></ion-icon>       {{item.EVENT}}
       </ion-label>
     </ion-item>
   </ion-list>
