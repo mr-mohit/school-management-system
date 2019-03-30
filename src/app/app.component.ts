@@ -126,7 +126,7 @@ export class MyApp {
 
   openPage(page)
   {
-    console.log(page.component);
+    //console.log(page.component);
     this.navCtrl.push(page.component);
   }
   // goToHome(params){

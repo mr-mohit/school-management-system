@@ -13,6 +13,7 @@ export class ServiceGetClassMasterProvider {
   public userData:any;
   public eventData:any;
   public attsubject:any;
+  public feedbackData:any;
 
 
   constructor(public http: HttpClient) {
@@ -250,6 +251,33 @@ getAttSubject(url,postId)
   });
 }
 
+// GET FEEDBACK INFO FROM FEEDBACK TABLE IN DATABASE---------------------------------------------------------------->
+getFeedbackFun()
+{
+  var url=this.URL+"getFeedback.php";
+  return this.getFeedback(url);
 
+}
+getFeedback(url)
+{
+  //console.log("service call",sessionData);
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(" ")).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.feedbackData=data['data'];
+        //console.log("FEEDBACK",this.feedbackData);
+      }
+      else
+      {
+        alert("no data fetched");
+      }        
+       resolve(data);
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+
+}
 }
 /////////////////////////////

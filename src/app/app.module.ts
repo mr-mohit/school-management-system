@@ -91,6 +91,9 @@ import { ServiceDeleteUserProvider } from '../providers/service-delete-user/serv
 import { DeleteUserPage } from '../pages/delete-user/delete-user';
 import { SchoolInfoPage } from '../pages/school-info/school-info';
 import { GalleryPage } from '../pages/gallery/gallery';
+import { TeacherFeedbackPage } from '../pages/teacher-feedback/teacher-feedback';
+import { StudentFeedbackPage } from '../pages/student-feedback/student-feedback';
+import { ServiceAddStudentfeedbackProvider } from '../providers/service-add-studentfeedback/service-add-studentfeedback';
  
 
  @NgModule({ 
@@ -155,6 +158,8 @@ import { GalleryPage } from '../pages/gallery/gallery';
     ViewCalendarPage,
     AttendenceInfoPage,
     DeleteUserPage,
+    TeacherFeedbackPage,
+    StudentFeedbackPage,
   ],
   imports: [
     BrowserModule,
@@ -231,6 +236,8 @@ import { GalleryPage } from '../pages/gallery/gallery';
     ViewCalendarPage,
     AttendenceInfoPage,
     DeleteUserPage,
+    TeacherFeedbackPage,
+    StudentFeedbackPage,
   ],
   providers: [
     StatusBar,
@@ -269,6 +276,7 @@ import { GalleryPage } from '../pages/gallery/gallery';
     ServiceAnnouncementProvider,
     ServiceAddEventProvider,
     ServiceDeleteUserProvider,
+    ServiceAddStudentfeedbackProvider,
   
   ]
 })
