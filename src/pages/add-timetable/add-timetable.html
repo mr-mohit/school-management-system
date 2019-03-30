@@ -22,7 +22,7 @@
     <ion-item>
       <ion-label floating>SUBJECT</ion-label>
        <ion-select  name="SUBJECTID" [(ngModel)]="SUBJECTID">
-        <ion-option *ngFor="let i of GU?.attsubject"  value="{{i.SUBJECT_ID}}" >{{i.SUBJECT_NAME}}</ion-option>
+        <ion-option *ngFor="let i of GU?.attsubject">{{i.SUBJECT_ID}}</ion-option>
        </ion-select>
     </ion-item>
 
@@ -30,26 +30,9 @@
       <ion-label floating>
         Time Slot
       </ion-label>
-      <ion-select name="SLOT" [(ngModel)]="SLOT">
-        <ion-option value="9_10">
-          09 AM - 10 AM
-        </ion-option >
-        <ion-option value="10_11">
-          10 AM - 11 AM
-        </ion-option>
-        <ion-option value="11_12">
-          11 AM - 12 PM
-        </ion-option>
-        <ion-option value="12_1">
-          12 PM - 01 PM
-        </ion-option>
-        <ion-option value="01 PM - 02 PM">
-          01 PM - 02 PM
-        </ion-option>
-        <ion-option value="02 PM - 03 PM">
-          02 PM - 03 PM
-        </ion-option>
-      </ion-select>
+    
+
+      
     </ion-item>
 
     <ion-label>
