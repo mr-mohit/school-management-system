@@ -20,9 +20,9 @@
     </ion-item>
 
     <ion-item>
-      <ion-label floating>Subject Name</ion-label>
+      <ion-label floating>SUBJECT</ion-label>
        <ion-select  name="SUBJECTID" [(ngModel)]="SUBJECTID">
-        <ion-option *ngFor="let i of service?.subjectData"  value="{{i.SUBJECT_ID}}" >{{i.SUBJECT_NAME}}</ion-option>
+        <ion-option *ngFor="let i of GU?.attsubject"  value="{{i.SUBJECT_ID}}" >{{i.SUBJECT_NAME}}</ion-option>
        </ion-select>
     </ion-item>
 

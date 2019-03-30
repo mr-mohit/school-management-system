@@ -19,6 +19,7 @@ export class AddTimetablePage {
  public CLASSID:any;
  public SUBJECTID:any;
  public SLOT:any;
+ public Class_id:any;
  public timetableData:any=
  {
    "CLASSID":"",
@@ -29,7 +30,8 @@ export class AddTimetablePage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public service:ServiceGetClassMasterProvider,
               public addtimetable:ServiceAddTimetableProvider,
-              public alertCtrl:AlertController) {
+              public alertCtrl:AlertController,
+              public GU :ServiceGetClassMasterProvider) {
   }
 
   ionViewDidLoad() {
@@ -75,6 +77,15 @@ export class AddTimetablePage {
       alert("plese fill required fields");
     }
 
+  }
+
+
+
+  getSubject(Class)
+  {
+    this.Class_id=Class;
+    //console.log(this.postId['classId']);
+    this.GU.getAttSubjectFun(Class);
   }
 
 }
