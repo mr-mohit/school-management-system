@@ -93,6 +93,12 @@ import { Push } from '@ionic-native/push';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { SchoolInfoPage } from '../pages/school-info/school-info';
 import { GalleryPage } from '../pages/gallery/gallery';
+import { ServiceAdminmessageProvider } from '../providers/service-adminmessage/service-adminmessage';
+import {FileChooser} from '@ionic-native/file-chooser';
+import {FileOpener} from '@ionic-native/file-opener';
+import { TeacherUploadHomeworkPage } from '../pages/teacher-upload-homework/teacher-upload-homework';
+
+
  
 
  @NgModule({ 
@@ -157,6 +163,7 @@ import { GalleryPage } from '../pages/gallery/gallery';
     ViewCalendarPage,
     AttendenceInfoPage,
     DeleteUserPage,
+    TeacherUploadHomeworkPage
   ],
   imports: [
     BrowserModule,
@@ -233,6 +240,7 @@ import { GalleryPage } from '../pages/gallery/gallery';
     ViewCalendarPage,
     AttendenceInfoPage,
     DeleteUserPage,
+    TeacherUploadHomeworkPage
   ],
   providers: [
     StatusBar,
@@ -241,6 +249,8 @@ import { GalleryPage } from '../pages/gallery/gallery';
     SplashScreen,
 
     File, 
+    FileChooser,
+    FileOpener,
     Transfer,
     Camera,
     FilePath,
@@ -273,6 +283,7 @@ import { GalleryPage } from '../pages/gallery/gallery';
     ServiceAnnouncementProvider,
     ServiceAddEventProvider,
     ServiceDeleteUserProvider,
+    ServiceAdminmessageProvider,
   
   ]
 })

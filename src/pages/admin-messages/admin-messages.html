@@ -12,4 +12,79 @@
 
 <ion-content padding>
 
+     <!-- Category Type here -->
+<ion-list>
+      <!-- Sender here -->
+        <ion-item>
+            <ion-label>
+              Send by :
+            </ion-label>
+            <ion-label > {{getuserid.recdata.data[0].REG_NO}}</ion-label>
+        </ion-item>
+    <ion-item>
+        <ion-label>
+          Send to:
+        </ion-label>
+        <ion-select name="receiver" [(ngModel)]="receiver">
+          <ion-option value="Academics">
+            user1
+          </ion-option >
+          <ion-option value="Examination">
+            user2
+          </ion-option>
+          <ion-option value="Events">
+            user3
+            </ion-option>
+            <ion-option value="Sports">
+              user4
+            </ion-option>
+        </ion-select>
+      </ion-item>
+
+      <!-- Title here -->
+      <ion-item>
+          <ion-label floating >
+            Title
+          </ion-label>
+          <ion-textarea type="text" [(ngModel)]="MessageTitle"> </ion-textarea>
+        </ion-item>
+
+        <!-- DESCRIPTION here -->
+
+        <ion-item>
+            <ion-label floating >
+            Message
+            </ion-label>
+            <ion-textarea type="text" [(ngModel)]="MessageDescription" name="MessageDescription"></ion-textarea>
+          </ion-item>
+
+          <!-- blank space -->
+          <ion-label>
+
+          </ion-label>
+
+          <!--Start Date-->
+          
+          <ion-item>
+              <ion-label>Start Date</ion-label>
+              <ion-datetime displayFormat="DD-MMMM-YYYY" placeholder="Select Date" [(ngModel)]="timestarts"></ion-datetime>
+            </ion-item>
+
+        <!-- END DATE -->
+            <ion-item>
+              <ion-label>End Date</ion-label>
+              <ion-datetime displayFormat="DD-MMMM-YYYY" placeholder="Select Date" [(ngModel)]="timeEnds" max="2050"></ion-datetime>
+            </ion-item>
+
+    <!-- blank space -->
+    <ion-label>
+
+    </ion-label>
+
+    <button id="AddMessages" ion-button color="header" on-click="SendMessages()" block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;">
+          Send
+        </button>
+
+  </ion-list>
+
 </ion-content>

@@ -21,11 +21,7 @@ import { NativeStorage } from '@ionic-native/native-storage';
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { SchoolInfoPage } from '../pages/school-info/school-info';
-import { AddUsersPage } from '../pages/add-users/add-users';
-import { AddClassPage } from '../pages/add-class/add-class';
-import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
-import { StudentTimeTablePage } from '../pages/student-time-table/student-time-table';
-import { StudentResultPage } from '../pages/student-result/student-result';
+
 
 
 @Component({
@@ -43,6 +39,7 @@ export class MyApp {
     Teacher_a:Array<{title:string, icon:string,component:any,}>;    //array for teacher
     Admin_a:Array<{title:string,icon:string,component:any}>;        //for Admin
     help:Array<{title:string, icon:string,component:any,}>;         //Same For All
+
 
   constructor(platform: Platform, statusBar: StatusBar,private nativeStorage: NativeStorage,public toastCtrl: ToastController,
              public service:ServiceLoginProvider, splashScreen: SplashScreen, private push: Push,
@@ -212,6 +209,9 @@ this.toast.present();
      //Here we get the FCM id for specific user
     pushObject.on('registration').subscribe((registration: any) =>{
        console.log('Device registered', registration)
+       // here we will insert registration into fcm_key column of user table of our database 
+       // and the row corresponding of the user who has logged in with the corresponding phone
+       
     });
 
     pushObject.on('error').subscribe(error => console.error('Error with Push plugin', error));

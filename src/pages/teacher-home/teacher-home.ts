@@ -6,6 +6,7 @@ import { TeacherAnnouncementPage } from '../teacher-announcement/teacher-announc
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 import { AttendenceInfoPage } from '../attendence-info/attendence-info';
 import { ViewCalendarPage } from '../view-calendar/view-calendar';
+import { TeacherUploadHomeworkPage } from '../teacher-upload-homework/teacher-upload-homework';
 
 @IonicPage()
 @Component({
@@ -35,6 +36,10 @@ export class TeacherHomePage {
   gotoCalendar()
   {
     this.navCtrl.push(ViewCalendarPage);
+  }
+  uploadHW()
+  {
+    this.navCtrl.push(TeacherUploadHomeworkPage);
   }
 
 }
