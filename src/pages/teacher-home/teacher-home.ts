@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { MenuController } from 'ionic-angular';
 import { TeacherAnnouncementPage } from '../teacher-announcement/teacher-announcement';
 //import { MarkAttendancePage } from '../mark-attendance/mark-attendance';
@@ -16,7 +16,7 @@ import { CreateTestPage } from '../create-test/create-test';
 export class TeacherHomePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public Menu: MenuController,
-    public GU:ServiceGetClassMasterProvider,public GCM:ServiceGetClassMasterProvider) {
+    public GU:ServiceGetClassMasterProvider,public GCM:ServiceGetClassMasterProvider,public alertCtrl:AlertController) {
     this.Menu.enable(true);
    
     
@@ -47,5 +47,35 @@ export class TeacherHomePage {
     this.GCM.getTermFun();
     this.GCM.getSubjectFun();
   }
+
+selectClass()
+{
+  let alert = this.alertCtrl.create({
+    title: 'Login',
+    inputs: [
+      {
+        name: 'username',
+        placeholder: 'Username'
+      },
+      {
+        name: 'password',
+        placeholder: 'Password',
+        type: 'password'
+      }
+    ],
+    buttons: [
+      {
+        text: 'Cancel',
+        role: 'cancel',
+        handler: data => {
+          console.log('Cancel clicked');
+        }
+      }
+      
+    ]
+  });
+  alert.present();
+}
+
 
 }

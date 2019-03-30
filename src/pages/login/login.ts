@@ -131,7 +131,7 @@ REG_NOCHECK(event:any)
 ts()
 {
   this.navCtrl.push(TeacherHomePage);
-  this.navCtrl.push(AttendenceInfoPage);
+  // this.navCtrl.push(AttendenceInfoPage);
   //this.navCtrl.push(AddTimetablePage);
 }
 
