@@ -39,6 +39,7 @@ import { NativeStorage } from '@ionic-native/native-storage';
 import { ServiceDeleteSubjectProvider } from '../providers/service-delete-subject/service-delete-subject';
 import { DeleteSubjectsPage } from '../pages/delete-subjects/delete-subjects';
 import { AddSessionPage } from '../pages/add-session/add-session';
+import { ChangePasswordPage } from '../pages/change-password/change-password';
 import { ServiceAddSessionProvider } from '../providers/service-add-session/service-add-session';
 import { ServiceAdminAnnouncements } from '../providers/service-AdminAnnoucement/service-announcement';
 import { ServiceAddTermProvider } from '../providers/service-add-term/service-add-term';
@@ -83,6 +84,8 @@ import { AddTimetablePage } from '../pages/add-timetable/add-timetable';
 import { AboutUsPage } from '../pages/about-us/about-us';
 import { AddEventPage } from '../pages/add-event/add-event';
 import { ServiceAddEventProvider } from '../providers/service-add-event/service-add-event';
+import { ServiceChangepasswordProvider } from '../providers/service-changepassword/service-changepassword';
+import { ServiceAddTimetableProvider } from '../providers/service-add-timetable/service-add-timetable';
 import { MarkAttendancePage } from '../pages/mark-attendance/mark-attendance';
 import { CalendarModule } from 'ionic3-calendar-en';
 import { ViewCalendarPage } from '../pages/view-calendar/view-calendar';
@@ -152,6 +155,7 @@ import { ServiceAddStudentfeedbackProvider } from '../providers/service-add-stud
     AddTimetablePage,
     AboutUsPage,
     AddEventPage,
+    ChangePasswordPage,
     SchoolInfoPage,
     GalleryPage,
     MarkAttendancePage,
@@ -229,6 +233,7 @@ import { ServiceAddStudentfeedbackProvider } from '../providers/service-add-stud
     AddTimetablePage,
     AboutUsPage,
     AddEventPage,
+    ChangePasswordPage,
     DeleteUserPage,
     SchoolInfoPage,
     GalleryPage,
@@ -275,6 +280,9 @@ import { ServiceAddStudentfeedbackProvider } from '../providers/service-add-stud
     ServiceUpdateProvider,
     ServiceAnnouncementProvider,
     ServiceAddEventProvider,
+    ChangePasswordPage,
+    ServiceChangepasswordProvider,
+    ServiceAddTimetableProvider,
     ServiceDeleteUserProvider,
     ServiceAddStudentfeedbackProvider,
   

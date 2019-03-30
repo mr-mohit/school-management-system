@@ -7,10 +7,11 @@ import { TeacherdashboardPage } from '../teacherdashboard/teacherdashboard';
 import { AdminDashboardPage } from '../admin-dashboard/admin-dashboard';
 import { ServiceLoginProvider } from '../../providers/service-login/service-login';
 import { NativeStorage } from '@ionic-native/native-storage';
-
-import { ViewCalendarPage } from '../view-calendar/view-calendar';
+import { AdminHomePage } from '../admin-home/admin-home';
+import { HomePage } from '../home/home';
 import { TeacherHomePage } from '../teacher-home/teacher-home';
 import { AttendenceInfoPage } from '../attendence-info/attendence-info';
+import { AddTimetablePage } from '../add-timetable/add-timetable';
 
 @Component({
   selector: 'page-login',
@@ -126,6 +127,20 @@ REG_NOCHECK(event:any)
 VS()
 {
   this.navCtrl.push(AttendenceInfoPage);
+  //this.navCtrl.push(AddTimetablePage);
+}
+
+Admin()
+{
+  this.navCtrl.push(AdminHomePage);
+}
+Student()
+{
+  this.navCtrl.push(HomePage);
+}
+Teacher()
+{
+  this.navCtrl.push(TeacherHomePage);
 }
 
 }
