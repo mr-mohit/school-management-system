@@ -14,6 +14,7 @@ export class ServiceGetClassMasterProvider {
   public eventData:any;
   public attsubject:any;
   public feedbackData:any;
+  public AttStudentsData:any;
 
 
   constructor(public http: HttpClient) {
@@ -36,7 +37,7 @@ export class ServiceGetClassMasterProvider {
         {
           // alert("Term Added");
           this.classData=data['data'];
-          console.log("classes",this.classData);
+          console.log("classes to be display",this.classData);
 
 
         }
@@ -170,7 +171,7 @@ getUser(url)
       {
         // alert("Term Added");
         this.userData=data['data'];
-        console.log("User",data);
+        console.log("Student of class",this.userData);
 
 
       }
@@ -281,5 +282,39 @@ getFeedback(url)
   });
 
 }
+//GET STUDENTS FOR ATTENDENCE
+getAttStudentsFun(postId)
+{
+  var url=this.URL+"getAttStudent.php";
+  return this.getAttStudents(postId,url);
+
 }
-/////////////////////////////
+getAttStudents(postId,url)
+{
+  //console.log("service call",sessionData);
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(postId)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        // alert("Term Added");
+        this.AttStudentsData=data['data'];
+        console.log("Student of class",this.AttStudentsData);
+
+
+      }
+      else
+      {
+        alert("no data fetched");
+      }        
+      
+       resolve(data);
+
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+
+}
+
+}
+/////////////////////////
