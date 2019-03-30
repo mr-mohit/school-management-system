@@ -203,7 +203,7 @@ getEvent(url,CalendarData)
       {
         // alert("Term Added");
         this.eventData=data['data'][0];
-        console.log("Event",this.eventData);
+        console.log("SchoolEvent",this.eventData);
         //return 1;
       }
       else
@@ -221,19 +221,21 @@ getEvent(url,CalendarData)
 // GET THE INFO FROM USER TABLE---------------------------------------------------------------->
 getAttSubjectFun(postId)
 {
+
   var url=this.URL+"getAttSubject.php";
-  return this.getEvent(url,postId);
+  return this.getAttSubject(url,postId);
 
 }
 getAttSubject(url,postId)
 {
-  //console.log("service call",sessionData);
+  console.log("Class is which we passing to api",postId);
   return new Promise(resolve=>{
     this.http.post(url,JSON.stringify(postId)).subscribe(data=>{
       if(data['statuscode']==1)
       {
         this.attsubject=data['data'];
-        console.log("Event",data);
+        //console.log("Row data",this.attsubject);
+        console.log("Subjects",this.attsubject);
         //return 1;
       }
       else

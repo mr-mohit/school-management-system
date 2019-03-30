@@ -18,11 +18,11 @@
 
     <ion-item>
       <ion-label floating>
-        <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>
-          Subject Name
-        </ion-label>
-       <ion-select  name="subjectId" [(ngModel)]="subjectId">
-        <ion-option *ngFor="let i of service?.subjectData"  value="{{i.SUBJECT_ID}}" >{{i.SUBJECT_NAME}}</ion-option>
+        <ion-icon ios="ios-book" md="md-book"></ion-icon>
+        SUBJECT
+      </ion-label>
+       <ion-select  name="SUBJECTID" [(ngModel)]="SUBJECTID">
+        <ion-option *ngFor="let i of GU?.attsubject"  value="{{i.SUBJECT_ID}}" >{{i.SUBJECT_NAME}}</ion-option>
        </ion-select>
     </ion-item>
 
