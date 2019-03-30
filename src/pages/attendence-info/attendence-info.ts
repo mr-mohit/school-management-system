@@ -30,6 +30,6 @@ export class AttendenceInfoPage {
   {
     this.classID=Class;
     //console.log(this.postId['classId']);
-    this.GU.getAttSubjectFun(this.classID);
+    this.GU.getAttSubjectFun(Class);
   }
 }
