@@ -21,18 +21,17 @@
 
     <ion-item>
       <ion-label floating>SUBJECT</ion-label>
-       <ion-select  name="SUBJECTID" [(ngModel)]="SUBJECTID">
+       <ion-select  name="SUBJECTID" [(ngModel)]="SUBJECTID" (ionChange)="getTimeSlot()">
         <ion-option *ngFor="let i of GU?.attsubject">{{i.SUBJECT_ID}}</ion-option>
        </ion-select>
     </ion-item>
 
     <ion-item>
-      <ion-label floating>
-        Time Slot
-      </ion-label>
-    
+      <ion-label floating>Time Slot</ion-label>
+      <ion-select  name="SLOT" [(ngModel)]="SLOT">
+          <ion-option *ngFor="let i of GU?.timeslot">{{i.SLOT}}</ion-option>
+         </ion-select>
 
-      
     </ion-item>
 
     <ion-label>

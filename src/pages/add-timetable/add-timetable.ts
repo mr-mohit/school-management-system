@@ -74,7 +74,11 @@ export class AddTimetablePage {
 
     }
     else{
-      alert("plese fill required fields");
+
+      console.log("CLASS ID ",this.CLASSID);
+      console.log("SUBJECT ID ",this.SUBJECTID);
+      console.log("SLOT ",this.SLOT);
+      alert("please fill required fields");
     }
 
   }
@@ -86,6 +90,19 @@ export class AddTimetablePage {
     this.Class_id=Class;
     //console.log(this.postId['classId']);
     this.GU.getAttSubjectFun(Class);
+  }
+
+  getTimeSlot()
+  {
+    if(this.CLASSID!=undefined)
+    {
+      console.log("ID HERE : "+this.CLASSID);
+      this.GU.getSlot(this.CLASSID);
+    }
+    else
+    {
+      alert("Please Select Class First");
+    }
   }
 
 }

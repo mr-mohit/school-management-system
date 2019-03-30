@@ -13,6 +13,7 @@ export class ServiceGetClassMasterProvider {
   public userData:any;
   public eventData:any;
   public attsubject:any;
+  public timeslot:any;
 
 
   constructor(public http: HttpClient) {
@@ -252,6 +253,35 @@ getAttSubject(url,postId)
   });
 }
 
+//FOR ADDING TIME TABLE
+getSlot(CLASSID)
+{
+  var url=this.URL+"getTimeSlot.php";
+  return this.getTIMESLOT(url,CLASSID);
+}
+
+getTIMESLOT(url,CLASSID)
+{
+  console.log("GET TIME SLOT FOR CLASS ID: ",CLASSID);
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(CLASSID)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.timeslot=data['data'];
+        console.log("Subject TIME SLOT",this.timeslot);
+        //return 1;
+      }
+      else
+      {
+        alert("NO TIME SLOT IS FREE");
+        //return 0;
+      }        
+       resolve(data);
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+}
 
 }
 /////////////////////////////

@@ -96,7 +96,6 @@ import { Push } from '@ionic-native/push';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { SchoolInfoPage } from '../pages/school-info/school-info';
 import { GalleryPage } from '../pages/gallery/gallery';
-import { TimeslotProvider } from '../providers/timeslot/timeslot';
  
 
  @NgModule({ 
@@ -282,7 +281,6 @@ import { TimeslotProvider } from '../providers/timeslot/timeslot';
     ServiceChangepasswordProvider,
     ServiceAddTimetableProvider,
     ServiceDeleteUserProvider,
-    TimeslotProvider,
   
   ]
 })
