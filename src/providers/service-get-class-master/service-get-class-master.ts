@@ -14,7 +14,7 @@ export class ServiceGetClassMasterProvider {
   public eventData:any;
   public attsubject:any;
   public feedbackData:any;
-  public AttStudentsData:any;
+  public SDC:any;
 
 
   constructor(public http: HttpClient) {
@@ -283,13 +283,13 @@ getFeedback(url)
 
 }
 //GET STUDENTS FOR ATTENDENCE
-getAttStudentsFun(postId)
+getSDCfun(postId)
 {
   var url=this.URL+"getAttStudent.php";
-  return this.getAttStudents(postId,url);
+  return this.getSDC(postId,url);
 
 }
-getAttStudents(postId,url)
+getSDC(postId,url)
 {
   //console.log("service call",sessionData);
   return new Promise(resolve=>{
@@ -297,8 +297,8 @@ getAttStudents(postId,url)
       if(data['statuscode']==1)
       {
         // alert("Term Added");
-        this.AttStudentsData=data['data'];
-        console.log("Student of class",this.AttStudentsData);
+        this.SDC=data['data'];
+        console.log("Student of class",this.SDC);
 
 
       }
