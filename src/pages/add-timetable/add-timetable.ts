@@ -20,7 +20,7 @@ export class AddTimetablePage {
  public SUBJECTID:any;
  public SLOT:any;
  public Day:any;
- public Class_id:any;
+ public status:boolean=false;
  public timetableData:any=
  {
    "CLASSID":"",
@@ -28,6 +28,12 @@ export class AddTimetablePage {
    "SLOT":"",
    "DAY":""
  };
+
+ public fetchTimetableData:any=
+ {
+   "CLASSID":"",
+   "DAY":""
+ }
 
  private Days:any=[
    {Day:"Monday"},
@@ -43,6 +49,8 @@ export class AddTimetablePage {
               public addtimetable:ServiceAddTimetableProvider,
               public alertCtrl:AlertController,
               public GU :ServiceGetClassMasterProvider) {
+               //TO hide Time Table View
+               this.status=false;
   }
 
   ionViewDidLoad() {
@@ -102,12 +110,22 @@ export class AddTimetablePage {
 
   getSubject(Class)
   {
-    this.Class_id=Class;
+    
 //console.log(this.postId['classId']);
+      this.CLASSID=Class;
     this.GU.getAttSubjectFun(Class);
-//For Fetching Time Table of selected Class
-    this.GU.getCurrentTimeTable(Class);
+  }
 
+  //For Fetching Time Table of selected Class and day
+  getCurrentTimeTable(Day)
+  { 
+      this.status=true; //enable view of current timetable
+
+      this.fetchTimetableData['CLASSID']=this.CLASSID;
+      this.fetchTimetableData['DAY']=Day;
+      console.log("HERE ",this.fetchTimetableData)
+   this.GU.getCurrentTimeTable(this.fetchTimetableData)
+  
   }
 
   getTimeSlot()

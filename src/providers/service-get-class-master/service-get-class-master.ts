@@ -287,11 +287,10 @@ getTIMESLOT(url,CLASSID)
 
 //get Time Table for Current Class
 
-getCurrentTimeTable(Class)
+getCurrentTimeTable(Data)
 {
-  console.log("getCurrentTimeTable :",Class);
   var url=this.URL+"getCurrentTimeTable.php";
-  return this.FetchViewTimeTable(url,Class);
+  return this.FetchViewTimeTable(url,Data);
 }
 
 FetchViewTimeTable(url,Class)
@@ -308,6 +307,9 @@ FetchViewTimeTable(url,Class)
       }
       else
       {
+        this.timeview=[
+          {SUBJECT_ID: "NA", SUBJECT_NAME: "NA", TIME_SLOT: "NA", DAY: "NA"}
+        ];
         alert("No Time Table");
         //return 0;
       }        
@@ -320,4 +322,3 @@ FetchViewTimeTable(url,Class)
 }
 
 }
-/////////////////////////////

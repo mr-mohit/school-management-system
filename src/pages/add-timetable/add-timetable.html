@@ -21,6 +21,15 @@
          </ion-select>
     </ion-item>
 
+     <!-- Day -->
+     <ion-item>
+        <ion-label floating>Select Day</ion-label>
+        <ion-select  name="Day" [(ngModel)]="Day" (ionChange)="getCurrentTimeTable(Day)">
+            <ion-option *ngFor="let i of Days">{{i.Day}}</ion-option>
+           </ion-select>
+  
+      </ion-item>
+
     <!-- Select Subject -->
 
     <ion-item>
@@ -30,14 +39,6 @@
        </ion-select>
     </ion-item>
 
-    <!-- Day -->
-    <ion-item>
-        <ion-label floating>Select Day</ion-label>
-        <ion-select  name="Day" [(ngModel)]="Day">
-            <ion-option *ngFor="let i of Days">{{i.Day}}</ion-option>
-           </ion-select>
-  
-      </ion-item>
 
     <!-- Time Slot -->
     <ion-item>
@@ -54,4 +55,55 @@
     <button id="addTimeTable" on-click="submitTimetable(CLASSID,SUBJECTID,SLOT,Day)" ion-button color="header" block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;">
         Save
     </button>
+
+   <ion-label><!-- Space here --></ion-label>
+
+
+   <!-- View for Selected Class TimeTable -->
+
+   <div *ngIf="status">
+   <ion-grid class="head" style="border:solid 1px;">
+      <ion-row >
+        <ion-col >
+          <div>Code</div>
+        </ion-col>
+        <ion-col>
+          <div>Name</div>
+        </ion-col>
+        <ion-col>
+           <div>Time</div>
+        </ion-col>
+        <ion-col>
+          <div>Day</div>
+        </ion-col>
+      </ion-row>
+      
+    </ion-grid>
+    <ion-grid *ngFor="let i of GU?.timeview" style="border:solid 1px;">
+      <ion-row>
+        <ion-col>
+          <div>
+            {{i.SUBJECT_ID}} 
+          </div>
+        </ion-col>
+
+        <ion-col>
+            <div>
+              {{i.SUBJECT_NAME}} 
+            </div>
+          </ion-col>
+
+        <ion-col>
+          <div>
+            {{i.TIME_SLOT}}
+          </div>
+        </ion-col>
+        <ion-col>
+          <div>
+            {{i.DAY}}
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    </div>
 </ion-content>
