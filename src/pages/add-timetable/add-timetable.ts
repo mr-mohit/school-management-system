@@ -33,7 +33,7 @@ export class AddTimetablePage {
  {
    "CLASSID":"",
    "DAY":""
- }
+ };
 
  private Days:any=[
    {Day:"Monday"},

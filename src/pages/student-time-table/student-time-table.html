@@ -10,8 +10,39 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
 
-  
+  <!-- Day -->
+     <ion-item>
+        <ion-label floating>Select Day</ion-label>
+        <ion-select  name="Day" [(ngModel)]="Day" (ionChange)="getTimeTable(Day)">
+            <ion-option *ngFor="let i of Days">{{i.Day}}</ion-option>
+           </ion-select>
+      </ion-item>
+
+
+     <ion-label> <!-- Space Here --></ion-label>
+
+      <ion-grid *ngFor="let i of getData?.StudentTime" style="border:solid 1px;">
+          <ion-row>
+            <ion-col>
+              <div>
+                {{i.SUBJECT_ID}} 
+              </div>
+            </ion-col>
+    
+            <ion-col>
+                <div>
+                  {{i.TIME_SLOT}} 
+                </div>
+              </ion-col>
+    
+            <ion-col>
+              <div>
+                {{i.DAY}}
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
 
 </ion-content>

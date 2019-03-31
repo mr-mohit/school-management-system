@@ -276,7 +276,7 @@ getTIMESLOT(url,CLASSID)
       else
       {
         alert("NO TIME SLOT IS FREE");
-        this.timeslot=[{}]
+        this.timeslot=[{}];
         //return 0;
       }        
        resolve(data);
