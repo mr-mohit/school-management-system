@@ -27,13 +27,14 @@ if($con){
 				
 				$postdata=file_get_contents("php://input");
                  $obj=json_decode($postdata,true);
-	             $id=test_input($obj);
+	             $id=test_input($obj['CLASSID']);
+				 $day=test_input($obj['DAY']);
 
 			//echo"Connection Sucessfull";
 			
-			//select * from timeslot WHERE SLOT not in (select TIME_SLOT from time_table WHERE CLASS_MASTER_ID=15 AND SUBJECT_ID='MTH401')
-			$sql="SELECT * FROM timeslot WHERE SLOT NOT IN(SELECT TIME_SLOT FROM time_table WHERE CLASS_MASTER_ID='$id')";
-           //  $sql="SELECT * FROM class_reg WHERE CLASS_MASTER_ID='$id' and IS_ACTIVE=1";
+
+			$sql="SELECT * FROM timeslot WHERE SLOT NOT IN(SELECT TIME_SLOT FROM time_table WHERE CLASS_MASTER_ID='$id' AND DAY='$day')";
+       
              $query = mysqli_query($con,$sql);
 		         $count = mysqli_num_rows($query);
 				 
