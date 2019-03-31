@@ -19,13 +19,24 @@ export class AddTimetablePage {
  public CLASSID:any;
  public SUBJECTID:any;
  public SLOT:any;
+ public Day:any;
  public Class_id:any;
  public timetableData:any=
  {
    "CLASSID":"",
    "SUBJECTID":"",
-   "SLOT":""
+   "SLOT":"",
+   "DAY":""
  };
+
+ private Days:any=[
+   {Day:"Monday"},
+   {Day:"Tuesday"},
+   {Day:"Wednesday"},
+   {Day:"Thursday"},
+   {Day:"Friday"},
+   {Day:"Saturday"},
+];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public service:ServiceGetClassMasterProvider,
@@ -36,11 +47,12 @@ export class AddTimetablePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddTimetablePage');
+    console.log(this.Days);
   }
 
-  submitTimetable(CLASSID,SUBJECTID,SLOT)
+  submitTimetable(CLASSID,SUBJECTID,SLOT,Day)
   {
-    if(CLASSID!=undefined && SUBJECTID!=undefined && SLOT!=undefined)
+    if(CLASSID!=undefined && SUBJECTID!=undefined && SLOT!=undefined && Day!=undefined)
     {
       const confirm = this.alertCtrl.create({
         title: 'Save Time-table?',
@@ -58,10 +70,12 @@ export class AddTimetablePage {
                           this.CLASSID=CLASSID;
                           this.SUBJECTID=SUBJECTID;
                           this.SLOT=SLOT;
+                          this.Day=Day;
                           this.timetableData['CLASSID']= this.CLASSID;
                           this.timetableData['SUBJECTID']=this.SUBJECTID;
                           this.timetableData['SLOT']= this.SLOT;
-                          console.log("sending data",this.timetableData);
+                          this.timetableData['DAY']=this.Day;
+                          console.log("Sending Time Table -->",this.timetableData);
                           if(this.addtimetable.addtimetableFun(this.timetableData))
                           {
                             this.navCtrl.pop();
@@ -78,6 +92,7 @@ export class AddTimetablePage {
       console.log("CLASS ID ",this.CLASSID);
       console.log("SUBJECT ID ",this.SUBJECTID);
       console.log("SLOT ",this.SLOT);
+      console.log("DAY",this.Day);
       alert("please fill required fields");
     }
 
@@ -88,8 +103,10 @@ export class AddTimetablePage {
   getSubject(Class)
   {
     this.Class_id=Class;
-    //console.log(this.postId['classId']);
+//console.log(this.postId['classId']);
     this.GU.getAttSubjectFun(Class);
+    this.GU.getCurrentTimeTable(Class);
+
   }
 
   getTimeSlot()

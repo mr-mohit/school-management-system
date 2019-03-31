@@ -31,9 +31,10 @@ if($con)
 	   $classid=test_input($obj['CLASSID']);
 	   $subjectid=test_input($obj['SUBJECTID']);
 	   $slot=test_input($obj['SLOT']);
+	   $day=test_input($obj['DAY']);
 	   
 	   
-	   $sql="INSERT INTO time_table(CLASS_MASTER_ID,SUBJECT_ID,TIME_SLOT) VALUES ('$classid','$subjectid','$slot')";
+	   $sql="INSERT INTO time_table(CLASS_MASTER_ID,SUBJECT_ID,TIME_SLOT,DAY) VALUES ('$classid','$subjectid','$slot','$day')";
 	   if(mysqli_query($con,$sql))
 		{
 		   result(1,"success");

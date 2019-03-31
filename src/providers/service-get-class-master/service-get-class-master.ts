@@ -14,6 +14,7 @@ export class ServiceGetClassMasterProvider {
   public eventData:any;
   public attsubject:any;
   public timeslot:any;
+  public timeview:any;
 
 
   constructor(public http: HttpClient) {
@@ -282,6 +283,40 @@ getTIMESLOT(url,CLASSID)
       console.log("Error",error);
     });
   });
+}
+
+//get Time Table for Current Class
+
+getCurrentTimeTable(Class)
+{
+  console.log("getCurrentTimeTable :",Class);
+  var url=this.URL+"getCurrentTimeTable.php";
+  return this.FetchViewTimeTable(url,Class);
+}
+
+FetchViewTimeTable(url,Class)
+{
+  console.log("Class is which we passing to api",Class);
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(Class)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.timeview=data['data'];
+        //console.log("Row data",this.attsubject);
+        console.log("TimeTable for Current Class",this.timeview);
+        //return 1;
+      }
+      else
+      {
+        alert("No Time Table");
+        //return 0;
+      }        
+       resolve(data);
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+
 }
 
 }
