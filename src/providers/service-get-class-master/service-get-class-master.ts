@@ -256,10 +256,10 @@ getAttSubject(url,postId)
 }
 
 //FOR ADDING TIME TABLE
-getSlot(CLASSID)
+getSlot(Data)
 {
   var url=this.URL+"getTimeSlot.php";
-  return this.getTIMESLOT(url,CLASSID);
+  return this.getTIMESLOT(url,Data);
 }
 
 getTIMESLOT(url,CLASSID)
@@ -276,6 +276,7 @@ getTIMESLOT(url,CLASSID)
       else
       {
         alert("NO TIME SLOT IS FREE");
+        this.timeslot=[{}]
         //return 0;
       }        
        resolve(data);

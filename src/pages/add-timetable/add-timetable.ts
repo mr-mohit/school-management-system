@@ -125,20 +125,21 @@ export class AddTimetablePage {
       this.fetchTimetableData['DAY']=Day;
       console.log("HERE ",this.fetchTimetableData)
    this.GU.getCurrentTimeTable(this.fetchTimetableData)
+   this.GU.getSlot(this.fetchTimetableData);
   
   }
 
-  getTimeSlot()
-  {
-    if(this.CLASSID!=undefined)
-    {
-      console.log("ID HERE : "+this.CLASSID);
-      this.GU.getSlot(this.CLASSID);
-    }
-    else
-    {
-      alert("Please Select Class First");
-    }
-  }
+  // getTimeSlot()
+  // {
+  //   if(this.CLASSID!=undefined)
+  //   {
+  //     console.log("ID HERE : "+this.CLASSID);
+  //     this.GU.getSlot(this.CLASSID);
+  //   }
+  //   else
+  //   {
+  //     alert("Please Select Class First");
+  //   }
+  // }
 
 }
