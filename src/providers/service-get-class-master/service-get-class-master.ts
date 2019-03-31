@@ -296,7 +296,7 @@ getCurrentTimeTable(Class)
 
 FetchViewTimeTable(url,Class)
 {
-  console.log("Class is which we passing to api",Class);
+  console.log("Get Time Table of Class-->",Class);
   return new Promise(resolve=>{
     this.http.post(url,JSON.stringify(Class)).subscribe(data=>{
       if(data['statuscode']==1)

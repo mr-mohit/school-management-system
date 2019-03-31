@@ -105,6 +105,7 @@ export class AddTimetablePage {
     this.Class_id=Class;
 //console.log(this.postId['classId']);
     this.GU.getAttSubjectFun(Class);
+//For Fetching Time Table of selected Class
     this.GU.getCurrentTimeTable(Class);
 
   }
