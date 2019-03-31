@@ -225,6 +225,7 @@ getEvent(url,CalendarData)
 getAttSubjectFun(postId)
 {
 
+  console.log("POST ID :",postId);
   var url=this.URL+"getAttSubject.php";
   return this.getAttSubject(url,postId);
 
