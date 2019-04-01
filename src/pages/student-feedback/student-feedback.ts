@@ -50,9 +50,10 @@ export class StudentFeedbackPage {
             this.feedbackData['date']=this.date;
             this.feedbackData['subject']=this.subject;
             this.feedbackData['description']=this.description;
+            console.log(this.feedbackData);
             if(this.addFeedback.postFeedback(this.feedbackData))
             {
-              this.navCtrl.pop();
+              // this.navCtrl.pop();
             }
           }
         },
