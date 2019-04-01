@@ -97,6 +97,7 @@ import { GalleryPage } from '../pages/gallery/gallery';
 import { TeacherFeedbackPage } from '../pages/teacher-feedback/teacher-feedback';
 import { StudentFeedbackPage } from '../pages/student-feedback/student-feedback';
 import { ServiceAddStudentfeedbackProvider } from '../providers/service-add-studentfeedback/service-add-studentfeedback';
+import { FeedbackDetailPage } from '../pages/feedback-detail/feedback-detail';
  
 
  @NgModule({ 
@@ -164,6 +165,7 @@ import { ServiceAddStudentfeedbackProvider } from '../providers/service-add-stud
     DeleteUserPage,
     TeacherFeedbackPage,
     StudentFeedbackPage,
+    FeedbackDetailPage,
   ],
   imports: [
     BrowserModule,
@@ -243,6 +245,7 @@ import { ServiceAddStudentfeedbackProvider } from '../providers/service-add-stud
     DeleteUserPage,
     TeacherFeedbackPage,
     StudentFeedbackPage,
+    FeedbackDetailPage,
   ],
   providers: [
     StatusBar,
