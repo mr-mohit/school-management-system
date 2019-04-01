@@ -16,6 +16,8 @@ export class ServiceGetClassMasterProvider {
   public timeslot:any;
   public timeview:any;
 
+  public SubjectOnTimeTable:any;
+
 
   constructor(public http: HttpClient) {
     
@@ -223,6 +225,43 @@ getEvent(url,CalendarData)
 }
 
 // GET THE INFO FROM USER TABLE---------------------------------------------------------------->
+
+//For Add TimeTable 
+getAttOnTimeSubject(postId)
+{
+  console.log("POST ID :",postId);
+  var url=this.URL+"getAttOnTimeSubject.php";
+  return this.getSubjectOnTimeTable(url,postId);
+}
+getSubjectOnTimeTable(url,postId)
+{
+  console.log("Class is which we passing to api",postId);
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(postId)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.SubjectOnTimeTable=data['data'];
+        //console.log("Row data",this.attsubject);
+        console.log("Subjects",this.SubjectOnTimeTable);
+        //return 1;
+      }
+      else
+      {
+        this.SubjectOnTimeTable=[{}];
+        alert("no data fetched");
+        //return 0;
+      }        
+       resolve(data);
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+
+}
+//End HERE
+
+
+
 getAttSubjectFun(postId)
 {
 

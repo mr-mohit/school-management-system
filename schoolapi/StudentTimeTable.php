@@ -33,8 +33,9 @@ if($con){
 			//echo"Connection Sucessfull";
 			
   
-  
-			$sql="SELECT * from time_table where CLASS_MASTER_ID IN(Select CLASS_MASTER_ID from student_class_reg where REG_NO='$REG_NO') And DAY='$day'";
+    
+	$sql = "SELECT * from time_table where CLASS_MASTER_ID IN(Select CLASS_MASTER_ID from student_class_reg where REG_NO='$REG_NO') And DAY='$day'";
+
        
              $query = mysqli_query($con,$sql);
 		         $count = mysqli_num_rows($query);
