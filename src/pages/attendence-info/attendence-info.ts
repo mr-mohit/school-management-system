@@ -22,14 +22,15 @@ export class AttendenceInfoPage {
 
   Submit()
   {
+    console.log("class id as per students to be display",this.classID);
     this.navCtrl.push(MarkAttendancePage);
-    this.GU.getUserFun();
+    //this.GU.getSDCfun(this.classID);
   }
 
   getSubject(Class)
   {
     this.classID=Class;
     //console.log(this.postId['classId']);
-    this.GU.getAttSubjectFun(Class);
+    this.GU.getAttSubjectFun(this.classID);
   }
 }

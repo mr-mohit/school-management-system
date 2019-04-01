@@ -13,6 +13,8 @@ export class ServiceGetClassMasterProvider {
   public userData:any;
   public eventData:any;
   public attsubject:any;
+  public feedbackData:any;
+  public SDC:any;
   public timeslot:any;
   public timeview:any;
   public SubjectOnTimeTable:any;
@@ -38,7 +40,7 @@ export class ServiceGetClassMasterProvider {
         {
           // alert("Term Added");
           this.classData=data['data'];
-          console.log("classes",this.classData);
+          console.log("classes to be display",this.classData);
 
 
         }
@@ -172,7 +174,7 @@ getUser(url)
       {
         // alert("Term Added");
         this.userData=data['data'];
-        console.log("User",data);
+        console.log("Student of class",this.userData);
 
 
       }
@@ -285,6 +287,34 @@ getAttSubject(url,postId)
       {
         alert("no data fetched");
         //return 0;
+      }        
+       resolve(data);
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+}
+
+// GET FEEDBACK INFO FROM FEEDBACK TABLE IN DATABASE---------------------------------------------------------------->
+getFeedbackFun()
+{
+  var url=this.URL+"getFeedback.php";
+  return this.getFeedback(url);
+
+}
+getFeedback(url)
+{
+  //console.log("service call",sessionData);
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(" ")).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.feedbackData=data['data'];
+        //console.log("FEEDBACK",this.feedbackData);
+      }
+      else
+      {
+        alert("no data fetched");
       }        
        resolve(data);
     },error=>{
