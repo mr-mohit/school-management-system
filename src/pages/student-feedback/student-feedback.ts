@@ -53,7 +53,7 @@ export class StudentFeedbackPage {
             console.log(this.feedbackData);
             if(this.addFeedback.postFeedback(this.feedbackData))
             {
-              // this.navCtrl.pop();
+              this.navCtrl.pop();
             }
           }
         },
