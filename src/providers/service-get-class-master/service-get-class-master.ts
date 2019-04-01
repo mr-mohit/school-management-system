@@ -15,7 +15,6 @@ export class ServiceGetClassMasterProvider {
   public attsubject:any;
   public timeslot:any;
   public timeview:any;
-
   public SubjectOnTimeTable:any;
 
 
