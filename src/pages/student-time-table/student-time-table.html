@@ -23,6 +23,7 @@
 
      <ion-label> <!-- Space Here --></ion-label>
 
+     <div *ngIf="status">
       <ion-grid *ngFor="let i of getData?.StudentTime" style="border:solid 1px;">
           <ion-row>
             <ion-col>
@@ -44,5 +45,6 @@
             </ion-col>
           </ion-row>
         </ion-grid>
+        </div>
 
 </ion-content>

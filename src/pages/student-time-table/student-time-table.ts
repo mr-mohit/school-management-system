@@ -17,6 +17,7 @@ import { ServiceFetchTimeTableProvider } from '../../providers/service-fetch-tim
 })
 export class StudentTimeTablePage {
 
+  public status:boolean=false;
   private REG_NO:any;
   private Days:any=[
     {Day:"Monday"},
@@ -34,6 +35,7 @@ export class StudentTimeTablePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public getREG_NO:ServiceLoginProvider,
     public getData:ServiceFetchTimeTableProvider) {
+      this.status=false;
   }
 
   ionViewDidLoad() {
@@ -48,7 +50,7 @@ export class StudentTimeTablePage {
     this.FetchTimeTable['REG_NO']=this.REG_NO;
     this.FetchTimeTable['DAY']=Day;
     console.log("Data ",this.FetchTimeTable);
-
+    this.status=true;
     this.getData.post(this.FetchTimeTable);
 
   }
