@@ -92,12 +92,15 @@ import { ViewCalendarPage } from '../pages/view-calendar/view-calendar';
 import { AttendenceInfoPage } from '../pages/attendence-info/attendence-info';
 import { ServiceDeleteUserProvider } from '../providers/service-delete-user/service-delete-user';
 import { DeleteUserPage } from '../pages/delete-user/delete-user';
+import { Push } from '@ionic-native/push';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 import { SchoolInfoPage } from '../pages/school-info/school-info';
 import { GalleryPage } from '../pages/gallery/gallery';
 import { TeacherFeedbackPage } from '../pages/teacher-feedback/teacher-feedback';
 import { StudentFeedbackPage } from '../pages/student-feedback/student-feedback';
 import { ServiceAddStudentfeedbackProvider } from '../providers/service-add-studentfeedback/service-add-studentfeedback';
 import { FeedbackDetailPage } from '../pages/feedback-detail/feedback-detail';
+import { ServiceFetchTimeTableProvider } from '../providers/service-fetch-time-table/service-fetch-time-table';
  
 
  @NgModule({ 
@@ -257,6 +260,8 @@ import { FeedbackDetailPage } from '../pages/feedback-detail/feedback-detail';
     Transfer,
     Camera,
     FilePath,
+    Push,
+    LocalNotifications,
 
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ServiceLoginProvider,
@@ -288,6 +293,7 @@ import { FeedbackDetailPage } from '../pages/feedback-detail/feedback-detail';
     ServiceAddTimetableProvider,
     ServiceDeleteUserProvider,
     ServiceAddStudentfeedbackProvider,
+    ServiceFetchTimeTableProvider,
   
   ]
 })

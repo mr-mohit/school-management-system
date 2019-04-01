@@ -15,6 +15,10 @@ export class ServiceGetClassMasterProvider {
   public attsubject:any;
   public feedbackData:any;
   public SDC:any;
+  public timeslot:any;
+  public timeview:any;
+
+  public SubjectOnTimeTable:any;
 
 
   constructor(public http: HttpClient) {
@@ -223,9 +227,47 @@ getEvent(url,CalendarData)
 }
 
 // GET THE INFO FROM USER TABLE---------------------------------------------------------------->
+
+//For Add TimeTable 
+getAttOnTimeSubject(postId)
+{
+  console.log("POST ID :",postId);
+  var url=this.URL+"getAttOnTimeSubject.php";
+  return this.getSubjectOnTimeTable(url,postId);
+}
+getSubjectOnTimeTable(url,postId)
+{
+  console.log("Class is which we passing to api",postId);
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(postId)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.SubjectOnTimeTable=data['data'];
+        //console.log("Row data",this.attsubject);
+        console.log("Subjects",this.SubjectOnTimeTable);
+        //return 1;
+      }
+      else
+      {
+        this.SubjectOnTimeTable=[{}];
+        alert("no data fetched");
+        //return 0;
+      }        
+       resolve(data);
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+
+}
+//End HERE
+
+
+
 getAttSubjectFun(postId)
 {
 
+  console.log("POST ID :",postId);
   var url=this.URL+"getAttSubject.php";
   return this.getAttSubject(url,postId);
 
@@ -280,35 +322,67 @@ getFeedback(url)
       console.log("Error",error);
     });
   });
-
 }
-//GET STUDENTS FOR ATTENDENCE
-getSDCfun(postId)
+//FOR ADDING TIME TABLE
+getSlot(Data)
 {
-  var url=this.URL+"getAttStudent.php";
-  return this.getSDC(postId,url);
-
+  var url=this.URL+"getTimeSlot.php";
+  return this.getTIMESLOT(url,Data);
 }
-getSDC(postId,url)
+
+getTIMESLOT(url,CLASSID)
 {
-  //console.log("service call",sessionData);
+  console.log("GET TIME SLOT FOR CLASS ID: ",CLASSID);
   return new Promise(resolve=>{
-    this.http.post(url,JSON.stringify(postId)).subscribe(data=>{
+    this.http.post(url,JSON.stringify(CLASSID)).subscribe(data=>{
       if(data['statuscode']==1)
       {
-        // alert("Term Added");
-        this.SDC=data['data'];
-        console.log("Student of class",this.SDC);
-
-
+        this.timeslot=data['data'];
+        console.log("Subject TIME SLOT",this.timeslot);
+        //return 1;
       }
       else
       {
-        alert("no data fetched");
+        alert("NO TIME SLOT IS FREE");
+        this.timeslot=[{}];
+        //return 0;
       }        
-      
        resolve(data);
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+}
 
+//get Time Table for Current Class
+
+getCurrentTimeTable(Data)
+{
+  var url=this.URL+"getCurrentTimeTable.php";
+  return this.FetchViewTimeTable(url,Data);
+}
+
+FetchViewTimeTable(url,Class)
+{
+  console.log("Get Time Table of Class-->",Class);
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(Class)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.timeview=data['data'];
+        //console.log("Row data",this.attsubject);
+        console.log("TimeTable for Current Class",this.timeview);
+        //return 1;
+      }
+      else
+      {
+        this.timeview=[
+          {SUBJECT_ID: "NA", SUBJECT_NAME: "NA", TIME_SLOT: "NA", DAY: "NA"}
+        ];
+        alert("No Time Table");
+        //return 0;
+      }        
+       resolve(data);
     },error=>{
       console.log("Error",error);
     });
@@ -317,4 +391,3 @@ getSDC(postId,url)
 }
 
 }
-/////////////////////////

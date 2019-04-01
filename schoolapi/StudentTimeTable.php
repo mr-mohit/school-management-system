@@ -27,17 +27,22 @@ if($con){
 				
 				$postdata=file_get_contents("php://input");
                  $obj=json_decode($postdata,true);
-	             $id=test_input($obj);
+	             $REG_NO=test_input($obj['REG_NO']);
+				 $day=test_input($obj['DAY']);
 
 			//echo"Connection Sucessfull";
-			$sql="SELECT * FROM subject WHERE SUBJECT_ID in (SELECT SUBJECT_ID from class_reg WHERE CLASS_MASTER_ID='$id' AND IS_ACTIVE=1)";
-            // $sql="SELECT * FROM class_reg WHERE CLASS_MASTER_ID='$id' and IS_ACTIVE=1";
+			
+  
+    
+	$sql = "SELECT * from time_table where CLASS_MASTER_ID IN(Select CLASS_MASTER_ID from student_class_reg where REG_NO='$REG_NO') And DAY='$day'";
+
+       
              $query = mysqli_query($con,$sql);
 		         $count = mysqli_num_rows($query);
 				 
 		         if ($count == 0) {
 					 
-			         result(0,"Subject table is Empty.");  
+			         result(0,"Empty.");  
                     }
 		          else{ 
 					     
