@@ -323,6 +323,7 @@ getFeedback(url)
     });
   });
 }
+
 //FOR ADDING TIME TABLE
 getSlot(Data)
 {

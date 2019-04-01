@@ -24,7 +24,7 @@ export class AttendenceInfoPage {
   {
     console.log("class id as per students to be display",this.classID);
     this.navCtrl.push(MarkAttendancePage);
-    this.GU.getSDCfun(this.classID);
+    //this.GU.getSDCfun(this.classID);
   }
 
   getSubject(Class)
