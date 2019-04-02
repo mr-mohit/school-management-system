@@ -3,7 +3,6 @@ import { Platform, Nav, AlertController, ToastController} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from '../pages/login/login';
-import { ViewEventsPage } from '../pages/view-events/view-events';
 import { StudentQuizPage } from '../pages/student-quiz/student-quiz';
 import { GalleryPage } from '../pages/gallery/gallery';
 import { StudentFeedbackPage } from '../pages/student-feedback/student-feedback';
