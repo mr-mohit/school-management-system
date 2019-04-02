@@ -22,9 +22,13 @@ export class TeacherUploadHomeworkPage {
 
   lastfile: any;
   loading: Loading;
+  //here creating object to access file transfer object.  
+   private fileTransfer: TransferObject;  
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private transfer: Transfer, private file: File,private fileChooser: FileChooser, private fileOpener: FileOpener,
+    private transfer: Transfer, private file: File,private fileChooser: FileChooser,
+     private fileOpener: FileOpener,
     private filePath: FilePath,public actionSheetCtrl: ActionSheetController,
     public toastCtrl: ToastController,public loadingCtrl: LoadingController,
     public alertController: AlertController) {
@@ -55,7 +59,8 @@ export class TeacherUploadHomeworkPage {
     });
   }
   
-  public uploadFile(file) {
+  public uploadFile(file) 
+  {
     // Destination URL
     var url = "http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/uploadImage.php";
    
@@ -75,7 +80,7 @@ export class TeacherUploadHomeworkPage {
     });
     this.loading.present();
    
-    // Use the FileTransfer to upload the image
+    // Use the FileTransfer to upload the file
     fileTransfer.upload(this.lastfile, url, options).then(data => {
       this.loading.dismissAll()
       alert('Updation successfull');
@@ -87,5 +92,25 @@ export class TeacherUploadHomeworkPage {
     // present toast
   } 
 
+
+  public download(fileName) 
+  {  
+    //here encoding path as encodeURI() format.  
+    let url = encodeURI("http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/uploadImage.php/Chanda_kumari_resume.pdf");  
+    //here initializing object.  
+    this.fileTransfer = this.transfer.create();  
+    // here i mentioned this line this.file.externalRootDirectory is a native pre-defined file path storage. 
+    //You can change a file path whatever pre-defined method.  
+     this.fileTransfer.download(url, this.file.externalRootDirectory + fileName, true).then((entry) => {  
+        //here logging our success downloaded file path in mobile.  
+        alert('download completed: ' + entry.toURL());  
+      //  alert('download completed');
+    }, (error) => {  
+        //here logging our error its easier to find out what type of error occured.  
+        console.log('download failed: ' + error);  
+        alert('download failed');
+
+    });  
+  } 
 
 }
