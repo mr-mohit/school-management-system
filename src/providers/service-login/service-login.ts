@@ -33,6 +33,7 @@ export class ServiceLoginProvider {
          this.address=this.recdata.address[0]; 
          //console.log(typeof(this.address));
          this.details=this.recdata.data[0];
+         //console.log("regertration number",this.details.REG_NO);
          //console.log("Address");
          //console.log(this.address);
          }else

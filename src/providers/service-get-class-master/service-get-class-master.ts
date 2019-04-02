@@ -15,6 +15,10 @@ export class ServiceGetClassMasterProvider {
   public attsubject:any;
   public testData:any;
   public SDC:any;///to fetch student data according to given class/////
+  public feedbackData:any;
+  public timeslot:any;
+  public timeview:any;
+  public SubjectOnTimeTable:any;
 
 
   constructor(public http: HttpClient) {
@@ -37,7 +41,7 @@ export class ServiceGetClassMasterProvider {
         {
           // alert("Term Added");
           this.classData=data['data'];
-          console.log("classes",this.classData);
+          console.log("classes to be display",this.classData);
 
 
         }
@@ -169,7 +173,7 @@ getUser(url)
       {
         // alert("Term Added");
         this.userData=data['data'];
-        console.log("User",this.userData);
+        console.log("Student of class",this.userData);
 
 
       }
@@ -221,9 +225,47 @@ getEvent(url,CalendarData)
 }
 
 // GET THE INFO FROM USER TABLE---------------------------------------------------------------->
+
+//For Add TimeTable 
+getAttOnTimeSubject(postId)
+{
+  console.log("POST ID :",postId);
+  var url=this.URL+"getAttOnTimeSubject.php";
+  return this.getSubjectOnTimeTable(url,postId);
+}
+getSubjectOnTimeTable(url,postId)
+{
+  console.log("Class is which we passing to api",postId);
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(postId)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.SubjectOnTimeTable=data['data'];
+        //console.log("Row data",this.attsubject);
+        console.log("Subjects",this.SubjectOnTimeTable);
+        //return 1;
+      }
+      else
+      {
+        this.SubjectOnTimeTable=[{}];
+        alert("no data fetched");
+        //return 0;
+      }        
+       resolve(data);
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+
+}
+//End HERE
+
+
+
 getAttSubjectFun(postId)
 {
 
+  console.log("POST ID :",postId);
   var url=this.URL+"getAttSubject.php";
   return this.getAttSubject(url,postId);
 
@@ -268,12 +310,10 @@ getTest(url,CTD)
         this.testData=data['data'];
         //console.log("Row data",this.attsubject);
         console.log("test data",this.testData);
-        //return 1;
       }
       else
       {
         alert("no data fetched");
-        //return 0;
       }        
        resolve(data);
     },error=>{
@@ -281,6 +321,7 @@ getTest(url,CTD)
     });
   });
 }
+
 //GET STUDENTS FOR ATTENDENCE//////////////////////////////////////////////////////////////////
 getSDCFun(CLASS)
 {
@@ -313,5 +354,34 @@ getSDC(CLASS,url)
     });
   });
 
+}
+
+
+// GET FEEDBACK INFO FROM FEEDBACK TABLE IN DATABASE---------------------------------------------------------------->
+getFeedbackFun()
+{
+  var url=this.URL+"getFeedback.php";
+  return this.getFeedback(url);
+
+}
+getFeedback(url)
+{
+  //console.log("service call",sessionData);
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(" ")).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.feedbackData=data['data'];
+        //console.log("FEEDBACK",this.feedbackData);
+      }
+      else
+      {
+        alert("no data fetched");
+      }        
+       resolve(data);
+    },error=>{
+      console.log("Error",error);
+    });
+  });
 }
 }

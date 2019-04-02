@@ -27,23 +27,20 @@ if($con)
 
        $postdata=file_get_contents("php://input");
        $obj=json_decode($postdata,true);
+	   $reg=test_input($obj['reg_no']);
+	   $dat=test_input($obj['date']);
+	   $subject=test_input($obj['subject']);
+	   $description=test_input($obj['description']);
 	   
-	   $classid=test_input($obj['CLASSID']);
-	   $subjectid=test_input($obj['SUBJECTID']);
-	   $slot=test_input($obj['SLOT']);
-	   $day=test_input($obj['DAY']);
-	   
-	   
-	   $sql="INSERT INTO time_table(CLASS_MASTER_ID,SUBJECT_ID,TIME_SLOT,DAY) VALUES ('$classid','$subjectid','$slot','$day')";
+	   $sql="INSERT INTO feedback (ID, REG_NO, DATE, SUBJECT, DESCRIPTION) VALUES (NULL, '$reg', '$dat', '$subject','$description')";
 	   if(mysqli_query($con,$sql))
 		{
+//			echo "Inserted";
 		   result(1,"success");
-
 		}
 		else
 		{
 			result(0,"fail");
-
 		} 	   
 	}
 }

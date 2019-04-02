@@ -5,11 +5,48 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
-    <ion-title>student_feedback</ion-title>
+  <ion-navbar color="header"> 
+    <ion-title>Student Feedback</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
+    <ion-item>
+        <ion-label >
+          Registration No:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          {{log?.details.REG_NO}}
+        </ion-label>
+        <!-- <span></span> -->
+      </ion-item>
+
+      <ion-label>  <!-- For Space --></ion-label>
+
+    <ion-item>
+      <ion-label>Select Date</ion-label>
+      <ion-datetime name="date" displayFormat="DD MMM YYYY" placeholder="Select Date" min="2019" max="2050" [(ngModel)]="date"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+        <ion-label floating >
+          Subject of Feedback
+        </ion-label>
+        <ion-input type="text" [(ngModel)]="subject" name="subject"></ion-input>
+      </ion-item>
+
+      <ion-label>  <!-- For Space --></ion-label>
+
+      <ion-item>
+          <ion-label floating >
+            Description
+          </ion-label>
+          <ion-textarea [(ngModel)]="description" name="description"></ion-textarea>
+        </ion-item>
+  
+        <ion-label>  <!-- For Space --></ion-label>
+
+        <button id="addfeedback" ion-button color="header" on-click="postData(date,subject,description)"
+                block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;">
+          Save
+        </button>
 </ion-content>
