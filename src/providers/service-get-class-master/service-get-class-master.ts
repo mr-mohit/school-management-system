@@ -384,4 +384,74 @@ getFeedback(url)
     });
   });
 }
+
+
+//get Time Table for Current Class
+
+getCurrentTimeTable(Data)
+{
+  var url=this.URL+"getCurrentTimeTable.php";
+  return this.FetchViewTimeTable(url,Data);
+}
+
+FetchViewTimeTable(url,Class)
+{
+  console.log("Get Time Table of Class-->",Class);
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(Class)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.timeview=data['data'];
+        //console.log("Row data",this.attsubject);
+        console.log("TimeTable for Current Class",this.timeview);
+        //return 1;
+      }
+      else
+      {
+        this.timeview=[
+          {SUBJECT_ID: "NA", SUBJECT_NAME: "NA", TIME_SLOT: "NA", DAY: "NA"}
+        ];
+        alert("No Time Table");
+        //return 0;
+
+      }        
+       resolve(data);
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+}
+
+//FOR ADDING TIME TABLE
+getSlot(Data)
+{
+  var url=this.URL+"getTimeSlot.php";
+  return this.getTIMESLOT(url,Data);
+}
+
+getTIMESLOT(url,CLASSID)
+{
+  console.log("GET TIME SLOT FOR CLASS ID: ",CLASSID);
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(CLASSID)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.timeslot=data['data'];
+        console.log("Subject TIME SLOT",this.timeslot);
+        //return 1;
+      }
+      else
+      {
+        alert("NO TIME SLOT IS FREE");
+        this.timeslot=[{}];
+
+        //return 0;
+      }        
+       resolve(data);
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+}
+
 }
