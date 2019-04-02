@@ -385,7 +385,6 @@ getFeedback(url)
   });
 }
 
-
 //get Time Table for Current Class
 
 getCurrentTimeTable(Data)
@@ -413,7 +412,6 @@ FetchViewTimeTable(url,Class)
         ];
         alert("No Time Table");
         //return 0;
-
       }        
        resolve(data);
     },error=>{

@@ -28,9 +28,9 @@
 
     <ion-item>
       <ion-label floating>
-        <ion-icon ios="ios-book" md="md-book"></ion-icon>
-        Select Subject
-      </ion-label> 
+          <ion-icon ios="ios-book" md="md-book"></ion-icon>
+          Select Subject
+        </ion-label> 
       <!-- (ionChange)="getTimeSlot()" -->
        <ion-select  name="SUBJECTID" [(ngModel)]="SUBJECTID">
         <ion-option *ngFor="let i of GU?.SubjectOnTimeTable" value="{{i.SUBJECT_ID}}">{{i.SUBJECT_ID}} : {{i.SUBJECT_NAME}}</ion-option>
@@ -41,7 +41,7 @@
     <!-- Time Slot -->
     <ion-item>
       <ion-label floating>
-        <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>
+          <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>
         Time Slot
       </ion-label>
       <ion-select  name="SLOT" [(ngModel)]="SLOT">
