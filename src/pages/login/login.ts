@@ -10,7 +10,6 @@ import { NativeStorage } from '@ionic-native/native-storage';
 import { AdminHomePage } from '../admin-home/admin-home';
 import { HomePage } from '../home/home';
 import { TeacherHomePage } from '../teacher-home/teacher-home';
-import { AttendenceInfoPage } from '../attendence-info/attendence-info';
 
 
 @Component({
