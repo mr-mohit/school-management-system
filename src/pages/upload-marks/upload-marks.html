@@ -1,15 +1,52 @@
-<!--
-  Generated template for the UploadMarksPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-  <ion-navbar>
-    <ion-title>upload_marks</ion-title>
+  <ion-navbar color="header">
+    <ion-title>Upload Marks</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <ion-grid  style="border:solid 1px;">
+    <ion-row color="header">
+      <ion-col>
+        <div>
+          <ion-label class="center">REG.NO</ion-label> 
+        </div>
+      </ion-col>
+      <ion-col>
+          <div>
+              <ion-label class="center">NAME</ion-label>             
+          </div>
+        </ion-col>
+      <ion-col class="button-container">
+        <div>
+          <ion-label class="center">MARKS</ion-label>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
+  <ion-grid *ngFor="let i of GU?.SDC; let j = index" style="border:solid 1px;">
+    <ion-row >
+      <ion-col>
+        <div>
+          {{i.REG_NO}} 
+        </div>
+      </ion-col>
+      <ion-col>
+          <div>
+           {{i.FIRST_NAME}} {{i.LAST_NAME}} 
+          </div>
+        </ion-col>
+      <ion-col>
+        <ion-item name="MARKS">
+          <ion-input type="number" [(ngModel)]="i[j]"   (ionBlur)=" Save(i.REG_NO,i[j],j)"></ion-input>
+        </ion-item>
+      </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-label>  <!--  for giving space  -->  </ion-label>
+    <button ion-button color="header" on-click="Submit()"
+     block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;">
+      SUBMIT
+</button>
 </ion-content>

@@ -98,6 +98,9 @@ import { SchoolInfoPage } from '../pages/school-info/school-info';
 import { GalleryPage } from '../pages/gallery/gallery';
 import { CreateTestPage } from '../pages/create-test/create-test';
 import { ServiceCreateTestProvider } from '../providers/service-create-test/service-create-test';
+import { UploadMarksPage } from '../pages/upload-marks/upload-marks';
+import { UploadMarksInfoPage } from '../pages/upload-marks-info/upload-marks-info';
+import { ServiceUploadMarksProvider } from '../providers/service-upload-marks/service-upload-marks';
  
 
  @NgModule({ 
@@ -164,6 +167,8 @@ import { ServiceCreateTestProvider } from '../providers/service-create-test/serv
     AttendenceInfoPage,
     DeleteUserPage,
     CreateTestPage,
+    UploadMarksPage,
+    UploadMarksInfoPage,
   ],
   imports: [
     BrowserModule,
@@ -242,6 +247,8 @@ import { ServiceCreateTestProvider } from '../providers/service-create-test/serv
     AttendenceInfoPage,
     DeleteUserPage,
     CreateTestPage,
+    UploadMarksPage,
+    UploadMarksInfoPage,
   ],
   providers: [
     StatusBar,
@@ -286,6 +293,7 @@ import { ServiceCreateTestProvider } from '../providers/service-create-test/serv
     ServiceAddTimetableProvider,
     ServiceDeleteUserProvider,
     ServiceCreateTestProvider,
+    ServiceUploadMarksProvider,
   
   ]
 })

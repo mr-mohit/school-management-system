@@ -10,6 +10,10 @@ import { ServiceCreateTestProvider } from '../../providers/service-create-test/s
   templateUrl: 'create-test.html',
 })
 export class CreateTestPage {
+
+ public classID:any;
+
+
   public CLASS:any;
   public TERM:any;
   public SUBJECT:any;
@@ -90,4 +94,15 @@ export class CreateTestPage {
     }
 
   }
+
+  getSubject(CLASS)
+  {
+    this.classID=CLASS;
+    //console.log(this.postId['classId']);
+    this.cid.getAttSubjectFun(CLASS);
+  }
+
+
+
+
 }

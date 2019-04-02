@@ -4,6 +4,7 @@
 	 
 	 $response=array();
 if($con){
+	
 	 if($_SERVER['REQUEST_METHOD'] == 'POST'){
      function test_input($data) {
 				  global $con;
@@ -23,23 +24,29 @@ if($con){
 				$response['msg']=$msg;
 				echo json_encode($response);
 				}
+				
+				
+				$postdata=file_get_contents("php://input");
+                 $obj=json_decode($postdata,true);
+	             $classID=test_input($obj['CID']);
+				 $subjectID=test_input($obj['SID']);
 
 			//echo"Connection Sucessfull";
-             $sql="SELECT * FROM subject WHERE IS_ACTIVE=1";
+             $sql="SELECT * from class_test_master WHERE CLASS_MASTER_ID='$classID' and SUBJECT_ID='$subjectID'";
              $query = mysqli_query($con,$sql);
 		         $count = mysqli_num_rows($query);
 				 
 		         if ($count == 0) {
-					 
+					
 			         result(0,"Subject table is Empty.");  
                     }
 		          else{ 
 					     
 					   
 								while($row=mysqli_fetch_assoc($query)){						   
-								$data[]=$row;						
+								    $data[]=$row;						
 								}
-								//print_r($data);
+						//		print_r($data);
 						$response['data']=$data;
 						$response['statuscode']=1;
 						echo json_encode($response);

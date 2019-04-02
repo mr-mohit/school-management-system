@@ -7,6 +7,8 @@ import { ServiceGetClassMasterProvider } from '../../providers/service-get-class
 import { AttendenceInfoPage } from '../attendence-info/attendence-info';
 import { ViewCalendarPage } from '../view-calendar/view-calendar';
 import { CreateTestPage } from '../create-test/create-test';
+import { UploadMarksPage } from '../upload-marks/upload-marks';
+import { UploadMarksInfoPage } from '../upload-marks-info/upload-marks-info';
 
 @IonicPage()
 @Component({
@@ -50,32 +52,9 @@ export class TeacherHomePage {
 
 selectClass()
 {
-  let alert = this.alertCtrl.create({
-    title: 'Login',
-    inputs: [
-      {
-        name: 'username',
-        placeholder: 'Username'
-      },
-      {
-        name: 'password',
-        placeholder: 'Password',
-        type: 'password'
-      }
-    ],
-    buttons: [
-      {
-        text: 'Cancel',
-        role: 'cancel',
-        handler: data => {
-          console.log('Cancel clicked');
-        }
-      }
-      
-    ]
-  });
-  alert.present();
-}
+  this.navCtrl.push(UploadMarksInfoPage)
+  this.GCM.getClassFun();
 
+}
 
 }

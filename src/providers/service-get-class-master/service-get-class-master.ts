@@ -13,6 +13,8 @@ export class ServiceGetClassMasterProvider {
   public userData:any;
   public eventData:any;
   public attsubject:any;
+  public testData:any;
+  public SDC:any;///to fetch student data according to given class/////
 
 
   constructor(public http: HttpClient) {
@@ -250,6 +252,66 @@ getAttSubject(url,postId)
   });
 }
 
+// GET TEST ID FOR A SUBJECT OF SOME CLASS//////////////////////////////////////////////////////////////////////////////////////////////////////////
+getTestFun(CTD)
+{
+  var url=this.URL+"getTest.php";
+  return this.getTest(url,CTD);
+}
+
+getTest(url,CTD)
+{
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(CTD)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.testData=data['data'];
+        //console.log("Row data",this.attsubject);
+        console.log("test data",this.testData);
+        //return 1;
+      }
+      else
+      {
+        alert("no data fetched");
+        //return 0;
+      }        
+       resolve(data);
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+}
+//GET STUDENTS FOR ATTENDENCE//////////////////////////////////////////////////////////////////
+getSDCFun(CLASS)
+{
+  var url=this.URL+"getAttStudent.php";
+  return this.getSDC(CLASS,url);
 
 }
-/////////////////////////////
+getSDC(CLASS,url)
+{
+  //console.log("service call",sessionData);
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(CLASS)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        // alert("Term Added");
+        this.SDC=data['data'];
+        console.log("Student of class",this.SDC);
+
+
+      }
+      else
+      {
+        alert("no data fetched");
+      }        
+      
+       resolve(data);
+
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+
+}
+}

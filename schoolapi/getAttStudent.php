@@ -23,15 +23,20 @@ if($con){
 				$response['msg']=$msg;
 				echo json_encode($response);
 				}
+				
+				$postdata=file_get_contents("php://input");
+                 $obj=json_decode($postdata,true);
+	             $id=test_input($obj);
+
 
 			//echo"Connection Sucessfull";
-             $sql="SELECT * FROM subject WHERE IS_ACTIVE=1";
+             $sql="select user.FIRST_NAME,user.LAST_NAME, student_class_reg.REG_NO from student_class_reg inner join user on student_class_reg.REG_NO=user.REG_NO and student_class_reg.CLASS_MASTER_ID='$id'";
              $query = mysqli_query($con,$sql);
 		         $count = mysqli_num_rows($query);
 				 
 		         if ($count == 0) {
 					 
-			         result(0,"Subject table is Empty.");  
+			         result(0,"User Table is Empty.");  
                     }
 		          else{ 
 					     
@@ -59,3 +64,4 @@ if($con){
 
 	
 ?>
+

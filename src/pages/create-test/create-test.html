@@ -11,7 +11,7 @@
         <ion-icon ios="ios-people" md="md-people"></ion-icon>
         Select Class
       </ion-label>
-       <ion-select  name="CLASS" [(ngModel)]="CLASS">
+       <ion-select  name="CLASS" [(ngModel)]="CLASS" (ionChange)="getSubject(CLASS)">
   
         <ion-option *ngFor="let a of cid?.classData"  value="{{a.CLASS_MASTER_ID}}" >{{a.CLASS}} {{a.SECTION}}</ion-option>
         
@@ -37,7 +37,7 @@
                 </ion-label>
                  <ion-select  name="SUBJECT" [(ngModel)]="SUBJECT">
             
-                  <ion-option *ngFor="let d of cid?.subjectData"  value="{{d.SUBJECT_ID}}" > {{d.SUBJECT_ID}} {{d.SUBJECT_NAME}}</ion-option>
+                  <ion-option *ngFor="let d of cid?.attsubject"  value="{{d.SUBJECT_ID}}" > {{d.SUBJECT_ID}} {{d.SUBJECT_NAME}}</ion-option>
                   
                  </ion-select>
               </ion-item>

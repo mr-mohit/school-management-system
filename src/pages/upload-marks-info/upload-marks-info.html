@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar color="header">
+    <ion-title>Upload Marks Info</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+ <ion-list>
+    <ion-item>
+      <ion-label floating>
+          <ion-icon ios="ios-people" md="md-people"></ion-icon>
+        Class
+      </ion-label>
+       <ion-select  name="CLASS" [(ngModel)]="CLASS" (ionChange)="getSubject(CLASS)">
+        <ion-option *ngFor="let i of GU?.classData"  value="{{i.CLASS_MASTER_ID}}" >{{i.CLASS}} {{i.SECTION}}</ion-option>
+       </ion-select>
+    </ion-item>
+    <ion-item>
+        <ion-label floating>
+            <ion-icon ios="ios-book" md="md-book"></ion-icon>
+          SUBJECT
+        </ion-label>
+         <ion-select  name="SUBJECT" [(ngModel)]="SUBJECT"  (ionChange)="getTest(SUBJECT)">
+          <ion-option *ngFor="let i of GU?.attsubject"  value="{{i.SUBJECT_ID}}" >{{i.SUBJECT_ID}} {{i.SUBJECT_NAME}}</ion-option>
+         </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>
+          Test
+      </ion-label>
+         <ion-select  name="TEST" [(ngModel)]="TEST" >
+          <ion-option *ngFor="let i of GU?.testData"  value="{{i.CLASS_TEST_ID}}" >{{i.TEST_NAME}} {{i.TOTAL_MARKS}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+
+ </ion-list>
+
+ <button ion-button color="header" on-click="Submit(CLASS,SUBJECT,TEST)"
+ block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;">
+ Next
+</button>
+</ion-content>
