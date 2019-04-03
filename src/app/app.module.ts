@@ -97,6 +97,7 @@ import { GalleryPage } from '../pages/gallery/gallery';
 import { TeacherFeedbackPage } from '../pages/teacher-feedback/teacher-feedback';
 import { StudentFeedbackPage } from '../pages/student-feedback/student-feedback';
 import { ServiceAddStudentfeedbackProvider } from '../providers/service-add-studentfeedback/service-add-studentfeedback';
+import { ServiceUploadAttendenceProvider } from '../providers/service-upload-attendence/service-upload-attendence';
  
 
  @NgModule({ 
@@ -285,6 +286,7 @@ import { ServiceAddStudentfeedbackProvider } from '../providers/service-add-stud
     ServiceAddTimetableProvider,
     ServiceDeleteUserProvider,
     ServiceAddStudentfeedbackProvider,
+    ServiceUploadAttendenceProvider,
   
   ]
 })

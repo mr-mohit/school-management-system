@@ -20,11 +20,20 @@ export class AttendenceInfoPage {
     console.log('ionViewDidLoad AttendenceInfoPage');
   }
 
-  Submit()
+  Submit(DATE,TIME,SLOT,Class,Subject)
   {
-    console.log("class id as per students to be display",this.classID);
-    this.navCtrl.push(MarkAttendancePage);
-    this.GU.getSDCfun(this.classID);
+    console.log("Date",DATE," Time",TIME,'TIME-SLOT',SLOT,"Class_ID",Class,"Sobject",Subject)
+    //console.log("class id as per students to be display",this.classID);
+    if(DATE!=undefined && TIME!= undefined && SLOT!=undefined && Class!=undefined && Subject!=undefined)
+    {
+      this.navCtrl.push(MarkAttendancePage,{"date":DATE,"time":TIME,"slot":SLOT,"class":Class,"subject":Subject});
+      this.GU.getSDCfun(this.classID);
+    }
+    else
+    {
+      alert("Please select required fields.")
+    }
+    
   }
 
   getSubject(Class)

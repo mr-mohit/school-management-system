@@ -16,6 +16,8 @@ export class ServiceGetClassMasterProvider {
   public feedbackData:any;
   public SDC:any;
 
+  public attendence:any=[];
+
 
   constructor(public http: HttpClient) {
     
@@ -298,7 +300,13 @@ getSDC(postId,url)
       {
         // alert("Term Added");
         this.SDC=data['data'];
+        for (var i in this.SDC)
+        {
+          this.attendence[i]=this.SDC[i]
+          this.attendence[i].status ="A";
+        }
         console.log("Student of class",this.SDC);
+        console.log("temp Attendance sheet",this.attendence);
 
 
       }
