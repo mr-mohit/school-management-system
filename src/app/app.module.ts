@@ -108,6 +108,7 @@ import { FeedbackDetailPage } from '../pages/feedback-detail/feedback-detail';
 import { ServiceFetchTimeTableProvider } from '../providers/service-fetch-time-table/service-fetch-time-table';
 import { ResultPage } from '../pages/result/result';
 import { ServiceGetResultProvider } from '../providers/service-get-result/service-get-result';
+import { ServiceUploadAttendenceProvider } from '../providers/service-upload-attendence/service-upload-attendence';
  
 
  @NgModule({ 
@@ -312,6 +313,7 @@ import { ServiceGetResultProvider } from '../providers/service-get-result/servic
     ServiceAddStudentfeedbackProvider,
     ServiceFetchTimeTableProvider,
     ServiceGetResultProvider,
+    ServiceUploadAttendenceProvider,
   
   ]
 })
