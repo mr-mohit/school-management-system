@@ -106,6 +106,8 @@ import { StudentFeedbackPage } from '../pages/student-feedback/student-feedback'
 import { ServiceAddStudentfeedbackProvider } from '../providers/service-add-studentfeedback/service-add-studentfeedback';
 import { FeedbackDetailPage } from '../pages/feedback-detail/feedback-detail';
 import { ServiceFetchTimeTableProvider } from '../providers/service-fetch-time-table/service-fetch-time-table';
+import { ResultPage } from '../pages/result/result';
+import { ServiceGetResultProvider } from '../providers/service-get-result/service-get-result';
  
 
  @NgModule({ 
@@ -177,6 +179,7 @@ import { ServiceFetchTimeTableProvider } from '../providers/service-fetch-time-t
     TeacherFeedbackPage,
     StudentFeedbackPage,
     FeedbackDetailPage,
+    ResultPage,
   ],
   imports: [
     BrowserModule,
@@ -260,6 +263,7 @@ import { ServiceFetchTimeTableProvider } from '../providers/service-fetch-time-t
     TeacherFeedbackPage,
     StudentFeedbackPage,
     FeedbackDetailPage,
+    ResultPage,
   ],
   providers: [
     StatusBar,
@@ -307,6 +311,7 @@ import { ServiceFetchTimeTableProvider } from '../providers/service-fetch-time-t
     ServiceUploadMarksProvider,
     ServiceAddStudentfeedbackProvider,
     ServiceFetchTimeTableProvider,
+    ServiceGetResultProvider,
   
   ]
 })

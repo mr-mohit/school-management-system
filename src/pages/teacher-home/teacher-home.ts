@@ -7,7 +7,6 @@ import { ServiceGetClassMasterProvider } from '../../providers/service-get-class
 import { AttendenceInfoPage } from '../attendence-info/attendence-info';
 import { ViewCalendarPage } from '../view-calendar/view-calendar';
 import { CreateTestPage } from '../create-test/create-test';
-import { UploadMarksPage } from '../upload-marks/upload-marks';
 import { UploadMarksInfoPage } from '../upload-marks-info/upload-marks-info';
 
 @IonicPage()
