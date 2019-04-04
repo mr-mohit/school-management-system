@@ -13,7 +13,7 @@
 <ion-content padding>
   <form>
     <ion-item>
-      <ion-label>Class</ion-label>
+      <ion-label>Session</ion-label>
        <ion-select  name="SESSION" [(ngModel)]="SESSION">
   
         <ion-option *ngFor="let i of cid?.sessionData"  value="{{i.SESSION_MASTER_ID}}" >{{i.SESSION_START_DATE}} {{i.SESSION_END_DATE}}</ion-option>

@@ -100,11 +100,18 @@ import { ServiceAdminmessageProvider } from '../providers/service-adminmessage/s
 import {FileChooser} from '@ionic-native/file-chooser';
 import {FileOpener} from '@ionic-native/file-opener';
 import { TeacherUploadHomeworkPage } from '../pages/teacher-upload-homework/teacher-upload-homework';
+import { CreateTestPage } from '../pages/create-test/create-test';
+import { ServiceCreateTestProvider } from '../providers/service-create-test/service-create-test';
+import { UploadMarksPage } from '../pages/upload-marks/upload-marks';
+import { UploadMarksInfoPage } from '../pages/upload-marks-info/upload-marks-info';
+import { ServiceUploadMarksProvider } from '../providers/service-upload-marks/service-upload-marks';
 import { TeacherFeedbackPage } from '../pages/teacher-feedback/teacher-feedback';
 import { StudentFeedbackPage } from '../pages/student-feedback/student-feedback';
 import { ServiceAddStudentfeedbackProvider } from '../providers/service-add-studentfeedback/service-add-studentfeedback';
 import { FeedbackDetailPage } from '../pages/feedback-detail/feedback-detail';
 import { ServiceFetchTimeTableProvider } from '../providers/service-fetch-time-table/service-fetch-time-table';
+import { ResultPage } from '../pages/result/result';
+import { ServiceGetResultProvider } from '../providers/service-get-result/service-get-result';
  
 
  @NgModule({ 
@@ -171,9 +178,14 @@ import { ServiceFetchTimeTableProvider } from '../providers/service-fetch-time-t
     AttendenceInfoPage,
     DeleteUserPage,
     TeacherUploadHomeworkPage,
+    CreateTestPage,
+    UploadMarksPage,
+    UploadMarksInfoPage,
+    TeacherFeedbackPage,
     StudentFeedbackPage,
     TeacherFeedbackPage,
     FeedbackDetailPage,
+    ResultPage,
   ],
   imports: [
     BrowserModule,
@@ -253,8 +265,13 @@ import { ServiceFetchTimeTableProvider } from '../providers/service-fetch-time-t
     AttendenceInfoPage,
     DeleteUserPage,
     TeacherUploadHomeworkPage,
+    CreateTestPage,
+    UploadMarksPage,
+    UploadMarksInfoPage,
+    TeacherFeedbackPage,
     StudentFeedbackPage,
     FeedbackDetailPage,
+    ResultPage,
   ],
   providers: [
     StatusBar,
@@ -301,8 +318,11 @@ import { ServiceFetchTimeTableProvider } from '../providers/service-fetch-time-t
     ServiceAddTimetableProvider,
     ServiceDeleteUserProvider,
     ServiceAdminmessageProvider,
+    ServiceCreateTestProvider,
+    ServiceUploadMarksProvider,
     ServiceAddStudentfeedbackProvider,
     ServiceFetchTimeTableProvider,
+    ServiceGetResultProvider,
   
   ]
 })

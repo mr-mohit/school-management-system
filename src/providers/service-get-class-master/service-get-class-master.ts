@@ -13,8 +13,9 @@ export class ServiceGetClassMasterProvider {
   public userData:any;
   public eventData:any;
   public attsubject:any;
+  public testData:any;
+  public SDC:any;///to fetch student data according to given class/////
   public feedbackData:any;
-  public SDC:any;
   public timeslot:any;
   public timeview:any;
   public SubjectOnTimeTable:any;
@@ -140,9 +141,7 @@ export class ServiceGetClassMasterProvider {
         {
           // alert("Term Added");
           this.termData=data['data'];
-          console.log("Terms",data);
-
-
+          console.log("Terms",this.termData);
         }
         else
         {
@@ -295,6 +294,69 @@ getAttSubject(url,postId)
   });
 }
 
+// GET TEST ID FOR A SUBJECT OF SOME CLASS//////////////////////////////////////////////////////////////////////////////////////////////////////////
+getTestFun(CTD)
+{
+  var url=this.URL+"getTest.php";
+  return this.getTest(url,CTD);
+}
+
+getTest(url,CTD)
+{
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(CTD)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.testData=data['data'];
+        //console.log("Row data",this.attsubject);
+        console.log("test data",this.testData);
+      }
+      else
+      {
+        alert("no data fetched");
+      }        
+       resolve(data);
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+}
+
+//GET STUDENTS FOR ATTENDENCE//////////////////////////////////////////////////////////////////
+getSDCFun(CLASS)
+{
+  var url=this.URL+"getAttStudent.php";
+  return this.getSDC(CLASS,url);
+
+}
+getSDC(CLASS,url)
+{
+  //console.log("service call",sessionData);
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(CLASS)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        // alert("Term Added");
+        this.SDC=data['data'];
+        console.log("Student of class",this.SDC);
+
+
+      }
+      else
+      {
+        alert("no data fetched");
+      }        
+      
+       resolve(data);
+
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+
+}
+
+
 // GET FEEDBACK INFO FROM FEEDBACK TABLE IN DATABASE---------------------------------------------------------------->
 getFeedbackFun()
 {
@@ -315,37 +377,6 @@ getFeedback(url)
       else
       {
         alert("no data fetched");
-      }        
-       resolve(data);
-    },error=>{
-      console.log("Error",error);
-    });
-  });
-}
-
-//FOR ADDING TIME TABLE
-getSlot(Data)
-{
-  var url=this.URL+"getTimeSlot.php";
-  return this.getTIMESLOT(url,Data);
-}
-
-getTIMESLOT(url,CLASSID)
-{
-  console.log("GET TIME SLOT FOR CLASS ID: ",CLASSID);
-  return new Promise(resolve=>{
-    this.http.post(url,JSON.stringify(CLASSID)).subscribe(data=>{
-      if(data['statuscode']==1)
-      {
-        this.timeslot=data['data'];
-        console.log("Subject TIME SLOT",this.timeslot);
-        //return 1;
-      }
-      else
-      {
-        alert("NO TIME SLOT IS FREE");
-        this.timeslot=[{}];
-        //return 0;
       }        
        resolve(data);
     },error=>{
@@ -387,7 +418,40 @@ FetchViewTimeTable(url,Class)
       console.log("Error",error);
     });
   });
+}
 
+//FOR ADDING TIME TABLE
+getSlot(Data)
+{
+  var url=this.URL+"getTimeSlot.php";
+  return this.getTIMESLOT(url,Data);
+}
+
+getTIMESLOT(url,CLASSID)
+{
+  console.log("GET TIME SLOT FOR CLASS ID: ",CLASSID);
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(CLASSID)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.timeslot=data['data'];
+        console.log("Subject TIME SLOT",this.timeslot);
+        //return 1;
+      }
+      else
+      {
+        alert("NO TIME SLOT IS FREE");
+        this.timeslot=[{}];
+
+        //return 0;
+      }        
+       resolve(data);
+    },error=>{
+      console.log("Error",error);
+    });
+  });
 }
 
 }
+
+// THIS IS THE END OF FILE

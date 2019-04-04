@@ -8,6 +8,7 @@
   
       <ion-item>
           <ion-label floating >
+            <ion-icon ios="ios-information-circle" md="md-information-circle"></ion-icon>
             Subject ID
           </ion-label>
           <ion-input type="text" [(ngModel)]="subjectid" (keyup)="idcheck($event)" name="subjectid"></ion-input>
@@ -15,6 +16,7 @@
         
   <ion-item>
     <ion-label floating >
+      <ion-icon ios="ios-book" md="md-book"></ion-icon>
       Subject Name
     </ion-label>
     
@@ -23,6 +25,7 @@
 
   <ion-item>
     <ion-label floating>
+      <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>
       Subject Type
     </ion-label>
     <ion-select name="subjecttype" [(ngModel)]="subjecttype">
@@ -37,6 +40,7 @@
 
     <ion-item>
       <ion-label floating>
+          <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>
         Subject Material
       </ion-label>
       <ion-select name="subjectmaterial" [(ngModel)]="subjectmaterial">

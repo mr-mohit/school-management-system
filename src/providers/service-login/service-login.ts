@@ -41,7 +41,7 @@ export class ServiceLoginProvider {
            //console.log("Worng")
            alert("Invalid REGISTRATION NO or PASSWORD");
          }
-         resolve(data);
+         resolve(data);``
 
       },error=>{
         console.log(" error: invalid username and/or password");

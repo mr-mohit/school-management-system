@@ -1,9 +1,3 @@
-<!--
-  Generated template for the UpdateUserPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar color="header">
     <ion-title>Update User</ion-title>
@@ -72,7 +66,10 @@
                 </ion-item> -->
                   <!-- user first name -->
                 <ion-item>
-                    <ion-label floating>User First Name</ion-label>
+                    <ion-label floating>
+                        <ion-icon ios="ios-person" md="md-person"></ion-icon>
+                        User First Name
+                    </ion-label>
                     <ion-input formControlName="userfirstname" type="text" [class.invalid]="!slideOneForm.controls.userfirstname.valid && (slideOneForm.controls.userfirstname.dirty || submitAttempt)"> 
                          </ion-input>
                 </ion-item>
@@ -83,7 +80,10 @@
                 </ion-item>
                   <!-- user last name -->
                 <ion-item>
-                    <ion-label floating>User Last Name</ion-label>
+                    <ion-label floating>
+                        <ion-icon ios="ios-person" md="md-person"></ion-icon>
+                        User Last Name
+                    </ion-label>
                     <ion-input formControlName="userlastname" type="text" [class.invalid]="!slideOneForm.controls.userlastname.valid && (slideOneForm.controls.userlastname.dirty || submitAttempt)" > 
                          
                     </ion-input>
@@ -95,7 +95,10 @@
                 
                   <!-- user gender -->
                 <ion-item>
-                    <ion-label floating>User gender</ion-label>
+                    <ion-label floating>
+                        <ion-icon ios="ios-male" md="md-male"></ion-icon>
+                        User gender
+                    </ion-label>
                     <ion-select  [placeholder]="slideOneForm.controls.usergender.value" formControlName="usergender" [class.invalid]="!slideOneForm.controls.usergender.valid && (slideOneForm.controls.usergender.dirty || submitAttempt)">
                           <ion-option value="male">
                                 male
@@ -111,7 +114,10 @@
                 </ion-item>
                   <!-- user date of birth -->
                 <ion-item>
-                    <ion-label floating>User Date of Birth</ion-label>
+                    <ion-label floating>
+                        <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
+                        User Date of Birth
+                    </ion-label>
                       <ion-datetime display-format="MMMM YYYY" min="1930" max="2012-12-31" formControlName="userdob" [class.invalid]="!slideOneForm.controls.userdob.valid && (slideOneForm.controls.userdob.dirty || submitAttempt)"  > 
                       </ion-datetime>
                     
@@ -137,7 +143,10 @@
                  
                   <!-- user email -->
                 <ion-item>
-                    <ion-label floating>User email </ion-label>
+                    <ion-label floating>
+                        <ion-icon ios="ios-at" md="md-at"></ion-icon>
+                        User email 
+                    </ion-label>
                     <ion-input formControlName="useremail" type="email" [class.invalid]="!slideTwoForm.controls.useremail.valid && (slideTwoForm.controls.useremail.dirty || submitAttempt)"> </ion-input>
                 </ion-item>
 
@@ -147,7 +156,10 @@
                 
                   <!-- user password -->
                 <ion-item>
-                    <ion-label floating>User password</ion-label>
+                    <ion-label floating>
+                        <ion-icon ios="ios-lock" md="md-lock"></ion-icon>
+                        User password
+                    </ion-label>
                     <ion-input formControlName="userpassword" type="password" [class.invalid]="!slideTwoForm.controls.userpassword.valid && (slideTwoForm.controls.userpassword.dirty || submitAttempt)" ></ion-input>
                 </ion-item>
 
@@ -156,7 +168,10 @@
                 </ion-item>
                   <!-- user confirm password -->
                 <ion-item>
-                    <ion-label floating>Confirm password</ion-label>
+                    <ion-label floating>
+                        <ion-icon ios="ios-lock" md="md-lock"></ion-icon>
+                        Confirm password
+                    </ion-label>
                     <ion-input formControlName="userpassword2" type="password" [class.invalid]="!slideTwoForm.controls.userpassword2.valid && (slideTwoForm.controls.userpassword2.dirty || submitAttempt)"></ion-input>
                 </ion-item>
 
@@ -166,7 +181,10 @@
 
                   <!-- user father's name -->
                 <ion-item>
-                    <ion-label floating>User father_Name</ion-label>
+                    <ion-label floating>
+                        <ion-icon ios="ios-text" md="md-text"></ion-icon>
+                        User father_Name
+                    </ion-label>
                     <ion-input formControlName="userfathername" type="text" [class.invalid]="!slideTwoForm.controls.userfathername.valid && (slideTwoForm.controls.userfathername.dirty || submitAttempt)" ></ion-input>
                 </ion-item>
 
@@ -175,7 +193,10 @@
                 </ion-item>
                        <!-- user mother's name -->
                 <ion-item>
-                    <ion-label floating>User Mother_Name </ion-label>
+                    <ion-label floating>
+                        <ion-icon ios="ios-text" md="md-text"></ion-icon>
+                        User Mother_Name 
+                    </ion-label>
                     <ion-input formControlName="usermothername" type="text" [class.invalid]="!slideTwoForm.controls.usermothername.valid && (slideTwoForm.controls.usermothername.dirty || submitAttempt)"></ion-input>
                 </ion-item>
 
@@ -184,7 +205,10 @@
                 </ion-item>
                        <!-- user city -->
                 <ion-item>
-                    <ion-label floating>User City </ion-label>
+                    <ion-label floating>
+                            <ion-icon ios="ios-locate" md="md-locate"></ion-icon>
+                        User City 
+                    </ion-label>
                     <ion-input formControlName="usercity" type="text" [class.invalid]="!slideTwoForm.controls.usercity.valid && (slideTwoForm.controls.usercity.dirty || submitAttempt)" ></ion-input>
                 </ion-item>
 
@@ -206,7 +230,10 @@
                  
                   <!-- addressType -->
                 <ion-item>
-                    <ion-label floating>address Type </ion-label>
+                    <ion-label floating>
+                        <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>
+                        address Type 
+                    </ion-label>
                    <ion-select [placeholder]="slideThreeForm.controls.addressType.value" formControlName="addressType" [class.invalid]="!slideThreeForm.controls.addressType.valid && (slideThreeForm.controls.addressType.dirty || submitAttempt)" >
                           <ion-option value="Permanent">
                                 Permanent
@@ -223,7 +250,10 @@
                 
                   <!-- address Line 1 -->
                 <ion-item>
-                    <ion-label floating>address Line 1</ion-label>
+                    <ion-label floating>
+                        <ion-icon ios="ios-text" md="md-text"></ion-icon>
+                        address Line 1
+                    </ion-label>
                     <ion-input formControlName="address1" type="text" [class.invalid]="!slideThreeForm.controls.address1.valid && (slideThreeForm.controls.addressType.dirty || submitAttempt)" ></ion-input>
                 </ion-item>
 
@@ -232,7 +262,10 @@
                 </ion-item>
                   <!-- address Line 2 -->
                 <ion-item>
-                    <ion-label floating>address Line 2</ion-label>
+                    <ion-label floating>
+                        <ion-icon ios="ios-text" md="md-text"></ion-icon>
+                        address Line 2
+                    </ion-label>
                     <ion-input formControlName="address2" type="text" [class.invalid]="!slideThreeForm.controls.address2.valid && (slideThreeForm.controls.address2.dirty || submitAttempt)" ></ion-input>
                 </ion-item>
 
@@ -242,7 +275,10 @@
 
                   <!-- state -->
                 <ion-item>
-                    <ion-label floating>state</ion-label>
+                    <ion-label floating>
+                        <ion-icon ios="ios-locate" md="md-locate"></ion-icon>
+                        state
+                    </ion-label>
                     <ion-input formControlName="state" type="text" [class.invalid]="!slideThreeForm.controls.state.valid && (slideThreeForm.controls.state.dirty || submitAttempt)"></ion-input>
                 </ion-item>
 
@@ -251,7 +287,10 @@
                 </ion-item>
                    <!-- Pin Code -->
                 <ion-item>
-                    <ion-label floating>Pin Code </ion-label>
+                    <ion-label floating>
+                        <ion-icon ios="ios-calculator" md="md-calculator"></ion-icon>
+                        Pin Code 
+                    </ion-label>
                     <ion-input formControlName="pincode" type="number" [class.invalid]="!slideThreeForm.controls.pincode.valid && (slideThreeForm.controls.pincode.dirty || submitAttempt)"> </ion-input>
                 </ion-item>
 
@@ -260,7 +299,10 @@
                 </ion-item>
                  <!-- contact -->
                 <ion-item>
-                    <ion-label floating>Mobile Contact </ion-label>
+                    <ion-label floating>
+                        <ion-icon ios="ios-phone-portrait" md="md-phone-portrait"></ion-icon>
+                        Mobile Contact 
+                    </ion-label>
                    <ion-input formControlName="contact" type="text" [class.invalid]="!slideThreeForm.controls.contact.valid && (slideThreeForm.controls.contact.dirty || submitAttempt)"></ion-input>
 
                 </ion-item>
@@ -311,7 +353,10 @@
                 </ion-item>
                  <!-- student  SECTION   -->
                 <ion-item [hidden]='slideOneForm.controls.userrole.value !=="student"'>
-                    <ion-label  floating  [hidden]='slideOneForm.controls.userrole.value !=="student"'>SECTION </ion-label>
+                    <ion-label  floating  [hidden]='slideOneForm.controls.userrole.value !=="student"'>
+                        <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>
+                        SECTION 
+                    </ion-label>
                     <ion-select  [placeholder]="slideFourForm.controls.studentSection.value" formControlName="studentSection" [class.invalid]="!slideFourForm.controls.studentSection.valid && (slideFourForm.controls.studentSection.dirty || submitAttempt)">
                           <ion-option  value="A">
                                 A
@@ -333,6 +378,7 @@
                     <ion-label floating  [hidden]='slideOneForm.controls.userrole.value !=="student"'>SESSION </ion-label>
                     <ion-select [placeholder]="slideFourForm.controls.studentSession.value" formControlName="studentSession" [class.invalid]="!slideFourForm.controls.studentClass.valid && (slideFourForm.controls.studentClass.dirty || submitAttempt)">
                           <ion-option  *ngFor=" let p of getSession.SessData" [value]="p.SESSION_MASTER_ID">
+                                <ion-icon ios="ios-browsers" md="md-browsers"></ion-icon>
                                 {{p.SESSION_START_DATE}} -- {{p.SESSION_END_DATE}}
                           </ion-option>
                           
@@ -341,7 +387,10 @@
                  <!-- teacher Designation      -->
         
                 <ion-item [hidden]='slideOneForm.controls.userrole.value !=="teacher" '>
-                    <ion-label floating>Teacher designation </ion-label>
+                    <ion-label floating>
+                        <ion-icon ios="ios-person-add" md="md-person-add"></ion-icon>
+                        Teacher designation 
+                    </ion-label>
                     <ion-input  formControlName="teacherDesg" type="text" [class.invalid]="!slideFourForm.controls.teacherDesg.valid && (slideFourForm.controls.teacherDesg.dirty || submitAttempt)" >  
                     </ion-input>
                 </ion-item>
@@ -353,7 +402,10 @@
 
                  <!-- teacher Department      -->
                 <ion-item [hidden]='slideOneForm.controls.userrole.value !=="teacher"'>
-                    <ion-label floating  [hidden]='slideOneForm.controls.userrole.value !=="teacher"'>Department</ion-label>
+                    <ion-label floating  [hidden]='slideOneForm.controls.userrole.value !=="teacher"'>
+                        <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>
+                        Department
+                    </ion-label>
                     <ion-select [placeholder]="slideFourForm.controls.teacherDepart.value" formControlName="teacherDepart" [class.invalid]="!slideFourForm.controls.teacherDepart.valid && (slideFourForm.controls.teacherDepart.dirty || submitAttempt)">
                           <ion-option value=" computer application">
                                 computer application
