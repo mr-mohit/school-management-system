@@ -170,9 +170,9 @@ import { ServiceFetchTimeTableProvider } from '../providers/service-fetch-time-t
     ViewCalendarPage,
     AttendenceInfoPage,
     DeleteUserPage,
-    TeacherUploadHomeworkPage
-    TeacherFeedbackPage,
+    TeacherUploadHomeworkPage,
     StudentFeedbackPage,
+    TeacherFeedbackPage,
     FeedbackDetailPage,
   ],
   imports: [
@@ -231,6 +231,7 @@ import { ServiceFetchTimeTableProvider } from '../providers/service-fetch-time-t
     DeleteSessionPage,
     DeleteTermPage,
     TeacherAnnouncementPage,
+    TeacherFeedbackPage,
     AnnouncementDetailsPage,
     ViewSubjectsPage,
     ViewClassPage,
@@ -251,8 +252,7 @@ import { ServiceFetchTimeTableProvider } from '../providers/service-fetch-time-t
     ViewCalendarPage,
     AttendenceInfoPage,
     DeleteUserPage,
-    TeacherUploadHomeworkPage
-    TeacherFeedbackPage,
+    TeacherUploadHomeworkPage,
     StudentFeedbackPage,
     FeedbackDetailPage,
   ],

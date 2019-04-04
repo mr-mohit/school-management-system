@@ -11,7 +11,27 @@
 </ion-header>
 
 <ion-content padding>
-    <button ion-button full (click)="chooseFile()"> Choose File </button>
-    <button ion-button full (click)="download('filexxxyyy.pdf')"> Download File </button>
+
+   <form>
+        <ion-item>
+          <ion-label floating>Class</ion-label>
+           <ion-select  name="Class" [(ngModel)]="Class" (ionChange)="getSubject(Class)">
+            <ion-option *ngFor="let i of GU?.classData"  value="{{i.CLASS_MASTER_ID}}" >{{i.CLASS}} {{i.SECTION}}</ion-option>
+           </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>SUBJECT</ion-label>
+             <ion-select  name="Subject" [(ngModel)]="Subject">
+              <ion-option *ngFor="let i of GU?.attsubject"  value="{{i.SUBJECT_ID}}" >{{i.SUBJECT_ID}} {{i.SUBJECT_NAME}}</ion-option>
+             </ion-select>
+          </ion-item>
+        <button ion-button color="header" on-click="chooseFile()"
+            block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;">
+            Choose File 
+        </button>
+      </form>
+      
+    <!-- <button ion-button full (click)="chooseFile()"> Choose File </button>
+    <button ion-button full (click)="download('filexxxyyy.pdf')"> Download File </button> -->
 
 </ion-content>

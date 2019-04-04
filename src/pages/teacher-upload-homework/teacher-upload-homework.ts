@@ -5,6 +5,7 @@ import { FilePath } from '@ionic-native/file-path';
 import { FileChooser } from '@ionic-native/file-chooser';
 import { FileOpener } from '@ionic-native/file-opener';
 import { File } from '@ionic-native/file';
+import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 
 /**
  * Generated class for the TeacherUploadHomeworkPage page.
@@ -24,18 +25,30 @@ export class TeacherUploadHomeworkPage {
   loading: Loading;
   //here creating object to access file transfer object.  
    private fileTransfer: TransferObject;  
+   public classID:any;
+
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private transfer: Transfer, private file: File,private fileChooser: FileChooser,
-     private fileOpener: FileOpener,
+    private fileOpener: FileOpener, public GU:ServiceGetClassMasterProvider,
     private filePath: FilePath,public actionSheetCtrl: ActionSheetController,
     public toastCtrl: ToastController,public loadingCtrl: LoadingController,
     public alertController: AlertController) {
+
+      this.GU.getClassFun();
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TeacherUploadHomeworkPage');
+  }
+
+  getSubject(Class)
+  {
+    this.classID=Class;
+    //console.log(this.postId['classId']);
+    this.GU.getAttSubjectFun(this.classID);
   }
 
   chooseFile()
