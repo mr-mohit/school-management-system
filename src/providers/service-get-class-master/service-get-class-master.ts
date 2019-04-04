@@ -19,8 +19,17 @@ export class ServiceGetClassMasterProvider {
   public timeslot:any;
   public timeview:any;
   public SubjectOnTimeTable:any;
-
+  //These variable for attendance purpose
+  public class:any;
+  public subject:any;
+  public time:any;
+  public date:any;
+  public slot:any;
   public attendence:any=[];
+  public term:any;
+//end
+ 
+  
 
 
   constructor(public http: HttpClient) {
@@ -176,6 +185,7 @@ getUser(url)
         // alert("Term Added");
         this.userData=data['data'];
         console.log("Student of class",this.userData);
+        
 
 
       }
@@ -342,8 +352,14 @@ getSDC(CLASS,url)
         this.SDC=data['data'];
         for (var i in this.SDC)
         {
-          this.attendence[i]=this.SDC[i]
+          this.attendence[i]=this.SDC[i];
           this.attendence[i].status ="A";
+          this.attendence[i].class=this.class;
+          this.attendence[i].subject=this.subject;
+          this.attendence[i].time=this.time;
+          this.attendence[i].date=this.date;
+          this.attendence[i].slot=this.slot;
+          this.attendence[i].term=this.term;
         }
         console.log("Student of class",this.SDC);
         console.log("temp Attendance sheet",this.attendence);
@@ -357,6 +373,33 @@ getSDC(CLASS,url)
       
        resolve(data);
 
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+
+}
+//GET SPECIFIC TERM FOR ATTENDENCE ONLY
+getAttTermfun(t)
+{
+  var url=this.URL+"getAttTerm.php";
+  return this.getAttTerm(url,t);
+
+}
+getAttTerm(url,t)
+{
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(t)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.term=data['data'];
+        console.log("Term for Att",this.term);
+      }
+      else
+      {
+        alert("no data fetched");
+      }        
+       resolve(data);
     },error=>{
       console.log("Error",error);
     });

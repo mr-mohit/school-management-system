@@ -11,6 +11,8 @@ export class ServiceLoginProvider {
   public address:any;//for storing address
   public details:any;//for storing other details
   public user_role:any; //this variable is used to define side menu as per user role
+  //these variable for Student result
+  public reg:any;
 
 
   constructor(public http: HttpClient) {
@@ -28,6 +30,7 @@ export class ServiceLoginProvider {
         if(data['statuscode'] == 1)
          {
           this.user_role=this.recdata.data[0].ROLE;//storing the role of user into the variable named user_role
+          this.reg=this.recdata.data[0].REG_NO;
           //console.log(this.user_role);
          //console.log("sucessfully implemented",data['statuscode']);
          this.address=this.recdata.address[0]; 

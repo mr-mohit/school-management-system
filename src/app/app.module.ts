@@ -109,6 +109,7 @@ import { ServiceFetchTimeTableProvider } from '../providers/service-fetch-time-t
 import { ResultPage } from '../pages/result/result';
 import { ServiceGetResultProvider } from '../providers/service-get-result/service-get-result';
 import { ServiceUploadAttendenceProvider } from '../providers/service-upload-attendence/service-upload-attendence';
+import { ServiceStudentResultProvider } from '../providers/service-student-result/service-student-result';
  
 
  @NgModule({ 
@@ -314,6 +315,7 @@ import { ServiceUploadAttendenceProvider } from '../providers/service-upload-att
     ServiceFetchTimeTableProvider,
     ServiceGetResultProvider,
     ServiceUploadAttendenceProvider,
+    ServiceStudentResultProvider,
   
   ]
 })
