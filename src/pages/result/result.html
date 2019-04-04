@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content padding>
-<ion-slides>
+<ion-slides pager="true">
   <ion-slide class="slide_top">
     <ion-grid   style="border:solid 1px;">
       <ion-row color="header">
@@ -36,7 +36,7 @@
         </ion-col>
         <ion-col>
             <div>
-              {{i.CLASS_TEST_ID}} 
+              {{i.TERM}} 
             </div>
           </ion-col>
           <ion-col>
@@ -62,33 +62,29 @@
         </ion-col>
         <ion-col>
             <div>
-                <ion-label>Weightage Marks</ion-label>             
+                <ion-label class="center">Weightage Marks</ion-label>             
             </div>
           </ion-col>
-      </ion-row>
+        </ion-row>
+
     </ion-grid>
 
 
     <ion-grid *ngFor="let i of RES?.resultData" style="border:solid 1px;">
       <ion-row >
-        <ion-col>
-          <div>
+       <ion-col>
+         <div>
             {{i.MARKS_OBTAINED}}
           </div>
         </ion-col>
         <ion-col>
-            <div>
+           <div >
               {{i.WEIGHTAGE_MARKS_OBTAINED}}
             </div>
-          </ion-col>
-          <ion-col>
-            <div>
-             
-            </div>
-          </ion-col>
+        </ion-col>
+    </ion-row>
 
-      </ion-row>
-      </ion-grid>
+    </ion-grid>
 
 
   </ion-slide>
