@@ -28,29 +28,24 @@ if($con)
        $postdata=file_get_contents("php://input");
        $obj=json_decode($postdata,true);
 	   
-	   $PASSWORD=test_input($obj['PASSWORD']);
-	   $REG_NO=test_input($obj['REG_NO']);
-	   $NEWPASSWORD=test_input($obj['NEWPASSWORD']);
+	   $session=test_input($obj['SESSION']);
+	   $term=test_input($obj['TERM']);
+	   $start=test_input($obj['START_DATE']);
+	   $end=test_input($obj['END_DATE']);
 	   
-
-	    $sql="UPDATE user SET PASSWORD='$NEWPASSWORD' WHERE REG_NO='$REG_NO' and PASSWORD='$PASSWORD'";
-	
-	   //$res=mysqli_query($con,$sql);	
-	   //$count=mysqli_num_rows($res);
 	   
+	   $sql="INSERT INTO term_master(SESSION_MASTER_ID,TERM,START_DATE, END_DATE,IS_ACTIVE) VALUES ('$session','$term','$start','$end','1')";
 	   if(mysqli_query($con,$sql))
 		{
-		   
-			result(1,"success");
-		    $response['statuscode']=1;
-
+		   result(1,"success");
+		   //$response['statuscode']=1;
+		   //echo json_encode($response);
 		}
 		else
 		{
-			result(0,"success");
-		    $response['statuscode']=0;
-			
-
+			result(0,"fail");
+			//$response['statuscode']=0;
+			//echo json_encode($response);
 		} 	   
 	}
 }
