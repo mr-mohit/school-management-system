@@ -28,17 +28,23 @@ if($con)
        $postdata=file_get_contents("php://input");
        $obj=json_decode($postdata,true);
 	   
-	   $start=test_input($obj['START_DATE']);
-	   $end=test_input($obj['END_DATE']);
+	   $id=test_input($obj['CLASSID']);
+	   $day=test_input($obj['DAY']);
+	   $subid=test_input($obj['SUBJECT']);
+	   $ts=test_input($obj['SLOT']);
+	    
+	   $sql="DELETE FROM time_table WHERE CLASS_MASTER_ID='$id' and DAY='$day' and SUBJECT_ID='$subid' and TIME_SLOT='$ts'";
 	   
-	   $sql="INSERT INTO session_master(SESSION_START_DATE, SESSION_END_DATE, IS_ACTIVE) VALUES ('$start','$end',1)";
 	   if(mysqli_query($con,$sql))
 		{
 		   result(1,"success");
+		   
+
 		}
 		else
 		{
 			result(0,"fail");
+
 		} 	   
 	}
 }

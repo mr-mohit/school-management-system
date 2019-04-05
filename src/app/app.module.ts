@@ -102,11 +102,13 @@ import { UploadMarksPage } from '../pages/upload-marks/upload-marks';
 import { UploadMarksInfoPage } from '../pages/upload-marks-info/upload-marks-info';
 import { ServiceUploadMarksProvider } from '../providers/service-upload-marks/service-upload-marks';
 import { TeacherFeedbackPage } from '../pages/teacher-feedback/teacher-feedback';
+import { DeleteTimeTablePage } from '../pages/delete-time-table/delete-time-table';
 import { StudentFeedbackPage } from '../pages/student-feedback/student-feedback';
 import { ServiceAddStudentfeedbackProvider } from '../providers/service-add-studentfeedback/service-add-studentfeedback';
 import { FeedbackDetailPage } from '../pages/feedback-detail/feedback-detail';
 import { ServiceFetchTimeTableProvider } from '../providers/service-fetch-time-table/service-fetch-time-table';
 import { ServiceExamProvider } from '../providers/service-exam/service-exam';
+import { ServiceDeleteTimetableProvider } from '../providers/service-delete-timetable/service-delete-timetable';
  
 
  @NgModule({ 
@@ -178,6 +180,7 @@ import { ServiceExamProvider } from '../providers/service-exam/service-exam';
     TeacherFeedbackPage,
     StudentFeedbackPage,
     FeedbackDetailPage,
+    DeleteTimeTablePage,
   ],
   imports: [
     BrowserModule,
@@ -261,6 +264,7 @@ import { ServiceExamProvider } from '../providers/service-exam/service-exam';
     TeacherFeedbackPage,
     StudentFeedbackPage,
     FeedbackDetailPage,
+    DeleteTimeTablePage,
   ],
   providers: [
     StatusBar,
@@ -309,6 +313,7 @@ import { ServiceExamProvider } from '../providers/service-exam/service-exam';
     ServiceAddStudentfeedbackProvider,
     ServiceFetchTimeTableProvider,
     ServiceExamProvider,
+    ServiceDeleteTimetableProvider,
   
   ]
 })
