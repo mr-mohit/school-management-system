@@ -43,7 +43,7 @@
             </ion-item>
             <br/> <br/>
             <!-- choose file -->
-        <button ion-button color="header" on-click="submit({{Regserv?.reg}},Class,Subject,DATE,TIME)"
+        <button ion-button color="header" on-click="chooseFile(Class,Subject,DATE,TIME)"
             block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;"
             *ngIf="Class && Subject && DATE && TIME">
             Choose File 

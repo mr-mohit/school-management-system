@@ -63,11 +63,11 @@ export class TeacherUploadHomeworkPage {
     this.GU.getAttSubjectFun(this.classID);
   }
 
-  chooseFile(RegNo,Class,Subject,DATE,TIME)
+  chooseFile(Class,Subject,DATE,TIME)
   {
       // send class subject infos to INFOS array
 
-      this.Infos['teacherID']=RegNo;
+      this.Infos['teacherID']=this.Regserv.reg;
       this.Infos['class']=Class;
       this.Infos['subject']=Subject;
       this.Infos['date']=DATE;
@@ -102,8 +102,7 @@ export class TeacherUploadHomeworkPage {
      {
       this.ConfirmCreationHomework(this.Infos); 
      }
-     
-
+    
         // this.fileOpener.open(resolveFilePath, 'application/PDF').then(value=>{ 
           
         //   alert("IT WORKS");
