@@ -114,6 +114,7 @@ import { ResultPage } from '../pages/result/result';
 import { ServiceGetResultProvider } from '../providers/service-get-result/service-get-result';
 import { ServiceUploadAttendenceProvider } from '../providers/service-upload-attendence/service-upload-attendence';
 import { ServiceStudentResultProvider } from '../providers/service-student-result/service-student-result';
+import { ServiceUploadHomeworkProvider } from '../providers/service-upload-homework/service-upload-homework';
  
 
  @NgModule({ 
@@ -327,6 +328,7 @@ import { ServiceStudentResultProvider } from '../providers/service-student-resul
     ServiceGetResultProvider,
     ServiceUploadAttendenceProvider,
     ServiceStudentResultProvider,
+    ServiceUploadHomeworkProvider,
   
   ]
 })
