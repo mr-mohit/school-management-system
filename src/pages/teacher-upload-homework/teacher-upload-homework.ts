@@ -6,6 +6,8 @@ import { FileChooser } from '@ionic-native/file-chooser';
 import { FileOpener } from '@ionic-native/file-opener';
 import { File } from '@ionic-native/file';
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
+import { ServiceLoginProvider } from '../../providers/service-login/service-login';
+import { ServiceUploadHomeworkProvider } from '../../providers/service-upload-homework/service-upload-homework';
 
 /**
  * Generated class for the TeacherUploadHomeworkPage page.
@@ -26,15 +28,25 @@ export class TeacherUploadHomeworkPage {
   //here creating object to access file transfer object.  
    private fileTransfer: TransferObject;  
    public classID:any;
-
+   public RegNo:any;
+   
+   public Infos : any =
+   {
+      "teacherId" :"" ,
+      "class" : "",
+      "subject" : "",
+      "date" : "",
+      "time" : "",
+      "file" : "",
+   }
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private transfer: Transfer, private file: File,private fileChooser: FileChooser,
     private fileOpener: FileOpener, public GU:ServiceGetClassMasterProvider,
-    private filePath: FilePath,public actionSheetCtrl: ActionSheetController,
+    private filePath: FilePath,public actionSheetCtrl: ActionSheetController, public service : ServiceUploadHomeworkProvider,
     public toastCtrl: ToastController,public loadingCtrl: LoadingController,
-    public alertController: AlertController) {
+    public alertController: AlertController, public Regserv:ServiceLoginProvider) {
 
       this.GU.getClassFun();
 
@@ -51,13 +63,47 @@ export class TeacherUploadHomeworkPage {
     this.GU.getAttSubjectFun(this.classID);
   }
 
-  chooseFile()
+  chooseFile(RegNo,Class,Subject,DATE,TIME)
   {
+      // send class subject infos to INFOS array
+
+      this.Infos['teacherID']=RegNo;
+      this.Infos['class']=Class;
+      this.Infos['subject']=Subject;
+      this.Infos['date']=DATE;
+      this.Infos['time']=TIME;
+
+      // start choosing the file 
     this.fileChooser.open().then(file=>{
       this.filePath.resolveNativePath(file).then(resolveFilePath=>{
         alert(resolveFilePath);
         this.lastfile = resolveFilePath;
-        this.uploadFile(this.lastfile);
+          // getting the file name and store into array that we will use to send to the API
+              this.Infos['file'] = this.lastfile;
+     // getting the file name and store into array that we will use to send to the API
+     var a = 0; 
+     //alert(this.userInfos["userpic"]);
+     for(var index in this.Infos) {
+
+       //check if all the fields have been filled by the admin
+       //console.log(this.userInfos[index]);
+       if(this.Infos[index] == "")
+       {
+         // if one field is empty => print an alert 
+           alert("empty fields are not allowed / You should fill all the fields properly");
+           break;
+       }
+       else
+       {
+         a +=1 ; 
+       }
+     }
+     if(a == 6)
+     {
+      this.ConfirmCreationHomework(this.Infos); 
+     }
+     
+
         // this.fileOpener.open(resolveFilePath, 'application/PDF').then(value=>{ 
           
         //   alert("IT WORKS");
@@ -76,9 +122,8 @@ export class TeacherUploadHomeworkPage {
   {
     // Destination URL
     var url = "http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/uploadImage.php";
-   
-     
-    var options = {
+    
+     var options = {
       fileKey: "file",
       fileName: file,
       chunkedMode: false,
@@ -125,5 +170,32 @@ export class TeacherUploadHomeworkPage {
 
     });  
   } 
+  
+  // confirmation alert
+  async ConfirmCreationHomework(a) {
+    const alert = await this.alertController.create({
+     
+      message: 'Message <strong>Do You Want to Upload this HomeWork :</strong>???',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Okay',
+          handler: () => {
+           // console.log(a);
+              this.uploadFile; // upload file into the server
+              this.service.postHomework(a); // send the  infos to the provider  
+              this.navCtrl.pop();
+          }
+        }
+      ]
+    });
 
+    await alert.present();
+  }
 }
