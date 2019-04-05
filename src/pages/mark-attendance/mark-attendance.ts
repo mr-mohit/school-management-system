@@ -38,8 +38,11 @@ export class MarkAttendancePage {
     "status":""
   };
 
-  public infos : any =[];
- 
+  public infos : any =
+  {
+    'attendance': '',
+    'details':''
+  }
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public GU:ServiceGetClassMasterProvider,
     public Upload:ServiceUploadAttendenceProvider) {
@@ -63,6 +66,11 @@ export class MarkAttendancePage {
     if(this.GU.attendence[ind].REG_NO == reg)
     {
         this.GU.attendence[ind].status = status;
+        this.GU.attendence[ind].class = this.details['class'];
+        this.GU.attendence[ind].subject = this.details['subject'];
+        this.GU.attendence[ind].date = this.details['date'];
+        this.details['time'];      
+        this.details['slot']=this.navParams.get('slot'); 
         console.log("Attendance",this.GU.attendence);
     }
 
@@ -75,18 +83,9 @@ export class MarkAttendancePage {
   {
    //console.log("class",this.class,"subject",this.subject,"slot",this.slot,"date",this.date,"time",this.time);
    //console.log("Details Associated with att.",this.details);
-      var temp:any;
-      for (var i in  this.GU.attendence)
-        {
-           this.GU.attendence[i].class = this.details['class'];
-           this.GU.attendence[i].subject = this.details['subject'];
-           this.GU.attendence[i].date = this.details['date'];
-           this.GU.attendence[i].time = this.details['time'];      
-           this.GU.attendence[i].slot = this.details['slot'];   
-         // this.infos[i] = temp;
-        }
-   // this.infos = this.GU.attendence.concat(this.details);
-   console.log( this.GU.attendence);
-   this.Upload.uploadAttFun( this.GU.attendence);
+   this.infos['attendance'] = this.GU.attendence ;
+   this.infos['details'] = this.details;
+   console.log(this.infos);
+   this.Upload.uploadAttFun(this.infos);
   }
 }
