@@ -9,6 +9,8 @@ import { Injectable } from '@angular/core';
 */
 @Injectable()
 export class ServiceAdminmessageProvider {
+  public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; //for server use
+
 
   google_url = "https://fcm.googleapis.com/fcm/send";
 

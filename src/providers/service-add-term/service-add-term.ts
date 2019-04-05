@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class ServiceAddTermProvider {
-  public URL="http://localhost/schoolapi/"; //for local use
- // public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/";
+  //public URL="http://localhost/schoolapi/"; //for local use
+  public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/";
   // public URL="https://direct-school.000webhostapp.com/"; //for hosting
   constructor(public http: HttpClient) {
     
