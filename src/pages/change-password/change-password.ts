@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ServiceLoginProvider } from '../../providers/service-login/service-login';
 import { ServiceChangepasswordProvider } from '../../providers/service-changepassword/service-changepassword';
 
+
 /**
  * Generated class for the ChangePasswordPage page.
  *
@@ -16,6 +17,19 @@ import { ServiceChangepasswordProvider } from '../../providers/service-changepas
   templateUrl: 'change-password.html',
 })
 export class ChangePasswordPage {
+
+
+  //For Current Password
+  CurrentpasswordType:string='password';
+  CurrentpasswordShown:boolean=false;
+
+  //For New Password
+  NewpasswordType:string='password';
+  NewpasswordShown:boolean=false;
+
+  //For Confirm Password
+  ConfirmpasswordType:string='password';
+  ConfirmpasswordShown:boolean=false;
 
   private CurrentPassword:any;
   private NewPassword:any;
@@ -58,5 +72,57 @@ export class ChangePasswordPage {
        alert("Please fill all the fields");
     }
   }
+
+
+toggleCurrentPassword()
+{
+  console.log("toggleCurrentPassword");
+  if(this.CurrentpasswordShown)
+  {
+    this.CurrentpasswordShown=false;
+    this.CurrentpasswordType='password';
+  }
+  else
+  {
+    this.CurrentpasswordShown=true;
+    this.CurrentpasswordType='text';
+
+  }
+
+}
+
+toggleNewPassword()
+{
+  console.log("toggleNewPassword");
+  if(this.NewpasswordShown)
+  {
+    this.NewpasswordShown=false;
+    this.NewpasswordType='password';
+  }
+  else
+  {
+    this.NewpasswordShown=true;
+    this.NewpasswordType='text';
+
+  }
+
+}
+
+toggleConfirmPassword()
+{
+
+  console.log("toggleConfirmPassword");
+  if(this.ConfirmpasswordShown)
+  {
+    this.ConfirmpasswordShown=false;
+    this.ConfirmpasswordType='password';
+  }
+  else
+  {
+    this.ConfirmpasswordShown=true;
+    this.ConfirmpasswordType='text';
+
+  }
+}
 
 }

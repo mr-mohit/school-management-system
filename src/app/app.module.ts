@@ -92,12 +92,23 @@ import { ViewCalendarPage } from '../pages/view-calendar/view-calendar';
 import { AttendenceInfoPage } from '../pages/attendence-info/attendence-info';
 import { ServiceDeleteUserProvider } from '../providers/service-delete-user/service-delete-user';
 import { DeleteUserPage } from '../pages/delete-user/delete-user';
+import { Push } from '@ionic-native/push';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 import { SchoolInfoPage } from '../pages/school-info/school-info';
 import { GalleryPage } from '../pages/gallery/gallery';
+import { CreateTestPage } from '../pages/create-test/create-test';
+import { ServiceCreateTestProvider } from '../providers/service-create-test/service-create-test';
+import { UploadMarksPage } from '../pages/upload-marks/upload-marks';
+import { UploadMarksInfoPage } from '../pages/upload-marks-info/upload-marks-info';
+import { ServiceUploadMarksProvider } from '../providers/service-upload-marks/service-upload-marks';
 import { TeacherFeedbackPage } from '../pages/teacher-feedback/teacher-feedback';
 import { StudentFeedbackPage } from '../pages/student-feedback/student-feedback';
 import { ServiceAddStudentfeedbackProvider } from '../providers/service-add-studentfeedback/service-add-studentfeedback';
 import { ServiceUploadAttendenceProvider } from '../providers/service-upload-attendence/service-upload-attendence';
+import { FeedbackDetailPage } from '../pages/feedback-detail/feedback-detail';
+import { ServiceFetchTimeTableProvider } from '../providers/service-fetch-time-table/service-fetch-time-table';
+import { ResultPage } from '../pages/result/result';
+import { ServiceGetResultProvider } from '../providers/service-get-result/service-get-result';
  
 
  @NgModule({ 
@@ -163,8 +174,13 @@ import { ServiceUploadAttendenceProvider } from '../providers/service-upload-att
     ViewCalendarPage,
     AttendenceInfoPage,
     DeleteUserPage,
+    CreateTestPage,
+    UploadMarksPage,
+    UploadMarksInfoPage,
     TeacherFeedbackPage,
     StudentFeedbackPage,
+    FeedbackDetailPage,
+    ResultPage,
   ],
   imports: [
     BrowserModule,
@@ -242,8 +258,13 @@ import { ServiceUploadAttendenceProvider } from '../providers/service-upload-att
     ViewCalendarPage,
     AttendenceInfoPage,
     DeleteUserPage,
+    CreateTestPage,
+    UploadMarksPage,
+    UploadMarksInfoPage,
     TeacherFeedbackPage,
     StudentFeedbackPage,
+    FeedbackDetailPage,
+    ResultPage,
   ],
   providers: [
     StatusBar,
@@ -255,6 +276,8 @@ import { ServiceUploadAttendenceProvider } from '../providers/service-upload-att
     Transfer,
     Camera,
     FilePath,
+    Push,
+    LocalNotifications,
 
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ServiceLoginProvider,
@@ -285,8 +308,12 @@ import { ServiceUploadAttendenceProvider } from '../providers/service-upload-att
     ServiceChangepasswordProvider,
     ServiceAddTimetableProvider,
     ServiceDeleteUserProvider,
+    ServiceCreateTestProvider,
+    ServiceUploadMarksProvider,
     ServiceAddStudentfeedbackProvider,
     ServiceUploadAttendenceProvider,
+    ServiceFetchTimeTableProvider,
+    ServiceGetResultProvider,
   
   ]
 })

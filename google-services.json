@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "954708913827",
+    "firebase_url": "https://ecoledirecte-d4d5d.firebaseio.com",
+    "project_id": "ecoledirecte-d4d5d",
+    "storage_bucket": "ecoledirecte-d4d5d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:954708913827:android:9457aca118a66ddb",
+        "android_client_info": {
+          "package_name": "com.ecoledirecte.ecoledirectemobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "954708913827-o7vpfocivsl2a09b88puvjsujv6jvaef.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4okGig0AGhLMQJXGAsGcjbxVueD-0zUM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

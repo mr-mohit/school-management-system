@@ -26,7 +26,8 @@ if($con){
 	 
 
 			//echo"Connection Sucessfull";
-             $sql="SELECT * FROM announcement";
+		
+             $sql="SELECT * FROM announcement ORDER BY START_TIME DESC";
              $query = mysqli_query($con,$sql);
 		         $count = mysqli_num_rows($query);
 				 

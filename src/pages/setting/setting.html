@@ -9,16 +9,20 @@
       <button ion-button menuToggle>
           <ion-icon name="menu" left></ion-icon>
       </button>
-    <ion-title>Settings</ion-title>
+    <ion-title>{{settings |translate}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
-   
-        <ion-label><!-- Space Here --></ion-label>
-        <button ion-button full on-click="ChangePassword()">Change Password</button>
-        <ion-label><!-- Space Here --></ion-label>
-     
-
+  <ion-list>
+    <ion-item on-click="showRadio()">
+       <ion-icon  item-start><img class="icon-size" src="../../assets/imgs/translate.svg"></ion-icon>
+      {{'change_app_language'|translate}}
+    </ion-item>
+    <ion-item on-click="ChangePassword()">
+      <ion-icon  item-start><img class="icon-size" src="../../assets/imgs/change_pass.svg"></ion-icon>
+     {{'change_password' |translate}}
+   </ion-item>
+  </ion-list>
+  
 </ion-content>

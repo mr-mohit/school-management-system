@@ -15,7 +15,8 @@
       <!-- Category Type here -->
 <ion-list>
 <ion-item>
-    <ion-label>
+    <ion-label floating>
+      <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>
       Category
     </ion-label>
     <ion-select name="category" [(ngModel)]="category">
@@ -37,6 +38,7 @@
   <!-- Title here -->
   <ion-item>
       <ion-label floating >
+        <ion-icon ios="ios-bookmarks" md="md-bookmarks"></ion-icon>
         Title
       </ion-label>
       <ion-textarea type="text" [(ngModel)]="AnnouncementsTitle"> </ion-textarea>
@@ -46,6 +48,7 @@
 
     <ion-item>
         <ion-label floating >
+          <ion-icon ios="ios-text" md="md-text"></ion-icon>
           Description
         </ion-label>
         <ion-textarea type="text" [(ngModel)]="AnnouncementsDescription" name="AnnouncementsDescription"></ion-textarea>
@@ -59,13 +62,19 @@
       <!--Start Date-->
       
       <ion-item>
-          <ion-label>Start Date</ion-label>
+          <ion-label>
+              <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
+            Start Date
+          </ion-label>
           <ion-datetime displayFormat="DD-MMMM-YYYY" placeholder="Select Date" [(ngModel)]="timestarts"></ion-datetime>
         </ion-item>
 
     <!-- END DATE -->
         <ion-item>
-          <ion-label>End Date</ion-label>
+          <ion-label>
+              <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
+            End Date
+          </ion-label>
           <ion-datetime displayFormat="DD-MMMM-YYYY" placeholder="Select Date" [(ngModel)]="timeEnds" max="2050"></ion-datetime>
         </ion-item>
 

@@ -9,15 +9,18 @@ import { ServiceLoginProvider } from '../../providers/service-login/service-logi
 import { NativeStorage } from '@ionic-native/native-storage';
 import { AdminHomePage } from '../admin-home/admin-home';
 import { HomePage } from '../home/home';
-import { TeacherHomePage } from '../teacher-home/teacher-home';
-import { AttendenceInfoPage } from '../attendence-info/attendence-info';
-import { AddTimetablePage } from '../add-timetable/add-timetable';
+import { ResultPage } from '../result/result';
+
 
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
 })
 export class LoginPage {
+
+ passwordType:string='password';  
+ passwordShown:boolean=false;
+
 private status:boolean;
 public dataitem:any;
 public user:any=
@@ -124,9 +127,10 @@ REG_NOCHECK(event:any)
    this.status=false;
 
 }
-VS()
+ts()
 {
-  this.navCtrl.push(AttendenceInfoPage);
+  this.navCtrl.push(ResultPage);
+  // this.navCtrl.push(AttendenceInfoPage);
   //this.navCtrl.push(AddTimetablePage);
 }
 
@@ -138,9 +142,22 @@ Student()
 {
   this.navCtrl.push(HomePage);
 }
-Teacher()
+
+
+togglePassword()
 {
-  this.navCtrl.push(TeacherHomePage);
+  console.log("Toggle");
+  if(this.passwordShown)
+  {
+    this.passwordShown=false;
+    this.passwordType='password';
+  }
+  else
+  {
+    this.passwordShown=true;
+    this.passwordType='text';
+
+  }
 }
 
 }

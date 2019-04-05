@@ -1,9 +1,3 @@
-<!--
-  Generated template for the AddTimetablePage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar color="header">
     <ion-title>Add Timetable</ion-title>
@@ -12,50 +6,105 @@
 
 <ion-content padding>
 
+
+  <!-- Select Class And Section -->
     <ion-item>
-        <ion-label floating>Class and Section</ion-label>
+        <ion-label floating>Select Class and Section</ion-label>
          <ion-select  name="CLASSID" [(ngModel)]="CLASSID" (ionChange)="getSubject(CLASSID)">
-          <ion-option *ngFor="let i of service?.classData"  value="{{i.CLASS_MASTER_ID}}" >{{i.CLASS}} {{i.SECTION}}</ion-option>
+          <ion-option *ngFor="let i of service?.classData"  value="{{i.CLASS_MASTER_ID}}" >Class: {{i.CLASS}} Section : {{i.SECTION}}</ion-option>
          </ion-select>
     </ion-item>
 
-    <ion-item>
-      <ion-label floating>SUBJECT</ion-label>
-       <ion-select  name="SUBJECTID" [(ngModel)]="SUBJECTID">
-        <ion-option *ngFor="let i of GU?.attsubject"  value="{{i.SUBJECT_ID}}" >{{i.SUBJECT_NAME}}</ion-option>
-       </ion-select>
-    </ion-item>
+     <!-- Day -->
+     <ion-item>
+        <ion-label floating>Select Day</ion-label>
+        <ion-select  name="Day" [(ngModel)]="Day" (ionChange)="getCurrentTimeTable(Day)">
+            <ion-option *ngFor="let i of Days">{{i.Day}}</ion-option>
+           </ion-select>
+  
+      </ion-item>
+
+    <!-- Select Subject -->
 
     <ion-item>
       <ion-label floating>
+          <ion-icon ios="ios-book" md="md-book"></ion-icon>
+          Select Subject
+        </ion-label> 
+      <!-- (ionChange)="getTimeSlot()" -->
+       <ion-select  name="SUBJECTID" [(ngModel)]="SUBJECTID">
+        <ion-option *ngFor="let i of GU?.SubjectOnTimeTable" value="{{i.SUBJECT_ID}}">{{i.SUBJECT_ID}} : {{i.SUBJECT_NAME}}</ion-option>
+       </ion-select>
+    </ion-item>
+
+
+    <!-- Time Slot -->
+    <ion-item>
+      <ion-label floating>
+          <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>
         Time Slot
       </ion-label>
-      <ion-select name="SLOT" [(ngModel)]="SLOT">
-        <ion-option value="9_10">
-          09 AM - 10 AM
-        </ion-option >
-        <ion-option value="10_11">
-          10 AM - 11 AM
-        </ion-option>
-        <ion-option value="11_12">
-          11 AM - 12 PM
-        </ion-option>
-        <ion-option value="12_1">
-          12 PM - 01 PM
-        </ion-option>
-        <ion-option value="01 PM - 02 PM">
-          01 PM - 02 PM
-        </ion-option>
-        <ion-option value="02 PM - 03 PM">
-          02 PM - 03 PM
-        </ion-option>
-      </ion-select>
+      <ion-select  name="SLOT" [(ngModel)]="SLOT">
+          <ion-option *ngFor="let i of GU?.timeslot">{{i.SLOT}}</ion-option>
+         </ion-select>
+
     </ion-item>
 
     <ion-label>
     </ion-label>
   
-    <button id="addTimeTable" on-click="submitTimetable(CLASSID,SUBJECTID,SLOT)" ion-button color="header" block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;">
+    <button id="addTimeTable" on-click="submitTimetable(CLASSID,SUBJECTID,SLOT,Day)" ion-button color="header" block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;">
         Save
     </button>
+
+   <ion-label><!-- Space here --></ion-label>
+
+
+   <!-- View for Selected Class TimeTable -->
+
+   <div *ngIf="status">
+   <ion-grid class="head" style="border:solid 1px;">
+      <ion-row >
+        <ion-col >
+          <div>Code</div>
+        </ion-col>
+        <ion-col>
+          <div>Name</div>
+        </ion-col>
+        <ion-col>
+           <div>Time</div>
+        </ion-col>
+        <ion-col>
+          <div>Day</div>
+        </ion-col>
+      </ion-row>
+      
+    </ion-grid>
+    <ion-grid *ngFor="let i of GU?.timeview" style="border:solid 1px;">
+      <ion-row>
+        <ion-col>
+          <div>
+            {{i.SUBJECT_ID}} 
+          </div>
+        </ion-col>
+
+        <ion-col>
+            <div>
+              {{i.SUBJECT_NAME}} 
+            </div>
+          </ion-col>
+
+        <ion-col>
+          <div>
+            {{i.TIME_SLOT}}
+          </div>
+        </ion-col>
+        <ion-col>
+          <div>
+            {{i.DAY}}
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    </div>
 </ion-content>

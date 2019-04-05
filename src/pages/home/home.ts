@@ -7,6 +7,8 @@ import { StudentAttendancePage } from '../student-attendance/student-attendance'
 import { TeacherAnnouncementPage } from '../teacher-announcement/teacher-announcement';
 import { StudentResultPage } from '../student-result/student-result';
 import { ViewCalendarPage } from '../view-calendar/view-calendar';
+import { ResultPage } from '../result/result';
+import { ServiceLoginProvider } from '../../providers/service-login/service-login';
 
 
 @Component({
@@ -15,7 +17,9 @@ import { ViewCalendarPage } from '../view-calendar/view-calendar';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public Menu: MenuController ) {
+  public Reg:any;
+
+  constructor(public navCtrl: NavController, public Menu: MenuController,public CRD:ServiceLoginProvider ) {
     this.Menu.enable(true);
   }
 
@@ -42,12 +46,16 @@ export class HomePage {
 
   gotoStudentResult()
   {
-    this.navCtrl.push(StudentResultPage);
+    this.navCtrl.push(ResultPage);
+    this.Reg=this.CRD.recdata;
+    console.log(this.Reg);
+  
   }
  
   gotoViewCalendar()
   {
     this.navCtrl.push(ViewCalendarPage);
   }
-  
+   
+
 }
