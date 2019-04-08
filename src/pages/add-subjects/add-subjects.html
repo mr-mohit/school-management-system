@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="header">
-    <ion-title>Add Subjects</ion-title>
+    <ion-title>{{'add_subject' |translate}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -8,16 +8,16 @@
   
       <ion-item>
           <ion-label floating >
-            <ion-icon ios="ios-information-circle" md="md-information-circle"></ion-icon>
-            Subject ID
+<ion-icon ios="ios-information-circle" md="md-information-circle"></ion-icon>
+            {{'subjectId' |translate}}
           </ion-label>
           <ion-input type="text" [(ngModel)]="subjectid" (keyup)="idcheck($event)" name="subjectid"></ion-input>
         </ion-item>
         
   <ion-item>
     <ion-label floating >
-      <ion-icon ios="ios-book" md="md-book"></ion-icon>
-      Subject Name
+<ion-icon ios="ios-book" md="md-book"></ion-icon>
+      {{'subject_name' |translate}}
     </ion-label>
     
     <ion-input type="text" [(ngModel)]="subjectname"  (keyup)="namecheck($event)" name="subjectname"></ion-input>
@@ -25,30 +25,30 @@
 
   <ion-item>
     <ion-label floating>
-      <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>
-      Subject Type
+<ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>
+      {{'subject_type' |translate}}
     </ion-label>
     <ion-select name="subjecttype" [(ngModel)]="subjecttype">
       <ion-option value="Core">
-        Core
+        {{'core' |translate}}
       </ion-option >
       <ion-option value="Selective">
-        Selective
+        {{'selective' |translate}}
       </ion-option>
     </ion-select>
   </ion-item>
 
     <ion-item>
       <ion-label floating>
-          <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>
-        Subject Material
+<ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>
+        {{'subject_material' |translate}}
       </ion-label>
       <ion-select name="subjectmaterial" [(ngModel)]="subjectmaterial">
         <ion-option value="Practical">
-          Practical
+          {{'practical' |translate}}
         </ion-option>
         <ion-option value="Theory">
-          Theory
+          {{'theory' |translate}}
         </ion-option>
       </ion-select>
     </ion-item>
@@ -58,7 +58,7 @@
 
 <button id="addsubject" ion-button color="header"  on-click=" postSubject(subjectid,subjectname,subjecttype,subjectmaterial)" 
 block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;">
-      Save
+      {{'save' |translate}}
      </button>
 
 
