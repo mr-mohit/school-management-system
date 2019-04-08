@@ -34,6 +34,7 @@ export class ServiceExamProvider {
             console.log(this.Exam_Data);
          }else
          {  
+           this.Exam_Data=[{}]
           alert("No Exam");
          }
          resolve(data);
