@@ -102,6 +102,7 @@ import { UploadMarksPage } from '../pages/upload-marks/upload-marks';
 import { UploadMarksInfoPage } from '../pages/upload-marks-info/upload-marks-info';
 import { ServiceUploadMarksProvider } from '../providers/service-upload-marks/service-upload-marks';
 import { TeacherFeedbackPage } from '../pages/teacher-feedback/teacher-feedback';
+import { TeacherTimeTablePage} from '../pages/teacher-time-table/teacher-time-table';
 import { DeleteTimeTablePage } from '../pages/delete-time-table/delete-time-table';
 import { StudentFeedbackPage } from '../pages/student-feedback/student-feedback';
 import { ServiceAddStudentfeedbackProvider } from '../providers/service-add-studentfeedback/service-add-studentfeedback';
@@ -109,6 +110,8 @@ import { FeedbackDetailPage } from '../pages/feedback-detail/feedback-detail';
 import { ServiceFetchTimeTableProvider } from '../providers/service-fetch-time-table/service-fetch-time-table';
 import { ServiceExamProvider } from '../providers/service-exam/service-exam';
 import { ServiceDeleteTimetableProvider } from '../providers/service-delete-timetable/service-delete-timetable';
+import { AssignSubPage } from '../pages/assign-sub/assign-sub';
+import { ServiceGetTeacherProvider } from '../providers/service-get-teacher/service-get-teacher';
  
 
  @NgModule({ 
@@ -181,6 +184,8 @@ import { ServiceDeleteTimetableProvider } from '../providers/service-delete-time
     StudentFeedbackPage,
     FeedbackDetailPage,
     DeleteTimeTablePage,
+    TeacherTimeTablePage,
+    AssignSubPage,
   ],
   imports: [
     BrowserModule,
@@ -265,6 +270,8 @@ import { ServiceDeleteTimetableProvider } from '../providers/service-delete-time
     StudentFeedbackPage,
     FeedbackDetailPage,
     DeleteTimeTablePage,
+    TeacherTimeTablePage,
+    AssignSubPage,
   ],
   providers: [
     StatusBar,
@@ -314,7 +321,7 @@ import { ServiceDeleteTimetableProvider } from '../providers/service-delete-time
     ServiceFetchTimeTableProvider,
     ServiceExamProvider,
     ServiceDeleteTimetableProvider,
-  
+    ServiceGetTeacherProvider,
   ]
 })
 export class AppModule {}
