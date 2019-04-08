@@ -81,10 +81,10 @@
                     <ion-label floating>{{'gender' |translate}}</ion-label>
                     <ion-select formControlName="usergender" [class.invalid]="!slideOneForm.controls.usergender.valid && (slideOneForm.controls.usergender.dirty || submitAttempt)">
                           <ion-option value="male">
-                                male
+                                Male
                           </ion-option>
                           <ion-option value="female">
-                                female
+                                Female
                           </ion-option>
                     </ion-select>
                 </ion-item>
@@ -285,6 +285,7 @@
                  
                 <!-- user pic -->
                 <ion-item>
+                        <div style="width: 100%; text-align: center;">
                     <!-- <ion-label floating>User Picture</ion-label>
                     <ion-input formControlName="userpic" type="text" [class.invalid]="!slideOneForm.controls.userpic.valid && (slideOneForm.controls.userpic.dirty || submitAttempt)"></ion-input> -->
                     <img src="{{pathForImage(lastImage)}}" style="width: 100%; height:80% ;" [hidden]="lastImage === null">
@@ -297,6 +298,7 @@
                                 <ion-icon name="cloud-upload"></ion-icon>&nbsp; Upload
                             </button> -->
                     </ion-buttons>  
+                    </div>
                 </ion-item>
                  <!-- student class   -->
                 <ion-item [hidden]='slideOneForm.controls.userrole.value ==="teacher" || slideOneForm.controls.userrole.value ===""'>

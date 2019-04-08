@@ -21,11 +21,6 @@ import { NativeStorage } from '@ionic-native/native-storage';
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { SchoolInfoPage } from '../pages/school-info/school-info';
-import { AddUsersPage } from '../pages/add-users/add-users';
-import { AddClassPage } from '../pages/add-class/add-class';
-import { AddSubjectsPage } from '../pages/add-subjects/add-subjects';
-import { StudentTimeTablePage } from '../pages/student-time-table/student-time-table';
-import { StudentResultPage } from '../pages/student-result/student-result';
 
 
 @Component({

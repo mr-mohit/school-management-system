@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 import { NativeStorage } from '@ionic-native/native-storage';
+import { ChangePasswordPage } from '../change-password/change-password';
 
 /**
  * Generated class for the SettingPage page.
@@ -24,6 +25,11 @@ export class SettingPage {
   constructor(public storage: NativeStorage ,public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController, public translate:TranslateService) {
   }
 
+  ChangePassword()
+  {
+    this.navCtrl.push(ChangePasswordPage);
+  }
+  
   ionViewDidLoad() {
     console.log('ionViewDidLoad SettingPage');
     this.storage.getItem('languageInfo')
