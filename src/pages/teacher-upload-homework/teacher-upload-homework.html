@@ -20,7 +20,7 @@
         <!-- Class -->
         <ion-item>
           <ion-label floating>Class</ion-label>
-           <ion-select  name="Class" [(ngModel)]="Class" (ionChange)="getSubject(Class)">
+           <ion-select  name="Class" [(ngModel)]="Class"  (ionChange)="getSubject(Class)">
             <ion-option *ngFor="let i of GU?.classData"  value="{{i.CLASS_MASTER_ID}}" >{{i.CLASS}} {{i.SECTION}}</ion-option>
            </ion-select>
         </ion-item>

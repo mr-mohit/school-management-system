@@ -8,6 +8,7 @@ import { File } from '@ionic-native/file';
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 import { ServiceLoginProvider } from '../../providers/service-login/service-login';
 import { ServiceUploadHomeworkProvider } from '../../providers/service-upload-homework/service-upload-homework';
+import { empty } from 'rxjs/Observer';
 
 /**
  * Generated class for the TeacherUploadHomeworkPage page.
@@ -15,6 +16,7 @@ import { ServiceUploadHomeworkProvider } from '../../providers/service-upload-ho
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
+declare var cordova: any;
 
 @IonicPage()
 @Component({
@@ -29,10 +31,10 @@ export class TeacherUploadHomeworkPage {
    private fileTransfer: TransferObject;  
    public classID:any;
    public RegNo:any;
-   
-   public Infos : any =
+   public a : any; // used to check if file has been updated 
+   public Infos =
    {
-      "teacherId" :"" ,
+      "teacherID" :"" ,
       "class" : "",
       "subject" : "",
       "date" : "",
@@ -72,36 +74,32 @@ export class TeacherUploadHomeworkPage {
       this.Infos['subject']=Subject;
       this.Infos['date']=DATE;
       this.Infos['time']=TIME;
+       
 
       // start choosing the file 
     this.fileChooser.open().then(file=>{
       this.filePath.resolveNativePath(file).then(resolveFilePath=>{
-        alert(resolveFilePath);
+        //alert(resolveFilePath);
         this.lastfile = resolveFilePath;
           // getting the file name and store into array that we will use to send to the API
-              this.Infos['file'] = this.lastfile;
-     // getting the file name and store into array that we will use to send to the API
-     var a = 0; 
-     //alert(this.userInfos["userpic"]);
-     for(var index in this.Infos) {
+          var currentName = this.lastfile.substr(this.lastfile.lastIndexOf('/') + 1);
+              this.Infos['file'] = currentName;
+             
+
 
        //check if all the fields have been filled by the admin
        //console.log(this.userInfos[index]);
-       if(this.Infos[index] == "")
+       if(this.Infos['teacherID'] && this.Infos['class'] && this.Infos['subject']
+               && this.Infos['date'] && this.Infos['time'] && this.Infos['file'])
        {
-         // if one field is empty => print an alert 
-           alert("empty fields are not allowed / You should fill all the fields properly");
-           break;
+          this.ConfirmCreationHomework(this.Infos); 
+          
        }
        else
-       {
-         a +=1 ; 
+       { 
+         // if one field is empty => print an alert 
+         alert("empty fields are not allowed / You should fill all the fields properly");
        }
-     }
-     if(a == 6)
-     {
-      this.ConfirmCreationHomework(this.Infos); 
-     }
     
         // this.fileOpener.open(resolveFilePath, 'application/PDF').then(value=>{ 
           
@@ -117,10 +115,11 @@ export class TeacherUploadHomeworkPage {
     });
   }
   
-  public uploadFile(file) 
+  public uploadFile(file,a) 
   {
     // Destination URL
     var url = "http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/uploadImage.php";
+ 
     
      var options = {
       fileKey: "file",
@@ -140,16 +139,17 @@ export class TeacherUploadHomeworkPage {
     // Use the FileTransfer to upload the file
     fileTransfer.upload(this.lastfile, url, options).then(data => {
       this.loading.dismissAll()
-      alert('Updation successfull');
+      this.service.postHomework(a); // send the  infos to the provider  
+      this.navCtrl.pop();
     }, err => {
       this.loading.dismissAll()
-      alert('Error while uploading file.');
+      alert("Failed to upload file");
     });
 
     // present toast
   } 
 
-
+  
   public download(fileName) 
   {  
     //here encoding path as encodeURI() format.  
@@ -174,7 +174,7 @@ export class TeacherUploadHomeworkPage {
   async ConfirmCreationHomework(a) {
     const alert = await this.alertController.create({
      
-      message: 'Message <strong>Do You Want to Upload this HomeWork :</strong>???',
+      message: 'Message <br> <strong>Do You Want to Upload this HomeWork :</strong>???',
       buttons: [
         {
           text: 'Cancel',
@@ -187,9 +187,8 @@ export class TeacherUploadHomeworkPage {
           text: 'Okay',
           handler: () => {
            // console.log(a);
-              this.uploadFile; // upload file into the server
-              this.service.postHomework(a); // send the  infos to the provider  
-              this.navCtrl.pop();
+           this.uploadFile(this.lastfile,a); // upload file into the server
+          
           }
         }
       ]
