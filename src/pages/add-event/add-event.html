@@ -6,7 +6,7 @@
 -->
 <ion-header>
   <ion-navbar color="header">
-    <ion-title>Add Event</ion-title>
+    <ion-title>{{'add' |translate}} {{'event' |translate}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -18,12 +18,12 @@
         </ion-item>
        <ion-item>
       <ion-label floating >
-          Event
+          {{'event' |translate}}
       </ion-label>
         <ion-input type="text" [(ngModel)]="EVENT" name="EVENT"></ion-input>
       </ion-item>
     </ion-list>
     <button ion-button block on-click="submitEvent(DATE,EVENT)">
-        ADD EVENT
+      {{'add' |translate}} {{'event' |translate}}
     </button>
 </ion-content>

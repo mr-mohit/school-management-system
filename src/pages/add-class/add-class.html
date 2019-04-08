@@ -1,6 +1,6 @@
 <ion-header>
     <ion-navbar color="header" >
-      <ion-title class="center">Add Class</ion-title>
+      <ion-title class="center">{{'add' |translate}} {{'class' |translate}}</ion-title>
     </ion-navbar>
   </ion-header>
 
@@ -10,7 +10,7 @@
 
   <ion-item>
     <ion-label floating >
-      Class Name
+      {{'class_name' |translate}}
     </ion-label>
     <ion-input type="text" [(ngModel)]="CLASS" (keyup)="classnamecheck($event)" name="CLASS"></ion-input>
   </ion-item>
@@ -19,7 +19,7 @@
 
   <ion-item>
     <ion-label floating >
-      Section
+      {{'section' |translate}}
     </ion-label>
     <ion-input type="text" [(ngModel)]="SECTION" (keyup)="sectioncheck($event)" name="SECTION"></ion-input>
   </ion-item>
@@ -28,13 +28,13 @@
 
   <div class="center">
     <button ion-button block on-click="Submit(CLASS,SECTION)">
-      ADD
+      {{'add' |translate}}
     </button>
 
     <ion-label><!-- for Space --></ion-label>
       
     <button ion-button block  on-click="Class_Sub()">
-      ADD SUBJECTS UNDER CLASS
+      {{'add_subjects_under_class' |translate}}
     </button>
   </div>
 

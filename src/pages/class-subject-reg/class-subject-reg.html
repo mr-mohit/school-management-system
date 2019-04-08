@@ -10,7 +10,7 @@
   </ion-label>
   
   <ion-item>
-    <ion-label>Select Class</ion-label>
+    <ion-label>{{'select' |translate}} Class</ion-label>
      <ion-select  name="CLASS" [(ngModel)]="CLASS">
 
       <ion-option *ngFor="let i of cid?.classData"  value="{{i.CLASS_MASTER_ID}}" >{{i.CLASS}} {{i.SECTION}}</ion-option>
@@ -23,7 +23,7 @@
   </ion-label>
 
   <ion-item>
-    <ion-label>SUBJECTS</ion-label>
+    <ion-label>{{'subjects' | translate}}</ion-label>
      <ion-select  name="SUBJECT" [(ngModel)]="SUBJECT">
 
       <ion-option *ngFor="let j of cid?.subjectData"  value="{{j.SUBJECT_ID}}" > {{j.SUBJECT_ID}} {{j.SUBJECT_NAME}}</ion-option>
@@ -37,7 +37,7 @@
 
   <div class="center">
     <button ion-button on-click="Submit(CLASS,SUBJECT)">
-      ADD
+      {{'add' |translate}}
     </button>
   </div>
 </ion-content>

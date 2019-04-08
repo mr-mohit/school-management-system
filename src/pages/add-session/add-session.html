@@ -1,20 +1,20 @@
 <ion-header>
   <ion-navbar color="header" >
-    <ion-title>Add_Session</ion-title>
+    <ion-title>{{'add_session' |translate}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding style="margin-top:5vh;">
     <ion-list >
         <ion-item>
-          <ion-label>Start Date </ion-label>
+          <ion-label>{{'start_date' |translate}}</ion-label>
           <ion-datetime name="START_DATE" displayFormat="DD MMM YYYY" placeholder="Select Date" min="2019" max="2050" [(ngModel)]="START_DATE"></ion-datetime>
         </ion-item>
 
         <ion-label>  <!-- For Space --></ion-label>
 
         <ion-item>
-          <ion-label>End Date </ion-label>
+          <ion-label>{{'end_date' |translate}}</ion-label>
           <ion-datetime name="END_DATE" displayFormat="DD MMM YYYY" placeholder="Select Date" min="2020" max="2051" [(ngModel)]="END_DATE"></ion-datetime>
         </ion-item>
         
@@ -23,7 +23,7 @@
 
         <div>
           <button ion-button block on-click="Submit(START_DATE,END_DATE)" >
-            Submit
+            {{'submit' |translate}}
           </button>
         </div>
     </ion-list>

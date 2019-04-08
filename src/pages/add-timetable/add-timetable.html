@@ -6,21 +6,21 @@
 -->
 <ion-header>
   <ion-navbar color="header">
-    <ion-title>Add Timetable</ion-title>
+    <ion-title>{{'add' |translate}} {{'timetable' |translate}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
     <ion-item>
-        <ion-label floating>Class and Section</ion-label>
+        <ion-label floating>{{'class' |translate}} {{'and' |translate}} {{'section' |translate}}</ion-label>
          <ion-select  name="classId" [(ngModel)]="classId">
           <ion-option *ngFor="let i of service?.classData"  value="{{i.CLASS_MASTER_ID}}" >{{i.CLASS}} {{i.SECTION}}</ion-option>
          </ion-select>
     </ion-item>
 
     <ion-item>
-      <ion-label floating>Subject Name</ion-label>
+      <ion-label floating>{{'subject_name' |translate}}</ion-label>
        <ion-select  name="subjectId" [(ngModel)]="subjectId">
         <ion-option *ngFor="let i of service?.subjectData"  value="{{i.SUBJECT_ID}}" >{{i.SUBJECT_NAME}}</ion-option>
        </ion-select>
@@ -28,7 +28,7 @@
 
     <ion-item>
       <ion-label floating>
-        Time Slot
+        {{'time_slot' |translate}}
       </ion-label>
       <ion-select name="slot" [(ngModel)]="slot">
         <ion-option value="9_10">
@@ -56,6 +56,6 @@
     </ion-label>
   
     <button id="addTimeTable" ion-button color="header" block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;">
-        Save
+        {{'save' |translate}}
     </button>
 </ion-content>
