@@ -10,7 +10,6 @@ import { NativeStorage } from '@ionic-native/native-storage';
 import { AdminHomePage } from '../admin-home/admin-home';
 import { HomePage } from '../home/home';
 import { TeacherHomePage } from '../teacher-home/teacher-home';
-import { AttendenceInfoPage } from '../attendence-info/attendence-info';
 
 
 @Component({
@@ -128,9 +127,10 @@ REG_NOCHECK(event:any)
    this.status=false;
 
 }
-VS()
+ts()
 {
-  this.navCtrl.push(AttendenceInfoPage);
+  this.navCtrl.push(TeacherHomePage);
+  // this.navCtrl.push(AttendenceInfoPage);
   //this.navCtrl.push(AddTimetablePage);
 }
 

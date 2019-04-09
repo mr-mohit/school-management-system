@@ -32,17 +32,17 @@
      </ion-col>
      <ion-col col-4>
        <ion-card class="bkgcolor"  no-margin>
-          <p> <ion-icon name="time" style="margin-left:27%; margin-top:20%;color:white; font-size:400%"></ion-icon></p>
+          <p> <ion-icon name="time" on-click="TeacherTimeTable()" style="margin-left:27%; margin-top:20%;color:white; font-size:400%"></ion-icon></p>
 
        </ion-card>
        <ion-label class="label-md" text-wrap>Time Table</ion-label>
      </ion-col>
      <ion-col col-4>
-       <ion-card class="bkgcolor"  no-margin>
+       <ion-card class="bkgcolor"  no-margin on-click="CreateTest()">
          <p> <ion-icon name="text" style="margin-left:27%; margin-top:20%;color:white; font-size:400%"></ion-icon></p>
 
        </ion-card>
-       <ion-label  class="label-md" text-wrap>Messages</ion-label>
+       <ion-label  class="label-md" text-wrap>Create Test</ion-label>
      </ion-col>
      </ion-row> 
       <ion-row no-padding>
@@ -55,7 +55,7 @@
        <ion-label class="label-md" text-wrap>Upload Homework</ion-label>
      </ion-col>
      <ion-col col-4>
-       <ion-card class="bkgcolor"  no-margin>
+       <ion-card class="bkgcolor"  no-margin on-click="selectClass()">
          <p> <ion-icon name="stats" style="margin-left:27%; margin-top:20%;color:white; font-size:400%"></ion-icon></p>
 
        </ion-card>

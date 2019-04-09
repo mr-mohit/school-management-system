@@ -33,6 +33,7 @@ export class ServiceLoginProvider {
          this.address=this.recdata.address[0]; 
          //console.log(typeof(this.address));
          this.details=this.recdata.data[0];
+         //console.log("regertration number",this.details.REG_NO);
          //console.log("Address");
          //console.log(this.address);
          }else
@@ -40,7 +41,7 @@ export class ServiceLoginProvider {
            //console.log("Worng")
            alert("Invalid REGISTRATION NO or PASSWORD");
          }
-         resolve(data);
+         resolve(data);``
 
       },error=>{
         console.log(" error: invalid username and/or password");
