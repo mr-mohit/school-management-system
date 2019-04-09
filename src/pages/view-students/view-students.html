@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar color="header">
+    <ion-title>View Students</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label floating >
+        <ion-icon ios="ios-contacts" md="md-contacts"></ion-icon>
+        Select Class
+      </ion-label>
+  <ion-select name="CID" [(ngModel)]="CID">
+   <ion-option *ngFor="let i of GS?.classData"  value="{{i.CLASS_MASTER_ID}}" >{{i.CLASS}} {{i.SECTION}}</ion-option>
+  </ion-select>
+</ion-item>
+
+<ion-item>
+  <ion-label floating >
+      <ion-icon ios="ios-contacts" md="md-contacts"></ion-icon>
+      Select Session
+    </ion-label>
+<ion-select name="SID" [(ngModel)]="SID">
+ <ion-option *ngFor="let j of GS?.sessionData"  value="{{j.SESSION_MASTER_ID}}" >{{j.SESSION_START_DATE}} {{j.SESSION_END_DATE}}</ion-option>
+</ion-select>
+</ion-item>
+<div class="center">
+  <button ion-button on-click="View(CID,SID)">
+   ADD
+  </button>
+</div>
+</ion-content>

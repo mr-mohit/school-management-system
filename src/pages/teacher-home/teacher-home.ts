@@ -8,6 +8,7 @@ import { AttendenceInfoPage } from '../attendence-info/attendence-info';
 import { ViewCalendarPage } from '../view-calendar/view-calendar';
 import { CreateTestPage } from '../create-test/create-test';
 import { UploadMarksInfoPage } from '../upload-marks-info/upload-marks-info';
+import { ViewStudentsPage } from '../view-students/view-students';
 
 @IonicPage()
 @Component({
@@ -55,5 +56,10 @@ selectClass()
   this.GCM.getClassFun();
 
 }
-
+gotoViewStudents()
+{
+  this.navCtrl.push(ViewStudentsPage);
+  this.GCM.getClassFun();
+  this.GCM.getSessionFun();
+}
 }

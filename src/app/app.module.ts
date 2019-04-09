@@ -110,6 +110,8 @@ import { ResultPage } from '../pages/result/result';
 import { ServiceGetResultProvider } from '../providers/service-get-result/service-get-result';
 import { ServiceUploadAttendenceProvider } from '../providers/service-upload-attendence/service-upload-attendence';
 import { ServiceStudentResultProvider } from '../providers/service-student-result/service-student-result';
+import { ViewStudentsPage } from '../pages/view-students/view-students';
+import { ViewStudents_2Page } from '../pages/view-students-2/view-students-2';
  
 
  @NgModule({ 
@@ -182,10 +184,13 @@ import { ServiceStudentResultProvider } from '../providers/service-student-resul
     StudentFeedbackPage,
     FeedbackDetailPage,
     ResultPage,
+    ViewStudentsPage,
+    ViewStudents_2Page,
   ],
   imports: [
     BrowserModule,
     CalendarModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
     TranslateModule.forRoot({
       loader: {
@@ -266,6 +271,8 @@ import { ServiceStudentResultProvider } from '../providers/service-student-resul
     StudentFeedbackPage,
     FeedbackDetailPage,
     ResultPage,
+    ViewStudentsPage,
+    ViewStudents_2Page,
   ],
   providers: [
     StatusBar,
