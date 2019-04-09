@@ -89,5 +89,9 @@
 	"update": "Update",
 	"user": "User",
 	"user_role": "User Role",
-	"view": "View"
+	"view": "View",
+	"view_user":"View User",
+	"fill_out_details_accurately":"Please fill out all details accurately.",
+	"enter_reg_no":"Enter Registration number here",
+	"enter_valid_reg_id":"Please enter a valid registration id."
 }

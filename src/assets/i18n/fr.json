@@ -89,5 +89,9 @@
 	"update": "mettre à jourUpdate",
 	"user": "Utilisateur",
 	"user_role": "Rôle d’utilisateur",
-	"view": "vue"
+	"view": "vue",
+	"view_user":"Voir utilisateur",
+	"fill_out_details_accurately":"S'il vous plaît remplir tous les détails avec précision.",
+	"enter_reg_no":"Entrez le numéro d’enregistrement ici",
+	"enter_valid_reg_id":"Veuillez saisir un identifiant valide.",
 }
