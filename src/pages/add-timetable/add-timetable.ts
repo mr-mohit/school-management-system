@@ -58,9 +58,9 @@ export class AddTimetablePage {
     console.log(this.Days);
   }
 
-  submitTimetable(CLASSID,SUBJECTID,SLOT,Day)
+  submitTimetable()
   {
-    if(CLASSID!=undefined && SUBJECTID!=undefined && SLOT!=undefined && Day!=undefined)
+    if(this.CLASSID!=undefined && this.SUBJECTID!=undefined && this.SLOT!=undefined && this.Day!=undefined)
     {
       const confirm = this.alertCtrl.create({
         title: 'Save Time-table?',
@@ -75,10 +75,10 @@ export class AddTimetablePage {
           {
            text: 'Okay',
            handler: () => {
-                          this.CLASSID=CLASSID;
-                          this.SUBJECTID=SUBJECTID;
-                          this.SLOT=SLOT;
-                          this.Day=Day;
+                          this.CLASSID=this.CLASSID;
+                          this.SUBJECTID=this.SUBJECTID;
+                          this.SLOT=this.SLOT;
+                          this.Day=this.Day;
                           this.timetableData['CLASSID']= this.CLASSID;
                           this.timetableData['SUBJECTID']=this.SUBJECTID;
                           this.timetableData['SLOT']= this.SLOT;
