@@ -11,7 +11,7 @@
 	"address_line1": "Adresse 1",
 	"address_line2": "Adresse 2",
 	"address_type": "Type d'adresse",
-	"admin_announcement": "Administrateur : Announces",
+	"admin_announcement": "Administrateur : Annonces",
 	"admin_dash": "tableau de bord administrateur",
 	"and": "et",
 	"announcement": "annonce",
@@ -28,7 +28,6 @@
 	"delete_class": "Effacer Classe",
 	"delete_session": "Effacer Session",
 	"delete_term": "Effacer Trimestre",
-	"department": "Département",
 	"description": "Description",
 	"dob": "Date de Naissance",
 	"email": "Email",
@@ -54,6 +53,7 @@
 	"practical": "Pratique",
 	"prev": "précédent",
 	"profile": "Profile",
+	"image":"Image",
 	"reg_no(Click)": "Identifiant d'enregistrement(Click here):",
 	"registration_no": "identifiant",
 	"reset_password": "réinitialiser le mot de passe ?",
@@ -93,5 +93,7 @@
 	"view_user":"Voir utilisateur",
 	"fill_out_details_accurately":"S'il vous plaît remplir tous les détails avec précision.",
 	"enter_reg_no":"Entrez le numéro d’enregistrement ici",
-	"enter_valid_reg_id":"Veuillez saisir un identifiant valide."
+	"enter_valid_reg_id":"Veuillez saisir un identifiant valide.",
+	"designation":"Désignation",
+	"department":"Département"
 }

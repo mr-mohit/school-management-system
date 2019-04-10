@@ -28,7 +28,6 @@
 	"delete_class": "Delete Class",
 	"delete_session": "Delete Session",
 	"delete_term": "Delete Term",
-	"department": "Department",
 	"description": "Description",
 	"dob": "Date of Birth",
 	"email": "Email",
@@ -54,6 +53,7 @@
 	"practical": "Practical",
 	"prev": "Prev",
 	"profile": "Profile",
+	"image":"Image",
 	"reg_no(Click)": "Registration ID(Click here):",
 	"registration_no": "Registration Number",
 	"reset_password": "Reset Password ?",
@@ -93,5 +93,7 @@
 	"view_user":"View User",
 	"fill_out_details_accurately":"Please fill out all details accurately.",
 	"enter_reg_no":"Enter Registration number here",
-	"enter_valid_reg_id":"Please enter a valid registration id."
+	"enter_valid_reg_id":"Please enter a valid registration id.",
+	"designation":"Désignation",
+	"department":"Department"
 }
