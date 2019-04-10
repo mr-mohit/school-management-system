@@ -247,7 +247,7 @@ getSubjectOnTimeTable(url,postId)
       }
       else
       {
-        this.SubjectOnTimeTable=[{}];
+        this.SubjectOnTimeTable=[];
         alert("no data fetched");
         //return 0;
       }        
