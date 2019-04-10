@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { ServiceGetTeacherProvider } from '../../providers/service-get-teacher/service-get-teacher';
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
+import {ServiceAssignSubProvider} from '../../providers/service-assign-sub/service-assign-sub';
 
 /**
  * Generated class for the AssignSubPage page.
@@ -16,12 +17,25 @@ import { ServiceGetClassMasterProvider } from '../../providers/service-get-class
   templateUrl: 'assign-sub.html',
 })
 export class AssignSubPage {
-   private Tea_REG_NO:any;
-   private SubClass:any;
+   public Tea_REG_NO:any;
+   public SubjectClass:any;
+   public SubjectId:any;
+
+   private SubjectData:any={
+    "REG_NO":"",
+    "CLASS_ID":""
+  };
+
+  private AssignedSubjectData:any={
+    "REG_NO":"",
+    "SUBJECT_ID":""
+  };
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public GetTeacher:ServiceGetTeacherProvider,
-    public GetClass:ServiceGetClassMasterProvider) {
+    public GetClass:ServiceGetClassMasterProvider,
+    public GetSubject:ServiceAssignSubProvider,
+    public toast:ToastController) {
   }
 
   ionViewDidLoad() {
@@ -29,17 +43,41 @@ export class AssignSubPage {
     this.GetTeacher.getData();
     //Get Classes On Page load
     this.GetClass.getClassFun();
-
-    console.log("NG HERE",this.SubClass);
-    console.log("NG HERE",this.Tea_REG_NO);
-
   }
 
-  getSubject(SubClass)
+  //Will get Subjects that are not Assigned to Any Teacher
+  getSubject(SubjectClass)
   {
-    console.log(""+SubClass);
-    this.SubClass=SubClass;
-    this.GetClass.getAttOnTimeSubject(SubClass);
+    this.SubjectData['REG_NO']=this.Tea_REG_NO;
+    this.SubjectData['CLASS_ID']=this.SubjectClass;
+
+    this.GetSubject.getSubjectData(this.SubjectData);
+  }
+
+  AssignSub()
+  {
+    if(this.Tea_REG_NO!=undefined && this.SubjectClass!=undefined && this.SubjectId!=undefined)
+    {
+      
+      this.AssignedSubjectData['REG_NO']=this.Tea_REG_NO;
+      this.AssignedSubjectData['SUBJECT_ID']=this.SubjectId;
+
+      //Sending Selected Data to Database
+
+      if(this.GetSubject.SaveAssignedData(this.AssignedSubjectData))
+      {
+        this.navCtrl.pop();
+      }
+    }
+    else
+    {
+      const toast = this.toast.create({
+        message: 'Please select all fileds',
+        duration: 3000,
+        position: 'top'
+      });
+      toast.present();
+    }
   }
 
 }
