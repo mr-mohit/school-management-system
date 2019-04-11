@@ -1,13 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-
-/*
-  Generated class for the ServiceViewUserProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class ServiceViewUserProvider {
 
@@ -42,7 +35,7 @@ export class ServiceViewUserProvider {
       },error=>{
         // console.log(" error : data not sent");
         // alert(" error : data not sent");
-        console.log(error);
+        console.log(error)
       });
     });
   }

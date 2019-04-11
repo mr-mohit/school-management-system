@@ -7,6 +7,7 @@ export class ServiceStudentResultProvider {
   public URL="http://localhost/schoolapi/"; //for local use
   //public URL="https://direct-school.000webhostapp.com/"; //for hosting
     public resultData:any;
+    public studentData:any;
   
 
   constructor(public http: HttpClient) {
@@ -42,5 +43,29 @@ export class ServiceStudentResultProvider {
   }
 
 
+  ViewStudentFun(id){
+    var url=this.URL+"teacherViewStudent.php";
+    return this.ViewStudent(url,id);
+  }
+  ViewStudent(url,id){
+    return new Promise(resolve=>{
+      this.http.post(url,JSON.stringify(id)).subscribe(data=>{
+        if(data['statuscode']==1)
+        {
+          this.studentData=data['data'];
+          console.log("Student info ",this.studentData[0]['FIRST_NAME']);
+        }
+        else
+        {
+          alert("No data Found");
+        }        
+        
+         resolve(data);
+
+      },error=>{
+        console.log("Error",error);
+      });
+    });
+  }  
 
 }

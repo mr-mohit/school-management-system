@@ -26,34 +26,16 @@ View(CID,SID)
 {
 console.log("class session data",CID,SID);
 if(CID!=undefined && SID!=undefined )
-    {
-      const confirm = this.alertCtrl.create({
-        title: 'View Class?',
-        buttons: [
-          {
-            text: 'Cancel',
-            handler: () => {
-                            this.navCtrl.pop();
-                           }
-          },
-          {
-           text: 'Okay',
-           handler: () => {
-                          this.CID=CID;
-                          this.SID=SID;
-                          this.CS['CID']= this.CID;
-                          this.CS['SID']= this.SID;
-                          console.log("sending data",this.CS);
-                          if(this.GS.getCSFun(this.CS))
-                          {
-                            this.navCtrl.push(ViewStudents_2Page);
-                          }
-                          }
-          }
-      ]
-    });
-    confirm.present();
-
+    {    
+      this.CID=CID;
+      this.SID=SID;
+      this.CS['CID']= this.CID;
+      this.CS['SID']= this.SID;
+      console.log("sending data",this.CS);
+      if(this.GS.getCSFun(this.CS))
+      {
+        this.navCtrl.push(ViewStudents_2Page);
+      }
     }
     else{
       alert("plese fill required fields");

@@ -112,6 +112,7 @@ import { ServiceUploadAttendenceProvider } from '../providers/service-upload-att
 import { ServiceStudentResultProvider } from '../providers/service-student-result/service-student-result';
 import { ViewStudentsPage } from '../pages/view-students/view-students';
 import { ViewStudents_2Page } from '../pages/view-students-2/view-students-2';
+import { ViewStudentPage } from '../pages/view-student/view-student';
  
 
  @NgModule({ 
@@ -186,6 +187,7 @@ import { ViewStudents_2Page } from '../pages/view-students-2/view-students-2';
     ResultPage,
     ViewStudentsPage,
     ViewStudents_2Page,
+    ViewStudentPage,
   ],
   imports: [
     BrowserModule,
@@ -273,6 +275,7 @@ import { ViewStudents_2Page } from '../pages/view-students-2/view-students-2';
     ResultPage,
     ViewStudentsPage,
     ViewStudents_2Page,
+    ViewStudentPage,
   ],
   providers: [
     StatusBar,
