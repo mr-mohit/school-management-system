@@ -32,7 +32,7 @@
   <ion-item>
     <ion-label floating>Select Class</ion-label>
 
-    <ion-select name="SubClass" [(ngModel)]="SubClass" (ionChange)="getSubject(SubClass)">
+    <ion-select name="SubjectClass" [(ngModel)]="SubjectClass" (ionChange)="getSubject(SubjectClass)">
         <ion-option *ngFor="let i of GetClass?.classData"  value="{{i.CLASS_MASTER_ID}}">
           Class: {{i.CLASS}} Section : {{i.SECTION}}</ion-option>
     </ion-select>
@@ -42,9 +42,9 @@
   <ion-item>
       <ion-label floating>Select Subject</ion-label>
   
-      <ion-select name="Sub" [(ngModel)]="Sub">
-          <ion-option *ngFor="let i of GetClass?.SubjectOnTimeTable" value="{{i.SUBJECT_ID}}">
-            {{i.SUBJECT_ID}} : {{i.SUBJECT_NAME}}
+      <ion-select name="SubjectId" [(ngModel)]="SubjectId">
+          <ion-option *ngFor="let i of GetSubject?.SubjectAvail" value="{{i.SUBJECT_ID}}">
+            {{i.SUBJECT_ID}}
           </ion-option>
       </ion-select>
     </ion-item>
@@ -52,10 +52,8 @@
 
  <ion-label><!-- Space Here --></ion-label>
 
-   <button id="addsubject" ion-button color="header"  on-click="AssignSub()" block >
+   <button id="addsubject" ion-button block color="header"  on-click="AssignSub()">
     Assign Subject To Teacher
-
    </button>
-   <!-- <ion-button on-click="showConfirm()">ALERT</ion-button> -->
    
 </ion-content>

@@ -6,7 +6,7 @@
 
 <ion-content padding>
 
-    <ion-grid  style="border:solid 1px;">
+    <ion-grid class="head" style="border:solid 1px;">
         <ion-row color="header">
           <ion-col>
             <div>
@@ -40,7 +40,7 @@
       </ion-col>
       <ion-col>
           <div>
-           {{i.FIRST_NAME}} {{i.LAST_NAME}} 
+            {{i.FIRST_NAME}} {{i.LAST_NAME}} 
           </div>
         </ion-col>
       <ion-col>
@@ -48,8 +48,8 @@
           <ion-input type="text" [(ngModel)]="STATUS" placeholder="" name="STATUS"></ion-input>
         </div> -->
         <ion-item >
-          <ion-select    [(ngModel)]="i[j]" col-12 class="status" (ionChange)="Submit(i.REG_NO,i[j])">
-            <ion-option selected value="A">Absent </ion-option>
+          <ion-select    [(ngModel)]="i[j]" col-12 class="status" (ionChange)="Submit(i.REG_NO,i[j],j )">
+            <ion-option  selected value="A">Absent </ion-option>
             <ion-option value="P">Present </ion-option>
           </ion-select>
         </ion-item>
@@ -61,5 +61,5 @@
       </ion-col> -->
     </ion-row>
     </ion-grid>
-    <button ion-button block (click)="Submit();" [ngStyle]="{'background-color': buttonColor}">Submit</button>
+    <button ion-button block (click)="ViewAtt()" [ngStyle]="{'background-color': buttonColor}">Submit</button>
 </ion-content>

@@ -99,9 +99,6 @@ export class DeleteTimeTablePage {
         {
          this.navCtrl.pop();
         }
-
-
-
       }
       else
       {

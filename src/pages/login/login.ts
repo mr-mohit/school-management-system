@@ -9,7 +9,7 @@ import { ServiceLoginProvider } from '../../providers/service-login/service-logi
 import { NativeStorage } from '@ionic-native/native-storage';
 import { AdminHomePage } from '../admin-home/admin-home';
 import { HomePage } from '../home/home';
-import { TeacherHomePage } from '../teacher-home/teacher-home';
+import { ResultPage } from '../result/result';
 
 
 @Component({
@@ -129,7 +129,7 @@ REG_NOCHECK(event:any)
 }
 ts()
 {
-  this.navCtrl.push(TeacherHomePage);
+  this.navCtrl.push(ResultPage);
   // this.navCtrl.push(AttendenceInfoPage);
   //this.navCtrl.push(AddTimetablePage);
 }
@@ -142,10 +142,7 @@ Student()
 {
   this.navCtrl.push(HomePage);
 }
-Teacher()
-{
-  this.navCtrl.push(TeacherHomePage);
-}
+
 
 togglePassword()
 {

@@ -1,0 +1,130 @@
+<ion-header>
+  <ion-navbar color="header">
+    <ion-title>Student Info</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list >
+      <ion-item>
+          <ion-label >
+              <ion-icon ios="ios-person" md="md-person"></ion-icon>
+            First Name 
+          </ion-label>
+          <ion-label text-wrap  class="printid" *ngIf="SD.studentData" > {{SD.studentData[0]?.FIRST_NAME}}</ion-label>
+      </ion-item>
+       <!-- user last name -->
+       <ion-item>
+          <ion-label >
+              <ion-icon ios="ios-person" md="md-person"></ion-icon>
+            Last Name
+          </ion-label>
+          <ion-label text-wrap  class="printid" *ngIf="SD.studentData" > {{SD.studentData[0]?.LAST_NAME}}</ion-label>
+       </ion-item>
+
+        <!-- user gender -->
+      <ion-item>
+          <ion-label >
+              <ion-icon ios="ios-male" md="md-male"></ion-icon>
+            Gender
+          </ion-label>
+          <ion-label text-wrap  class="printid" *ngIf="SD.studentData" > {{SD.studentData[0]?.GENDER}}</ion-label>
+      </ion-item>
+
+        <!-- user date of birth -->
+      <ion-item>
+          <ion-label >
+            <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
+            DOB
+          </ion-label>
+          <ion-label text-wrap  class="printid" *ngIf="SD.studentData" > {{SD.studentData[0]?.DOB}}</ion-label>
+      </ion-item>
+
+       <!-- user email -->
+      <ion-item>
+          <ion-label >
+            <ion-icon ios="ios-at" md="md-at"></ion-icon>
+            Email 
+          </ion-label>
+          <ion-label text-wrap  class="printid" *ngIf="SD.studentData" > {{SD.studentData[0]?.E_MAIL}}</ion-label>
+      </ion-item>
+     <!-- user father's name -->
+     <ion-item>
+        <ion-label>
+            <ion-icon ios="ios-person" md="md-person"></ion-icon>
+          Father Name
+        </ion-label>
+        <ion-label text-wrap  class="printid" *ngIf="SD.studentData" > {{SD.studentData[0]?.FATHER_NAME}}</ion-label>
+      </ion-item>  
+       <!-- user mother's name -->
+       <ion-item>
+          <ion-label>
+              <ion-icon ios="ios-person" md="md-person"></ion-icon>
+              Mother Name</ion-label>
+          <ion-label text-wrap  class="printid" *ngIf="SD.studentData" > {{SD.studentData[0]?.MOTHER_NAME}}</ion-label>
+       </ion-item>    
+       <!-- user city -->
+       <ion-item>
+          <ion-label>
+              <ion-icon ios="ios-locate" md="md-locate"></ion-icon>
+            City 
+          </ion-label>
+          <ion-label text-wrap  class="printid" *ngIf="SD.studentData" > {{SD.studentData[0]?.CITY}}</ion-label>
+      </ion-item>
+      <!-- addressType -->
+      <ion-item>
+          <ion-label >
+              <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>
+            Address Type
+          </ion-label>
+          <ion-label text-wrap  class="printid" *ngIf="SD.studentData" > {{SD.studentData[0]?.ADDRESS_TYPE}}</ion-label>
+      </ion-item>
+   <!-- address Line 1 -->
+   <ion-item>
+      <ion-label>
+          <ion-icon ios="ios-text" md="md-text"></ion-icon>
+          Address Line 1
+        </ion-label>
+      <ion-label text-wrap  class="printid" *ngIf="SD.studentData" > {{SD.studentData[0]?.ADDRESS_LINE_1}}</ion-label>
+    </ion-item>
+
+   <!-- address Line 2 -->
+   <ion-item>
+      <ion-label>
+        <ion-icon ios="ios-text" md="md-text"></ion-icon>
+        Address Line 2
+      </ion-label>
+      <ion-label text-wrap  class="printid" *ngIf="SD.studentData" > {{SD.studentData[0]?.ADDRESS_LINE_2}}</ion-label>
+    </ion-item>
+
+    <!-- state -->
+  <ion-item>
+      <ion-label>
+        <ion-icon ios="ios-locate" md="md-locate"></ion-icon>
+        State
+      </ion-label>
+      <ion-label text-wrap  class="printid" *ngIf="SD.studentData" > {{SD.studentData[0]?.STATE}}</ion-label>
+    </ion-item>
+    <!-- Pin Code -->
+  <ion-item>
+      <ion-label>
+          <ion-icon ios="ios-calculator" md="md-calculator"></ion-icon>
+        Pin Code
+      </ion-label>
+      <ion-label text-wrap  class="printid" *ngIf="SD.studentData" > {{SD.studentData[0]?.PINCODE}}</ion-label>
+    </ion-item>
+
+   <!-- contact -->
+  <ion-item>
+      <ion-label>
+        <ion-icon ios="ios-phone-portrait" md="md-phone-portrait"></ion-icon>
+        Mobile Contact
+      </ion-label>
+      <ion-label text-wrap  class="printid" *ngIf="SD.studentData" > {{SD.studentData[0]?.CONTACT_NO}}</ion-label>
+    </ion-item>
+
+
+
+
+  </ion-list>
+</ion-content>

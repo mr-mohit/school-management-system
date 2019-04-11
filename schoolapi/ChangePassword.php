@@ -32,24 +32,16 @@ if($con)
 	   $REG_NO=test_input($obj['REG_NO']);
 	   $NEWPASSWORD=test_input($obj['NEWPASSWORD']);
 	   
-
-	    $sql="UPDATE user SET PASSWORD='$NEWPASSWORD' WHERE REG_NO='$REG_NO' and PASSWORD='$PASSWORD'";
-	
-	   //$res=mysqli_query($con,$sql);	
-	   //$count=mysqli_num_rows($res);
-	   
+	    $sql="UPDATE user SET PASSWORD='$NEWPASSWORD' WHERE REG_NO='$REG_NO' AND PASSWORD='$PASSWORD'";
+		
 	   if(mysqli_query($con,$sql))
 		{
-		   
-			result(1,"success");
-		    $response['statuscode']=1;
+		   result(1,"success");
 
 		}
 		else
 		{
-			result(0,"success");
-		    $response['statuscode']=0;
-			
+			result(0,"fail");
 
 		} 	   
 	}

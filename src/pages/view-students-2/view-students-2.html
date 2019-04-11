@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar color="header">
+    <ion-title>View Students</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid class="head" style="border:solid 1px;">
+    <ion-row color="header">
+      <ion-col>
+        <div>
+          <ion-label>Reg.No</ion-label> 
+        </div>
+      </ion-col>
+      <ion-col>
+          <div>
+              <ion-label>Name</ion-label>             
+          </div>
+        </ion-col>
+      <ion-col class="button-container">
+        <div>
+          <ion-label>Personal</ion-label>
+        </div>
+      </ion-col>
+      <ion-col class="button-container">
+          <div>
+            <ion-label>Academic</ion-label>
+          </div>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+
+<ion-grid *ngFor="let i of CS?.CSData; let j = index" style="border:solid 1px;">
+<ion-row >
+  <ion-col>
+    <div>
+     <ion-label>{{i.REG_NO}} </ion-label> 
+    </div>
+  </ion-col>
+  <ion-col>
+      <div>
+        {{i.FIRST_NAME}} {{i.LAST_NAME}} 
+      </div>
+    </ion-col>
+    <ion-col>
+        <button ion-button on-click="enter(i.REG_NO)">Info</button>
+    </ion-col>
+    <ion-col>
+       <button ion-button on-click="submit(i.REG_NO)">Info</button>
+      </ion-col>
+
+</ion-row>
+</ion-grid>
+</ion-content>
