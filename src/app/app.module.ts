@@ -119,6 +119,7 @@ import { ServiceExamProvider } from '../providers/service-exam/service-exam';
 import { ServiceDeleteTimetableProvider } from '../providers/service-delete-timetable/service-delete-timetable';
 import { AssignSubPage } from '../pages/assign-sub/assign-sub';
 import { ServiceGetTeacherProvider } from '../providers/service-get-teacher/service-get-teacher';
+import { ServiceAssignSubProvider } from '../providers/service-assign-sub/service-assign-sub';
  
 
  @NgModule({ 
@@ -342,6 +343,7 @@ import { ServiceGetTeacherProvider } from '../providers/service-get-teacher/serv
     ServiceExamProvider,
     ServiceDeleteTimetableProvider,
     ServiceGetTeacherProvider,
+    ServiceAssignSubProvider,
   ]
 })
 export class AppModule {}

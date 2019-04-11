@@ -260,7 +260,7 @@ getSubjectOnTimeTable(url,postId)
       }
       else
       {
-        this.SubjectOnTimeTable=[{}];
+        this.SubjectOnTimeTable=[];
         alert("no data fetched");
         //return 0;
       }        
@@ -493,7 +493,7 @@ getTIMESLOT(url,CLASSID)
       else
       {
         alert("NO TIME SLOT IS FREE");
-        this.timeslot=[{}];
+        this.timeslot=[];
 
         //return 0;
       }        
