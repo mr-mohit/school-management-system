@@ -6,6 +6,7 @@ import { ServiceGetClassMasterProvider } from '../../providers/service-get-class
 import { DeleteSessionPage } from '../delete-session/delete-session';
 import { DeleteTermPage } from '../delete-term/delete-term';
 import { DeleteUserPage } from '../delete-user/delete-user';
+import { DeleteTimeTablePage } from '../delete-time-table/delete-time-table';
 
 /**
  * Generated class for the AdminDeletePage page.
@@ -52,6 +53,11 @@ export class AdminDeletePage {
   {
     this.navCtrl.push(DeleteUserPage);
     //this.cid.getTermFun();
+  }
+
+  DeleteTimeTable()
+  {
+    this.navCtrl.push(DeleteTimeTablePage);
   }
 
 

@@ -28,28 +28,22 @@ if($con)
        $postdata=file_get_contents("php://input");
        $obj=json_decode($postdata,true);
 	   
-	   $PASSWORD=test_input($obj['PASSWORD']);
-	   $REG_NO=test_input($obj['REG_NO']);
-	   $NEWPASSWORD=test_input($obj['NEWPASSWORD']);
-	   
-
-	    $sql="UPDATE user SET PASSWORD='$NEWPASSWORD' WHERE REG_NO='$REG_NO' and PASSWORD='$PASSWORD'";
-	
-	   //$res=mysqli_query($con,$sql);	
-	   //$count=mysqli_num_rows($res);
+	   $id=test_input($obj['CLASSID']);
+	   $day=test_input($obj['DAY']);
+	   $subid=test_input($obj['SUBJECT']);
+	   $ts=test_input($obj['SLOT']);
+	    
+	   $sql="DELETE FROM time_table WHERE CLASS_MASTER_ID='$id' and DAY='$day' and SUBJECT_ID='$subid' and TIME_SLOT='$ts'";
 	   
 	   if(mysqli_query($con,$sql))
 		{
+		   result(1,"success");
 		   
-			result(1,"success");
-		    $response['statuscode']=1;
 
 		}
 		else
 		{
-			result(0,"success");
-		    $response['statuscode']=0;
-			
+			result(0,"fail");
 
 		} 	   
 	}

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { MenuController } from 'ionic-angular';
 import { TeacherAnnouncementPage } from '../teacher-announcement/teacher-announcement';
+import{TeacherTimeTablePage} from '../teacher-time-table/teacher-time-table';
 //import { MarkAttendancePage } from '../mark-attendance/mark-attendance';
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 import { AttendenceInfoPage } from '../attendence-info/attendence-info';
@@ -28,6 +29,11 @@ export class TeacherHomePage {
   gotoTeacherAnnounces()
   {
     this.navCtrl.push(TeacherAnnouncementPage);
+  }
+
+  TeacherTimeTable()
+  {
+    this.navCtrl.push(TeacherTimeTablePage);
   }
 
   Mark()
