@@ -23,14 +23,13 @@ if($con){
 				$response['msg']=$msg;
 				echo json_encode($response);
 				}
-				
-				$postdata=file_get_contents("php://input");
-                 $obj=json_decode($postdata,true);
-	             $id=test_input($obj);
-
 
 			//echo"Connection Sucessfull";
-             $sql="select user.FIRST_NAME,user.LAST_NAME, student_class_reg.REG_NO from student_class_reg inner join user on student_class_reg.REG_NO=user.REG_NO and student_class_reg.CLASS_MASTER_ID='$id'";
+			  $postdata=file_get_contents("php://input");
+				$obj=json_decode($postdata,true);
+			$cid=test_input($obj['CID']);
+	       $sid=test_input($obj['SID']);
+             $sql="SELECT REG_NO FROM student_class_reg WHERE CLASS_MASTER_ID='$cid' AND SESSION_MASTER_ID='$sid'";
              $query = mysqli_query($con,$sql);
 		         $count = mysqli_num_rows($query);
 				 
@@ -64,4 +63,3 @@ if($con){
 
 	
 ?>
-

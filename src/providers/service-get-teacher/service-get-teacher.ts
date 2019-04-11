@@ -59,8 +59,8 @@ export class ServiceGetTeacherProvider {
          resolve(data);
 
       },error=>{
-        console.log("error in Service-get-teacher");
-        alert("error in Service-get-teacher");
+        console.log("error in Service-get-teacher",error);
+
       });
     });
 

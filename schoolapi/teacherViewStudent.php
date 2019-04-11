@@ -26,19 +26,10 @@ if($con)
 				}
 				$postdata=file_get_contents("php://input");
 				$obj=json_decode($postdata,true);
-				$class=test_input($obj);   
-                
-                $sql="SELECT  DISTINCT class_test_master.CLASS_TEST_ID,class_test_master.TEST_NAME, class_test_master.TEST_TYPE,class_test_master.SUBJECT_ID,subject.SUBJECT_NAME,class_test_table.MARKS_OBTAINED,term_master.TERM,
-                      class_test_table.WEIGHTAGE_MARKS_OBTAINED
-						FROM class_test_master
-						JOIN class_reg ON (class_reg.CLASS_MASTER_ID = class_test_master.CLASS_MASTER_ID)
-						JOIN subject ON ( subject.SUBJECT_ID=class_test_master.SUBJECT_ID)
-						JOIN class_test_table ON( class_test_table.CLASS_TEST_ID=class_test_master.CLASS_TEST_ID)
-						JOIN student_class_reg ON (student_class_reg.CLASS_MASTER_ID = class_test_master.CLASS_MASTER_ID)
-                        JOIN term_master ON(term_master.TERM_ID=class_test_master.TERM_ID)
-						where class_test_table.REG_NO='$class' ORDER BY subject.SUBJECT_NAME";
-				
-				$result=mysqli_query($con,$sql);
+				$reg=test_input($obj);   
+                $sql="SELECT USER.*, user_address.* FROM user JOIN user_address ON (user.REG_NO = user_address.REG_NO) WHERE user.REG_NO='$reg' ";
+
+                $result=mysqli_query($con,$sql);
 				$count = mysqli_num_rows($result);
 				 
 		         if ($count == 0) {
@@ -62,4 +53,4 @@ if($con)
 	{
 		die("Connection failed: " . mysqli_connect_error());
 	}
-?>
+ ?>
