@@ -1,0 +1,59 @@
+<!--
+  Generated template for the AssignSubPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="header">
+    <ion-title>Assign Subjects</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  
+  <!-- 1 -->
+
+<ion-item>
+  <ion-label floating>
+    Select Teacher
+  </ion-label>
+  <ion-select name="Tea_REG_NO" [(ngModel)]="Tea_REG_NO">
+      <ion-option *ngFor="let i of GetTeacher?.TeacherData" value="{{i.REG_NO}}" >
+        Reg No: {{i.REG_NO}}
+      </ion-option>
+    
+  </ion-select>
+</ion-item>
+
+<!-- 2 -->
+  <ion-item>
+    <ion-label floating>Select Class</ion-label>
+
+    <ion-select name="SubjectClass" [(ngModel)]="SubjectClass" (ionChange)="getSubject(SubjectClass)">
+        <ion-option *ngFor="let i of GetClass?.classData"  value="{{i.CLASS_MASTER_ID}}">
+          Class: {{i.CLASS}} Section : {{i.SECTION}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <!-- 3 -->
+  <ion-item>
+      <ion-label floating>Select Subject</ion-label>
+  
+      <ion-select name="SubjectId" [(ngModel)]="SubjectId">
+          <ion-option *ngFor="let i of GetSubject?.SubjectAvail" value="{{i.SUBJECT_ID}}">
+            {{i.SUBJECT_ID}}
+          </ion-option>
+      </ion-select>
+    </ion-item>
+
+
+ <ion-label><!-- Space Here --></ion-label>
+
+   <button id="addsubject" ion-button block color="header"  on-click="AssignSub()">
+    Assign Subject To Teacher
+   </button>
+   
+</ion-content>

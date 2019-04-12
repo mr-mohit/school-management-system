@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ServiceLoginProvider } from '../../providers/service-login/service-login';
+import { ServiceStudentResultProvider } from '../../providers/service-student-result/service-student-result';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
-/**
- * Generated class for the ResultPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -14,12 +11,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'result.html',
 })
 export class ResultPage {
+public RegNo:any;
+  constructor(public navCtrl: NavController, public navParams: NavParams,public user:ServiceLoginProvider, 
+    public RES:ServiceStudentResultProvider ) {
+      this.RegNo=this.navParams.get("reg");
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ResultPage');
-  }
-
+  
 }

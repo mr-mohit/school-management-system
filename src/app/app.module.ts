@@ -102,6 +102,8 @@ import { UploadMarksPage } from '../pages/upload-marks/upload-marks';
 import { UploadMarksInfoPage } from '../pages/upload-marks-info/upload-marks-info';
 import { ServiceUploadMarksProvider } from '../providers/service-upload-marks/service-upload-marks';
 import { TeacherFeedbackPage } from '../pages/teacher-feedback/teacher-feedback';
+import { TeacherTimeTablePage} from '../pages/teacher-time-table/teacher-time-table';
+import { DeleteTimeTablePage } from '../pages/delete-time-table/delete-time-table';
 import { StudentFeedbackPage } from '../pages/student-feedback/student-feedback';
 import { ServiceAddStudentfeedbackProvider } from '../providers/service-add-studentfeedback/service-add-studentfeedback';
 import { ServiceUploadAttendenceProvider } from '../providers/service-upload-attendence/service-upload-attendence';
@@ -109,6 +111,16 @@ import { FeedbackDetailPage } from '../pages/feedback-detail/feedback-detail';
 import { ServiceFetchTimeTableProvider } from '../providers/service-fetch-time-table/service-fetch-time-table';
 import { ResultPage } from '../pages/result/result';
 import { ServiceGetResultProvider } from '../providers/service-get-result/service-get-result';
+//import { ServiceUploadAttendenceProvider } from '../providers/service-upload-attendence/service-upload-attendence';
+import { ServiceStudentResultProvider } from '../providers/service-student-result/service-student-result';
+import { ViewStudentsPage } from '../pages/view-students/view-students';
+import { ViewStudents_2Page } from '../pages/view-students-2/view-students-2';
+import { ViewStudentPage } from '../pages/view-student/view-student';
+import { ServiceExamProvider } from '../providers/service-exam/service-exam';
+import { ServiceDeleteTimetableProvider } from '../providers/service-delete-timetable/service-delete-timetable';
+import { AssignSubPage } from '../pages/assign-sub/assign-sub';
+import { ServiceGetTeacherProvider } from '../providers/service-get-teacher/service-get-teacher';
+import { ServiceAssignSubProvider } from '../providers/service-assign-sub/service-assign-sub';
  
 
  @NgModule({ 
@@ -181,10 +193,17 @@ import { ServiceGetResultProvider } from '../providers/service-get-result/servic
     StudentFeedbackPage,
     FeedbackDetailPage,
     ResultPage,
+    ViewStudentsPage,
+    ViewStudents_2Page,
+    ViewStudentPage,
+    DeleteTimeTablePage,
+    TeacherTimeTablePage,
+    AssignSubPage,
   ],
   imports: [
     BrowserModule,
     CalendarModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
     TranslateModule.forRoot({
       loader: {
@@ -265,6 +284,12 @@ import { ServiceGetResultProvider } from '../providers/service-get-result/servic
     StudentFeedbackPage,
     FeedbackDetailPage,
     ResultPage,
+    ViewStudentsPage,
+    ViewStudents_2Page,
+    ViewStudentPage,
+    DeleteTimeTablePage,
+    TeacherTimeTablePage,
+    AssignSubPage,
   ],
   providers: [
     StatusBar,
@@ -314,7 +339,15 @@ import { ServiceGetResultProvider } from '../providers/service-get-result/servic
     ServiceUploadAttendenceProvider,
     ServiceFetchTimeTableProvider,
     ServiceGetResultProvider,
+    ServiceFetchTimeTableProvider,
+    ServiceGetResultProvider,
+    ServiceUploadAttendenceProvider,
+    ServiceStudentResultProvider,
   
+    ServiceExamProvider,
+    ServiceDeleteTimetableProvider,
+    ServiceGetTeacherProvider,
+    ServiceAssignSubProvider,
   ]
 })
 export class AppModule {}

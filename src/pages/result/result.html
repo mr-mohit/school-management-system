@@ -1,74 +1,92 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Result</ion-title>
+  <ion-navbar color="header">
+    <ion-title>Reg No : {{RegNo}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-<ion-slides>
+<ion-slides pager="true">
   <ion-slide class="slide_top">
-    <ion-grid   style="border:solid 1px;">
-      <ion-row color="header">
+    <ion-grid   class="head" style="border:solid 1px;">
+      <ion-row >
         <ion-col>
           <div>
-            <ion-label>ID</ion-label> 
+            <ion-label>Subject</ion-label> 
           </div>
         </ion-col>
         <ion-col>
             <div>
-                <ion-label>SUBJECT</ion-label>             
+                <ion-label>Term</ion-label>             
             </div>
           </ion-col>
         <ion-col class="button-container">
           <div>
-            <ion-label>TERM</ion-label>
+            <ion-label>TYPE</ion-label>
           </div>
         </ion-col>
       </ion-row>
     </ion-grid>
 
+    <ion-grid *ngFor="let i of RES?.resultData" style="border:solid 1px;">
+      <ion-row >
+        <ion-col>
+          <div>
+            {{i.SUBJECT_NAME}} 
+          </div>
+        </ion-col>
+        <ion-col>
+            <div>
+              {{i.TERM}} 
+            </div>
+          </ion-col>
+          <ion-col>
+            <div>
+              {{i.TEST_TYPE}} 
+            </div>
+          </ion-col>
+
+      </ion-row>
+      </ion-grid>
+    </ion-slide>
 
 
-  </ion-slide>
+
+
   <ion-slide class="slide_top">
     <ion-grid  style="border:solid 1px;">
       <ion-row color="header">
         <ion-col>
           <div>
-            <ion-label>CA1</ion-label> 
+            <ion-label>Marks Obtained</ion-label> 
           </div>
         </ion-col>
         <ion-col>
             <div>
-                <ion-label>CA2</ion-label>             
+                <ion-label class="center">Weightage Marks</ion-label>             
             </div>
           </ion-col>
-        <ion-col class="button-container">
-          <div>
-            <ion-label>CA3</ion-label>
-          </div>
-        </ion-col>
-      </ion-row>
+        </ion-row>
+
     </ion-grid>
-  </ion-slide>
 
 
-
-  <ion-slide class="slide_top">
-    <ion-grid  style="border:solid 1px;">
-      <ion-row color="header">
-        <ion-col>
-          <div>
-            <ion-label>END TERM</ion-label> 
+    <ion-grid *ngFor="let i of RES?.resultData" style="border:solid 1px;">
+      <ion-row >
+       <ion-col>
+         <div>
+            {{i.MARKS_OBTAINED}}
           </div>
         </ion-col>
         <ion-col>
-            <div>
-                <ion-label>FINAL</ion-label>             
+           <div >
+              {{i.WEIGHTAGE_MARKS_OBTAINED}}
             </div>
-          </ion-col>
-      </ion-row>
+        </ion-col>
+    </ion-row>
+
     </ion-grid>
+
+
   </ion-slide>
 </ion-slides>
 </ion-content>

@@ -30,6 +30,7 @@ export class ServiceChangepasswordProvider {
     return new Promise(resolve=>{
     
       this.http.post(url,JSON.stringify(NewPasswordData)).subscribe(data=>{
+        console.log(JSON.stringify(data));
         if(data['statuscode'] == 1)
         {
           alert("Changed Successfully");

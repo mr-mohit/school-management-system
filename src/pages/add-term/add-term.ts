@@ -26,7 +26,6 @@ export class AddTermPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl:AlertController,public addTerm:ServiceAddTermProvider,public SVS:ServiceViewSessionProvider ) {
   
-  this.indata=this.navParams.get('datavalue');
   
   }
   

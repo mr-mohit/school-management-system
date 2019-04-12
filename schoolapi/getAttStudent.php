@@ -31,8 +31,7 @@ if($con){
 
 			//echo"Connection Sucessfull";
              $sql="select user.FIRST_NAME,user.LAST_NAME, student_class_reg.REG_NO from student_class_reg inner join user on student_class_reg.REG_NO=user.REG_NO and student_class_reg.CLASS_MASTER_ID='$id'";
-             //$sql="SELECT * FROM subject WHERE SUBJECT_ID in (SELECT SUBJECT_ID from class_reg WHERE CLASS_MASTER_ID='$id' AND IS_ACTIVE=1)";
-			 $query = mysqli_query($con,$sql);
+             $query = mysqli_query($con,$sql);
 		         $count = mysqli_num_rows($query);
 				 
 		         if ($count == 0) {
