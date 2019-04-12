@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ServiceLoginProvider } from '../../providers/service-login/service-login';
 import { ServiceStudentResultProvider } from '../../providers/service-student-result/service-student-result';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-
 
 @IonicPage()
 @Component({
