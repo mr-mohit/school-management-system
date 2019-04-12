@@ -34,7 +34,7 @@ if($con){
 			
 			$sql="SELECT time_table.SUBJECT_ID,subject.SUBJECT_NAME,time_table.TIME_SLOT,time_table.DAY from time_table
 			INNER JOIN 
-			subject ON time_table.SUBJECT_ID=subject.SUBJECT_ID WHERE CLASS_MASTER_ID='$id' AND DAY='$day' ORDER BY time_table.ID";;
+			subject ON time_table.SUBJECT_ID=subject.SUBJECT_ID WHERE CLASS_MASTER_ID='$id' AND DAY='$day' AND IS_ACTIVE=1 ORDER BY time_table.ID";;
 			
          //  $sql="SELECT SUBJECT_ID, TIME_SLOT, DAY FROM time_table WHERE CLASS_MASTER_ID='$id'";
              $query = mysqli_query($con,$sql);
