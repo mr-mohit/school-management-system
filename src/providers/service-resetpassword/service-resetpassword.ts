@@ -24,6 +24,8 @@ export class ServiceResetpasswordProvider {
      // start wait  loading process 
   this.loading = this.loadingCtrl.create({
     content: 'sending OTP...',
+    dismissOnPageChange:true,
+    duration:2000
   });
   this.loading.present();
 
