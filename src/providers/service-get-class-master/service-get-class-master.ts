@@ -20,6 +20,7 @@ export class ServiceGetClassMasterProvider {
   public timeslot:any;
   public timeview:any;
   public SubjectOnTimeTable:any;
+  public CSData:any;
   //These variable for attendance purpose
   public class:any;
   public subject:any;
@@ -295,7 +296,7 @@ getSubjectOnTimeTable(url,postId)
       }
       else
       {
-        this.SubjectOnTimeTable=[{}];
+        this.SubjectOnTimeTable=[];
         alert("no data fetched");
         //return 0;
       }        
@@ -528,7 +529,7 @@ getTIMESLOT(url,CLASSID)
       else
       {
         alert("NO TIME SLOT IS FREE");
-        this.timeslot=[{}];
+        this.timeslot=[];
 
         //return 0;
       }        
@@ -539,6 +540,39 @@ getTIMESLOT(url,CLASSID)
   });
 }
 
+// fetch data of students according to class and session---------------------------------------------------------------->
+
+getCSFun(CS)
+{
+  var url=this.URL+"emmy.php";
+  return this.getCS(url,CS);
 }
+
+getCS(url,CS)
+{
+  console.log("View Students of Class: ",CS);
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(CS)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.CSData=data['data'];
+        console.log("Students",this.CSData);
+        //return 1;
+      }
+      else
+      {
+        alert("No Student found");
+        //return 0;
+      }        
+       resolve(data);
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+}
+
+}
+
+
 
 // THIS IS THE END OF FILE

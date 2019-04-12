@@ -11,9 +11,10 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
   templateUrl: 'result.html',
 })
 export class ResultPage {
-
+public RegNo:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,public user:ServiceLoginProvider, 
     public RES:ServiceStudentResultProvider ) {
+      this.RegNo=this.navParams.get("reg");
 
 
   }

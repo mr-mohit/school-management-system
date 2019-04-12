@@ -32,9 +32,9 @@ if($con){
 
 			//echo"Connection Sucessfull";
 			
-			$sql="SELECT time_table.SUBJECT_ID,subject.SUBJECT_NAME,time_table.TIME_SLOT,time_table.DAY from time_table
-			INNER JOIN 
-			subject ON time_table.SUBJECT_ID=subject.SUBJECT_ID WHERE CLASS_MASTER_ID='$id' AND DAY='$day' ORDER BY time_table.ID";;
+			$sql="SELECT time_table.SUBJECT_ID,subject.SUBJECT_NAME,time_table.TIME_SLOT,time_table.DAY from time_table 
+			INNER JOIN subject ON time_table.SUBJECT_ID=subject.SUBJECT_ID 
+			WHERE CLASS_MASTER_ID=3 AND DAY="Monday" AND time_table.IS_ACTIVE=1 ORDER BY time_table.ID DESC";
 			
          //  $sql="SELECT SUBJECT_ID, TIME_SLOT, DAY FROM time_table WHERE CLASS_MASTER_ID='$id'";
              $query = mysqli_query($con,$sql);
