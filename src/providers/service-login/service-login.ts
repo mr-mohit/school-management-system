@@ -3,14 +3,17 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ServiceLoginProvider {
   public data:any;
-  //public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; //for server use
-  public URL="http://localhost/schoolapi/"; //for local use
-  //public URL="https://direct-school.000webhostapp.com/"; //for hosting
+ //public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; //for server use
+ public URL="http://localhost/schoolapi/"; //for local use
+//  public URL="https://direct-school.000webhostapp.com/"; //for hosting
+
   
   public recdata: any;//this variable will store info coming from API
   public address:any;//for storing address
   public details:any;//for storing other details
   public user_role:any; //this variable is used to define side menu as per user role
+  //these variable for Student result
+  public reg:any;
 
 
   constructor(public http: HttpClient) {
@@ -28,6 +31,7 @@ export class ServiceLoginProvider {
         if(data['statuscode'] == 1)
          {
           this.user_role=this.recdata.data[0].ROLE;//storing the role of user into the variable named user_role
+          this.reg=this.recdata.data[0].REG_NO;
           //console.log(this.user_role);
          //console.log("sucessfully implemented",data['statuscode']);
          this.address=this.recdata.address[0]; 

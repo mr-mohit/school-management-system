@@ -3,12 +3,7 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 import { ServiceGetTeacherProvider } from '../../providers/service-get-teacher/service-get-teacher';
 import { ServiceLoginProvider } from '../../providers/service-login/service-login';
 
-/**
- * Generated class for the TeacherTimeTablePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({

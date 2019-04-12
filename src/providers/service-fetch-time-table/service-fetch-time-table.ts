@@ -1,20 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ServiceLoginProvider } from '../service-login/service-login';
 
-/*
-  Generated class for the ServiceFetchTimeTableProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class ServiceFetchTimeTableProvider {
 
-  public URL="http://localhost/schoolapi/"; 
+  public URL=this.one.URL; //for local use
 
   public StudentTime:any;
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient,public one:ServiceLoginProvider) {
     console.log('Hello ServiceFetchTimeTableProvider Provider');
   }
 

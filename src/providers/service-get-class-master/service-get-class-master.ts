@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ServiceLoginProvider } from '../service-login/service-login';
 
 @Injectable()
 export class ServiceGetClassMasterProvider {
-  public URL="http://localhost/schoolapi/"; //for local use
-  //public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; //for hosting use
+  public URL=this.one.URL; //for local use
+    //public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; //for hosting use
   // public URL="https://direct-school.000webhostapp.com/"; //for hosting
   public classData:any;
   public subjectData:any;
@@ -19,9 +20,21 @@ export class ServiceGetClassMasterProvider {
   public timeslot:any;
   public timeview:any;
   public SubjectOnTimeTable:any;
+  public CSData:any;
+  //These variable for attendance purpose
+  public class:any;
+  public subject:any;
+  public time:any;
+  public date:any;
+  public slot:any;
+  public attendence:any=[];
+  public term:any;
+//end
+ 
+  
 
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient,public one:ServiceLoginProvider) {
     
   }
 
@@ -174,6 +187,7 @@ getUser(url)
         // alert("Term Added");
         this.userData=data['data'];
         console.log("Student of class",this.userData);
+        
 
 
       }
@@ -338,7 +352,19 @@ getSDC(CLASS,url)
       {
         // alert("Term Added");
         this.SDC=data['data'];
+        for (var i in this.SDC)
+        {
+          this.attendence[i]=this.SDC[i];
+          this.attendence[i].status ="A";
+          this.attendence[i].class=this.class;
+          this.attendence[i].subject=this.subject;
+          this.attendence[i].time=this.time;
+          this.attendence[i].date=this.date;
+          this.attendence[i].slot=this.slot;
+          this.attendence[i].term=this.term;
+        }
         console.log("Student of class",this.SDC);
+        console.log("temp Attendance sheet",this.attendence);
 
 
       }
@@ -349,6 +375,33 @@ getSDC(CLASS,url)
       
        resolve(data);
 
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+
+}
+//GET SPECIFIC TERM FOR ATTENDENCE ONLY
+getAttTermfun(t)
+{
+  var url=this.URL+"getAttTerm.php";
+  return this.getAttTerm(url,t);
+
+}
+getAttTerm(url,t)
+{
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(t)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.term=data['data'];
+        console.log("Term for Att",this.term);
+      }
+      else
+      {
+        alert("no data fetched");
+      }        
+       resolve(data);
     },error=>{
       console.log("Error",error);
     });
@@ -452,6 +505,39 @@ getTIMESLOT(url,Data)
   });
 }
 
+// fetch data of students according to class and session---------------------------------------------------------------->
+
+getCSFun(CS)
+{
+  var url=this.URL+"emmy.php";
+  return this.getCS(url,CS);
 }
+
+getCS(url,CS)
+{
+  console.log("View Students of Class: ",CS);
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(CS)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.CSData=data['data'];
+        console.log("Students",this.CSData);
+        //return 1;
+      }
+      else
+      {
+        alert("No Student found");
+        //return 0;
+      }        
+       resolve(data);
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+}
+
+}
+
+
 
 // THIS IS THE END OF FILE

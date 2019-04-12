@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ServiceLoginProvider } from '../service-login/service-login';
 
 @Injectable()
 export class ServiceViewSessionProvider {
@@ -8,7 +9,7 @@ export class ServiceViewSessionProvider {
   // public URL="https://direct-school.000webhostapp.com/"; //for hosting
   public SessData:any;
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient,public one:ServiceLoginProvider) {
     console.log('ViewSessionProvider working');
   }
 

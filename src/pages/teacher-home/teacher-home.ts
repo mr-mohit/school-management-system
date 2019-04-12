@@ -9,6 +9,10 @@ import { AttendenceInfoPage } from '../attendence-info/attendence-info';
 import { ViewCalendarPage } from '../view-calendar/view-calendar';
 import { CreateTestPage } from '../create-test/create-test';
 import { UploadMarksInfoPage } from '../upload-marks-info/upload-marks-info';
+import { ViewStudentsPage } from '../view-students/view-students';
+import { ServiceLoginProvider } from '../../providers/service-login/service-login';
+import { StudentExamsPage } from '../student-exams/student-exams';
+
 @IonicPage()
 @Component({
   selector: 'page-teacher-home',
@@ -17,7 +21,8 @@ import { UploadMarksInfoPage } from '../upload-marks-info/upload-marks-info';
 export class TeacherHomePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public Menu: MenuController,
-    public GU:ServiceGetClassMasterProvider,public GCM:ServiceGetClassMasterProvider,public alertCtrl:AlertController) {
+    public GU:ServiceGetClassMasterProvider,public GCM:ServiceGetClassMasterProvider,public alertCtrl:AlertController,
+    public ad:ServiceLoginProvider) {
     this.Menu.enable(true);
    
     
@@ -59,6 +64,17 @@ selectClass()
   this.navCtrl.push(UploadMarksInfoPage)
   this.GCM.getClassFun();
 
+}
+gotoViewStudents()
+{
+  this.navCtrl.push(ViewStudentsPage);
+  this.GCM.getClassFun();
+  this.GCM.getSessionFun();
+}
+
+gotoExams()
+{
+  
 }
 
 }

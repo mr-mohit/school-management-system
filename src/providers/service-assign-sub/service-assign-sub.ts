@@ -1,21 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastController } from 'ionic-angular';
+import { ServiceLoginProvider } from '../service-login/service-login';
 
-/*
-  Generated class for the ServiceAssignSubProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class ServiceAssignSubProvider {
 
-  public URL="http://localhost/schoolapi/";
+  public URL=this.one.URL; //for local use
 
   private SubjectAvail:any;
 
-  constructor(public http: HttpClient,public toast:ToastController) {
+  constructor(public http: HttpClient,public toast:ToastController,public one:ServiceLoginProvider) {
     console.log('Hello ServiceAssignSubProvider Provider');
   }
 

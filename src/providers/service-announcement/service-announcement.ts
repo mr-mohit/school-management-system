@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ServiceLoginProvider } from '../service-login/service-login';
 
 /*
   Generated class for the ServiceAnnouncementProvider provider.
@@ -10,10 +11,10 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ServiceAnnouncementProvider {
   public data:any;
-  public URL="http://localhost/schoolapi/"; //for local use
+  public URL=this.one.URL; //for local use
  // public URL="https://direct-school.000webhostapp.com/"; //for hosting
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient,public one:ServiceLoginProvider) {
     console.log('Hello ServiceAnnouncementProvider Provider');
   }
 

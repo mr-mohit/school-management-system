@@ -49,13 +49,15 @@ export class AdminAddPage{
   }
   AddTerm()
   {
-    let Dataobj:any;
-    this.getSession.getSessionFun().then(data=>{
+    // let Dataobj:any;
+    // this.getSession.getSessionFun().then(data=>{
    
-      Dataobj=data;
-      console.log("load data",Dataobj);
-      this.navCtrl.push(AddTermPage,{"datavalue":Dataobj});
-    });
+    //   Dataobj=data;
+    //   console.log("load data",Dataobj);
+    //   this.navCtrl.push(AddTermPage,{"datavalue":Dataobj});
+    // });
+    this.getSession.getSessionFun();
+    this.navCtrl.push(AddTermPage);
   }
   AddEvent()
   {
