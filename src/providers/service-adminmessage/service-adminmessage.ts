@@ -11,8 +11,7 @@ import { Injectable } from '@angular/core';
 export class ServiceAdminmessageProvider {
   public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; //for server use
 
-
-  public google_url = "https://fcm.googleapis.com/fcm/send";
+  public google_url = "https://fcm.googleapis.com/fcm/send"; // google for fcn
   public recdata: any;
 
   constructor(public http: HttpClient) {
@@ -49,6 +48,8 @@ export class ServiceAdminmessageProvider {
     var url=this.URL+"SendMessage.php";
     return this.postData(data,url);
   }
+
+ 
 
 
 }
