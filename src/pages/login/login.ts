@@ -32,6 +32,7 @@ public user:any=
   constructor(private nativeStorage: NativeStorage,public Menu: MenuController,public navCtrl: NavController,public alertCtrl:AlertController,public loadingCtrl: LoadingController,
     public service:ServiceLoginProvider,public toast:ToastController) {
       this.Menu.enable(false);
+
   }
   
   ValidateLogin(REG_NO,PASSWORD)

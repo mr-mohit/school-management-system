@@ -26,18 +26,10 @@
           Send to:
         </ion-label>
         <ion-select name="receiver" [(ngModel)]="receiver">
-          <ion-option value="Academics">
-            user1
+          <ion-option *ngFor="let i of getstudent?.studentData"  value="{{i.REG_NO}}">
+            {{i.REG_NO}} : {{i.FIRST_NAME}} {{i.LAST_NAME}}
           </ion-option >
-          <ion-option value="Examination">
-            user2
-          </ion-option>
-          <ion-option value="Events">
-            user3
-            </ion-option>
-            <ion-option value="Sports">
-              user4
-            </ion-option>
+         
         </ion-select>
       </ion-item>
 
@@ -63,19 +55,7 @@
 
           </ion-label>
 
-          <!--Start Date-->
-          
-          <ion-item>
-              <ion-label>Start Date</ion-label>
-              <ion-datetime displayFormat="DD-MMMM-YYYY" placeholder="Select Date" [(ngModel)]="timestarts"></ion-datetime>
-            </ion-item>
-
-        <!-- END DATE -->
-            <ion-item>
-              <ion-label>End Date</ion-label>
-              <ion-datetime displayFormat="DD-MMMM-YYYY" placeholder="Select Date" [(ngModel)]="timeEnds" max="2050"></ion-datetime>
-            </ion-item>
-
+        
     <!-- blank space -->
     <ion-label>
 

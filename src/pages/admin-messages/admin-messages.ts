@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { ServiceLoginProvider } from '../../providers/service-login/service-login';
 import { ServiceAdminmessageProvider } from '../../providers/service-adminmessage/service-adminmessage';
+import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 
 /**
  * Generated class for the AdminMessagesPage page.
@@ -34,19 +35,18 @@ public message={
   "messageReceiver":"",
   "messageTitle":"",
   "messageDescription":"",
-  "timestarts":"",
-  "timeEnds":"",
-  "fcn_token" : ""
 };
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public getuserid:ServiceLoginProvider,
-                public Adminmessages:ServiceAdminmessageProvider,public alertCtrl:AlertController) {
+                public Adminmessages:ServiceAdminmessageProvider,public alertCtrl:AlertController,
+                public getstudent:ServiceGetClassMasterProvider) {
 
     this.timestarts=this.Date+"-"+this.Month+"-"+this.Year;
     this.timeEnds=this.Date+"-"+this.Month+"-"+this.Year;
     console.log(this.timestarts);
 
+    this.getstudent.getStudentFun();
   }
 
   ionViewDidLoad() {
@@ -59,7 +59,7 @@ public message={
     {
   
          const confirm=this.alertCtrl.create({
-          title:'Publish Announcement?',
+          title:'Send Message?',
           buttons:[
             {
               text:'Yes',
@@ -69,9 +69,8 @@ public message={
                   this.message['messageReceiver']=this.receiver;
                   this.message['messageTitle']=this.MessageTitle;
                   this.message['messageDescription']=this.MessageDescription;
-                  this.message['timestarts']=this.timestarts;
-                  this.message['timeEnds']=this.timeEnds;
-                  //this.Adminmessages.postAnnouncements(this.Announcement);
+                  this.Adminmessages.postMsg(this.message);
+                  this.navCtrl.pop();
               }
             },
             {
