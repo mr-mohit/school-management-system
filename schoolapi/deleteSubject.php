@@ -37,7 +37,12 @@ if($con)
 			$sql="UPDATE class_reg SET IS_ACTIVE=0 WHERE SUBJECT_ID='$subjectid'";
 			if(mysqli_query($con,$sql))
 			{
-				result(1,'Deleted'); 
+				$q="UPDATE time_table SET IS_ACTIVE=0 WHERE SUBJECT_ID='$subjectid'";
+				
+				if(mysqli_query($con,$q))
+				{
+				result(1,'Deleted');
+				}				
 			}
 			 
         }	
