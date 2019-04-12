@@ -480,11 +480,11 @@ getSlot(Data)
   return this.getTIMESLOT(url,Data);
 }
 
-getTIMESLOT(url,CLASSID)
+getTIMESLOT(url,Data)
 {
-  console.log("GET TIME SLOT FOR CLASS ID: ",CLASSID);
+  console.log("GET TIME SLOT DATA : ",Data);
   return new Promise(resolve=>{
-    this.http.post(url,JSON.stringify(CLASSID)).subscribe(data=>{
+    this.http.post(url,JSON.stringify(Data)).subscribe(data=>{
       if(data['statuscode']==1)
       {
         this.timeslot=data['data'];
