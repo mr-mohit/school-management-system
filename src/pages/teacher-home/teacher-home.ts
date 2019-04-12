@@ -10,6 +10,8 @@ import { ViewCalendarPage } from '../view-calendar/view-calendar';
 import { CreateTestPage } from '../create-test/create-test';
 import { UploadMarksInfoPage } from '../upload-marks-info/upload-marks-info';
 import { ViewStudentsPage } from '../view-students/view-students';
+import { ServiceLoginProvider } from '../../providers/service-login/service-login';
+import { StudentExamsPage } from '../student-exams/student-exams';
 
 @IonicPage()
 @Component({
@@ -19,7 +21,8 @@ import { ViewStudentsPage } from '../view-students/view-students';
 export class TeacherHomePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public Menu: MenuController,
-    public GU:ServiceGetClassMasterProvider,public GCM:ServiceGetClassMasterProvider,public alertCtrl:AlertController) {
+    public GU:ServiceGetClassMasterProvider,public GCM:ServiceGetClassMasterProvider,public alertCtrl:AlertController,
+    public ad:ServiceLoginProvider) {
     this.Menu.enable(true);
    
     
@@ -68,4 +71,10 @@ gotoViewStudents()
   this.GCM.getClassFun();
   this.GCM.getSessionFun();
 }
+
+gotoExams()
+{
+  
+}
+
 }
