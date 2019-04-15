@@ -41,10 +41,10 @@ export class CreateTestPage {
 
   Submit(CLASS,SUBJECT,TERM,DATE,NAME,TOPIC,TM,WM) 
   {
-    if(CLASS!=undefined && TERM!=undefined && SUBJECT!=undefined &&
-      DATE!=undefined && NAME!=undefined && TOPIC!=undefined && TM!=undefined && WM!=undefined
-      )
+    if(CLASS!=undefined && TERM!=undefined && SUBJECT!=undefined && DATE!=undefined && NAME!=undefined && TOPIC!=undefined && TM!=undefined && WM!=undefined)
     {
+      if(TM>=0 && TM<=100 && WM>=0 && WM<=100)
+      {
       const confirm = this.alertCtrl.create({
         title: 'Create Test',
         message: 'Do you want to create this test?',
@@ -87,10 +87,14 @@ export class CreateTestPage {
       ]
     });
     confirm.present();
-
+      }
+      else
+      {
+        alert("Entered marks must be between 0 and 100");
+      }
     }
     else{
-      alert("plese fill required fields");
+      alert("Plese fill required fields");
     }
 
   }
