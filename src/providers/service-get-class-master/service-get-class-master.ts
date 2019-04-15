@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ServiceLoginProvider } from '../service-login/service-login';
 
 @Injectable()
 export class ServiceGetClassMasterProvider {
-  public URL="http://localhost/schoolapi/"; //for local use
-  //public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; //for hosting use
+  public URL=this.one.URL; //for local use
+    //public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; //for hosting use
   // public URL="https://direct-school.000webhostapp.com/"; //for hosting
   public classData:any;
   public subjectData:any;
@@ -20,6 +21,7 @@ export class ServiceGetClassMasterProvider {
   public timeview:any;
   public SubjectOnTimeTable:any;
   public CSData:any;
+  public SAData:any;//it will have array of attendance of a particular student used un View Attendance Stduent Module
   //These variable for attendance purpose
   public class:any;
   public subject:any;
@@ -33,7 +35,7 @@ export class ServiceGetClassMasterProvider {
   
 
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient,public one:ServiceLoginProvider) {
     
   }
 
@@ -479,11 +481,11 @@ getSlot(Data)
   return this.getTIMESLOT(url,Data);
 }
 
-getTIMESLOT(url,CLASSID)
+getTIMESLOT(url,Data)
 {
-  console.log("GET TIME SLOT FOR CLASS ID: ",CLASSID);
+  console.log("GET TIME SLOT DATA : ",Data);
   return new Promise(resolve=>{
-    this.http.post(url,JSON.stringify(CLASSID)).subscribe(data=>{
+    this.http.post(url,JSON.stringify(Data)).subscribe(data=>{
       if(data['statuscode']==1)
       {
         this.timeslot=data['data'];
@@ -534,6 +536,37 @@ getCS(url,CS)
     });
   });
 }
+
+// TO GET ATTENDENCE OF PARTICULAR STUDENT///////////////////////////////////////////////////////////////////////////
+getSAFun(RG)
+{
+  var url=this.URL+"getStudentAttendance.php";
+  return this.getSA(url,RG);
+}
+
+getSA(url,RG)
+{
+  console.log("View your Attendance: ",RG);
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(RG)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.SAData=data['data'];
+        console.log("Attendance",this.SAData);
+        
+      }
+      else
+      {
+        alert("No data found");
+        //return 0;
+      }        
+       resolve(data);
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+}
+
 
 }
 

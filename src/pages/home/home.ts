@@ -1,4 +1,4 @@
-import { Component, ɵConsole } from '@angular/core';
+import { Component} from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { MenuController } from 'ionic-angular';
 import { StudentExamsPage } from '../student-exams/student-exams';
@@ -9,6 +9,7 @@ import { ViewCalendarPage } from '../view-calendar/view-calendar';
 import { ResultPage } from '../result/result';
 import { ServiceLoginProvider } from '../../providers/service-login/service-login';
 import { ServiceStudentResultProvider } from '../../providers/service-student-result/service-student-result';
+import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class HomePage {
   public Reg:any;
 
   constructor(public navCtrl: NavController, public Menu: MenuController,public CRD:ServiceLoginProvider ,
-    public result:ServiceStudentResultProvider,public UR:ServiceLoginProvider
+    public result:ServiceStudentResultProvider,public UR:ServiceLoginProvider,public SA:ServiceGetClassMasterProvider
     ) {
     this.Menu.enable(true);
   }
@@ -29,6 +30,7 @@ export class HomePage {
   gotoStudentAttendance()
   {
     this.navCtrl.push(StudentAttendancePage);
+    this.SA.getSAFun(this.UR.reg);
   }
 
   gotoStudentAnnouncements()
@@ -48,7 +50,7 @@ export class HomePage {
 
   gotoStudentResult()
   {
-    this.navCtrl.push(ResultPage);
+    this.navCtrl.push(ResultPage,{"data":this.UR.reg});
     this.Reg=this.CRD.recdata;
     console.log(this.Reg);
     this.result.getResultFun(this.UR.reg);

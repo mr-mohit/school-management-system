@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ServiceLoginProvider } from '../../providers/service-login/service-login';
 import { ServiceStudentResultProvider } from '../../providers/service-student-result/service-student-result';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 
 @IonicPage()
@@ -12,9 +11,12 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 })
 export class ResultPage {
 public RegNo:any;
+public RN:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,public user:ServiceLoginProvider, 
     public RES:ServiceStudentResultProvider ) {
       this.RegNo=this.navParams.get("reg");
+      this.RN=this.navParams.get("data");
+      console.log(this.RN,"reg no coming");
 
 
   }

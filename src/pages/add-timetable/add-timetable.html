@@ -31,7 +31,7 @@
           <ion-icon ios="ios-book" md="md-book"></ion-icon>
         {{'subject_name' |translate}}</ion-label>
       <ion-select  name="SUBJECTID" [(ngModel)]="SUBJECTID">
-        <ion-option *ngFor="let i of service?.subjectData"  value="{{i.SUBJECT_ID}}" >{{i.SUBJECT_NAME}}</ion-option>
+        <ion-option *ngFor="let i of service?.SubjectOnTimeTable"  value="{{i.SUBJECT_ID}}" >{{i.SUBJECT_NAME}}</ion-option>
        </ion-select>
     </ion-item>
 

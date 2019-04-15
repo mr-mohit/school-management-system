@@ -1,23 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ServiceLoginProvider } from '../service-login/service-login';
 
-/*
-  Generated class for the ServiceGetTeacherProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class ServiceGetTeacherProvider {
 
-  public URL="http://localhost/schoolapi/"; 
+  public URL=this.one.URL; //for local use
 
   public TeacherData:any;
   public Teacher_Subject:any;
 
   public Teacher_Time_Table:any=[{}];
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient,public one:ServiceLoginProvider) {
     console.log('Hello ServiceGetTeacherProvider Provider');
   }
 

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { ServiceLoginProvider } from '../../providers/service-login/service-login';
 import { ServiceAdminAnnouncements } from '../../providers/service-AdminAnnoucement/service-announcement';
+import { DeleteAnnouncementsPage } from '../delete-announcements/delete-announcements';
 
 /**
  * Generated class for the AdminAnnouncementsPage page.
@@ -86,5 +87,9 @@ public Announcement={
     
        alert("Fields cannot be empty");
     }
+  }
+  SeeAnnouncements()
+  {
+    this.navCtrl.push(DeleteAnnouncementsPage);
   }
 }

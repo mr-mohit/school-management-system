@@ -6,6 +6,7 @@ export class ServiceLoginProvider {
  //public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; //for server use
  public URL="http://localhost/schoolapi/"; //for local use
 //  public URL="https://direct-school.000webhostapp.com/"; //for hosting
+
   
   public recdata: any;//this variable will store info coming from API
   public address:any;//for storing address

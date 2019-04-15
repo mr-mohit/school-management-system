@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
-import { setZIndex } from 'ionic-angular/umd/navigation/nav-util';
 import { ServiceUploadAttendenceProvider } from '../../providers/service-upload-attendence/service-upload-attendence';
-import { get } from '@ionic-native/core';
 
 
 @IonicPage()
