@@ -11,9 +11,12 @@ import { ServiceStudentResultProvider } from '../../providers/service-student-re
 })
 export class ResultPage {
 public RegNo:any;
+public RN:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,public user:ServiceLoginProvider, 
     public RES:ServiceStudentResultProvider ) {
       this.RegNo=this.navParams.get("reg");
+      this.RN=this.navParams.get("data");
+      console.log(this.RN,"reg no coming");
 
 
   }
