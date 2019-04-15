@@ -57,57 +57,64 @@ export class CreateTestPage {
       if(this.myDate<DATE)
       {
         if(ST<ET){
-          const confirm = this.alertCtrl.create({
-            title: 'Create Test',
-            message: 'Do you want to create this test?',
-            buttons: [
-              {
-                text: 'Cancel',
-                handler: () => {
-                                this.navCtrl.pop();
-                               }
-              },
-              {
-               text: 'Okay',
-               handler: () => {
-                              this.CLASS=CLASS;
-                              this.TERM=TERM;
-                              this.SUBJECT=SUBJECT;
-                              this.TYPE=TYPE;
-                              this.NAME=NAME;
-                              this.DATE=DATE;
-                              this.TOPIC=TOPIC;
-                              this.TM=TM;
-                              this.WM=WM;
-                              this.ST=ST;
-                              this.ET=ET;
-                              this.RM=RM;
-
-    
-                              this.testData['CLASS']= this.CLASS;
-                              this.testData['TERM']=this.TERM;
-                              this.testData['SUBJECT']=this.SUBJECT;
-                              this.testData['TYPE']=this.TYPE;
-                              this.testData['NAME']=this.NAME;
-                              this.testData['DATE']=this.DATE;
-                              this.testData['TOPIC']=this.TOPIC;
-                              this.testData['TM']=this.TM;
-                              this.testData['WM']=this.WM;
-                              this.testData['ST']=this.ST;
-                              this.testData['ET']=this.ET;
-                              this.testData['RM']=this.RM;
-    
-                              console.log("sending data",this.testData);
-    
-                              if(this.CT.createTestFun(this.testData))
-                              {
-                                this.navCtrl.pop();
-                              }
-                              }
-              }
-          ]
-        });
-        confirm.present();
+          if(TM>=0 && TM<=100 && WM>=0 && WM<=100)
+          {
+            const confirm = this.alertCtrl.create({
+              title: 'Create Test',
+              message: 'Do you want to create this test?',
+              buttons: [
+                {
+                  text: 'Cancel',
+                  handler: () => {
+                                  this.navCtrl.pop();
+                                 }
+                },
+                {
+                 text: 'Okay',
+                 handler: () => {
+                                this.CLASS=CLASS;
+                                this.TERM=TERM;
+                                this.SUBJECT=SUBJECT;
+                                this.TYPE=TYPE;
+                                this.NAME=NAME;
+                                this.DATE=DATE;
+                                this.TOPIC=TOPIC;
+                                this.TM=TM;
+                                this.WM=WM;
+                                this.ST=ST;
+                                this.ET=ET;
+                                this.RM=RM;
+  
+      
+                                this.testData['CLASS']= this.CLASS;
+                                this.testData['TERM']=this.TERM;
+                                this.testData['SUBJECT']=this.SUBJECT;
+                                this.testData['TYPE']=this.TYPE;
+                                this.testData['NAME']=this.NAME;
+                                this.testData['DATE']=this.DATE;
+                                this.testData['TOPIC']=this.TOPIC;
+                                this.testData['TM']=this.TM;
+                                this.testData['WM']=this.WM;
+                                this.testData['ST']=this.ST;
+                                this.testData['ET']=this.ET;
+                                this.testData['RM']=this.RM;
+      
+                                console.log("sending data",this.testData);
+      
+                                if(this.CT.createTestFun(this.testData))
+                                {
+                                  this.navCtrl.pop();
+                                }
+                                }
+                }
+            ]
+          });
+          confirm.present();
+          }
+          else{
+            alert("Entered marks must be between 0 and 100");
+          }
+          
        
         }
         else{
@@ -123,7 +130,7 @@ export class CreateTestPage {
 
     }
     else{
-      alert("plese fill required fields");
+      alert("Plese fill required fields");
     }
 
   }
