@@ -101,7 +101,7 @@ Submit(){
         message: 'Please Enter Numbers Only',
         showCloseButton: true,
         position: 'bottom',
-        closeButtonText: 'Okay'
+        closeButtonText: 'Ok'
       });
       toast.present();
     }
