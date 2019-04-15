@@ -11,7 +11,7 @@
 <ion-icon ios="ios-information-circle" md="md-information-circle"></ion-icon>
             {{'subjectId' |translate}}
           </ion-label>
-          <ion-input type="text" [(ngModel)]="subjectid" (keyup)="idcheck($event)" name="subjectid"></ion-input>
+          <ion-input type="text" [(ngModel)]="subjectid" maxlength="8" (keyup)="idcheck($event)" name="subjectid"></ion-input>
         </ion-item>
         
   <ion-item>
@@ -20,7 +20,7 @@
       {{'subject_name' |translate}}
     </ion-label>
     
-    <ion-input type="text" [(ngModel)]="subjectname"  (keyup)="namecheck($event)" name="subjectname"></ion-input>
+    <ion-input type="text" [(ngModel)]="subjectname" maxlength="30" (keyup)="namecheck($event)" name="subjectname"></ion-input>
   </ion-item>
 
   <ion-item>
