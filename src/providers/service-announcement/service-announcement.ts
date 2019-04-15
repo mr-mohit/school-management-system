@@ -50,4 +50,32 @@ export class ServiceAnnouncementProvider {
     return this.postData(url);
   }
 
+  //Edit And Delete
+  
+  DeleteCurrent(Data)
+  {
+    var url=this.URL+"AnnouncementDelete.php";
+    return this.FinalDeleteCurrent(url,Data)
+  }
+
+  FinalDeleteCurrent(url,Data)
+  {
+    return new Promise(resolve=>{
+      this.http.post(url,JSON.stringify(Data)).subscribe(data=>{ 
+        if(data['statuscode'] == 1)
+         {
+          alert("Removed");
+         }
+         else
+         {
+           alert("Unable to remove");
+         }
+         resolve(data);
+
+      },error=>{
+        alert("Connection Error");
+      });
+    });
+  }
+
 }

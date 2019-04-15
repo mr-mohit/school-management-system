@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ServiceAnnouncementProvider } from '../../providers/service-announcement/service-announcement';
+import { UpdateAnnouncementPage } from '../update-announcement/update-announcement';
 
 /**
  * Generated class for the DeleteEditAnnouncementPage page.
@@ -22,13 +24,14 @@ export class DeleteEditAnnouncementPage {
   public START_TIME:any;
   public END_TIME:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public Service:ServiceAnnouncementProvider) {
     
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AnnouncementDetailsPage');
     this.value = this.navParams.get('item');
+
 
     this.CATEGORY=this.value.CATEGORY;
     this.TITLE=this.value.TITLE;
@@ -39,12 +42,16 @@ export class DeleteEditAnnouncementPage {
 
   Edit()
   {
-
+    this.navCtrl.push(UpdateAnnouncementPage,{"CATEGORY":this.CATEGORY,"TITLE":this.TITLE});
   }
 
   Delete()
   {
-
+    if(this.Service.DeleteCurrent(this.value))
+    {
+      this.navCtrl.pop();
+    }
+ 
   }
 
 }

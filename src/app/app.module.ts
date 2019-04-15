@@ -122,6 +122,7 @@ import { ServiceGetTeacherProvider } from '../providers/service-get-teacher/serv
 import { ServiceAssignSubProvider } from '../providers/service-assign-sub/service-assign-sub';
 import { DeleteAnnouncementsPage } from '../pages/delete-announcements/delete-announcements';
 import { DeleteEditAnnouncementPage } from '../pages/delete-edit-announcement/delete-edit-announcement';
+import { UpdateAnnouncementPage } from '../pages/update-announcement/update-announcement';
  
 
  @NgModule({ 
@@ -202,6 +203,7 @@ import { DeleteEditAnnouncementPage } from '../pages/delete-edit-announcement/de
     AssignSubPage,
     DeleteAnnouncementsPage,
     DeleteEditAnnouncementPage,
+    UpdateAnnouncementPage,
   ],
   imports: [
     BrowserModule,
@@ -295,6 +297,7 @@ import { DeleteEditAnnouncementPage } from '../pages/delete-edit-announcement/de
     AssignSubPage,
     DeleteAnnouncementsPage,
     DeleteEditAnnouncementPage,
+    UpdateAnnouncementPage,
   ],
   providers: [
     StatusBar,
