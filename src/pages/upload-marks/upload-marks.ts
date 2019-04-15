@@ -13,6 +13,7 @@ export class UploadMarksPage {
   public CLASS:any=[];
   public SUBJECT:any;
   public TEST:any;
+  public status:boolean=false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public GU:ServiceGetClassMasterProvider,
     public alertCtrl:AlertController,public UM:ServiceUploadMarksProvider,public toastController: ToastController
@@ -21,6 +22,7 @@ export class UploadMarksPage {
   this.SUBJECT=navParams.get('subject');
   this.TEST=navParams.get('test');
   console.log(this.CLASS,this.SUBJECT,this.TEST);
+  this.status=false;
   }
 
   test()
@@ -39,7 +41,7 @@ export class UploadMarksPage {
     mk['REG_NO']=reg;
     mk['TEST']=this.TEST;
     mk['MARKS']=Marks;
-    if(Marks!=undefined && Marks!="" && Marks>=0 && Marks<=30)
+    if(Marks!=undefined && Marks!="" && Marks>=0 && Marks<=30 &&this.status==true)
     {
       
         this.Marks_array[index] = mk;
@@ -80,6 +82,29 @@ Submit(){
       ]
     });
     confirm.present();
+  }
+
+  //Validation
+  check(event:any)
+  {
+    let newValue=event.target.value;
+    let regExp= RegExp('[0-9]+$');
+    if(regExp.test(newValue))
+    {
+     this.status=true;
+    }
+    else
+    {
+      this.status=false;
+
+      const toast = this.toastController.create({
+        message: 'Please Enter Numbers Only',
+        showCloseButton: true,
+        position: 'bottom',
+        closeButtonText: 'Ok'
+      });
+      toast.present();
+    }
   }
 
 }

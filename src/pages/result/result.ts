@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ServiceLoginProvider } from '../../providers/service-login/service-login';
 import { ServiceStudentResultProvider } from '../../providers/service-student-result/service-student-result';
 
+
 @IonicPage()
 @Component({
   selector: 'page-result',

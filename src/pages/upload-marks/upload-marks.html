@@ -39,7 +39,7 @@
         </ion-col>
       <ion-col>
         <ion-item name="MARKS">
-          <ion-input type="number" [(ngModel)]="i[j]" maxlength="3"  (ionBlur)=" Save(i.REG_NO,i[j],j)"></ion-input>
+          <ion-input type="number" [(ngModel)]="i[j]" (keyup)="check($event)"  (ionBlur)=" Save(i.REG_NO,i[j],j)"></ion-input>
         </ion-item>
       </ion-col>
       </ion-row>
