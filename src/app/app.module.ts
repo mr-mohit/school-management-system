@@ -120,6 +120,8 @@ import { ServiceDeleteTimetableProvider } from '../providers/service-delete-time
 import { AssignSubPage } from '../pages/assign-sub/assign-sub';
 import { ServiceGetTeacherProvider } from '../providers/service-get-teacher/service-get-teacher';
 import { ServiceAssignSubProvider } from '../providers/service-assign-sub/service-assign-sub';
+import { DeleteAnnouncementsPage } from '../pages/delete-announcements/delete-announcements';
+import { DeleteEditAnnouncementPage } from '../pages/delete-edit-announcement/delete-edit-announcement';
  
 
  @NgModule({ 
@@ -198,6 +200,8 @@ import { ServiceAssignSubProvider } from '../providers/service-assign-sub/servic
     DeleteTimeTablePage,
     TeacherTimeTablePage,
     AssignSubPage,
+    DeleteAnnouncementsPage,
+    DeleteEditAnnouncementPage,
   ],
   imports: [
     BrowserModule,
@@ -289,6 +293,8 @@ import { ServiceAssignSubProvider } from '../providers/service-assign-sub/servic
     DeleteTimeTablePage,
     TeacherTimeTablePage,
     AssignSubPage,
+    DeleteAnnouncementsPage,
+    DeleteEditAnnouncementPage,
   ],
   providers: [
     StatusBar,
@@ -339,7 +345,6 @@ import { ServiceAssignSubProvider } from '../providers/service-assign-sub/servic
     ServiceGetResultProvider,
     ServiceUploadAttendenceProvider,
     ServiceStudentResultProvider,
-  
     ServiceExamProvider,
     ServiceDeleteTimetableProvider,
     ServiceGetTeacherProvider,
