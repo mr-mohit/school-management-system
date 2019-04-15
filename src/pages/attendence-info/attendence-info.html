@@ -18,7 +18,41 @@
               <ion-option *ngFor="let i of GU?.attsubject"  value="{{i.SUBJECT_ID}}" >{{i.SUBJECT_ID}} {{i.SUBJECT_NAME}}</ion-option>
              </ion-select>
           </ion-item>
-        <button ion-button color="header" on-click="Submit()"
+          <ion-item>
+            <ion-label floating>
+              Time Slot
+            </ion-label>
+            <ion-select name="SLOT" [(ngModel)]="SLOT">
+              <ion-option value="09_10">
+                09 AM - 10 AM
+              </ion-option >
+              <ion-option value="10_11">
+                10 AM - 11 AM
+              </ion-option>
+              <ion-option value="11_12">
+                11 AM - 12 PM
+              </ion-option>
+              <ion-option value="12_01">
+                12 PM - 01 PM
+              </ion-option>
+              <ion-option value="01_02">
+                01 PM - 02 PM
+              </ion-option>
+              <ion-option value="02_03">
+                02 PM - 03 PM
+              </ion-option>
+            </ion-select>
+          </ion-item>
+      
+          <ion-item>
+            <ion-label>Date </ion-label>
+            <ion-datetime name="DATE" displayFormat="DD MMM YYYY" placeholder="Select Date" min="2018"  [(ngModel)]="DATE"></ion-datetime>
+          </ion-item>
+          <ion-item>
+            <ion-label>Time</ion-label>
+            <ion-datetime name="TIME" displayFormat="HH:mm" placeholder="Select Time" minuteValues="0,15,30,45" [(ngModel)]="TIME"></ion-datetime>
+          </ion-item>
+        <button ion-button color="header" on-click="Submit(DATE,TIME,SLOT,Class,Subject)"
             block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;">
             Next
         </button>

@@ -1,26 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
-/*
-  Generated class for the ServiceViewUserProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
+import { ServiceLoginProvider } from '../service-login/service-login';
 @Injectable()
 export class ServiceViewUserProvider {
 
   public data:any;
-  public URL="http://localhost/schoolapi/";
+  public URL=this.one.URL; //for local use
   //public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/";
   recdata: any;
 
-  constructor(public http: HttpClient) {
-    console.log('Hello ServiceViewUserProvider Provider');
+  constructor(public http: HttpClient,public one:ServiceLoginProvider) {
   }
 
   postData(url,data1){
-    //console.log(data1);
+    console.log(data1);
 
     // Passing Header
 
@@ -40,15 +33,17 @@ export class ServiceViewUserProvider {
          resolve(data);
 
       },error=>{
-        console.log(" error : data not sent");
-        alert(" error : data not sent");
+        // console.log(" error : data not sent");
+        // alert(" error : data not sent");
+        console.log(error)
       });
     });
   }
 
   postUserID(data){
-    console.log(data);
+    console.log("data going :",data);
     var url=this.URL+"view_user.php";
+    console.log("url : ", url );
     return this.postData(url,data);
   }
 

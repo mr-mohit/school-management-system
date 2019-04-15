@@ -35,6 +35,11 @@ export class AddTimetablePage {
    "DAY":""
  };
 
+ public getSlot:any={
+   "CLASSID":"",
+   "DAY":""
+ }
+
  private Days:any=[
    {Day:"Monday"},
    {Day:"Tuesday"},
@@ -58,9 +63,9 @@ export class AddTimetablePage {
     console.log(this.Days);
   }
 
-  submitTimetable(CLASSID,SUBJECTID,SLOT,Day)
+  submitTimetable()
   {
-    if(CLASSID!=undefined && SUBJECTID!=undefined && SLOT!=undefined && Day!=undefined)
+    if(this.CLASSID!=undefined && this.SUBJECTID!=undefined && this.SLOT!=undefined && this.Day!=undefined)
     {
       const confirm = this.alertCtrl.create({
         title: 'Save Time-table?',
@@ -75,10 +80,10 @@ export class AddTimetablePage {
           {
            text: 'Okay',
            handler: () => {
-                          this.CLASSID=CLASSID;
-                          this.SUBJECTID=SUBJECTID;
-                          this.SLOT=SLOT;
-                          this.Day=Day;
+                          this.CLASSID=this.CLASSID;
+                          this.SUBJECTID=this.SUBJECTID;
+                          this.SLOT=this.SLOT;
+                          this.Day=this.Day;
                           this.timetableData['CLASSID']= this.CLASSID;
                           this.timetableData['SUBJECTID']=this.SUBJECTID;
                           this.timetableData['SLOT']= this.SLOT;
@@ -124,21 +129,28 @@ export class AddTimetablePage {
       this.fetchTimetableData['CLASSID']=this.CLASSID;
       this.fetchTimetableData['DAY']=Day;
       console.log("HERE ",this.fetchTimetableData)
-   this.GU.getCurrentTimeTable(this.fetchTimetableData)
-   this.GU.getSlot(this.fetchTimetableData);
+
+     this.GU.getCurrentTimeTable(this.fetchTimetableData)
+     
+      this.GU.getSlot(this.fetchTimetableData);
   
   }
 
   // getTimeSlot()
   // {
-  //   if(this.CLASSID!=undefined)
+  //   if(this.CLASSID!=undefined && this.Day)
   //   {
-  //     console.log("ID HERE : "+this.CLASSID);
-  //     this.GU.getSlot(this.CLASSID);
+  //     console.log("ID HERE : ",this.CLASSID);
+  //     console.log("DAy HERE",this.Day);
+
+  //     this.getSlot['CLASSID']=this.CLASSID;
+  //     this.getSlot['DAY']=this.Day;
+
+  //     this.GU.getSlot(this.getSlot);
   //   }
   //   else
   //   {
-  //     alert("Please Select Class First");
+  //     alert("Please Select above First");
   //   }
   // }
 

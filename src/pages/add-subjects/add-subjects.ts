@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { ServiceAddsubjectProvider } from '../../providers/service-addsubject/service-addsubject';
+import { AssignSubPage } from '../assign-sub/assign-sub';
 
 /**
  * Generated class for the AddSubjectsPage page.
@@ -112,5 +113,11 @@ export class AddSubjectsPage {
      this.status=false;
      //  console.log(regExp.test(newValue));
     }
+  }
+
+  AssignSub()
+  {
+    this.navCtrl.push(AssignSubPage);
+    
   }
 }

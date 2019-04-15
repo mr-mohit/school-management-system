@@ -2,13 +2,14 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { MenuController } from 'ionic-angular';
 import { TeacherAnnouncementPage } from '../teacher-announcement/teacher-announcement';
-//import { MarkAttendancePage } from '../mark-attendance/mark-attendance';
+import{TeacherTimeTablePage} from '../teacher-time-table/teacher-time-table';
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 import { AttendenceInfoPage } from '../attendence-info/attendence-info';
 import { ViewCalendarPage } from '../view-calendar/view-calendar';
 import { CreateTestPage } from '../create-test/create-test';
-import { UploadMarksPage } from '../upload-marks/upload-marks';
 import { UploadMarksInfoPage } from '../upload-marks-info/upload-marks-info';
+import { ViewStudentsPage } from '../view-students/view-students';
+import { ServiceLoginProvider } from '../../providers/service-login/service-login';
 
 @IonicPage()
 @Component({
@@ -18,7 +19,8 @@ import { UploadMarksInfoPage } from '../upload-marks-info/upload-marks-info';
 export class TeacherHomePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public Menu: MenuController,
-    public GU:ServiceGetClassMasterProvider,public GCM:ServiceGetClassMasterProvider,public alertCtrl:AlertController) {
+    public GU:ServiceGetClassMasterProvider,public GCM:ServiceGetClassMasterProvider,public alertCtrl:AlertController,
+    public ad:ServiceLoginProvider) {
     this.Menu.enable(true);
    
     
@@ -28,6 +30,11 @@ export class TeacherHomePage {
   gotoTeacherAnnounces()
   {
     this.navCtrl.push(TeacherAnnouncementPage);
+  }
+
+  TeacherTimeTable()
+  {
+    this.navCtrl.push(TeacherTimeTablePage);
   }
 
   Mark()
@@ -55,6 +62,17 @@ selectClass()
   this.navCtrl.push(UploadMarksInfoPage)
   this.GCM.getClassFun();
 
+}
+gotoViewStudents()
+{
+  this.navCtrl.push(ViewStudentsPage);
+  this.GCM.getClassFun();
+  this.GCM.getSessionFun();
+}
+
+gotoExams()
+{
+  
 }
 
 }

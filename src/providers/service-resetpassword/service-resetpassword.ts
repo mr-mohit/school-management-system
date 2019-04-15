@@ -1,24 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AlertController, ToastController, LoadingController } from 'ionic-angular';
+import { ServiceLoginProvider } from '../service-login/service-login';
 
-/*
-  Generated class for the ServiceResetpasswordProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class ServiceResetpasswordProvider {
 
  // public URL="http://localhost/schoolapi/";
-  public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/";
+  public URL=this.one.URL; //for local use
   recdata: any;
   loading: any;
  
 
   constructor(public http: HttpClient,public alertCtrl: AlertController,
-    public toastCtrl: ToastController,public loadingCtrl:LoadingController) {
+    public toastCtrl: ToastController,public loadingCtrl:LoadingController,public one:ServiceLoginProvider) {
     console.log('Hello ServiceResetpasswordProvider Provider');
   }
 
@@ -28,6 +24,8 @@ export class ServiceResetpasswordProvider {
      // start wait  loading process 
   this.loading = this.loadingCtrl.create({
     content: 'sending OTP...',
+    dismissOnPageChange:true,
+    duration:2000
   });
   this.loading.present();
 

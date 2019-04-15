@@ -41,6 +41,18 @@
                   
                  </ion-select>
               </ion-item>
+
+              <ion-item>
+                <ion-label floating>
+                  <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>
+                  TYPE
+                  </ion-label>
+                <ion-select name="TYPE" [(ngModel)]="TYPE">
+                  <ion-option value="CLASS TEST">CLASS TEST</ion-option>
+                  <ion-option value="MID TERM">MID TERM</ion-option>
+                  <ion-option value="END TERM">END TERM</ion-option>
+                </ion-select>
+              </ion-item>
             
          <ion-item>
            <ion-label>
@@ -84,7 +96,7 @@
           </ion-item>
 
       <div>
-          <button ion-button block on-click="Submit(CLASS,SUBJECT,TERM,DATE,NAME,TOPIC,TM,WM)" >
+          <button ion-button block on-click="Submit(CLASS,SUBJECT,TYPE,TERM,DATE,NAME,TOPIC,TM,WM)" >
         SUBMIT
       </button>
     </div>

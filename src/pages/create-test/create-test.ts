@@ -17,6 +17,7 @@ export class CreateTestPage {
   public CLASS:any;
   public TERM:any;
   public SUBJECT:any;
+  public TYPE:any;
   public NAME:any;
   public TOPIC:any;
   public DATE:any;
@@ -27,6 +28,7 @@ export class CreateTestPage {
     "CLASS":"",
    "TERM":"",
    "SUBJECT":"",
+   "TYPE":"",
    "NAME":"",
    "TOPIC":"",
    "DATE":"",
@@ -39,7 +41,7 @@ export class CreateTestPage {
     ) {
   }
 
-  Submit(CLASS,SUBJECT,TERM,DATE,NAME,TOPIC,TM,WM) 
+  Submit(CLASS,SUBJECT,TYPE,TERM,DATE,NAME,TOPIC,TM,WM) 
   {
     if(CLASS!=undefined && TERM!=undefined && SUBJECT!=undefined && DATE!=undefined && NAME!=undefined && TOPIC!=undefined && TM!=undefined && WM!=undefined)
     {
@@ -61,6 +63,7 @@ export class CreateTestPage {
                           this.CLASS=CLASS;
                           this.TERM=TERM;
                           this.SUBJECT=SUBJECT;
+                          this.TYPE=TYPE;
                           this.NAME=NAME;
                           this.DATE=DATE;
                           this.TOPIC=TOPIC;
@@ -70,6 +73,7 @@ export class CreateTestPage {
                           this.testData['CLASS']= this.CLASS;
                           this.testData['TERM']=this.TERM;
                           this.testData['SUBJECT']=this.SUBJECT;
+                          this.testData['TYPE']=this.TYPE;
                           this.testData['NAME']=this.NAME;
                           this.testData['DATE']=this.DATE;
                           this.testData['TOPIC']=this.TOPIC;

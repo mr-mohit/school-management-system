@@ -9,8 +9,7 @@ import { ServiceLoginProvider } from '../../providers/service-login/service-logi
 import { NativeStorage } from '@ionic-native/native-storage';
 import { AdminHomePage } from '../admin-home/admin-home';
 import { HomePage } from '../home/home';
-import { TeacherHomePage } from '../teacher-home/teacher-home';
-import { AttendenceInfoPage } from '../attendence-info/attendence-info';
+import { ResultPage } from '../result/result';
 
 
 @Component({
@@ -51,6 +50,7 @@ public user:any=
 
       const loader = this.loadingCtrl.create({
         content: "Please wait...",
+        duration:3000,
         dismissOnPageChange:true,
       });
       loader.present();
@@ -130,7 +130,7 @@ REG_NOCHECK(event:any)
 }
 ts()
 {
-  this.navCtrl.push(TeacherHomePage);
+  this.navCtrl.push(ResultPage);
   // this.navCtrl.push(AttendenceInfoPage);
   //this.navCtrl.push(AddTimetablePage);
 }
@@ -143,10 +143,7 @@ Student()
 {
   this.navCtrl.push(HomePage);
 }
-Teacher()
-{
-  this.navCtrl.push(TeacherHomePage);
-}
+
 
 togglePassword()
 {

@@ -1,11 +1,11 @@
 <ion-header>
   <ion-navbar color="header">
-    <ion-title>View User</ion-title>
+    <ion-title>{{'view_user' |translate}}</ion-title>
      <ion-buttons start>
-        <button ion-button icon-left (click)="prev()"><ion-icon name="arrow-back"></ion-icon> Prev</button>
+        <button ion-button icon-left (click)="prev()"><ion-icon name="arrow-back"></ion-icon> {{'prev' |translate}}</button>
       </ion-buttons>
       <ion-buttons end>
-        <button ion-button icon-right (click)="next()">Next <ion-icon name="arrow-forward"></ion-icon></button>
+        <button ion-button icon-right (click)="next()">{{'next' |translate}}<ion-icon name="arrow-forward"></ion-icon></button>
       </ion-buttons>
   </ion-navbar>
   
@@ -18,7 +18,7 @@
           <!-- slide1 -->
       <ion-slide  class="scroll">
 
-        <p *ngIf="submitAttempt" style="color: #ea6153;">Please fill out all details accurately.</p>
+        <p *ngIf="submitAttempt" style="color: #ea6153;">{{'fill_out_details_accurately' |translate}}</p>
 
         <ion-list no-lines  scroll="true">
 
@@ -26,47 +26,43 @@
 
                    <!-- user id -->
                 <ion-item>
-                    <ion-label floating > 
-                      Enter Registration number here :  
-                    </ion-label>
+                    <ion-label floating > {{'enter_reg_no' |translate}} :  </ion-label>
                     <ion-input  type="number" name="userid"  formControlName="userid" [class.invalid]="!slideOneForm.controls.userid.valid && (slideOneForm.controls.userid.dirty || submitAttempt)" > </ion-input>
                 </ion-item> 
                 <button ion-button full color="primary" (click)="UserInfos()">
-                        <ion-icon name="eye"></ion-icon> &nbsp; View User
+                        <ion-icon name="eye"></ion-icon> &nbsp; {{'view_user' |translate}}
                     </button>
     
                 <ion-item  *ngIf="!slideOneForm.controls.userid.valid  && (slideOneForm.controls.userid.dirty || submitAttempt)">
-                    <p>Please enter a valid registration id.</p>
+                    <p>{{'enter_valid_reg_id' |translate}}</p>
                 </ion-item>
 
                    <!-- user role -->
                 <ion-item>
-                    <ion-label>Role :</ion-label>
+                    <ion-label>{{'role' |translate}} :</ion-label>
                     <ion-label *ngIf="service.recdata" text-wrap  class="printid"> {{service?.recdata.data[0]?.ROLE}} </ion-label>
                 </ion-item>
               
                   <!-- user first name -->
                 <ion-item>
-                    <ion-label >
-                      FirstName :
-                    </ion-label>
+                    <ion-label >{{'first_name' |translate}} :</ion-label>
                     <ion-label text-wrap  class="printid" *ngIf="service.recdata" > {{service?.recdata.data[0]?.FIRST_NAME}}</ion-label>
                 </ion-item>
                   <!-- user last name -->
                 <ion-item>
-                    <ion-label >LastName:</ion-label>
+                    <ion-label >{{'last_name' |translate}} :</ion-label>
                     <ion-label text-wrap class="printid" *ngIf="service.recdata" > {{service?.recdata.data[0]?.LAST_NAME}} </ion-label>
                  </ion-item>
 
                   <!-- user gender -->
                 <ion-item>
-                    <ion-label >gender :</ion-label>
+                    <ion-label >{{'gender' |translate}} :</ion-label>
                     <ion-label text-wrap class="printid" *ngIf="service.recdata" > {{service?.recdata.data[0]?.GENDER}} </ion-label>
                 </ion-item>
 
                   <!-- user date of birth -->
                 <ion-item>
-                    <ion-label >DOB :</ion-label>
+                    <ion-label >{{'dob' |translate}} :</ion-label>
                      <ion-label text-wrap class="printid" *ngIf="service.recdata" > {{service?.recdata.data[0]?.DOB}} </ion-label>
                 </ion-item>
 
@@ -78,7 +74,7 @@
 
                   <!-- user password -->
                 <ion-item>
-                    <ion-label >password</ion-label>
+                    <ion-label >{{'password' |translate}}</ion-label>
                      <ion-label text-wrap class="printid" *ngIf="service.recdata" > {{service?.recdata.data[0]?.PASSWORD}} </ion-label>
                 </ion-item>
 
@@ -98,54 +94,54 @@
 
                   <!-- user father's name -->
                 <ion-item>
-                    <ion-label>father_Name:</ion-label>
+                    <ion-label>{{'father_Name' |translate}}:</ion-label>
                      <ion-label text-wrap class="printid" *ngIf="service.recdata" > {{service?.recdata.address[0]?.FATHER_NAME}} </ion-label>
                 </ion-item>
 
                        <!-- user mother's name -->
                 <ion-item>
-                    <ion-label>Mother_Name: </ion-label>
+                    <ion-label>{{'mother_Name' |translate}}: </ion-label>
                     <ion-label text-wrap class="printid" *ngIf="service.recdata" > {{service?.recdata.address[0]?.MOTHER_NAME}} </ion-label>
                  </ion-item>
 
                        <!-- user city -->
                 <ion-item>
-                    <ion-label>City: </ion-label>
+                    <ion-label>{{'city' |translate}}: </ion-label>
                      <ion-label text-wrap class="printid"*ngIf="service.recdata" > {{service?.recdata.address[0]?.CITY}} </ion-label>
                 </ion-item>
 
                 <!-- addressType -->
                 <ion-item>
-                    <ion-label >address Type: </ion-label>
+                    <ion-label >{{'address_type' |translate}}: </ion-label>
                    <ion-label text-wrap class="printid" *ngIf="service.recdata" > {{service?.recdata.address[0]?.ADDRESS_TYPE}} </ion-label>
                 </ion-item>
                 
                   <!-- address Line 1 -->
                 <ion-item>
-                    <ion-label>address Line1:</ion-label>
+                    <ion-label>{{'address_line1' |translate}}:</ion-label>
                      <ion-label text-wrap class="printid" *ngIf="service.recdata" > {{service?.recdata.address[0]?.ADDRESS_LINE_1}} </ion-label>
                 </ion-item>
 
                  <!-- address Line 2 -->
                 <ion-item>
-                    <ion-label>address Line2:</ion-label>
+                    <ion-label>{{'address_line2' |translate}}:</ion-label>
                      <ion-label text-wrap class="printid" *ngIf="service.recdata" > {{service?.recdata.address[0]?.ADDRESS_LINE_2}} </ion-label>
                 </ion-item>
 
                   <!-- state -->
                 <ion-item>
-                    <ion-label>State:</ion-label>
+                    <ion-label>{{'state' |translate}}:</ion-label>
                      <ion-label text-wrap class="printid" *ngIf="service.recdata" > {{service?.recdata.address[0]?.STATE}} </ion-label>
                 </ion-item>
                   <!-- Pin Code -->
                 <ion-item>
-                    <ion-label>Pin Code: </ion-label>
+                    <ion-label>{{'pincode' |translate}}: </ion-label>
                      <ion-label text-wrap class="printid"*ngIf="service.recdata" > {{service?.recdata.address[0]?.PINCODE}}</ion-label>
                 </ion-item>
 
                  <!-- contact -->
                 <ion-item>
-                    <ion-label>Mobile Contact: </ion-label>
+                    <ion-label>{{'mobile_contact' |translate}}: </ion-label>
                     <ion-label text-wrap class="printid" *ngIf="service.recdata"> {{service?.recdata.address[0]?.CONTACT_NO}} </ion-label>
                 </ion-item>
 
@@ -163,13 +159,13 @@
 
              <!-- student class name  -->
                 <ion-item *ngIf='service.recdata'  [hidden]='service.recdata.data[0].ROLE !=="student" '>
-                    <ion-label  [hidden]='service.recdata.data[0].ROLE !=="student" '>Class : </ion-label>
+                    <ion-label  [hidden]='service.recdata.data[0].ROLE !=="student" '>{{'class' |translate}} : </ion-label>
                     <ion-label text-wrap  class="printid" *ngIf='service.recdata.data[0].ROLE ==="student"' [hidden]='service.recdata.data[0].ROLE !=="student" '>{{service.recdata.class[0].CLASS}} </ion-label>
                     
                 </ion-item>
              <!-- student class Section  -->
                 <ion-item *ngIf='service.recdata' [hidden]='service.recdata.data[0].ROLE !=="student" '>
-                    <ion-label  [hidden]='service.recdata.data[0].ROLE !=="student" '>Section : </ion-label>
+                    <ion-label  [hidden]='service.recdata.data[0].ROLE !=="student" '>{{'section' |translate}} : </ion-label>
                     <ion-label text-wrap class="printid" *ngIf='service.recdata.data[0].ROLE ==="student"' [hidden]='service.recdata.data[0].ROLE !=="student" '> {{service.recdata.class[0].SECTION}}  </ion-label>    
                 </ion-item>
 
@@ -183,18 +179,18 @@
                 <!-- teacher -->
              <!-- teacher designation  -->
                 <ion-item *ngIf='service.recdata'  [hidden]='service.recdata.data[0].ROLE !=="teacher"'>
-                    <ion-label  [hidden]='service.recdata.data[0].ROLE !=="teacher" '>designation : </ion-label>
+                    <ion-label  [hidden]='service.recdata.data[0].ROLE !=="teacher" '>{{'designation' |translate}} : </ion-label>
                     <ion-label text-wrap class="printid" *ngIf='service.recdata.data[0].ROLE ==="teacher"' [hidden]='service.recdata.data[0].ROLE !=="teacher" '>{{service.recdata.teacher[0].DESIGNATION}} </ion-label>
                     
                 </ion-item>
              <!-- teacher Departement  -->
                 <ion-item *ngIf='service.recdata' [hidden]='service.recdata.data[0].ROLE !=="teacher" '>
-                    <ion-label  [hidden]='service.recdata.data[0].ROLE !=="teacher" '>department : </ion-label>
+                    <ion-label  [hidden]='service.recdata.data[0].ROLE !=="teacher" '>{{'department' |translate}} : </ion-label>
                     <ion-label text-wrap class="printid" *ngIf='service.recdata.data[0].ROLE ==="teacher"' [hidden]='service.recdata.data[0].ROLE !=="teacher" '>{{service.recdata.teacher[0].DEPARTMENT}} </ion-label>    
                 </ion-item>
                  
                    <!-- user pic -->
-                   Profile Image
+                   {{'profile_img' |translate}}
                 <ion-item  *ngIf="service.recdata">
                    
                     <!-- <img src="{{pathForImage(lastImage)}}" style="width: 100%; height:80% ;" [hidden]="lastImage === null"> -->

@@ -17,6 +17,8 @@ import { ServiceViewUserProvider } from '../../providers/service-view-user/servi
 export class ViewUserPage {
 
   @ViewChild('signupSlider') signupSlider: any;
+  public registration_number:any;
+
 
 
   slideOneForm: FormGroup;
@@ -27,7 +29,11 @@ export class ViewUserPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public formBuilder: FormBuilder, public service:ServiceViewUserProvider) {
-
+                this.registration_number=this.navParams.get('registration');
+                // if(this.registration_number!=undefined){
+                //   this.getinfo(this.registration_number);
+                // }
+               
                 // this slide is used to enter basics infos of the user
     this.slideOneForm = formBuilder.group({
       userid: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('(?=.*[0-9]).{6,9}')])],
@@ -53,6 +59,19 @@ export class ViewUserPage {
 // precedent slide
     prev(){
         this.signupSlider.slidePrev();
+    }
+
+    getinfo(registration_number){
+      if(this.slideOneForm.valid)
+      {
+        // here we send the reg_No
+        this.service.postUserID(this.slideOneForm.getRawValue().userid);
+      }
+      else
+      {
+        alert("enter a valid Registration ID");
+      }  
+
     }
 
 //get user infos
