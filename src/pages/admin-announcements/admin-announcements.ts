@@ -66,7 +66,10 @@ public Announcement={
        this.Announcement['AnnouncementsDescription']=this.AnnouncementsDescription;
        this.Announcement['timestarts']=this.timestarts;
        this.Announcement['timeEnds']=this.timeEnds;
-       this.AdminAnnouncements.postAnnouncements(this.Announcement);
+       if(this.AdminAnnouncements.postAnnouncements(this.Announcement))
+       {
+         this.navCtrl.pop();
+       }
               }
             },
             {
