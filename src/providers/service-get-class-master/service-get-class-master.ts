@@ -30,6 +30,7 @@ export class ServiceGetClassMasterProvider {
   public slot:any;
   public attendence:any=[];
   public term:any;
+  public rows:any;
 //end
  
   
@@ -353,6 +354,8 @@ getSDC(CLASS,url)
       {
         // alert("Term Added");
         this.SDC=data['data'];
+        this.rows=data['row'];
+
         for (var i in this.SDC)
         {
           this.attendence[i]=this.SDC[i];
@@ -366,7 +369,7 @@ getSDC(CLASS,url)
         }
         console.log("Student of class",this.SDC);
         console.log("temp Attendance sheet",this.attendence);
-
+        console.log("no of rows",this.rows);
 
       }
       else

@@ -10,6 +10,7 @@ import { CreateTestPage } from '../create-test/create-test';
 import { UploadMarksInfoPage } from '../upload-marks-info/upload-marks-info';
 import { ViewStudentsPage } from '../view-students/view-students';
 import { ServiceLoginProvider } from '../../providers/service-login/service-login';
+import { AddEventPage } from '../add-event/add-event';
 
 @IonicPage()
 @Component({
@@ -70,9 +71,9 @@ gotoViewStudents()
   this.GCM.getSessionFun();
 }
 
-gotoExams()
+gotoEvents()
 {
-  
+  this.navCtrl.push(AddEventPage);
 }
 
 }
