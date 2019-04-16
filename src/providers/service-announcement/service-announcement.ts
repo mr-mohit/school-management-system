@@ -11,6 +11,7 @@ import { ServiceLoginProvider } from '../service-login/service-login';
 @Injectable()
 export class ServiceAnnouncementProvider {
   public data:any;
+  public status:boolean=false;
   public URL=this.one.URL; //for local use
  // public URL="https://direct-school.000webhostapp.com/"; //for hosting
 
@@ -26,6 +27,7 @@ export class ServiceAnnouncementProvider {
         //console.log(data);     
         if(data['statuscode'] == 1)
          {
+           this.status=true;
           this.data=data['data']; 
           console.log(this.data); 
           return this.data;
@@ -34,6 +36,8 @@ export class ServiceAnnouncementProvider {
          else
          {
            //console.log("Worng")
+           this.data=[{}];
+           this.status=false;
            alert("No Data");
          }
          resolve(data);
@@ -103,7 +107,6 @@ export class ServiceAnnouncementProvider {
            return 0;
          }
          resolve(data);
-
       },error=>{
         alert("Connection Error");
       });
