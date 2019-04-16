@@ -68,7 +68,7 @@ public Announcement={
        this.Announcement['timeEnds']=this.timeEnds;
        if(this.AdminAnnouncements.postAnnouncements(this.Announcement))
        {
-         this.navCtrl.pop();
+            this.navCtrl.pop();
        }
               }
             },
