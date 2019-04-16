@@ -65,10 +65,12 @@ export class ServiceAnnouncementProvider {
         if(data['statuscode'] == 1)
          {
           alert("Removed");
+          return 1;
          }
          else
          {
            alert("Unable to remove");
+           return 0;
          }
          resolve(data);
 
@@ -77,5 +79,37 @@ export class ServiceAnnouncementProvider {
       });
     });
   }
+
+
+  //Update
+
+  getUpdateData(UpdateData)
+  {
+    var url=this.URL+"UpdateAnnouncement.php";
+    return this.postUpdateData(url,UpdateData);
+  }
+  postUpdateData(url,UpdateData)
+  {
+    return new Promise(resolve=>{
+      this.http.post(url,JSON.stringify(UpdateData)).subscribe(data=>{ 
+        if(data['statuscode'] == 1)
+         {
+          alert("Updated");
+          return 1;
+         }
+         else
+         {
+           alert("Unable to update");
+           return 0;
+         }
+         resolve(data);
+
+      },error=>{
+        alert("Connection Error");
+      });
+    });
+
+  }
+
 
 }

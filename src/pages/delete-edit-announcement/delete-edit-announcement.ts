@@ -32,17 +32,24 @@ export class DeleteEditAnnouncementPage {
     console.log('ionViewDidLoad AnnouncementDetailsPage');
     this.value = this.navParams.get('item');
 
-
+    this.A_ID=this.value.A_ID;
     this.CATEGORY=this.value.CATEGORY;
     this.TITLE=this.value.TITLE;
     this.DESCRIPTION=this.value.DESCRIPTION;
     this.START_TIME=this.value.START_TIME;
     this.END_TIME=this.value.END_TIME;
+
   }
 
   Edit()
   {
-    this.navCtrl.push(UpdateAnnouncementPage,{"CATEGORY":this.CATEGORY,"TITLE":this.TITLE});
+    this.navCtrl.push(UpdateAnnouncementPage,{
+    "A_ID":this.A_ID,
+    "CATEGORY":this.CATEGORY,
+    "TITLE":this.TITLE,
+    "DESCRIPTION":this.DESCRIPTION,
+    "START_TIME":this.START_TIME,
+    "END_TIME":this.END_TIME});
   }
 
   Delete()
