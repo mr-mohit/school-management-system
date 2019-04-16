@@ -34,11 +34,12 @@ export class ServiceChangepasswordProvider {
         console.log(JSON.stringify(data));
         if(data['statuscode'] == 1)
         {
-          alert("Changed Successfully");
+          alert(data['msg']);
+          
         }
         else
         {
-          alert("Unable To Update The Password");
+          alert(data['msg']);
         }
         resolve(data);
       },error=>{
