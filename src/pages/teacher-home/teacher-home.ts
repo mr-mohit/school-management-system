@@ -10,6 +10,7 @@ import { CreateTestPage } from '../create-test/create-test';
 import { UploadMarksInfoPage } from '../upload-marks-info/upload-marks-info';
 import { ViewStudentsPage } from '../view-students/view-students';
 import { ServiceLoginProvider } from '../../providers/service-login/service-login';
+
 @IonicPage()
 @Component({
   selector: 'page-teacher-home',

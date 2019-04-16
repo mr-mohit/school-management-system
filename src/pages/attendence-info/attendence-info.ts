@@ -12,16 +12,30 @@ import { MarkAttendancePage } from '../mark-attendance/mark-attendance';
 })
 export class AttendenceInfoPage {
   public classID:any;
+  today = new Date();
+  myDate: String = new Date().toISOString();
+  myHour  = this.today.getHours();
+  myMin  =  this.today.getMinutes();
+  mytime : string = this.myHour.toString()+':'+ this.myMin.toString(); 
+
+
+
   constructor(public navCtrl: NavController, public navParams: NavParams,public GU:ServiceGetClassMasterProvider) {
   this.GU.getClassFun();
+    
+  // this.time=  new Date().toISOString();
+  console.log(this.mytime);
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AttendenceInfoPage');
   }
 
-  Submit(DATE,TIME,SLOT,Class,Subject)
+  Submit(SLOT,Class,Subject)
   {
+    let DATE=this.myDate;
+    let TIME=this.mytime
     //console.log("Date",DATE," Time",TIME,'TIME-SLOT',SLOT,"Class_ID",Class,"Subject",Subject)
     //console.log("class id as per students to be display",this.classID);
     if(DATE!=undefined && TIME!= undefined && SLOT!=undefined && Class!=undefined && Subject!=undefined)

@@ -44,15 +44,18 @@
             </ion-select>
           </ion-item>
       
-          <ion-item>
-            <ion-label>Date </ion-label>
-            <ion-datetime name="DATE" displayFormat="DD MMM YYYY" placeholder="Select Date" min="2018"  [(ngModel)]="DATE"></ion-datetime>
+          <ion-item >
+            <ion-label >Date </ion-label>
+            <ion-label > </ion-label>\
+            <ion-label > </ion-label>
+            <ion-label> {{myDate | date: 'dd-MM-yyyy'}}</ion-label>            
           </ion-item>
           <ion-item>
             <ion-label>Time</ion-label>
-            <ion-datetime name="TIME" displayFormat="HH:mm" placeholder="Select Time" minuteValues="0,15,30,45" [(ngModel)]="TIME"></ion-datetime>
-          </ion-item>
-        <button ion-button color="header" on-click="Submit(DATE,TIME,SLOT,Class,Subject)"
+            <ion-label > </ion-label>
+            <ion-label > </ion-label>
+            <ion-label> {{mytime}}</ion-label>            </ion-item>
+        <button ion-button color="header" on-click="Submit(SLOT,Class,Subject)"
             block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;">
             Next
         </button>

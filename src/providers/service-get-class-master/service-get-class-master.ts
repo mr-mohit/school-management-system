@@ -21,6 +21,7 @@ export class ServiceGetClassMasterProvider {
   public timeview:any;
   public SubjectOnTimeTable:any;
   public CSData:any;
+  public SAData:any;//it will have array of attendance of a particular student used un View Attendance Stduent Module
   //These variable for attendance purpose
   public class:any;
   public subject:any;
@@ -535,6 +536,37 @@ getCS(url,CS)
     });
   });
 }
+
+// TO GET ATTENDENCE OF PARTICULAR STUDENT///////////////////////////////////////////////////////////////////////////
+getSAFun(RG)
+{
+  var url=this.URL+"getStudentAttendance.php";
+  return this.getSA(url,RG);
+}
+
+getSA(url,RG)
+{
+  console.log("View your Attendance: ",RG);
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(RG)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.SAData=data['data'];
+        console.log("Attendance",this.SAData);
+        
+      }
+      else
+      {
+        alert("No data found");
+        //return 0;
+      }        
+       resolve(data);
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+}
+
 
 }
 

@@ -18,7 +18,7 @@
 <ion-icon ios="ios-text" md="md-text"></ion-icon>
           {{'event' |translate}}
       </ion-label>
-        <ion-input type="text" [(ngModel)]="EVENT" name="EVENT"></ion-input>
+        <ion-input type="text" [(ngModel)]="EVENT" maxlength="50"  name="EVENT"></ion-input>
       </ion-item>
     </ion-list>
     <button ion-button block on-click="submitEvent(DATE,EVENT)">

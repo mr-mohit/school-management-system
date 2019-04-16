@@ -16,7 +16,7 @@
         <ion-label floating>Subject</ion-label>
          <ion-select  name="SUBJECT" [(ngModel)]="SUBJECT">
     
-          <ion-option *ngFor="let i of cid?.subjectData"  value="{{i.SUBJECT_ID}}" >{{i.SUBJECT_NAME}}</ion-option>
+          <ion-option *ngFor="let i of cid?.subjectData"  value="{{i.SUBJECT_ID}}" >{{i.SUBJECT_ID}} -> {{i.SUBJECT_NAME}}</ion-option>
           
          </ion-select>
       </ion-item>
