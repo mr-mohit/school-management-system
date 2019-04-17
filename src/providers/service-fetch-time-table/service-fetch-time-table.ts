@@ -5,7 +5,8 @@ import { ServiceLoginProvider } from '../service-login/service-login';
 @Injectable()
 export class ServiceFetchTimeTableProvider {
 
-  public URL=this.one.URL; //for local use
+  //public URL="http://localhost/schoolapi/"; 
+  public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; //for server use
 
   public StudentTime:any;
 

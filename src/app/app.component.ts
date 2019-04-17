@@ -40,6 +40,7 @@ export class MyApp {
     Admin_a:Array<{title:string,icon:string,component:any}>;        //for Admin
     help:Array<{title:string, icon:string,component:any,}>;         //Same For All
 
+
   constructor(platform: Platform, statusBar: StatusBar,private nativeStorage: NativeStorage,public toastCtrl: ToastController,
              public service:ServiceLoginProvider, splashScreen: SplashScreen, private push: Push,
              public alertCtrl:AlertController,public translate:TranslateService, private localNotifications: LocalNotifications) {
@@ -222,6 +223,9 @@ this.toast.present();
      //Here we get the FCM id for specific user
     pushObject.on('registration').subscribe((registration: any) =>{
        console.log('Device registered', registration)
+       // here we will insert registration into fcm_key column of user table of our database 
+       // and the row corresponding of the user who has logged in with the corresponding phone
+       
     });
 
     pushObject.on('error').subscribe(error => console.error('Error with Push plugin', error));

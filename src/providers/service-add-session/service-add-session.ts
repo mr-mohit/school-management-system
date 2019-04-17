@@ -4,11 +4,11 @@ import { ServiceLoginProvider } from '../service-login/service-login';
 
 @Injectable()
 export class ServiceAddSessionProvider {
-  public URL=this.one.URL; //for local use
-    // public URL="https://direct-school.000webhostapp.com/"; //for hosting
+ // public URL="http://localhost/schoolapi/"; //for local use
+  // public URL="https://direct-school.000webhostapp.com/"; //for hosting
   
 
- // public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/";
+  public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/";
   recdata: any;
   
   constructor(public http: HttpClient,public one:ServiceLoginProvider) {

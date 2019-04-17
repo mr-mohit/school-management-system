@@ -96,6 +96,10 @@ import { Push } from '@ionic-native/push';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { SchoolInfoPage } from '../pages/school-info/school-info';
 import { GalleryPage } from '../pages/gallery/gallery';
+import { ServiceAdminmessageProvider } from '../providers/service-adminmessage/service-adminmessage';
+import {FileChooser} from '@ionic-native/file-chooser';
+import {FileOpener} from '@ionic-native/file-opener';
+import { TeacherUploadHomeworkPage } from '../pages/teacher-upload-homework/teacher-upload-homework';
 import { CreateTestPage } from '../pages/create-test/create-test';
 import { ServiceCreateTestProvider } from '../providers/service-create-test/service-create-test';
 import { UploadMarksPage } from '../pages/upload-marks/upload-marks';
@@ -113,6 +117,7 @@ import { ResultPage } from '../pages/result/result';
 import { ServiceGetResultProvider } from '../providers/service-get-result/service-get-result';
 //import { ServiceUploadAttendenceProvider } from '../providers/service-upload-attendence/service-upload-attendence';
 import { ServiceStudentResultProvider } from '../providers/service-student-result/service-student-result';
+import { ServiceUploadHomeworkProvider } from '../providers/service-upload-homework/service-upload-homework';
 import { ViewStudentsPage } from '../pages/view-students/view-students';
 import { ViewStudents_2Page } from '../pages/view-students-2/view-students-2';
 import { ViewStudentPage } from '../pages/view-student/view-student';
@@ -189,11 +194,13 @@ import { UpdateAnnouncementPage } from '../pages/update-announcement/update-anno
     ViewCalendarPage,
     AttendenceInfoPage,
     DeleteUserPage,
+    TeacherUploadHomeworkPage,
     CreateTestPage,
     UploadMarksPage,
     UploadMarksInfoPage,
     TeacherFeedbackPage,
     StudentFeedbackPage,
+    TeacherFeedbackPage,
     FeedbackDetailPage,
     ResultPage,
     ViewStudentsPage,
@@ -263,6 +270,7 @@ import { UpdateAnnouncementPage } from '../pages/update-announcement/update-anno
     DeleteSessionPage,
     DeleteTermPage,
     TeacherAnnouncementPage,
+    TeacherFeedbackPage,
     AnnouncementDetailsPage,
     ViewSubjectsPage,
     ViewClassPage,
@@ -283,6 +291,7 @@ import { UpdateAnnouncementPage } from '../pages/update-announcement/update-anno
     ViewCalendarPage,
     AttendenceInfoPage,
     DeleteUserPage,
+    TeacherUploadHomeworkPage,
     CreateTestPage,
     UploadMarksPage,
     UploadMarksInfoPage,
@@ -307,6 +316,8 @@ import { UpdateAnnouncementPage } from '../pages/update-announcement/update-anno
     SplashScreen,
 
     File, 
+    FileChooser,
+    FileOpener,
     Transfer,
     Camera,
     FilePath,
@@ -342,6 +353,7 @@ import { UpdateAnnouncementPage } from '../pages/update-announcement/update-anno
     ServiceChangepasswordProvider,
     ServiceAddTimetableProvider,
     ServiceDeleteUserProvider,
+    ServiceAdminmessageProvider,
     ServiceCreateTestProvider,
     ServiceUploadMarksProvider,
     ServiceAddStudentfeedbackProvider,
@@ -352,6 +364,8 @@ import { UpdateAnnouncementPage } from '../pages/update-announcement/update-anno
     ServiceGetResultProvider,
     ServiceUploadAttendenceProvider,
     ServiceStudentResultProvider,
+    ServiceUploadHomeworkProvider,
+  
     ServiceExamProvider,
     ServiceDeleteTimetableProvider,
     ServiceGetTeacherProvider,
