@@ -13,7 +13,7 @@
     <ion-label>
    <ion-icon ios="ios-people" md="md-people"></ion-icon>
       {{'select' |translate}} Class</ion-label>
-     <ion-select  name="CLASS" [(ngModel)]="CLASS">
+     <ion-select  name="CLASS" [(ngModel)]="CLASS" >
 
       <ion-option *ngFor="let i of cid?.classData"  value="{{i.CLASS_MASTER_ID}}" >{{i.CLASS}} {{i.SECTION}}</ion-option>
       

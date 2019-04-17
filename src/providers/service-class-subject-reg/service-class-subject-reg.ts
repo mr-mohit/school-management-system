@@ -8,6 +8,7 @@ export class ServiceClassSubjectRegProvider {
   // public URL="https://direct-school.000webhostapp.com/"; //for hosting
   public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/";
 
+
   constructor(public http: HttpClient,public one:ServiceLoginProvider) {
     
   }
