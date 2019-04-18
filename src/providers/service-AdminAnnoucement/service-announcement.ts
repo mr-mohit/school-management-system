@@ -30,7 +30,7 @@ export class ServiceAdminAnnouncements {
         else
         {
           alert("Unable to Add");
-        } resolve(data)},error=>{
+        }resolve(data);},error=>{
         // console.log("data1 is here"+data1);
         console.log("data not transferred",error);
       });

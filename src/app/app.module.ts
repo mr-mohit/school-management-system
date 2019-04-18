@@ -123,6 +123,7 @@ import { ServiceAssignSubProvider } from '../providers/service-assign-sub/servic
 import { DeleteAnnouncementsPage } from '../pages/delete-announcements/delete-announcements';
 import { DeleteEditAnnouncementPage } from '../pages/delete-edit-announcement/delete-edit-announcement';
 import { UpdateAnnouncementPage } from '../pages/update-announcement/update-announcement';
+import { ViewTimeTablePage } from '../pages/view-time-table/view-time-table';
  
 
  @NgModule({ 
@@ -204,6 +205,7 @@ import { UpdateAnnouncementPage } from '../pages/update-announcement/update-anno
     DeleteAnnouncementsPage,
     DeleteEditAnnouncementPage,
     UpdateAnnouncementPage,
+    ViewTimeTablePage,
   ],
   imports: [
     BrowserModule,
@@ -298,6 +300,7 @@ import { UpdateAnnouncementPage } from '../pages/update-announcement/update-anno
     DeleteAnnouncementsPage,
     DeleteEditAnnouncementPage,
     UpdateAnnouncementPage,
+    ViewTimeTablePage,
   ],
   providers: [
     StatusBar,
