@@ -76,7 +76,7 @@ export class ServiceAnnouncementProvider {
            alert("Unable to remove");
            return 0;
          }
-         resolve(data);
+        //  resolve(data);
 
       },error=>{
         alert("Connection Error");
@@ -102,15 +102,16 @@ export class ServiceAnnouncementProvider {
           return 1;
          }
          else
-         {
-           alert("Unable to update");
-           return 0;
-         }
-         resolve(data);
-      },error=>{
-        alert("Connection Error");
-      });
+      {
+        alert("not updated");
+      }        
+      
+       resolve(data);
+
+    },error=>{
+      console.log("Error",error);
     });
+  });
 
   }
 

@@ -50,5 +50,36 @@ export class ServiceUploadAttendenceProvider {
     });
   
   }
+
+  updateAttFun(Attendence)
+  {
+    console.log("Attendence going to Updated",Attendence);
+    var url=this.URL+"updateAttendance.php";
+    return this.updateAtt(url,Attendence);
+  
+  }
+  updateAtt(url,Attendence)
+  {
+    return new Promise(resolve=>{
+      this.http.post(url,JSON.stringify(Attendence)).subscribe(data=>{
+        if(data['statuscode']==1)
+        {
+          console.log(data);
+          alert("Attendance Updated");
+          
+        }
+        else
+        {
+          alert("Unable to Update Attendance");
+        }        
+        
+         resolve(data);
+  
+      },error=>{
+        console.log("Error",error);
+      });
+    });
+  
+  }
   
 }

@@ -100,7 +100,7 @@
               <ion-icon ios="ios-text" md="md-text"></ion-icon>
             Topic
           </ion-label>
-          <ion-input type="text" [(ngModel)]="TOPIC" name="TOPIC"></ion-input>
+          <ion-input type="text"  min="5" max="30" [(ngModel)]="TOPIC" name="TOPIC"></ion-input>
       </ion-item>
 
         <ion-item>
@@ -108,7 +108,7 @@
                 <ion-icon ios="ios-calculator" md="md-calculator"></ion-icon>
              Total Marks
             </ion-label>
-            <ion-input type="number" min="0" max="100" [(ngModel)]="TM"  name="TM"></ion-input>
+            <ion-input type="number" min="1" max="3" [(ngModel)]="TM"  name="TM"></ion-input>
         </ion-item>
           
           <ion-item>
@@ -116,7 +116,7 @@
                   <ion-icon ios="ios-calculator" md="md-calculator"></ion-icon>
                Weightage Marks
               </ion-label>
-              <ion-input type="number" [(ngModel)]="WM" name="WM"></ion-input>
+              <ion-input type="number" min="1" max="3"  [(ngModel)]="WM" name="WM"></ion-input>
           </ion-item>
 
       <div>

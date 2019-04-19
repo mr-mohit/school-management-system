@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 import { MarkAttendancePage } from '../mark-attendance/mark-attendance';
+import { UpdateAttendancePage } from '../update-attendance/update-attendance';
 
 
 
@@ -18,7 +19,13 @@ export class AttendenceInfoPage {
   myMin  =  this.today.getMinutes();
   mytime : string = this.myHour.toString()+':'+ this.myMin.toString(); 
 
-
+  public UP:any=
+  {
+    "DATE":"",
+    "SLOT":" ",
+    "CLASS":" ",
+    "SUBJECT":" "
+  };
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public GU:ServiceGetClassMasterProvider) {
   this.GU.getClassFun();
@@ -36,8 +43,6 @@ export class AttendenceInfoPage {
   {
     let DATE=this.myDate;
     let TIME=this.mytime
-    //console.log("Date",DATE," Time",TIME,'TIME-SLOT',SLOT,"Class_ID",Class,"Subject",Subject)
-    //console.log("class id as per students to be display",this.classID);
     if(DATE!=undefined && TIME!= undefined && SLOT!=undefined && Class!=undefined && Subject!=undefined)
     {
       this.navCtrl.push(MarkAttendancePage,{"date":DATE,"time":TIME,"slot":SLOT,"class":Class,"subject":Subject});
@@ -57,4 +62,28 @@ export class AttendenceInfoPage {
     this.GU.getAttSubjectFun(this.classID);
     this.GU.getAttTermfun(this.classID);
   }
+
+
+
+  Update(DATE,SLOT,Class,Subject)
+  {
+    if(DATE!=undefined && SLOT!=undefined && Class!=undefined && Subject!=undefined)
+    {
+      this.UP['DATE']=DATE;
+    this.UP['SLOT']=SLOT;
+    this.UP['CLASS']=Class;
+    this.UP['SUBJECT']=Subject;
+    this.navCtrl.push(UpdateAttendancePage,{"date":DATE,"slot":SLOT,"class":Class,"subject":Subject});
+    this.GU.getSDCFun(this.classID);
+    this.GU.getAttStatusFun(this.UP);
+
+    }
+    else{
+      alert("please fill all information");
+    }
+    
+  }
+
+
+
 }
