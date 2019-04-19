@@ -5,9 +5,8 @@ import { ServiceLoginProvider } from '../service-login/service-login';
 
 @Injectable()
 export class ServiceExamProvider {
-
-  // public URL=this.one.URL; //for local use
-  public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; 
+  
+  public URL=this.one.URL;
   private Exam_Data:any;
   public status:boolean=false;
 

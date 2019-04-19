@@ -11,8 +11,7 @@ import { ServiceLoginProvider } from '../service-login/service-login';
 @Injectable()
 export class ServiceDeleteAndUpdateTimeTableProvider {
  
-  //public URL=this.one.URL;
-  public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/";
+  public URL=this.one.URL;
   public SubjectsInTimeTable:any;
 
   constructor(public http: HttpClient,public one:ServiceLoginProvider) {

@@ -12,11 +12,8 @@ import { ServiceLoginProvider } from '../service-login/service-login';
 export class ServiceAnnouncementProvider {
   public data:any;
   public status:boolean=false;
-  public URL=this.one.URL; //for local use
- // public URL="https://direct-school.000webhostapp.com/"; //for hosting
- //public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; //for server use
-
-
+  public URL=this.one.URL; 
+  
   constructor(public http: HttpClient,public one:ServiceLoginProvider) {
     console.log('Hello ServiceAnnouncementProvider Provider');
   }

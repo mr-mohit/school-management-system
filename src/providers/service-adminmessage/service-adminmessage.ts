@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ServiceLoginProvider } from '../service-login/service-login';
 
 /*
   Generated class for the ServiceAdminmessageProvider provider.
@@ -9,12 +10,12 @@ import { Injectable } from '@angular/core';
 */
 @Injectable()
 export class ServiceAdminmessageProvider {
-  public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; //for server use
+  public URL=this.one.URL;
 
   public google_url = "https://fcm.googleapis.com/fcm/send"; // google for fcn
   public recdata: any;
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient,public one:ServiceLoginProvider) {
     console.log('Hello ServiceAdminmessageProvider Provider');
   }
 

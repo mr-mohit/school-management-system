@@ -7,7 +7,7 @@ import { ServiceLoginProvider } from '../service-login/service-login';
 export class ServiceAdminAnnouncements {
 
   //public data:any;
-  public URL="http://localhost/schoolapi/";
+  public URL=this.one.URL;
   constructor(public http: HttpClient,public one:ServiceLoginProvider) {
   }
   postData(url,data1)

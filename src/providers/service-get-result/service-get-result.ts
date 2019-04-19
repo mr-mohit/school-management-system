@@ -6,9 +6,9 @@ import { ServiceLoginProvider } from '../service-login/service-login';
 @Injectable()
 export class ServiceGetResultProvider {
 
-  public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; //for server use
+  public URL=this.one.URL;
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient,public one:ServiceLoginProvider) {
     console.log('Hello ServiceGetResultProvider Provider');
   }
 

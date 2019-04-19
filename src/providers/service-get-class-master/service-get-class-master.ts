@@ -4,9 +4,8 @@ import { ServiceLoginProvider } from '../service-login/service-login';
 
 @Injectable()
 export class ServiceGetClassMasterProvider {
- // public URL="http://localhost/schoolapi/"; //for local use
-  public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; //for hosting use
-  // public URL="https://direct-school.000webhostapp.com/"; //for hosting
+  public URL=this.one.URL;
+  
   public classData:any;
   public subjectData:any;
   public studentData:any; // for getting student's infos

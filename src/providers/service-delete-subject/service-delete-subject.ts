@@ -10,10 +10,10 @@ import { ServiceLoginProvider } from '../service-login/service-login';
 */
 @Injectable()
 export class ServiceDeleteSubjectProvider {
+
+  public URL=this.one.URL;
+  
   public subjectdata:any;
-  //public URL="http://localhost/schoolapi/";
-  public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; //for local use
-  // public URL="https://direct-school.000webhostapp.com/"; //for hosting
   public subjectData:any;
   constructor(public http: HttpClient,public one:ServiceLoginProvider) {
     console.log('Hello ServiceDeleteSubjectProvider Provider');
