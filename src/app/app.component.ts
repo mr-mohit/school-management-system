@@ -21,6 +21,7 @@ import { Push, PushObject, PushOptions } from '@ionic-native/push';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { SchoolInfoPage } from '../pages/school-info/school-info';
 import { ViewCalendarPage } from '../pages/view-calendar/view-calendar';
+import { ServiceAdminmessageProvider } from '../providers/service-adminmessage/service-adminmessage';
 
 
 @Component({
@@ -43,7 +44,8 @@ export class MyApp {
 
   constructor(platform: Platform, statusBar: StatusBar,private nativeStorage: NativeStorage,public toastCtrl: ToastController,
              public service:ServiceLoginProvider, splashScreen: SplashScreen, private push: Push,
-             public alertCtrl:AlertController,public translate:TranslateService, private localNotifications: LocalNotifications) {
+             public alertCtrl:AlertController,public translate:TranslateService, private localNotifications: LocalNotifications,
+             public messageserv:ServiceAdminmessageProvider) {
 
               platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -225,7 +227,7 @@ this.toast.present();
        console.log('Device registered', registration)
        // here we will insert registration into fcm_key column of user table of our database 
        // and the row corresponding of the user who has logged in with the corresponding phone
-       
+       this.getregistration(registration);
     });
 
     pushObject.on('error').subscribe(error => console.error('Error with Push plugin', error));
@@ -254,5 +256,9 @@ this.toast.present();
     });
   }
 
+  getregistration(registration)
+  {
+    this.messageserv.fcndata.updatefcm(this.userId,registration);
+  }
  
 }
