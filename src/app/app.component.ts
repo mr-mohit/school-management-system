@@ -42,10 +42,12 @@ export class MyApp {
 
 
   constructor(platform: Platform, statusBar: StatusBar,private nativeStorage: NativeStorage,public toastCtrl: ToastController,
-             public service:ServiceLoginProvider, splashScreen: SplashScreen, private push: Push,
+             public service:ServiceLoginProvider, public splashScreen: SplashScreen, private push: Push,
              public alertCtrl:AlertController,public translate:TranslateService, private localNotifications: LocalNotifications) {
 
               platform.ready().then(() => {
+
+                this.splashScreen.hide();
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       translate.addLangs(["en", "fr"]);
