@@ -11,9 +11,10 @@ import { ServiceLoginProvider } from '../service-login/service-login';
 @Injectable()
 export class ServiceDeleteTimetableProvider {
 
-  public URL=this.one.URL; //for local use
+  //public URL=this.one.URL; //for local use
   // public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/";
     //public URL="https://direct-school.000webhostapp.com/"; //for hosting
+    public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; 
 
     public TimeTableData:any;
 

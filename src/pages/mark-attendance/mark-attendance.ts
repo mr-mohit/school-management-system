@@ -13,8 +13,29 @@ export class MarkAttendancePage {
   
   
   public index:any;
+  public class:any;
+  public subject:any;
+  public time:any;
+  public date:any;
+  public slot:any;
+  public details:any={
+
+    "REG_NO":"",
+    "class":"",
+    "subject":"",
+    "date":"",
+    "time":"",
+    "slot":"",
+    "status":""
+  };
+
+  public infos : any =
+  {
+    'attendance': '',
+    'details':''
+  }
   
-  public infos : any =[];
+  //public infos : any =[];
   public AA:any=[];
  
 
@@ -60,6 +81,14 @@ export class MarkAttendancePage {
     details['term']=this.GU.term;
     if(status!=undefined)
     {
+        this.GU.attendence[index].status = status;
+        this.GU.attendence[index].class = this.details['class'];
+        this.GU.attendence[index].subject = this.details['subject'];
+        this.GU.attendence[index].date = this.details['date'];
+        this.details['time'];      
+        this.details['slot']=this.navParams.get('slot'); 
+        console.log("Attendance",this.GU.attendence);
+    
       
       details['status']="P";
 

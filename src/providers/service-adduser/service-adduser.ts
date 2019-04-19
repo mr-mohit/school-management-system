@@ -12,9 +12,9 @@ import { ServiceLoginProvider } from '../service-login/service-login';
 export class ServiceAdduserProvider {
 
   public data:any;
-  public URL=this.one.URL; //for local use
+ // public URL="http://localhost/schoolapi/";//for local use
   // public URL="https://direct-school.000webhostapp.com/"; //for hosting
-//  public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/";
+ public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/";
  // public URL="https://direct-school.000webhostapp.com/"; //for hosting
   public userID = "";
   public class = []; // used to get class infos 

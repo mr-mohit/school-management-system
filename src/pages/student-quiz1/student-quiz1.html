@@ -20,7 +20,7 @@
 
 <ion-content padding>
 
-  <ion-list radio-group *ngIf="service.index < 4" [(ngModel)]="useransw">
+  <ion-list radio-group *ngIf="service.index < service.recdata.length" [(ngModel)]="useransw">
 
        <ion-item>
       
@@ -58,7 +58,7 @@
 
     <div *ngIf="service.index >=4"style="padding:20%">
          <label> Your Score is :  </label> <br><br><br>
-          <label  style="margin-top:10%; font-size:130%">   {{service.score}}  / 4 </label> 
+          <label  style="margin-top:10%; font-size:130%">   {{service.score}}  / {{service.recdata.length}} </label> 
           <!-- <label style="margin-top:10%; font-size:70%"> Correct Answer : </label>
           <div *ngFor ="let item of service.recdata">
                 <label style="margin:10%">   {{item.ques}}  - >>> </label> 

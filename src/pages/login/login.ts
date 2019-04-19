@@ -10,6 +10,7 @@ import { NativeStorage } from '@ionic-native/native-storage';
 import { AdminHomePage } from '../admin-home/admin-home';
 import { HomePage } from '../home/home';
 import { ResultPage } from '../result/result';
+import { DeleteUserPage } from '../delete-user/delete-user';
 
 
 @Component({
@@ -31,6 +32,7 @@ public user:any=
   constructor(private nativeStorage: NativeStorage,public Menu: MenuController,public navCtrl: NavController,public alertCtrl:AlertController,public loadingCtrl: LoadingController,
     public service:ServiceLoginProvider,public toast:ToastController) {
       this.Menu.enable(false);
+
   }
   
   ValidateLogin(REG_NO,PASSWORD)
@@ -143,7 +145,10 @@ Student()
 {
   this.navCtrl.push(HomePage);
 }
-
+du()
+{
+  this,this.navCtrl.push(DeleteUserPage);
+}
 
 togglePassword()
 {

@@ -41,6 +41,7 @@ export class AttendenceInfoPage {
     if(DATE!=undefined && TIME!= undefined && SLOT!=undefined && Class!=undefined && Subject!=undefined)
     {
       this.navCtrl.push(MarkAttendancePage,{"date":DATE,"time":TIME,"slot":SLOT,"class":Class,"subject":Subject});
+      //this.GU.getSDCfun(this.classID);
       this.GU.getSDCFun(this.classID);
     }
     else
@@ -48,6 +49,9 @@ export class AttendenceInfoPage {
       alert("Please select required fields.")
     }
     
+    console.log("class id as per students to be display",this.classID);
+    this.navCtrl.push(MarkAttendancePage);
+    //this.GU.getSDCfun(this.classID);
   }
 
   getSubject(Class)

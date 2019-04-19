@@ -8,7 +8,8 @@ import { ServiceLoginProvider } from '../service-login/service-login';
 export class ServiceResetpasswordProvider {
 
  // public URL="http://localhost/schoolapi/";
-  public URL=this.one.URL; //for local use
+  // public URL=this.one.URL; //for local use
+  public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; 
   recdata: any;
   loading: any;
  

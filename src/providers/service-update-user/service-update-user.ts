@@ -11,8 +11,8 @@ import { ServiceLoginProvider } from '../service-login/service-login';
 @Injectable()
 export class ServiceUpdateUserProvider {
 
-  public URL=this.one.URL; //for local use
-  //public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/";
+  //public URL="http://localhost/schoolapi/";
+  public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/";
   recdata: any;
 
   constructor(public http: HttpClient,public one:ServiceLoginProvider) {
