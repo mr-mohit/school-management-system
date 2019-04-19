@@ -39,9 +39,8 @@ export class ServiceAnnouncementProvider {
            alert("No Data");
          }
          resolve(data);
-
       },error=>{
-        alert("Connection Error");
+        console.log("Error",error);
       });
     });
   }
