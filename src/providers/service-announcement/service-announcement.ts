@@ -11,11 +11,9 @@ import { ServiceLoginProvider } from '../service-login/service-login';
 @Injectable()
 export class ServiceAnnouncementProvider {
   public data:any;
-  //public URL="http://localhost/schoolapi/"; //for local use
- // public URL="https://direct-school.000webhostapp.com/"; //for hosting
- public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; //for server use
-
-
+  public status:boolean=false;
+  public URL=this.one.URL; 
+  
   constructor(public http: HttpClient,public one:ServiceLoginProvider) {
     console.log('Hello ServiceAnnouncementProvider Provider');
   }
@@ -28,6 +26,7 @@ export class ServiceAnnouncementProvider {
         //console.log(data);     
         if(data['statuscode'] == 1)
          {
+           this.status=true;
           this.data=data['data']; 
           console.log(this.data); 
           return this.data;
@@ -36,6 +35,8 @@ export class ServiceAnnouncementProvider {
          else
          {
            //console.log("Worng")
+           this.data=[{}];
+           this.status=false;
            alert("No Data");
          }
          resolve(data);
@@ -66,15 +67,14 @@ export class ServiceAnnouncementProvider {
         if(data['statuscode'] == 1)
          {
           alert("Removed");
-          return 1;
+          //return 1;
          }
          else
          {
            alert("Unable to remove");
-           return 0;
+           //return 0;
          }
          resolve(data);
-
       },error=>{
         alert("Connection Error");
       });
@@ -96,21 +96,17 @@ export class ServiceAnnouncementProvider {
         if(data['statuscode'] == 1)
          {
           alert("Updated");
-          return 1;
+          // return 1;
          }
          else
          {
            alert("Unable to update");
-           return 0;
+          //  return 0;
          }
          resolve(data);
-
       },error=>{
         alert("Connection Error");
       });
     });
-
   }
-
-
 }

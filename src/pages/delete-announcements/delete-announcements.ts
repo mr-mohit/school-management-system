@@ -16,6 +16,7 @@ import { DeleteEditAnnouncementPage } from '../delete-edit-announcement/delete-e
   templateUrl: 'delete-announcements.html',
 })
 export class DeleteAnnouncementsPage {
+ 
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public Service:ServiceAnnouncementProvider) {
    
@@ -24,6 +25,8 @@ export class DeleteAnnouncementsPage {
     ionViewDidLoad() {
       console.log('ionViewDidLoad DeleteAnnouncementsPage');
       this.Service.getData();
+      console.log("Service here",this.Service.data);
+      console.log("STATUS",this.Service.status);
     }
 
     enablecontent(item)

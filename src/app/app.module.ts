@@ -129,6 +129,12 @@ import { ServiceAssignSubProvider } from '../providers/service-assign-sub/servic
 import { DeleteAnnouncementsPage } from '../pages/delete-announcements/delete-announcements';
 import { DeleteEditAnnouncementPage } from '../pages/delete-edit-announcement/delete-edit-announcement';
 import { UpdateAnnouncementPage } from '../pages/update-announcement/update-announcement';
+import { ViewTimeTablePage } from '../pages/view-time-table/view-time-table';
+import{ServiceDeleteAndUpdateTimeTableProvider} from '../providers/Service-delete-and-update-time-table/Service-delete-and-update-time-table'
+import { UpdateTimeTablePage } from '../pages/update-time-table/update-time-table';
+import { UpdateMarksPage } from '../pages/update-marks/update-marks';
+import { UpdateTestPage } from '../pages/update-test/update-test';
+import { UpdateAttendancePage } from '../pages/update-attendance/update-attendance';
  
 
  @NgModule({ 
@@ -212,6 +218,11 @@ import { UpdateAnnouncementPage } from '../pages/update-announcement/update-anno
     DeleteAnnouncementsPage,
     DeleteEditAnnouncementPage,
     UpdateAnnouncementPage,
+    ViewTimeTablePage,
+    UpdateTimeTablePage,
+    UpdateMarksPage,
+    UpdateTestPage,
+    UpdateAttendancePage,
   ],
   imports: [
     BrowserModule,
@@ -308,6 +319,11 @@ import { UpdateAnnouncementPage } from '../pages/update-announcement/update-anno
     DeleteAnnouncementsPage,
     DeleteEditAnnouncementPage,
     UpdateAnnouncementPage,
+    ViewTimeTablePage,
+    UpdateTimeTablePage,
+    UpdateMarksPage,
+    UpdateTestPage,
+    UpdateAttendancePage,
   ],
   providers: [
     StatusBar,
@@ -370,6 +386,7 @@ import { UpdateAnnouncementPage } from '../pages/update-announcement/update-anno
     ServiceDeleteTimetableProvider,
     ServiceGetTeacherProvider,
     ServiceAssignSubProvider,
+    ServiceDeleteAndUpdateTimeTableProvider,
   ]
 })
 export class AppModule {}

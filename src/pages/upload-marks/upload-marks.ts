@@ -14,8 +14,6 @@ export class UploadMarksPage {
   public SUBJECT:any;
   public TEST:any;
   public status:boolean=false;
-  public temp=0;
-  public rows:number;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public GU:ServiceGetClassMasterProvider,
@@ -27,8 +25,6 @@ export class UploadMarksPage {
   console.log(this.CLASS,this.SUBJECT,this.TEST);
   this.status=false;
    
-  this.rows=this.GU.rows;
-  console.log("number of rows is",this.rows);
 
 
   }
@@ -40,48 +36,34 @@ export class UploadMarksPage {
 
   Save(reg,Marks,index)
   {
-
     let mk={
       "REG_NO":"",
       "TEST":"",
-      "MARKS":"",
+      "MARKS":""
     };
     mk['REG_NO']=reg;
     mk['TEST']=this.TEST;
     mk['MARKS']=Marks;
-    if(Marks!=undefined && Marks!="" &&this.status==true)
+    if(Marks!=undefined && Marks!="")
     {
       if(Marks>=0 && Marks<=100)
-
+      {        
+        this.Marks_array[index]=mk;      
+         console.log("data ",this.Marks_array);
+     }      
+      else
       {
-        this.Marks_array[index] = mk;
-        this.temp=this.temp+1;
-      console.log(this.Marks_array);
-
-      }
-      else{
         alert("Marks should be in between 0 and 100");
-      }
-      
         
+      }                
 
     }
-    else{
-      
-      // const toast = this.toastController.create({
-      //   message: 'Please fill all the fields',
-      //   showCloseButton: true,
-      //   position: 'top',
-      //   closeButtonText: 'Done'
-      // });
-      // toast.present();
-    }
+
 
   }
 
 Submit(){
-  console.log("temp's value",this.temp)
-  if(this.temp-this.rows==0)
+  if(this.Marks_array.length-this.GU.rows == 0)
   {
     const confirm = this.alertCtrl.create({
       title: 'Upload Marks',

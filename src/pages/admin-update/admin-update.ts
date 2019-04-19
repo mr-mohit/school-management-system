@@ -7,6 +7,7 @@ import { ServiceGetClassMasterProvider } from '../../providers/service-get-class
 import { UpdateTermPage } from '../update-term/update-term';
 import { UpdateSubjectsPage } from '../update-subjects/update-subjects';
 import { ServiceViewSessionProvider } from '../../providers/service-view-session/service-view-session';
+import {UpdateTimeTablePage} from '../../pages/update-time-table/update-time-table';
 
 /**
  * Generated class for the AdminUpdatePage page.
@@ -52,5 +53,10 @@ export class AdminUpdatePage {
   {
     this.navCtrl.push(UpdateSubjectsPage);
     this.GS.getSubjectFun();
+  }
+
+  UpdateTimeTable()
+  {
+    this.navCtrl.push(UpdateTimeTablePage);
   }
 }

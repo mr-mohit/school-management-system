@@ -56,7 +56,8 @@ export class DeleteEditAnnouncementPage {
   {
     if(this.Service.DeleteCurrent(this.value))
     {
-      this.navCtrl.pop();
+      
+      this.navCtrl.popToRoot();
     }
  
   }

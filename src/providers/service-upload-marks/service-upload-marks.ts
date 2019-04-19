@@ -4,9 +4,7 @@ import { ServiceLoginProvider } from '../service-login/service-login';
 
 @Injectable()
 export class ServiceUploadMarksProvider {
-  //public URL="http://localhost/schoolapi/"; //for local use
-   public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; //for local use
-  // public URL="https://direct-school.000webhostapp.com/"; //for hosting
+  public URL=this.one.URL;
   constructor(public http: HttpClient,public one:ServiceLoginProvider) {
     console.log('upload service invoked');
   }
@@ -31,6 +29,38 @@ export class ServiceUploadMarksProvider {
         else
         {
           alert("Unable to Upload Marks , check if marks are already uploaded");
+        }              
+         resolve(data);
+
+      },error=>{
+        console.log("Error",error);
+      });
+    });
+
+  }
+
+
+  // FOR UPDATING UPLOAD MARKS//////////////////////////////////////////////////////////////////////
+  UpdateFun(data)
+  {
+    var url=this.URL+"updateMarks.php";
+    return this.update(url,data);
+  }
+
+ update(url,data)
+  {
+    console.log("Length",data['length']);
+    console.log("updating marks",data);
+    return new Promise(resolve=>{
+      this.http.post(url,JSON.stringify(data)).subscribe(data=>{
+        
+        if(data['statuscode']==1)
+        {
+          alert("Marks Updated");
+        }
+        else
+        {
+          alert("Unable to Update Marks ");
         }              
          resolve(data);
 
