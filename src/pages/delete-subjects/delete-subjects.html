@@ -6,14 +6,14 @@
 -->
 <ion-header>
   <ion-navbar color="header">
-    <ion-title>Delete Subjects</ion-title>
+    <ion-title>{{'delete_subject' | translate}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
     <form>
       <ion-item>
-        <ion-label floating>Subject</ion-label>
+        <ion-label floating>{{'subject' |translate}}</ion-label>
          <ion-select  name="SUBJECT" [(ngModel)]="SUBJECT">
     
           <ion-option *ngFor="let i of cid?.subjectData"  value="{{i.SUBJECT_ID}}" >{{i.SUBJECT_NAME}}</ion-option>
@@ -25,7 +25,7 @@
       </ion-label>
       <button ion-button color="header" on-click="deleteSubject(SUBJECT)"
           block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;">
-          Delete
+          {{'delete' |translate}}
       </button>
     </form>
     </ion-content>

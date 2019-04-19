@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="header">
-    <ion-title>Update Subjects</ion-title>
+    <ion-title>{{'update_subjects' |translate}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -9,7 +9,7 @@
         <ion-item>
           <ion-label floating>
             <ion-icon ios="ios-book" md="md-book"></ion-icon>
-            Old Subject
+            {{'old_subject' |translate}}
           </ion-label>
            <ion-select  name="SID" [(ngModel)]="SID">
            <ion-option *ngFor="let u of GS?.subjectData"  value="{{u.SUBJECT_ID}}" >{{u.SUBJECT_NAME}}</ion-option> 
@@ -19,7 +19,7 @@
         <ion-item>
           <ion-label floating>
             <ion-icon ios="ios-book" md="md-book"></ion-icon>
-            New Subject Name
+            {{'new_subject' |translate}} {{'name' |translate}}
           </ion-label>
           <ion-input  [(ngModel)]="SUBNAME" placeholder="" name="SUBNAME"></ion-input>
           </ion-item>
@@ -27,14 +27,14 @@
           <ion-item>
             <ion-label floating>
               <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>
-              Change Subject Type
+              {{'change_sub_type' |translate}}
             </ion-label>
               <ion-select name="SUBTYPE" [(ngModel)]="SUBTYPE">
                 <ion-option value="Core">
-                  Core
+                  {{'core' |translate}}
                 </ion-option >
                 <ion-option value="Selective">
-                  Selective
+                  {{'selective' |translate}}
                 </ion-option>
               </ion-select>
             </ion-item>
@@ -42,14 +42,14 @@
               <ion-item>
                 <ion-label floating>
                   <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>
-                  Change Subject Material
+                  {{'change_sub_material' |translate}}
                 </ion-label>
                 <ion-select name="SUBMATERIAL" [(ngModel)]="SUBMATERIAL">
                   <ion-option value="Practical">
-                    Practical
+                    {{'practical' |translate}}
                   </ion-option>
                   <ion-option value="Theory">
-                    Theory
+                    {{'theory' |translate}}
                   </ion-option>
                 </ion-select>
               </ion-item>
@@ -58,7 +58,7 @@
               
               <button id="updatesubject" ion-button color="header" block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;"
                          on-click="USubject(SID,SUBNAME,SUBTYPE,SUBMATERIAL)">
-                Update
+                {{'update' |translate}}
               </button>
         </form>
 

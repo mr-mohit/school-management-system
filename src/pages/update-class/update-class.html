@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="header">
-    <ion-title>Update Class</ion-title>
+    <ion-title>{{'update_class' |translate}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -8,7 +8,7 @@
   <ion-item>
       <ion-label floating >
           <ion-icon ios="ios-contacts" md="md-contacts"></ion-icon>
-          Old Class Name
+          {{'old_class' |translate}} {{'name' |translate}}
         </ion-label>
     <ion-select name="CID" [(ngModel)]="CID">
      <ion-option *ngFor="let i of GS?.classData"  value="{{i.CLASS_MASTER_ID}}" >{{i.CLASS}} {{i.SECTION}}</ion-option>
@@ -18,7 +18,7 @@
     <ion-item>
       <ion-label floating >
         <ion-icon ios="ios-contacts" md="md-contacts"></ion-icon>
-        New Class Name
+        {{'new_class' |translate}} {{'name' |translate}}
       </ion-label>
       <ion-input type="text" [(ngModel)]="CLASS" placeholder="" name="CLASS"></ion-input>
     </ion-item>
@@ -36,10 +36,10 @@
         <!-- Space Here -->
       </ion-label>
       <button ion-button on-click="Submit(CID,CLASS,SECTION)">
-        ADD
+        {{'add' |translate}}
       </button>
       <button ion-button on-click="Class_Sub()">
-        ADD SUBJECTS UNDER CLASS
+        {{'add_subjects_under_class' |translate}}
       </button>
     </div>
 
