@@ -11,6 +11,7 @@
 </ion-header>
 
 <ion-content padding>
+  <div *ngIf="SeeExam.status">
 <ion-list *ngFor="let i of SeeExam?.Exam_Data">
     <div>
   <ion-item>
@@ -26,6 +27,7 @@
   </ion-item>
   </div>
 </ion-list>
+</div>
 
 
 <!-- <div *ngIf="status">

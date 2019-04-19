@@ -8,6 +8,7 @@ export class ServiceExamProvider {
 
   public URL=this.one.URL; //for local use
   private Exam_Data:any;
+  public status:boolean=false;
 
   constructor(public http: HttpClient,public one:ServiceLoginProvider) {
     console.log('Hello ServiceExamProvider Provider');
@@ -27,16 +28,18 @@ export class ServiceExamProvider {
         if(data['statuscode'] == 1)
          {
             this.Exam_Data=data['data'];
+            this.status=true;
             console.log(this.Exam_Data);
          }else
          {  
            this.Exam_Data=[{}]
+           this.status=false;
           alert("No Exam");
          }
          resolve(data);
 
       },error=>{
-        alert("error in Service");
+        alert(error);
       });
     });
   }

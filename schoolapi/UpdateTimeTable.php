@@ -32,8 +32,7 @@ if($con){
 				 $slot=test_input($obj['SLOT']);
 				 $day=test_input($obj['DAY']);
 
-			
-			$sql="UPDATE time_table SET SUBJECT_ID='$subjectid',DAY='$day' WHERE CLASS_MASTER_ID='$classid' AND TIME_SLOT='$slot'";
+	$sql="UPDATE time_table SET SUBJECT_ID='$subjectid',DAY='$day' WHERE CLASS_MASTER_ID='$classid' AND TIME_SLOT='$slot'";
        if (mysqli_query($con,$sql)) 
 		{
 			result(1,'Updated'); 
