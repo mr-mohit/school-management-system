@@ -111,8 +111,5 @@ export class ServiceAnnouncementProvider {
         alert("Connection Error");
       });
     });
-
   }
-
-
 }

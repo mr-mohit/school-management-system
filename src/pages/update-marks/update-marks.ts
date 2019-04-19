@@ -1,19 +1,20 @@
 import { Component } from '@angular/core';
-import { ToastController,IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 import { ServiceUploadMarksProvider } from '../../providers/service-upload-marks/service-upload-marks';
 
 @IonicPage()
 @Component({
-  selector: 'page-upload-marks',
-  templateUrl: 'upload-marks.html',
+  selector: 'page-update-marks',
+  templateUrl: 'update-marks.html',
 })
-export class UploadMarksPage {
+export class UpdateMarksPage {
   public Marks_array:any=[];
   public CLASS:any=[];
   public SUBJECT:any;
   public TEST:any;
   public status:boolean=false;
+  
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public GU:ServiceGetClassMasterProvider,
@@ -25,17 +26,13 @@ export class UploadMarksPage {
   console.log(this.CLASS,this.SUBJECT,this.TEST);
   this.status=false;
    
-
-
+  console.log("number of rows is",this.GU.rows);
   }
 
-  test()
-  {
-    console.log("focused");
-  }
 
   Save(reg,Marks,index)
   {
+
     let mk={
       "REG_NO":"",
       "TEST":"",
@@ -58,16 +55,15 @@ export class UploadMarksPage {
       }                
 
     }
-
-
   }
 
-Submit(){
+Update(){
+//  console.log("length value",this.Marks_array.length);
   if(this.Marks_array.length-this.GU.rows == 0)
   {
     const confirm = this.alertCtrl.create({
-      title: 'Upload Marks',
-      message: 'Do you want to Upload Marks?',
+      title: 'Update Marks',
+      message: 'Do you want to Update Marks?',
       buttons: [
         {
           text: 'Cancel',
@@ -79,7 +75,7 @@ Submit(){
          text: 'Okay',
          handler: () => {
                           console.log(this.Marks_array);
-                          this.UM.UploadFun(this.Marks_array);
+                          this.UM.UpdateFun(this.Marks_array);
                           this.navCtrl.pop();
                         }
         }

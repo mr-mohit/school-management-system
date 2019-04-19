@@ -132,7 +132,9 @@ import { UpdateAnnouncementPage } from '../pages/update-announcement/update-anno
 import { ViewTimeTablePage } from '../pages/view-time-table/view-time-table';
 import{ServiceDeleteAndUpdateTimeTableProvider} from '../providers/Service-delete-and-update-time-table/Service-delete-and-update-time-table'
 import { UpdateTimeTablePage } from '../pages/update-time-table/update-time-table';
-
+import { UpdateMarksPage } from '../pages/update-marks/update-marks';
+import { UpdateTestPage } from '../pages/update-test/update-test';
+import { UpdateAttendancePage } from '../pages/update-attendance/update-attendance';
  
 
  @NgModule({ 
@@ -218,6 +220,9 @@ import { UpdateTimeTablePage } from '../pages/update-time-table/update-time-tabl
     UpdateAnnouncementPage,
     ViewTimeTablePage,
     UpdateTimeTablePage,
+    UpdateMarksPage,
+    UpdateTestPage,
+    UpdateAttendancePage,
   ],
   imports: [
     BrowserModule,
@@ -316,6 +321,9 @@ import { UpdateTimeTablePage } from '../pages/update-time-table/update-time-tabl
     UpdateAnnouncementPage,
     ViewTimeTablePage,
     UpdateTimeTablePage,
+    UpdateMarksPage,
+    UpdateTestPage,
+    UpdateAttendancePage,
   ],
   providers: [
     StatusBar,

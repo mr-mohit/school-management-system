@@ -16,6 +16,7 @@ export class ServiceGetClassMasterProvider {
   public eventData:any;
   public attsubject:any;
   public testData:any;
+  public AttStatus:any;
   public SDC:any;///to fetch student data according to given class/////
   public feedbackData:any;
   public timeslot:any;
@@ -592,6 +593,34 @@ getSA(url,RG)
       {
         this.SAData=data['data'];
         console.log("Attendance",this.SAData);
+        
+      }
+      else
+      {
+        alert("No data found");
+        //return 0;
+      }        
+       resolve(data);
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+}
+
+
+getAttStatusFun(UP)
+{
+  var url=this.URL+"getAttendanceStatus.php";
+  return this.getAttStatus(url,UP);
+}
+getAttStatus(url,UP)
+{
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(UP)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.AttStatus=data['data'];
+        console.log("STATUS",this.AttStatus);
         
       }
       else

@@ -41,5 +41,37 @@ export class ServiceUploadMarksProvider {
 
   }
 
+
+  // FOR UPDATING UPLOAD MARKS//////////////////////////////////////////////////////////////////////
+  UpdateFun(data)
+  {
+    var url=this.URL+"updateMarks.php";
+    return this.update(url,data);
+  }
+
+ update(url,data)
+  {
+    console.log("Length",data['length']);
+    console.log("updating marks",data);
+    return new Promise(resolve=>{
+      this.http.post(url,JSON.stringify(data)).subscribe(data=>{
+        
+        if(data['statuscode']==1)
+        {
+          alert("Marks Updated");
+        }
+        else
+        {
+          alert("Unable to Update Marks ");
+        }              
+         resolve(data);
+
+      },error=>{
+        console.log("Error",error);
+      });
+    });
+
+  }
+
 }
 
