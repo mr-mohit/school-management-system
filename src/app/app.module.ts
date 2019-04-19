@@ -124,6 +124,9 @@ import { DeleteAnnouncementsPage } from '../pages/delete-announcements/delete-an
 import { DeleteEditAnnouncementPage } from '../pages/delete-edit-announcement/delete-edit-announcement';
 import { UpdateAnnouncementPage } from '../pages/update-announcement/update-announcement';
 import { ViewTimeTablePage } from '../pages/view-time-table/view-time-table';
+import{ServiceDeleteAndUpdateTimeTableProvider} from '../providers/Service-delete-and-update-time-table/Service-delete-and-update-time-table'
+import { UpdateTimeTablePage } from '../pages/update-time-table/update-time-table';
+
  
 
  @NgModule({ 
@@ -206,6 +209,7 @@ import { ViewTimeTablePage } from '../pages/view-time-table/view-time-table';
     DeleteEditAnnouncementPage,
     UpdateAnnouncementPage,
     ViewTimeTablePage,
+    UpdateTimeTablePage,
   ],
   imports: [
     BrowserModule,
@@ -301,6 +305,7 @@ import { ViewTimeTablePage } from '../pages/view-time-table/view-time-table';
     DeleteEditAnnouncementPage,
     UpdateAnnouncementPage,
     ViewTimeTablePage,
+    UpdateTimeTablePage,
   ],
   providers: [
     StatusBar,
@@ -355,6 +360,7 @@ import { ViewTimeTablePage } from '../pages/view-time-table/view-time-table';
     ServiceDeleteTimetableProvider,
     ServiceGetTeacherProvider,
     ServiceAssignSubProvider,
+    ServiceDeleteAndUpdateTimeTableProvider,
   ]
 })
 export class AppModule {}

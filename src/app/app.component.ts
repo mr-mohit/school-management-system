@@ -19,7 +19,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
 import { LocalNotifications } from '@ionic-native/local-notifications';
-import { SchoolInfoPage } from '../pages/school-info/school-info';
+//import { SchoolInfoPage } from '../pages/school-info/school-info';
 import { ViewCalendarPage } from '../pages/view-calendar/view-calendar';
 
 
@@ -105,10 +105,10 @@ export class MyApp {
     //initializing the student array elements for side menu
     this.Student_a=[
       {title:'Home', icon:'home', component:StudentdashboardPage},
-      {title:'School Info', icon:'contact', component:SchoolInfoPage},
-      {title:'Events', icon:'contact',component:ViewCalendarPage},
-      {title:'Feedback', icon:'contact',component:StudentFeedbackPage},
-      {title:'Quiz', icon:'contact', component:StudentQuizPage},
+     // {title:'School Info', icon:'contact', component:SchoolInfoPage},
+      {title:'Events', icon:'calendar',component:ViewCalendarPage},
+      {title:'Feedback', icon:'thumbs-up',component:StudentFeedbackPage},
+      {title:'Quiz', icon:'list', component:StudentQuizPage},
       {title:'Gallery',icon:'images',component:GalleryPage}
     ];
 
@@ -117,9 +117,9 @@ export class MyApp {
       {title:'Home', icon:'home',component:TeacherdashboardPage},
       {title:'Messages', icon:'text',component:TeacherSendMessagePage},
       {title:'Announcements',icon:'megaphone',component:TeacherAnnouncementPage},
-      {title:'Feedback',icon:'contact',component:TeacherFeedbackPage},      
+      {title:'Feedback',icon:'thumbs-up',component:TeacherFeedbackPage},      
       {title:'Gallery',icon:'images',component:GalleryPage},
-      {title:'Events', icon:'contact',component:ViewCalendarPage}
+      {title:'Events', icon:'calendar',component:ViewCalendarPage}
     ];
     //initializing the Admin array elements for side menu
     this.Admin_a=[
