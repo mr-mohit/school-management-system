@@ -70,7 +70,7 @@ public Announcement={
        {
             this.navCtrl.pop();
        }
-              }
+      }
             },
             {
               text:'No',

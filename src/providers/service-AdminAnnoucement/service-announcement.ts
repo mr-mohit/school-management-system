@@ -7,19 +7,11 @@ import { ServiceLoginProvider } from '../service-login/service-login';
 export class ServiceAdminAnnouncements {
 
   //public data:any;
-  //public URL="http://localhost/schoolapi/"; //for local use
- //  public URL="https://direct-school.000webhostapp.com/"; //for hosting
-  public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/";
-   //public URL="https://direct-school.000webhostapp.com/"; //for hosting
+  public URL="http://localhost/schoolapi/";
   constructor(public http: HttpClient,public one:ServiceLoginProvider) {
   }
   postData(url,data1)
-  {
-    //console.log("data one"+data1);
-    // For header problem
-    
-    // var header={"header":{"Content-Type":"application/json"}};
-    
+  { 
      console.log("data passing",JSON.stringify(data1));
     return new Promise(resolve=>{    
       this.http.post(url,JSON.stringify(data1)).subscribe(data=>{
@@ -31,9 +23,8 @@ export class ServiceAdminAnnouncements {
         {
           alert("Unable to Add");
         }
-           //resolve(data);
+           resolve(data);
       },error=>{
-        // console.log("data1 is here"+data1);
         console.log("data not transferred",error);
       });
     });
