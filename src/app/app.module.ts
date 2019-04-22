@@ -125,6 +125,11 @@ import { ServiceDeleteTimetableProvider } from '../providers/service-delete-time
 import { AssignSubPage } from '../pages/assign-sub/assign-sub';
 import { ServiceGetTeacherProvider } from '../providers/service-get-teacher/service-get-teacher';
 import { ServiceAssignSubProvider } from '../providers/service-assign-sub/service-assign-sub';
+import { ServiceStudentMessageProvider } from '../providers/service-student-message/service-student-message';
+import { StudentMessagePage } from '../pages/student-message/student-message';
+import { StudentMessage2Page } from '../pages/student-message2/student-message2';
+import { ServiceStudentHomeworkProvider } from '../providers/service-student-homework/service-student-homework';
+import { StudentHomeworkPage } from '../pages/student-homework/student-homework';
  
 
  @NgModule({ 
@@ -205,6 +210,9 @@ import { ServiceAssignSubProvider } from '../providers/service-assign-sub/servic
     DeleteTimeTablePage,
     TeacherTimeTablePage,
     AssignSubPage,
+    StudentMessagePage,
+    StudentMessage2Page,
+    StudentHomeworkPage
   ],
   imports: [
     BrowserModule,
@@ -298,6 +306,9 @@ import { ServiceAssignSubProvider } from '../providers/service-assign-sub/servic
     DeleteTimeTablePage,
     TeacherTimeTablePage,
     AssignSubPage,
+    StudentMessagePage,
+    StudentMessage2Page,
+    StudentHomeworkPage
   ],
   providers: [
     StatusBar,
@@ -357,6 +368,8 @@ import { ServiceAssignSubProvider } from '../providers/service-assign-sub/servic
     ServiceDeleteTimetableProvider,
     ServiceGetTeacherProvider,
     ServiceAssignSubProvider,
+    ServiceStudentMessageProvider,
+    ServiceStudentHomeworkProvider,
   ]
 })
 export class AppModule {}

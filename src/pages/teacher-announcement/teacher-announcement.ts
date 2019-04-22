@@ -17,7 +17,8 @@ import { AnnouncementDetailsPage } from '../announcement-details/announcement-de
 })
 export class TeacherAnnouncementPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public Service:ServiceAnnouncementProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public Service:ServiceAnnouncementProvider) {
        this.Service.getData();
 
        }

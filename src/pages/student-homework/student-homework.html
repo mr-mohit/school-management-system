@@ -1,0 +1,50 @@
+<!--
+  Generated template for the StudentHomeworkPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="header">
+    <ion-title> My Homeworks</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <form>
+       <ion-item>
+             <ion-label floating>Subjects</ion-label>
+           <ion-select  name="Class" [(ngModel)]="Class" (ionChange)="getSubject(Class)">
+            <ion-option *ngFor="let i of GU?.classSB"  value="{{i.SUBJECT_ID}}" >{{i.SUBJECT_ID}}</ion-option>
+           </ion-select>
+      </ion-item> 
+          <br/> <br/>
+          <!-- <button ion-button color="header" (on-click) = "getSubjectHomework()"
+            block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;">
+            submit
+        </button>
+        <br/><br/> -->
+         
+          <!-- here we print the different homework available for a subject -->
+         <ion-grid *ngFor="let i of HW; let j = index"   class="head" style="border:solid 1px;">
+        <ion-row color="header">
+          <ion-col>
+            <div>
+              {{i.TITLE}}  
+            </div>
+          </ion-col>
+          <ion-col>
+              <div>
+                   <button ion-button color="header" (click) ="downloadHomework(i.FILE,i.TITLE,i.SUBJECT_ID)"> 
+                           Download
+                   </button>            
+              </div>
+          </ion-col>
+          
+         
+        </ion-row>
+      </ion-grid> 
+    </form>
+
+</ion-content>
