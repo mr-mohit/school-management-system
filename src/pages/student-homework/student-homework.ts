@@ -37,7 +37,7 @@ export class StudentHomeworkPage {
       //console.log("download part");
        //here encoding path as encodeURI() format.  
        var fileName = subject+title+".pdf";
-       alert(link);
+      // alert(link);
     let url = encodeURI(link);  
     //here initializing object.  
     this.fileTransfer = this.transfer.create();  
@@ -45,7 +45,7 @@ export class StudentHomeworkPage {
     //You can change a file path whatever pre-defined method.  
      this.fileTransfer.download(url, this.file.externalRootDirectory  + fileName, true).then((entry) => {  
         //here logging our success downloaded file path in mobile.  
-        alert(fileName +' -- > download completed: ' + entry.toURL());  
+        alert(' -- > download completed: ' + entry.toURL());  
       //  alert('download completed');
     }, (error) => {  
         //here logging our error its easier to find out what type of error occured.  
