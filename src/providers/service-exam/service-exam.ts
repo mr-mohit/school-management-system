@@ -12,6 +12,7 @@ export class ServiceExamProvider {
 
   constructor(public http: HttpClient,public one:ServiceLoginProvider) {
     console.log('Hello ServiceExamProvider Provider');
+    this.status=false;
   }
 
   getExamData(STU_REG_NO)

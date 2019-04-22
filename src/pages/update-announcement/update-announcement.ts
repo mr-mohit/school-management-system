@@ -69,7 +69,7 @@ export class UpdateAnnouncementPage {
        this.UpdateData['END_TIME']=this.END_TIME;
        if(this.Service.getUpdateData(this.UpdateData))
        {
-         this.navCtrl.pop();
+         this.navCtrl.popToRoot();
        }
       }
      else
