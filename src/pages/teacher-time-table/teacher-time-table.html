@@ -6,14 +6,14 @@
 -->
 <ion-header>
   <ion-navbar color="header">
-    <ion-title>Time Table</ion-title>
+    <ion-title>{{'timetable' |translate}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
     <ion-item>
-        <ion-label floating>Select Subject</ion-label>
+        <ion-label floating>{{'select_subject' |translate}}</ion-label>
     
         <ion-select name="AssignedSub" [(ngModel)]="AssignedSub">
             <ion-option *ngFor="let i of getTeacherTime?.Teacher_Subject" value="{{i.SUBJECT_ID}}">
@@ -23,9 +23,9 @@
       </ion-item>
 
       <ion-item>
-          <ion-label floating>Select Day</ion-label>
+          <ion-label floating>{{'select_day' |translate}}</ion-label>
           <ion-select  name="Day" [(ngModel)]="Day">
-              <ion-option *ngFor="let i of Days">{{i.Day}}</ion-option>
+              <ion-option *ngFor="let i of Days">{{i.Day |translate}}</ion-option>
              </ion-select>
         </ion-item>
 
@@ -34,7 +34,7 @@
           <button id="addsubject" ion-button color="header"  
           on-click="getTimeTable()" block 
           style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;">
-          View 
+          {{'view' |translate}}
      </button>
   
 
@@ -45,16 +45,16 @@
       <ion-grid class="head" style="border:solid 1px;">
          <ion-row >
            <ion-col >
-             <div>Class</div>
+             <div>{{'class' |translate}}</div>
            </ion-col>
            <ion-col>
-             <div>Subject ID</div>
+             <div>{{'subject' |translate}} ID</div>
            </ion-col>
            <ion-col>
-              <div>Time</div>
+              <div>{{'time' |translate}}</div>
            </ion-col>
            <ion-col>
-             <div>Day</div>
+             <div>{{'day' |translate}}</div>
            </ion-col>
          </ion-row>
          
