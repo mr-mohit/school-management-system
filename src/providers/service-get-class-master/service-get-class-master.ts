@@ -7,18 +7,18 @@ export class ServiceGetClassMasterProvider {
   public URL=this.one.URL; //for local use
     //public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; //for hosting use
   // public URL="https://direct-school.000webhostapp.com/"; //for hosting
-  public classData:any;
-  public subjectData:any;
-  public sessionData:any;
-  public termData:any;
-  public userData:any;
-  public eventData:any;
-  public attsubject:any;
-  public testData:any;
-  public SDC:any;///to fetch student data according to given class/////
-  public feedbackData:any;
-  public timeslot:any;
-  public timeview:any;
+  public classData:any;      //to fetch the details of classes from database
+  public subjectData:any;    //to fetch the details of subjects from database
+  public sessionData:any;    //to fetch the details of sessions from database
+  public termData:any;       //to fetch the details of terms from database
+  public userData:any;       //to fetch the details of users from database
+  public eventData:any;      //to fetch the details of events from database
+  public attsubject:any;     //to fetch the details of subjects for attendance from database
+  public testData:any;       //to fetch the details of tests in the database
+  public SDC:any;            //to fetch student data according to given class
+  public feedbackData:any;   //to fetch the details of feedback from database
+  public timeslot:any;       //to fetch the details of timeslot from database
+  public timeview:any;       
   public SubjectOnTimeTable:any;
   public CSData:any;
   //These variable for attendance purpose
@@ -419,7 +419,6 @@ getFeedbackFun()
 }
 getFeedback(url)
 {
-  //console.log("service call",sessionData);
   return new Promise(resolve=>{
     this.http.post(url,JSON.stringify(" ")).subscribe(data=>{
       if(data['statuscode']==1)
