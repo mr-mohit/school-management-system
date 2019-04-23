@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 import { UploadMarksPage } from '../upload-marks/upload-marks';
 import { UpdateMarksPage } from '../update-marks/update-marks';
+import { ServiceGetResultDataProvider } from '../../providers/service-get-result-data/service-get-result-data';
 
 @IonicPage()
 @Component({
@@ -27,7 +28,8 @@ export class UploadMarksInfoPage {
   }];
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public GU:ServiceGetClassMasterProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public GU:ServiceGetClassMasterProvider,
+    public RD:ServiceGetResultDataProvider) {
   }
 
   getSubject(CID)
@@ -57,7 +59,7 @@ export class UploadMarksInfoPage {
   console.log("UPLOADING MARKS",this.INS);
   this.GU.getSDCFun(CLASS);
   this.navCtrl.push(UploadMarksPage,{"class":CLASS,"subject":SUBJECT,"test":TEST});
-
+  
 
   }
   else{
@@ -86,6 +88,12 @@ Update(CLASS,SUBJECT,TEST)
   else{
     alert("Please select all fields");
   }
+}
+
+ReData(TEST)
+{
+  this.RD.getRDFun(TEST);
+  
 }
 
 }

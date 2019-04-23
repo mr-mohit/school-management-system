@@ -126,6 +126,10 @@ import { UpdateAnnouncementPage } from '../pages/update-announcement/update-anno
 import { UpdateMarksPage } from '../pages/update-marks/update-marks';
 import { UpdateTestPage } from '../pages/update-test/update-test';
 import { UpdateAttendancePage } from '../pages/update-attendance/update-attendance';
+import { DeleteTestPage } from '../pages/delete-test/delete-test';
+import { ServiceDeleteTestProvider } from '../providers/service-delete-test/service-delete-test';
+import { ServiceGetResultDataProvider } from '../providers/service-get-result-data/service-get-result-data';
+import { ServiceCalculateResultProvider } from '../providers/service-calculate-result/service-calculate-result';
  
 
  @NgModule({ 
@@ -210,6 +214,7 @@ import { UpdateAttendancePage } from '../pages/update-attendance/update-attendan
     UpdateMarksPage,
     UpdateTestPage,
     UpdateAttendancePage,
+    DeleteTestPage,
   ],
   imports: [
     BrowserModule,
@@ -307,6 +312,7 @@ import { UpdateAttendancePage } from '../pages/update-attendance/update-attendan
     UpdateMarksPage,
     UpdateTestPage,
     UpdateAttendancePage,
+    DeleteTestPage,
   ],
   providers: [
     StatusBar,
@@ -361,6 +367,9 @@ import { UpdateAttendancePage } from '../pages/update-attendance/update-attendan
     ServiceDeleteTimetableProvider,
     ServiceGetTeacherProvider,
     ServiceAssignSubProvider,
+    ServiceDeleteTestProvider,
+    ServiceGetResultDataProvider,
+    ServiceCalculateResultProvider,
   ]
 })
 export class AppModule {}

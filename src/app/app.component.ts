@@ -21,6 +21,8 @@ import { Push, PushObject, PushOptions } from '@ionic-native/push';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { SchoolInfoPage } from '../pages/school-info/school-info';
 import { ViewCalendarPage } from '../pages/view-calendar/view-calendar';
+import { DeleteTermPage } from '../pages/delete-term/delete-term';
+import { DeleteTestPage } from '../pages/delete-test/delete-test';
 
 
 @Component({
@@ -119,7 +121,8 @@ export class MyApp {
       {title:'Announcements',icon:'megaphone',component:TeacherAnnouncementPage},
       {title:'Feedback',icon:'contact',component:TeacherFeedbackPage},      
       {title:'Gallery',icon:'images',component:GalleryPage},
-      {title:'Events', icon:'contact',component:ViewCalendarPage}
+      {title:'Events', icon:'contact',component:ViewCalendarPage},
+      {title:'Delete Test',icon:'book',component:DeleteTestPage}
     ];
     //initializing the Admin array elements for side menu
     this.Admin_a=[

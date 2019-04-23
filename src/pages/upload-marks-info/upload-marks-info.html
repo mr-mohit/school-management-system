@@ -29,7 +29,7 @@
         <ion-label floating>
           Test
       </ion-label>
-         <ion-select  name="TEST" [(ngModel)]="TEST" >
+         <ion-select  name="TEST" [(ngModel)]="TEST" (ionChange)="ReData(TEST)">
           <ion-option *ngFor="let i of GU?.testData"  value="{{i.CLASS_TEST_ID}}" >{{i.TEST_NAME}} {{i.TEST_TYPE}}</ion-option>
         </ion-select>
       </ion-item>
