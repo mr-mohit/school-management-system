@@ -7,8 +7,8 @@ import { ServiceLoginProvider } from '../service-login/service-login';
 @Injectable()
 export class ServiceResetpasswordProvider {
 
- // public URL="http://localhost/schoolapi/";
-  public URL=this.one.URL; //for local use
+ 
+  public URL=this.one.URL;
   recdata: any;
   loading: any;
  
@@ -23,9 +23,9 @@ export class ServiceResetpasswordProvider {
 
      // start wait  loading process 
   this.loading = this.loadingCtrl.create({
-    content: 'sending OTP...',
+    content: 'Sending OTP...',
     dismissOnPageChange:true,
-    duration:2000
+    duration:1000000
   });
   this.loading.present();
 

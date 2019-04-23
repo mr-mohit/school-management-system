@@ -10,6 +10,7 @@ import { NativeStorage } from '@ionic-native/native-storage';
 import { AdminHomePage } from '../admin-home/admin-home';
 import { HomePage } from '../home/home';
 import { ResultPage } from '../result/result';
+import { DeleteUserPage } from '../delete-user/delete-user';
 
 
 @Component({
@@ -31,29 +32,33 @@ public user:any=
   constructor(private nativeStorage: NativeStorage,public Menu: MenuController,public navCtrl: NavController,public alertCtrl:AlertController,public loadingCtrl: LoadingController,
     public service:ServiceLoginProvider,public toast:ToastController) {
       this.Menu.enable(false);
+
   }
   
   ValidateLogin(REG_NO,PASSWORD)
   {
+
+
     if(REG_NO!=undefined && PASSWORD!=undefined &&this.status!=false || this.status!=undefined)
     {
         this.user['REG_NO']=REG_NO;//get user name from login.html
         this.user['PASSWORD']=PASSWORD;//get password entered by user from login.html
         
-        //calling services for login and sending data to API
-        this.service.postlogin(this.user).then(data=>{
-
-          this.dataitem = data; //getting response value from API
-         console.log("response",data);
-
-           //Showing Loading
-
+         //Showing Loading
       const loader = this.loadingCtrl.create({
         content: "Please wait...",
         duration:3000,
         dismissOnPageChange:true,
       });
       loader.present();
+
+        //calling services for login and sending data to API
+        this.service.postlogin(this.user).then(data=>{
+
+          this.dataitem = data; //getting response value from API
+         console.log("response",data);
+
+        
 
          if(data['statuscode'] === 1)
          {
@@ -143,7 +148,10 @@ Student()
 {
   this.navCtrl.push(HomePage);
 }
-
+du()
+{
+  this,this.navCtrl.push(DeleteUserPage);
+}
 
 togglePassword()
 {

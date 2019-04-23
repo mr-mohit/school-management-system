@@ -4,23 +4,25 @@ import { ServiceLoginProvider } from '../service-login/service-login';
 
 @Injectable()
 export class ServiceGetClassMasterProvider {
-  public URL=this.one.URL; //for local use
-    //public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; //for hosting use
-  // public URL="https://direct-school.000webhostapp.com/"; //for hosting
-  public classData:any;      //to fetch the details of classes from database
-  public subjectData:any;    //to fetch the details of subjects from database
-  public sessionData:any;    //to fetch the details of sessions from database
-  public termData:any;       //to fetch the details of terms from database
-  public userData:any;       //to fetch the details of users from database
-  public eventData:any;      //to fetch the details of events from database
-  public attsubject:any;     //to fetch the details of subjects for attendance from database
-  public testData:any;       //to fetch the details of tests in the database
-  public SDC:any;            //to fetch student data according to given class
-  public feedbackData:any;   //to fetch the details of feedback from database
-  public timeslot:any;       //to fetch the details of timeslot from database
-  public timeview:any;       
+  public URL=this.one.URL;
+  
+  public classData:any;
+  public subjectData:any;
+  public studentData:any; // for getting student's infos
+  public sessionData:any;
+  public termData:any;
+  public userData:any;
+  public eventData:any;
+  public attsubject:any;
+  public testData:any;
+  public AttStatus:any;
+  public SDC:any;///to fetch student data according to given class/////
+  public feedbackData:any;
+  public timeslot:any;
+  public timeview:any;
   public SubjectOnTimeTable:any;
   public CSData:any;
+  public SAData:any;//it will have array of attendance of a particular student used un View Attendance Stduent Module
   //These variable for attendance purpose
   public class:any;
   public subject:any;
@@ -29,15 +31,47 @@ export class ServiceGetClassMasterProvider {
   public slot:any;
   public attendence:any=[];
   public term:any;
+  public rows:any;
 //end
- 
+ public ClassTest:any;
   
 
 
   constructor(public http: HttpClient,public one:ServiceLoginProvider) {
     
   }
+   //GET TEST FROM CLASS_TEST_TABLE
+  getClassTestFun(subjectID)
+  {
+    var url=this.URL+"getClassTest.php";
+    return this.getClassTest(url,subjectID);
+  }
 
+  getClassTest(url,subjectID)
+  {
+    //console.log("Class is which we passing to api",postId);
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(subjectID)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.ClassTest=data['data'];
+        //console.log("Row data",this.attsubject);
+        console.log("Class Test",this.ClassTest);
+        //return 1;
+      }
+      else
+      {
+        this.SubjectOnTimeTable=[];
+        alert("no data fetched");
+        //return 0;
+      }        
+       resolve(data);
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+
+  }
 
   getClassFun() //GET DATA FROM CLASS_MASTER_TABLE IN DATABASE----------------------------------------------------->
   {
@@ -103,7 +137,42 @@ export class ServiceGetClassMasterProvider {
     });
 
   }
+  // GET Students from data base
+  // GET SUBJECTS FROM SUBJECT TABLE IN DATABASE---------------------------------------------------------------->
+  getStudentFun()
+  {
+    var url=this.URL+"getUser.php";
+    return this.getStudent(url);
 
+  }
+  getStudent(url)
+  {
+    //console.log("service call",sessionData);
+    return new Promise(resolve=>{
+      this.http.post(url,JSON.stringify("admin")).subscribe(data=>{
+        if(data['statuscode']==1)
+        {
+          
+          this.studentData=data['data'];
+          console.log("users",this.studentData);
+        }
+        else
+        {
+          alert("no data fetched");
+        }        
+        
+         resolve(data);
+
+      },error=>{
+        console.log("Error",error);
+      });
+    });
+
+  }
+
+
+  // End of get Students from data base
+  // ------------------------------------------------------------------------------------
   // GET DATA FROM SESSION TABLE IN DATABASE---------------------------------------------------------------->
   getSessionFun()
   {
@@ -352,6 +421,8 @@ getSDC(CLASS,url)
       {
         // alert("Term Added");
         this.SDC=data['data'];
+        this.rows=data['row'];
+
         for (var i in this.SDC)
         {
           this.attendence[i]=this.SDC[i];
@@ -365,7 +436,7 @@ getSDC(CLASS,url)
         }
         console.log("Student of class",this.SDC);
         console.log("temp Attendance sheet",this.attendence);
-
+        console.log("no of rows",this.rows);
 
       }
       else
@@ -534,6 +605,65 @@ getCS(url,CS)
     });
   });
 }
+
+// TO GET ATTENDENCE OF PARTICULAR STUDENT///////////////////////////////////////////////////////////////////////////
+getSAFun(RG)
+{
+  var url=this.URL+"getStudentAttendance.php";
+  return this.getSA(url,RG);
+}
+
+getSA(url,RG)
+{
+  console.log("View your Attendance: ",RG);
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(RG)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.SAData=data['data'];
+        console.log("Attendance",this.SAData);
+        
+      }
+      else
+      {
+        alert("No data found");
+        //return 0;
+      }        
+       resolve(data);
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+}
+
+
+getAttStatusFun(UP)
+{
+  var url=this.URL+"getAttendanceStatus.php";
+  return this.getAttStatus(url,UP);
+}
+getAttStatus(url,UP)
+{
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(UP)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.AttStatus=data['data'];
+        console.log("STATUS",this.AttStatus);
+        
+      }
+      else
+      {
+        alert("No data found");
+        //return 0;
+      }        
+       resolve(data);
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+}
+
 
 }
 

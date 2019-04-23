@@ -26,7 +26,7 @@ if($con){
 				echo json_encode($response);
 			}
 
-             $sql="SELECT * FROM quiz"; // select all the element from the database according to id
+             $sql="SELECT * FROM quiz_table"; // select all the element from the database according to id
              $query = mysqli_query($con,$sql);
 		     $count = mysqli_num_rows($query);
 				 

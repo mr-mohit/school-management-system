@@ -6,10 +6,12 @@ import{TeacherTimeTablePage} from '../teacher-time-table/teacher-time-table';
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 import { AttendenceInfoPage } from '../attendence-info/attendence-info';
 import { ViewCalendarPage } from '../view-calendar/view-calendar';
+import { TeacherUploadHomeworkPage } from '../teacher-upload-homework/teacher-upload-homework';
 import { CreateTestPage } from '../create-test/create-test';
 import { UploadMarksInfoPage } from '../upload-marks-info/upload-marks-info';
 import { ViewStudentsPage } from '../view-students/view-students';
 import { ServiceLoginProvider } from '../../providers/service-login/service-login';
+import { AddEventPage } from '../add-event/add-event';
 
 @IonicPage()
 @Component({
@@ -47,6 +49,10 @@ export class TeacherHomePage {
   {
     this.navCtrl.push(ViewCalendarPage);
   }
+  uploadHW()
+  {
+    this.navCtrl.push(TeacherUploadHomeworkPage);
+  }
 
   CreateTest()
   {
@@ -70,9 +76,9 @@ gotoViewStudents()
   this.GCM.getSessionFun();
 }
 
-gotoExams()
+gotoEvents()
 {
-  
+  this.navCtrl.push(AddEventPage);
 }
 
 }

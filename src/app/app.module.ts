@@ -96,6 +96,8 @@ import { Push } from '@ionic-native/push';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { SchoolInfoPage } from '../pages/school-info/school-info';
 import { GalleryPage } from '../pages/gallery/gallery';
+import { ServiceAdminmessageProvider } from '../providers/service-adminmessage/service-adminmessage';
+import { TeacherUploadHomeworkPage } from '../pages/teacher-upload-homework/teacher-upload-homework';
 import { CreateTestPage } from '../pages/create-test/create-test';
 import { ServiceCreateTestProvider } from '../providers/service-create-test/service-create-test';
 import { UploadMarksPage } from '../pages/upload-marks/upload-marks';
@@ -106,12 +108,14 @@ import { TeacherTimeTablePage} from '../pages/teacher-time-table/teacher-time-ta
 import { DeleteTimeTablePage } from '../pages/delete-time-table/delete-time-table';
 import { StudentFeedbackPage } from '../pages/student-feedback/student-feedback';
 import { ServiceAddStudentfeedbackProvider } from '../providers/service-add-studentfeedback/service-add-studentfeedback';
+import { ServiceUploadAttendenceProvider } from '../providers/service-upload-attendence/service-upload-attendence';
 import { FeedbackDetailPage } from '../pages/feedback-detail/feedback-detail';
 import { ServiceFetchTimeTableProvider } from '../providers/service-fetch-time-table/service-fetch-time-table';
 import { ResultPage } from '../pages/result/result';
 import { ServiceGetResultProvider } from '../providers/service-get-result/service-get-result';
-import { ServiceUploadAttendenceProvider } from '../providers/service-upload-attendence/service-upload-attendence';
+//import { ServiceUploadAttendenceProvider } from '../providers/service-upload-attendence/service-upload-attendence';
 import { ServiceStudentResultProvider } from '../providers/service-student-result/service-student-result';
+import { ServiceUploadHomeworkProvider } from '../providers/service-upload-homework/service-upload-homework';
 import { ViewStudentsPage } from '../pages/view-students/view-students';
 import { ViewStudents_2Page } from '../pages/view-students-2/view-students-2';
 import { ViewStudentPage } from '../pages/view-student/view-student';
@@ -120,6 +124,19 @@ import { ServiceDeleteTimetableProvider } from '../providers/service-delete-time
 import { AssignSubPage } from '../pages/assign-sub/assign-sub';
 import { ServiceGetTeacherProvider } from '../providers/service-get-teacher/service-get-teacher';
 import { ServiceAssignSubProvider } from '../providers/service-assign-sub/service-assign-sub';
+import { DeleteAnnouncementsPage } from '../pages/delete-announcements/delete-announcements';
+import { DeleteEditAnnouncementPage } from '../pages/delete-edit-announcement/delete-edit-announcement';
+import { UpdateAnnouncementPage } from '../pages/update-announcement/update-announcement';
+import { ViewTimeTablePage } from '../pages/view-time-table/view-time-table';
+import{ServiceDeleteAndUpdateTimeTableProvider} from '../providers/Service-delete-and-update-time-table/Service-delete-and-update-time-table'
+import { UpdateTimeTablePage } from '../pages/update-time-table/update-time-table';
+import { UpdateMarksPage } from '../pages/update-marks/update-marks';
+import { UpdateTestPage } from '../pages/update-test/update-test';
+import { UpdateAttendancePage } from '../pages/update-attendance/update-attendance';
+import { DeleteTestPage } from '../pages/delete-test/delete-test';
+import { ServiceDeleteTestProvider } from '../providers/service-delete-test/service-delete-test';
+import { ServiceGetResultDataProvider } from '../providers/service-get-result-data/service-get-result-data';
+import { ServiceCalculateResultProvider } from '../providers/service-calculate-result/service-calculate-result';
  
 
  @NgModule({ 
@@ -185,11 +202,13 @@ import { ServiceAssignSubProvider } from '../providers/service-assign-sub/servic
     ViewCalendarPage,
     AttendenceInfoPage,
     DeleteUserPage,
+    TeacherUploadHomeworkPage,
     CreateTestPage,
     UploadMarksPage,
     UploadMarksInfoPage,
     TeacherFeedbackPage,
     StudentFeedbackPage,
+    TeacherFeedbackPage,
     FeedbackDetailPage,
     ResultPage,
     ViewStudentsPage,
@@ -198,6 +217,15 @@ import { ServiceAssignSubProvider } from '../providers/service-assign-sub/servic
     DeleteTimeTablePage,
     TeacherTimeTablePage,
     AssignSubPage,
+    DeleteAnnouncementsPage,
+    DeleteEditAnnouncementPage,
+    UpdateAnnouncementPage,
+    ViewTimeTablePage,
+    UpdateTimeTablePage,
+    UpdateMarksPage,
+    UpdateTestPage,
+    UpdateAttendancePage,
+    DeleteTestPage,
   ],
   imports: [
     BrowserModule,
@@ -256,6 +284,7 @@ import { ServiceAssignSubProvider } from '../providers/service-assign-sub/servic
     DeleteSessionPage,
     DeleteTermPage,
     TeacherAnnouncementPage,
+    TeacherFeedbackPage,
     AnnouncementDetailsPage,
     ViewSubjectsPage,
     ViewClassPage,
@@ -276,6 +305,7 @@ import { ServiceAssignSubProvider } from '../providers/service-assign-sub/servic
     ViewCalendarPage,
     AttendenceInfoPage,
     DeleteUserPage,
+    TeacherUploadHomeworkPage,
     CreateTestPage,
     UploadMarksPage,
     UploadMarksInfoPage,
@@ -289,6 +319,15 @@ import { ServiceAssignSubProvider } from '../providers/service-assign-sub/servic
     DeleteTimeTablePage,
     TeacherTimeTablePage,
     AssignSubPage,
+    DeleteAnnouncementsPage,
+    DeleteEditAnnouncementPage,
+    UpdateAnnouncementPage,
+    ViewTimeTablePage,
+    UpdateTimeTablePage,
+    UpdateMarksPage,
+    UpdateTestPage,
+    UpdateAttendancePage,
+    DeleteTestPage,
   ],
   providers: [
     StatusBar,
@@ -332,18 +371,27 @@ import { ServiceAssignSubProvider } from '../providers/service-assign-sub/servic
     ServiceChangepasswordProvider,
     ServiceAddTimetableProvider,
     ServiceDeleteUserProvider,
+    ServiceAdminmessageProvider,
     ServiceCreateTestProvider,
     ServiceUploadMarksProvider,
     ServiceAddStudentfeedbackProvider,
+    ServiceUploadAttendenceProvider,
+    ServiceFetchTimeTableProvider,
+    ServiceGetResultProvider,
     ServiceFetchTimeTableProvider,
     ServiceGetResultProvider,
     ServiceUploadAttendenceProvider,
     ServiceStudentResultProvider,
+    ServiceUploadHomeworkProvider,
   
     ServiceExamProvider,
     ServiceDeleteTimetableProvider,
     ServiceGetTeacherProvider,
     ServiceAssignSubProvider,
+    ServiceDeleteTestProvider,
+    ServiceGetResultDataProvider,
+    ServiceCalculateResultProvider,
+    ServiceDeleteAndUpdateTimeTableProvider,
   ]
 })
 export class AppModule {}

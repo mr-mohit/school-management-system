@@ -4,9 +4,7 @@ import { ServiceLoginProvider } from '../service-login/service-login';
 
 @Injectable()
 export class ServiceUpdateProvider {
-  public URL=this.one.URL; //for local use
-  //public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; //for local use
-  // public URL="https://direct-school.000webhostapp.com/"; //for hosting
+  public URL=this.one.URL;
   constructor(public http: HttpClient,public one:ServiceLoginProvider) {
   
   }
