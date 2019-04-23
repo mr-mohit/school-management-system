@@ -20,7 +20,7 @@
         <ion-icon ios="ios-contacts" md="md-contacts"></ion-icon>
         {{'new_class' |translate}} {{'name' |translate}}
       </ion-label>
-      <ion-input type="text" [(ngModel)]="CLASS" placeholder="" name="CLASS"></ion-input>
+      <ion-input type="text" maxlength="5" [(ngModel)]="CLASS" placeholder="" name="CLASS"></ion-input>
     </ion-item>
   
     <ion-item>
@@ -28,7 +28,7 @@
         <ion-icon ios="ios-copy" md="md-copy"></ion-icon>
         Section
       </ion-label>
-      <ion-input type="text" [(ngModel)]="SECTION" placeholder="" name="SECTION"></ion-input>
+      <ion-input type="text" [(ngModel)]="SECTION" maxlength="1" placeholder="" name="SECTION"></ion-input>
     </ion-item>
   
     <div class="center">

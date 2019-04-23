@@ -383,7 +383,7 @@ export class AddUsersPage {
   async ConfirmCreationUser(a) {
     const alert = await this.alertController.create({
      
-      message: 'Message <strong>Do You Want toCreate This user :</strong>!!!',
+      message: 'Message <strong>Do You Want to Create This user :</strong>!!!',
       buttons: [
         {
           text: 'Cancel',

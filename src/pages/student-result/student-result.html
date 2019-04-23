@@ -1,15 +1,47 @@
-<!--
-  Generated template for the StudentResultPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar color="header">
-    <ion-title>Student : Result</ion-title>
+    <ion-title>Final Result</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
+    <ion-grid   class="head" style="border:solid 1px;">
+        <ion-row >
+          <ion-col>
+            <div>
+              <ion-label>Subject</ion-label> 
+            </div>
+          </ion-col>
+          <ion-col>
+              <div>
+                  <ion-label>Term</ion-label>             
+              </div>
+            </ion-col>
+          <ion-col class="button-container">
+            <div>
+              <ion-label>Marks</ion-label>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid *ngFor="let i of CR?.resultData" style="border:solid 1px;">
+          <ion-row >
+            <ion-col>
+              <div>
+                {{i.SUBJECT_NAME}} 
+              </div>
+            </ion-col>
+            <ion-col>
+                <div>
+                  {{i.TERM}} 
+                </div>
+              </ion-col>
+              <ion-col>
+                <div>
+                  {{i.total}}/20 
+                </div>
+              </ion-col>
+    
+          </ion-row>
+          </ion-grid>
 </ion-content>

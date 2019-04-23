@@ -34,7 +34,7 @@ if($con)
 	   $day=test_input($obj['DAY']);
 	   
 	   
-	   $sql="INSERT INTO time_table(CLASS_MASTER_ID,SUBJECT_ID,TIME_SLOT,DAY) VALUES ('$classid','$subjectid','$slot','$day')";
+	   $sql="INSERT INTO time_table(CLASS_MASTER_ID,SUBJECT_ID,TIME_SLOT,DAY,IS_ACTIVE) VALUES ('$classid','$subjectid','$slot','$day',1)";
 	   if(mysqli_query($con,$sql))
 		{
 		   result(1,"success");

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ServiceLoginProvider } from '../service-login/service-login';
 
 /*
   Generated class for the ServiceAdduserProvider provider.
@@ -11,15 +12,12 @@ import { Injectable } from '@angular/core';
 export class ServiceAdduserProvider {
 
   public data:any;
-  public URL="http://localhost/schoolapi/";//for local use
-  // public URL="https://direct-school.000webhostapp.com/"; //for hosting
-//  public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/";
- // public URL="https://direct-school.000webhostapp.com/"; //for hosting
+  public URL=this.one.URL;
   public userID = "";
   public class = []; // used to get class infos 
  
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient,public one:ServiceLoginProvider) {
     //console.log('Hello ServiceLoginProvider Provider');
   }
   getData(url,data1){

@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 import { ViewStudents_2Page } from '../view-students-2/view-students-2';
-import { HttpClientModule } from '@angular/common/http';
 
 @IonicPage()
 @Component({

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import {  NavController, NavParams, AlertController } from 'ionic-angular';
 import { ServiceAddEventProvider } from '../../providers/service-add-event/service-add-event';
-@IonicPage()
 @Component({
   selector: 'page-add-event',
   templateUrl: 'add-event.html',

@@ -11,42 +11,29 @@
 </ion-header>
 
 <ion-content padding>
+  <div *ngIf="SeeExam.status">
 <ion-list *ngFor="let i of SeeExam?.Exam_Data">
     <div>
   <ion-item>
     <ion-avatar item-start>
-      <ion-icon style="font-size:400%" name="calendar"></ion-icon>
+      <ion-icon style="font-size:400%" ios="ios-calendar" md="md-calendar"></ion-icon>
     </ion-avatar>
     <!-- style="background-color:#fbbc05" -->
-    <h2 style="font-weight: bold">{{i.TEST_NAME}} : {{i.SUBJECT_NAME}}</h2>
-    <h3 style="font-weight: bold">Code : {{i.SUBJECT_ID}}</h3>
+    <h2 style="font-weight: bold">{{i.SUBJECT_NAME}} : {{i.TEST_NAME}}</h2>
+    <h3 style="font-weight: bold">Subject Code : {{i.SUBJECT_ID}}</h3>
     <h3 style="font-weight: bold">Date : {{i.DATE}}</h3>
+    <h3 style="font-weight: bold">Time : {{i.START_TIME}} --->{{i.END_TIME}}</h3>
+    <h3 style="font-weight: bold">Romm No : {{i.ROOM_NO}}</h3>
   </ion-item>
   </div>
 </ion-list>
+</div>
 
+ <!-- No data found default view -->
+<div *ngIf="SeeExam.status==false" text-center style="margin-top:20%;">
+    <ion-icon name="information-circle" style="font-size:300%">
+           <h2>No information Available</h2>
+    </ion-icon>
+   </div>
 
-<!-- <div *ngIf="status">
-  <ion-grid *ngFor="let i of getData?.StudentTime" style="border:solid 1px;">
-      <ion-row>
-        <ion-col>
-          <div>
-            {{i.SUBJECT_ID}} 
-          </div>
-        </ion-col>
-
-        <ion-col>
-            <div>
-              {{i.TIME_SLOT}} 
-            </div>
-          </ion-col>
-
-        <ion-col>
-          <div>
-            {{i.DAY}}
-          </div>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-    </div> -->
 </ion-content>

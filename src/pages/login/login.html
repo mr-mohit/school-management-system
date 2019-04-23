@@ -24,7 +24,7 @@
                    Registration No
                   </ion-label>
                   <!-- (keyup)="REG_NOCHECK($event)" -->
-                  <ion-input type="number" name="REG_NO" maxlength="8"  [(ngModel)]="REG_NO"  >  
+                  <ion-input type="tel" name="REG_NO" maxlength="8"  [(ngModel)]="REG_NO"  (keyup)="REG_NOCHECK($event)" >  
                       <i class="icon ion-android-person placeholder-icon"></i>
                   </ion-input>
                 </ion-item>
@@ -54,7 +54,14 @@
            </button>
         
       </div>
-      <button ion-button clear style="margin-left:68px;margin-top: -21px;" on-click="ResetPassword()">Forgot Password ?</button>
+      
+        
+        <div class="center">
+            <button ion-button  clear style="margin-left:0px;margin-top: -21px;" on-click="ResetPassword()">
+               Forgot Password ?
+            </button>
+        </div>
+      
         
       </div>
      

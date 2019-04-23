@@ -1,19 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ServiceLoginProvider } from '../service-login/service-login';
 
-/*
-  Generated class for the ServiceDeleteUserProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class ServiceDeleteUserProvider {
 
-  public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/";
+  public URL=this.one.URL;
   recdata: any;
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient,public one:ServiceLoginProvider) {
     console.log('Hello ServiceDeleteUserProvider Provider');
   }
 

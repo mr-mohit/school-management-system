@@ -1,15 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { ServiceLoginProvider } from '../service-login/service-login';
 @Injectable()
 export class ServiceViewUserProvider {
 
   public data:any;
-  public URL="http://localhost/schoolapi/";
-  //public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/";
+  public URL=this.one.URL;
   recdata: any;
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient,public one:ServiceLoginProvider) {
   }
 
   postData(url,data1){

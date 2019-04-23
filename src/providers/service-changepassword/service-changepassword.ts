@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ServiceLoginProvider } from '../service-login/service-login';
 
 /*
   Generated class for the ServiceChangepasswordProvider provider.
@@ -10,11 +11,9 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ServiceChangepasswordProvider {
 
-  public URL="http://localhost/schoolapi/"; //for local use
-  // public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/";
-    //public URL="https://direct-school.000webhostapp.com/"; //for hosting
+  public URL=this.one.URL;
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient,public one:ServiceLoginProvider) {
     console.log('Hello ServiceChangepasswordProvider Provider');
   }
 
@@ -33,11 +32,12 @@ export class ServiceChangepasswordProvider {
         console.log(JSON.stringify(data));
         if(data['statuscode'] == 1)
         {
-          alert("Changed Successfully");
+          alert(data['msg']);
+          
         }
         else
         {
-          alert("Unable To Update The Password");
+          alert(data['msg']);
         }
         resolve(data);
       },error=>{

@@ -1,16 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ServiceLoginProvider } from '../service-login/service-login';
 
 @Injectable()
 export class ServiceStudentResultProvider {
-  //public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; //for server use
-  public URL="http://localhost/schoolapi/"; //for local use
-  //public URL="https://direct-school.000webhostapp.com/"; //for hosting
+ 
+  public URL=this.one.URL;
     public resultData:any;
     public studentData:any;
   
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient,public one:ServiceLoginProvider) {
     console.log('Hello ServiceStudentResultProvider Provider');
   }
 

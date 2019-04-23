@@ -26,48 +26,56 @@ export class AddTermPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl:AlertController,public addTerm:ServiceAddTermProvider,public SVS:ServiceViewSessionProvider ) {
   
-  this.indata=this.navParams.get('datavalue');
   
   }
   
 
   Submit(SESSION,TERM,START_DATE,END_DATE) 
   {
+    console.log("session",this.SVS.SessData);
     if(SESSION!=undefined && TERM!=undefined && START_DATE!=undefined && END_DATE!=undefined)
     {
-      const confirm = this.alertCtrl.create({
-        title: 'Save Term?',
-        message: 'Do you want to save the Term?',
-        buttons: [
-          {
-            text: 'Cancel',
-            handler: () => {
-                            this.navCtrl.pop();
-                           }
-          },
-          {
-           text: 'Okay',
-           handler: () => {
+      if(START_DATE<END_DATE)
+      {
+        const confirm = this.alertCtrl.create({
+          title: 'Save Term?',
+          message: 'Do you want to save the Term?',
+          buttons: [
+            {
+              text: 'Cancel',
+              handler: () => {
+                              this.navCtrl.pop();
+                             }
+            },
+            {
+             text: 'Okay',
+             handler: () => {
+  
+                            this.SESSION=SESSION;
+                            this.TERM=TERM;
+                            this.START_DATE=START_DATE;
+                            this.END_DATE=END_DATE;
+  
+                            this.termData['SESSION']= this.SESSION;
+                            this.termData['TERM']=this.TERM;
+                            this.termData['START_DATE']=this.START_DATE;
+                            this.termData['END_DATE']=this.END_DATE;
+                            
+                            if(this.addTerm.addTermFun(this.termData))
+                            {
+                              this.navCtrl.pop();
+                            }
+                            }
+            }
+        ]
+      });
+      confirm.present();
 
-                          this.SESSION=SESSION;
-                          this.TERM=TERM;
-                          this.START_DATE=START_DATE;
-                          this.END_DATE=END_DATE;
-
-                          this.termData['SESSION']= this.SESSION;
-                          this.termData['TERM']=this.TERM;
-                          this.termData['START_DATE']=this.START_DATE;
-                          this.termData['END_DATE']=this.END_DATE;
-                          
-                          if(this.addTerm.addTermFun(this.termData))
-                          {
-                            this.navCtrl.pop();
-                          }
-                          }
-          }
-      ]
-    });
-    confirm.present();
+      }
+      else{
+        alert("End Date can't be before Start Date / or same as Start Date");
+      }
+      
 
     }
     else{
@@ -76,5 +84,8 @@ export class AddTermPage {
     console.log("last",this.indata);
 }
 
-
+getDate(SESSION)
+{
+  console.log(SESSION,"id of session");
+}
 }

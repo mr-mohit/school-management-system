@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { ServiceLoginProvider } from '../../providers/service-login/service-login';
 import { ServiceAdminAnnouncements } from '../../providers/service-AdminAnnoucement/service-announcement';
+import { DeleteAnnouncementsPage } from '../delete-announcements/delete-announcements';
 
 /**
  * Generated class for the AdminAnnouncementsPage page.
@@ -65,8 +66,11 @@ public Announcement={
        this.Announcement['AnnouncementsDescription']=this.AnnouncementsDescription;
        this.Announcement['timestarts']=this.timestarts;
        this.Announcement['timeEnds']=this.timeEnds;
-       this.AdminAnnouncements.postAnnouncements(this.Announcement);
-              }
+       if(this.AdminAnnouncements.postAnnouncements(this.Announcement))
+       {
+            this.navCtrl.pop();
+       }
+      }
             },
             {
               text:'No',
@@ -86,5 +90,9 @@ public Announcement={
     
        alert("Fields cannot be empty");
     }
+  }
+  SeeAnnouncements()
+  {
+    this.navCtrl.push(DeleteAnnouncementsPage);
   }
 }
