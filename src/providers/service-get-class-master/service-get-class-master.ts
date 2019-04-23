@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ServiceLoginProvider } from '../service-login/service-login';
 
 @Injectable()
 export class ServiceGetClassMasterProvider {
- // public URL="http://localhost/schoolapi/"; //for local use
-  public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; //for hosting use
-  // public URL="https://direct-school.000webhostapp.com/"; //for hosting
+  public URL=this.one.URL;
+  
   public classData:any;
   public subjectData:any;
   public studentData:any; // for getting student's infos
@@ -15,12 +15,14 @@ export class ServiceGetClassMasterProvider {
   public eventData:any;
   public attsubject:any;
   public testData:any;
+  public AttStatus:any;
   public SDC:any;///to fetch student data according to given class/////
   public feedbackData:any;
   public timeslot:any;
   public timeview:any;
   public SubjectOnTimeTable:any;
   public CSData:any;
+  public SAData:any;//it will have array of attendance of a particular student used un View Attendance Stduent Module
   //These variable for attendance purpose
   public class:any;
   public subject:any;
@@ -29,15 +31,47 @@ export class ServiceGetClassMasterProvider {
   public slot:any;
   public attendence:any=[];
   public term:any;
+  public rows:any;
 //end
- 
+ public ClassTest:any;
   
 
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient,public one:ServiceLoginProvider) {
     
   }
+   //GET TEST FROM CLASS_TEST_TABLE
+  getClassTestFun(subjectID)
+  {
+    var url=this.URL+"getClassTest.php";
+    return this.getClassTest(url,subjectID);
+  }
 
+  getClassTest(url,subjectID)
+  {
+    //console.log("Class is which we passing to api",postId);
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(subjectID)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.ClassTest=data['data'];
+        //console.log("Row data",this.attsubject);
+        console.log("Class Test",this.ClassTest);
+        //return 1;
+      }
+      else
+      {
+        this.SubjectOnTimeTable=[];
+        alert("no data fetched");
+        //return 0;
+      }        
+       resolve(data);
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+
+  }
 
   getClassFun() //GET DATA FROM CLASS_MASTER_TABLE IN DATABASE----------------------------------------------------->
   {
@@ -387,6 +421,8 @@ getSDC(CLASS,url)
       {
         // alert("Term Added");
         this.SDC=data['data'];
+        this.rows=data['row'];
+
         for (var i in this.SDC)
         {
           this.attendence[i]=this.SDC[i];
@@ -400,7 +436,7 @@ getSDC(CLASS,url)
         }
         console.log("Student of class",this.SDC);
         console.log("temp Attendance sheet",this.attendence);
-
+        console.log("no of rows",this.rows);
 
       }
       else
@@ -515,11 +551,11 @@ getSlot(Data)
   return this.getTIMESLOT(url,Data);
 }
 
-getTIMESLOT(url,CLASSID)
+getTIMESLOT(url,Data)
 {
-  console.log("GET TIME SLOT FOR CLASS ID: ",CLASSID);
+  console.log("GET TIME SLOT DATA : ",Data);
   return new Promise(resolve=>{
-    this.http.post(url,JSON.stringify(CLASSID)).subscribe(data=>{
+    this.http.post(url,JSON.stringify(Data)).subscribe(data=>{
       if(data['statuscode']==1)
       {
         this.timeslot=data['data'];
@@ -570,6 +606,65 @@ getCS(url,CS)
     });
   });
 }
+
+// TO GET ATTENDENCE OF PARTICULAR STUDENT///////////////////////////////////////////////////////////////////////////
+getSAFun(RG)
+{
+  var url=this.URL+"getStudentAttendance.php";
+  return this.getSA(url,RG);
+}
+
+getSA(url,RG)
+{
+  console.log("View your Attendance: ",RG);
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(RG)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.SAData=data['data'];
+        console.log("Attendance",this.SAData);
+        
+      }
+      else
+      {
+        alert("No data found");
+        //return 0;
+      }        
+       resolve(data);
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+}
+
+
+getAttStatusFun(UP)
+{
+  var url=this.URL+"getAttendanceStatus.php";
+  return this.getAttStatus(url,UP);
+}
+getAttStatus(url,UP)
+{
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(UP)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.AttStatus=data['data'];
+        console.log("STATUS",this.AttStatus);
+        
+      }
+      else
+      {
+        alert("No data found");
+        //return 0;
+      }        
+       resolve(data);
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+}
+
 
 }
 

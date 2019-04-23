@@ -6,7 +6,7 @@
 -->
 <ion-header>
   <ion-navbar color="header">
-    <ion-title>Admin : Update</ion-title>
+    <ion-title>Admin : {{'update' |translate}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -20,14 +20,14 @@
       <p> <ion-icon name="refresh" style="margin-left:30%; margin-top:20%;color: white !important; font-size:400%"></ion-icon></p>
 
        </ion-card>
-     <strong>  <ion-label text-wrap style="padding-left:8vw; color: white">User</ion-label> </strong> 
+     <strong>  <ion-label text-wrap style="padding-left:8vw; color: white">{{'user' |translate}}</ion-label> </strong> 
      </ion-col>
      <ion-col col-4>
        <ion-card class="bkgcolor"  no-margin on-click="UpdateSubject()">
         <p> <ion-icon name="refresh" style="margin-left:30%; margin-top:20%; font-size:400%;color: white !important;"></ion-icon></p>
           
        </ion-card>
-     <strong>  <ion-label text-wrap style="padding-left:8vw; color: white ">Subject</ion-label> </strong> 
+     <strong>  <ion-label text-wrap style="padding-left:8vw; color: white ">{{'subject' |translate}}</ion-label> </strong> 
      </ion-col>
      <ion-col col-4>
       
@@ -35,18 +35,18 @@
          <p> <ion-icon name="refresh" style="margin-left:30%; margin-top:20%;color: white !important; font-size:400%;"></ion-icon></p>
 
        </ion-card>
-        <strong>  <ion-label style="padding-left:8vw; color: white; ">Class</ion-label> </strong> 
+        <strong>  <ion-label style="padding-left:8vw; color: white; ">{{'class' |translate}}</ion-label> </strong> 
 
      </ion-col>
      </ion-row> 
       <ion-row no-padding>
       
         <ion-col col-4 >
-       <ion-card class="bkgcolor"  no-margin >
+       <ion-card class="bkgcolor"  no-margin on-click="UpdateTimeTable()">
          <p> <ion-icon name="refresh" style="margin-left:31%; margin-top:20%;color: white !important; font-size:400%;"></ion-icon></p>
 
        </ion-card>
-              <strong>  <ion-label text-wrap style="padding-left:4vw; color: white">Timetable</ion-label> </strong> 
+              <strong>  <ion-label text-wrap style="padding-left:4vw; color: white">{{'timetable' |translate}}</ion-label> </strong> 
 
      </ion-col>
      <ion-col col-4>
@@ -65,7 +65,7 @@
  
  
         </ion-card>
-         <strong>  <ion-label text-wrap style="padding-left:6vw; color: white">Term</ion-label> </strong> 
+         <strong>  <ion-label text-wrap style="padding-left:6vw; color: white">{{'term' |translate}}</ion-label> </strong> 
       </ion-col>
     </ion-row>
    </div>

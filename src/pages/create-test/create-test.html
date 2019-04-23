@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="header">
-    <ion-title>Create Test</ion-title>
+    <ion-title>{{'create_test' |translate}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -9,7 +9,7 @@
     <ion-item>
       <ion-label floating>
         <ion-icon ios="ios-people" md="md-people"></ion-icon>
-        Select Class
+        {{'select_class' | translate}}
       </ion-label>
        <ion-select  name="CLASS" [(ngModel)]="CLASS" (ionChange)="getSubject(CLASS)">
   
@@ -21,7 +21,7 @@
               <ion-item>
                   <ion-label floating>
                     <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
-                    Select Term
+                    {{'select_term' |translate}}
                   </ion-label>
                    <ion-select  name="TERM" [(ngModel)]="TERM">
             
@@ -33,7 +33,7 @@
               <ion-item>
                 <ion-label floating>
                   <ion-icon ios="ios-book" md="md-book"></ion-icon>
-                  Subject
+                  {{'subject' |translate}}
                 </ion-label>
                  <ion-select  name="SUBJECT" [(ngModel)]="SUBJECT">
             
@@ -45,7 +45,7 @@
               <ion-item>
                 <ion-label floating>
                   <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>
-                  TYPE
+                  {{'type' |translate}}
                   </ion-label>
                 <ion-select name="TYPE" [(ngModel)]="TYPE">
                   <ion-option value="CLASS TEST">CLASS TEST</ion-option>
@@ -62,11 +62,35 @@
            <ion-datetime name="DATE" displayFormat="DD MMM YYYY" placeholder="Select Date" min="2019"  [(ngModel)]="DATE"></ion-datetime>
          </ion-item>
 
+         <ion-item>
+          <ion-label>
+           <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
+           Start Time
+          </ion-label>
+          <ion-datetime name="ST" displayFormat="HH:mm" placeholder="Select Time"  [(ngModel)]="ST"></ion-datetime>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>
+           <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
+           End Time
+          </ion-label>
+          <ion-datetime name="ET" displayFormat="HH:mm" placeholder="Select Time"   [(ngModel)]="ET"></ion-datetime>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>
+           <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
+           Room No
+          </ion-label>
+          <ion-input type="text" [(ngModel)]="RM" name="RM"></ion-input>
+        </ion-item>
+
 
     <ion-item>
         <ion-label floating >
             <ion-icon ios="ios-text" md="md-text"></ion-icon>
-          Test Name
+          {{'test_name' |translate}}
         </ion-label>
         <ion-input type="text" [(ngModel)]="NAME" name="NAME"></ion-input>
       </ion-item>
@@ -74,30 +98,30 @@
       <ion-item>
           <ion-label floating >
               <ion-icon ios="ios-text" md="md-text"></ion-icon>
-            Topic
+            {{'topic' |translate}}
           </ion-label>
-          <ion-input type="text" [(ngModel)]="TOPIC" name="TOPIC"></ion-input>
+          <ion-input type="text"  min="5" max="30" [(ngModel)]="TOPIC" name="TOPIC"></ion-input>
       </ion-item>
 
         <ion-item>
             <ion-label floating >
                 <ion-icon ios="ios-calculator" md="md-calculator"></ion-icon>
-             Total Marks
+             {{'total_marks' |translate}}
             </ion-label>
-            <ion-input type="text" [(ngModel)]="TM"  name="TM"></ion-input>
+            <ion-input type="number" min="1" max="3" [(ngModel)]="TM"  name="TM"></ion-input>
         </ion-item>
           
           <ion-item>
               <ion-label floating >
                   <ion-icon ios="ios-calculator" md="md-calculator"></ion-icon>
-               Weightage Marks
+               {{'Weightage_marks' |translate}}
               </ion-label>
-              <ion-input type="text" [(ngModel)]="WM" name="WM"></ion-input>
+              <ion-input type="number" min="1" max="3"  [(ngModel)]="WM" name="WM"></ion-input>
           </ion-item>
 
       <div>
-          <button ion-button block on-click="Submit(CLASS,SUBJECT,TYPE,TERM,DATE,NAME,TOPIC,TM,WM)" >
-        SUBMIT
+          <button ion-button block on-click="Submit(CLASS,SUBJECT,TYPE,TERM,DATE,NAME,TOPIC,TM,WM,ST,ET,RM)" >
+              {{'submit' |translate}}
       </button>
     </div>
 </ion-list>

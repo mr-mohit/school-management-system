@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ServiceDeleteTimetableProvider } from '../../providers/service-delete-timetable/service-delete-timetable';
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
+import { ServiceDeleteAndUpdateTimeTableProvider } from '../../providers/Service-delete-and-update-time-table/Service-delete-and-update-time-table';
 
 /**
  * Generated class for the DeleteTimeTablePage page.
@@ -38,16 +39,17 @@ export class DeleteTimeTablePage {
  };
 
   private Days:any=[
-    {Day:"Monday"},
-    {Day:"Tuesday"},
-    {Day:"Wednesday"},
-    {Day:"Thursday"},
-    {Day:"Friday"},
-    {Day:"Saturday"},
+    {Day:"mon"},
+    {Day:"tues"},
+    {Day:"wed"},
+    {Day:"thu"},
+    {Day:"fri"},
+    {Day:"sat"},
  ];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public DeleteService:ServiceDeleteTimetableProvider
-    ,public service:ServiceGetClassMasterProvider) {
+    ,public service:ServiceGetClassMasterProvider,
+    public getSubjects:ServiceDeleteAndUpdateTimeTableProvider) {
       this.Days;
       this.status=false;
   }
@@ -70,7 +72,7 @@ export class DeleteTimeTablePage {
     
 //console.log(this.postId['classId']);
       this.CLASSID=Class;
-    this.service.getAttOnTimeSubject(Class);
+    this.getSubjects.getSubjectsToDelete(this.CLASSID);
   }
 
   getCurrentTimeTable(Day)

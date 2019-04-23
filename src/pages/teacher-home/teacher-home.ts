@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { MenuController } from 'ionic-angular';
 import { TeacherAnnouncementPage } from '../teacher-announcement/teacher-announcement';
 import{TeacherTimeTablePage} from '../teacher-time-table/teacher-time-table';
-//import { MarkAttendancePage } from '../mark-attendance/mark-attendance';
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 import { AttendenceInfoPage } from '../attendence-info/attendence-info';
 import { ViewCalendarPage } from '../view-calendar/view-calendar';
@@ -11,6 +10,8 @@ import { TeacherUploadHomeworkPage } from '../teacher-upload-homework/teacher-up
 import { CreateTestPage } from '../create-test/create-test';
 import { UploadMarksInfoPage } from '../upload-marks-info/upload-marks-info';
 import { ViewStudentsPage } from '../view-students/view-students';
+import { ServiceLoginProvider } from '../../providers/service-login/service-login';
+import { AddEventPage } from '../add-event/add-event';
 
 @IonicPage()
 @Component({
@@ -20,7 +21,8 @@ import { ViewStudentsPage } from '../view-students/view-students';
 export class TeacherHomePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public Menu: MenuController,
-    public GU:ServiceGetClassMasterProvider,public GCM:ServiceGetClassMasterProvider,public alertCtrl:AlertController) {
+    public GU:ServiceGetClassMasterProvider,public GCM:ServiceGetClassMasterProvider,public alertCtrl:AlertController,
+    public ad:ServiceLoginProvider) {
     this.Menu.enable(true);
    
     
@@ -73,4 +75,10 @@ gotoViewStudents()
   this.GCM.getClassFun();
   this.GCM.getSessionFun();
 }
+
+gotoEvents()
+{
+  this.navCtrl.push(AddEventPage);
+}
+
 }

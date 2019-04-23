@@ -1,13 +1,13 @@
 <ion-header>
   <ion-navbar color="header">
-    <ion-title>Delete Term</ion-title>
+    <ion-title>{{'delete_term' |translate}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <form>
     <ion-item>
-      <ion-label>Term</ion-label>
+      <ion-label>{{'term' |translate}}</ion-label>
        <ion-select  name="TERM" [(ngModel)]="TERM">
   
         <ion-option *ngFor="let i of cid?.termData"  value="{{i.TERM_ID}}" >{{i.START_DATE}} <----> {{i.END_DATE}}</ion-option>
@@ -19,7 +19,7 @@
     </ion-label>
     <button ion-button color="header" on-click="deleteTerm(TERM)"
         block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;">
-        Delete
+        {{'delete' |translate}}
     </button>
   </form>
 </ion-content>

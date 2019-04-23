@@ -35,13 +35,18 @@ export class AddTimetablePage {
    "DAY":""
  };
 
+ public getSlot:any={
+   "CLASSID":"",
+   "DAY":""
+ }
+
  private Days:any=[
-   {Day:"Monday"},
-   {Day:"Tuesday"},
-   {Day:"Wednesday"},
-   {Day:"Thursday"},
-   {Day:"Friday"},
-   {Day:"Saturday"},
+   {Day:"mon"},
+   {Day:"tues"},
+   {Day:"wed"},
+   {Day:"thu"},
+   {Day:"fri"},
+   {Day:"sat"},
 ];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
@@ -124,21 +129,28 @@ export class AddTimetablePage {
       this.fetchTimetableData['CLASSID']=this.CLASSID;
       this.fetchTimetableData['DAY']=Day;
       console.log("HERE ",this.fetchTimetableData)
-   this.GU.getCurrentTimeTable(this.fetchTimetableData)
-   this.GU.getSlot(this.fetchTimetableData);
+
+     this.GU.getCurrentTimeTable(this.fetchTimetableData)
+     
+      this.GU.getSlot(this.fetchTimetableData);
   
   }
 
   // getTimeSlot()
   // {
-  //   if(this.CLASSID!=undefined)
+  //   if(this.CLASSID!=undefined && this.Day)
   //   {
-  //     console.log("ID HERE : "+this.CLASSID);
-  //     this.GU.getSlot(this.CLASSID);
+  //     console.log("ID HERE : ",this.CLASSID);
+  //     console.log("DAy HERE",this.Day);
+
+  //     this.getSlot['CLASSID']=this.CLASSID;
+  //     this.getSlot['DAY']=this.Day;
+
+  //     this.GU.getSlot(this.getSlot);
   //   }
   //   else
   //   {
-  //     alert("Please Select Class First");
+  //     alert("Please Select above First");
   //   }
   // }
 

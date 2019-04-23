@@ -1,4 +1,4 @@
-import { Component, ɵConsole } from '@angular/core';
+import { Component} from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { MenuController } from 'ionic-angular';
 import { StudentExamsPage } from '../student-exams/student-exams';
@@ -13,6 +13,7 @@ import { StudentMessagePage } from '../student-message/student-message';
 import { ServiceStudentMessageProvider } from '../../providers/service-student-message/service-student-message';
 import { StudentHomeworkPage } from '../student-homework/student-homework';
 import { ServiceStudentHomeworkProvider } from '../../providers/service-student-homework/service-student-homework';
+import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 
 
 @Component({
@@ -25,7 +26,8 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, public Menu: MenuController,public CRD:ServiceLoginProvider ,
     public result:ServiceStudentResultProvider,public UR:ServiceLoginProvider, 
-    public SM:ServiceStudentMessageProvider, public SH:ServiceStudentHomeworkProvider
+    public SM:ServiceStudentMessageProvider, public SH:ServiceStudentHomeworkProvider,
+     public SA:ServiceGetClassMasterProvider
     ) {
     this.Menu.enable(true);
   }
@@ -34,6 +36,7 @@ export class HomePage {
   gotoStudentAttendance()
   {
     this.navCtrl.push(StudentAttendancePage);
+    this.SA.getSAFun(this.UR.reg);
   }
 
   gotoStudentAnnouncements()
@@ -82,7 +85,7 @@ export class HomePage {
 
   gotoStudentResult()
   {
-    this.navCtrl.push(ResultPage);
+    this.navCtrl.push(ResultPage,{"data":this.UR.reg});
     this.Reg=this.CRD.recdata;
     console.log(this.Reg);
     this.result.getResultFun(this.UR.reg);

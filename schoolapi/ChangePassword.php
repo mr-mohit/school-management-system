@@ -32,18 +32,37 @@ if($con)
 	   $REG_NO=test_input($obj['REG_NO']);
 	   $NEWPASSWORD=test_input($obj['NEWPASSWORD']);
 	   
-	    $sql="UPDATE user SET PASSWORD='$NEWPASSWORD' WHERE REG_NO='$REG_NO' AND PASSWORD='$PASSWORD'";
-		
-	   if(mysqli_query($con,$sql))
-		{
-		   result(1,"success");
-
+        $sqll="Select PASSWORD from user where REG_NO='$REG_NO'";
+        $result=mysqli_query($con,$sqll);
+		//echo "$result";
+		$pass=mysqli_fetch_assoc($result);		
+		$p=$pass['PASSWORD'];
+		//echo "$p";
+		if($p==$PASSWORD)
+		{		
+			$sql="UPDATE user SET PASSWORD='$NEWPASSWORD' WHERE REG_NO='$REG_NO' and PASSWORD='$PASSWORD'";		
+			if(mysqli_query($con,$sql))
+			{
+				//echo "changed";
+				$response['msg']='Password changed';
+				$response['statuscode']=1;
+			   echo json_encode($response);
+             }
+			 else{
+				 // echo "not updated";
+				 $response['msg']='Password not matched';
+				 $response['statuscode']=0;
+			   echo json_encode($response);
+			 }
 		}
 		else
 		{
-			result(0,"fail");
-
-		} 	   
-	}
+			// echo"password not matched";
+			$response['msg']='Current Password not Match';
+			$response['statuscode']=0;
+			echo json_encode($response);
+		}
+			
+}
 }
 ?>

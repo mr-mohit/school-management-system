@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="header">
-    <ion-title>Upload Marks</ion-title>
+    <ion-title>{{'upload_marks' |translate}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -9,17 +9,17 @@
     <ion-row color="header">
       <ion-col>
         <div>
-          <ion-label class="center">REG.NO</ion-label> 
+          <ion-label class="center">{{'reg_no' |translate}}</ion-label> 
         </div>
       </ion-col>
       <ion-col>
           <div>
-              <ion-label class="center">NAME</ion-label>             
+              <ion-label class="center">{{'name' |translate}}</ion-label>             
           </div>
         </ion-col>
       <ion-col class="button-container">
         <div>
-          <ion-label class="center">MARKS</ion-label>
+          <ion-label class="center">{{'marks' |translate}}</ion-label>
         </div>
       </ion-col>
     </ion-row>
@@ -39,7 +39,7 @@
         </ion-col>
       <ion-col>
         <ion-item name="MARKS">
-          <ion-input type="number" [(ngModel)]="i[j]"   (ionBlur)=" Save(i.REG_NO,i[j],j)"></ion-input>
+          <ion-input type="number" [(ngModel)]="i[j]" (keyup)="check($event)"  (ionBlur)=" Save(i.REG_NO,i[j],j)"></ion-input>
         </ion-item>
       </ion-col>
       </ion-row>
@@ -47,6 +47,6 @@
     <ion-label>  <!--  for giving space  -->  </ion-label>
     <button ion-button color="header" on-click="Submit()"
      block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;">
-      SUBMIT
+      {{'submit' |translate}}
 </button>
 </ion-content>

@@ -1,6 +1,6 @@
 <ion-header>
     <ion-navbar color="header" >
-      <ion-title class="center">{{'add' |translate}} {{'class' |translate}}</ion-title>
+      <ion-title>{{'add' |translate}} {{'class' |translate}}</ion-title>
     </ion-navbar>
   </ion-header>
 
@@ -13,7 +13,7 @@
 <ion-icon ios="ios-contacts" md="md-contacts"></ion-icon>
       {{'class_name' |translate}}
     </ion-label>
-    <ion-input type="text" [(ngModel)]="CLASS" (keyup)="classnamecheck($event)" name="CLASS"></ion-input>
+    <ion-input type="text" [(ngModel)]="CLASS" maxlength="5" (keyup)="classnamecheck($event)" name="CLASS"></ion-input>
   </ion-item>
 
   <ion-label><!-- for Space --></ion-label>
@@ -23,7 +23,7 @@
 <ion-icon ios="ios-copy" md="md-copy"></ion-icon>
       {{'section' |translate}}
     </ion-label>
-    <ion-input type="text" [(ngModel)]="SECTION" (keyup)="sectioncheck($event)" name="SECTION"></ion-input>
+    <ion-input type="text" [(ngModel)]="SECTION" maxlength="1" (keyup)="sectioncheck($event)" name="SECTION"></ion-input>
   </ion-item>
 
   <ion-label><!-- for Space --></ion-label>

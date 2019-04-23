@@ -97,8 +97,6 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
 import { SchoolInfoPage } from '../pages/school-info/school-info';
 import { GalleryPage } from '../pages/gallery/gallery';
 import { ServiceAdminmessageProvider } from '../providers/service-adminmessage/service-adminmessage';
-import {FileChooser} from '@ionic-native/file-chooser';
-import {FileOpener} from '@ionic-native/file-opener';
 import { TeacherUploadHomeworkPage } from '../pages/teacher-upload-homework/teacher-upload-homework';
 import { CreateTestPage } from '../pages/create-test/create-test';
 import { ServiceCreateTestProvider } from '../providers/service-create-test/service-create-test';
@@ -110,11 +108,12 @@ import { TeacherTimeTablePage} from '../pages/teacher-time-table/teacher-time-ta
 import { DeleteTimeTablePage } from '../pages/delete-time-table/delete-time-table';
 import { StudentFeedbackPage } from '../pages/student-feedback/student-feedback';
 import { ServiceAddStudentfeedbackProvider } from '../providers/service-add-studentfeedback/service-add-studentfeedback';
+import { ServiceUploadAttendenceProvider } from '../providers/service-upload-attendence/service-upload-attendence';
 import { FeedbackDetailPage } from '../pages/feedback-detail/feedback-detail';
 import { ServiceFetchTimeTableProvider } from '../providers/service-fetch-time-table/service-fetch-time-table';
 import { ResultPage } from '../pages/result/result';
 import { ServiceGetResultProvider } from '../providers/service-get-result/service-get-result';
-import { ServiceUploadAttendenceProvider } from '../providers/service-upload-attendence/service-upload-attendence';
+//import { ServiceUploadAttendenceProvider } from '../providers/service-upload-attendence/service-upload-attendence';
 import { ServiceStudentResultProvider } from '../providers/service-student-result/service-student-result';
 import { ServiceUploadHomeworkProvider } from '../providers/service-upload-homework/service-upload-homework';
 import { ViewStudentsPage } from '../pages/view-students/view-students';
@@ -130,6 +129,19 @@ import { StudentMessagePage } from '../pages/student-message/student-message';
 import { StudentMessage2Page } from '../pages/student-message2/student-message2';
 import { ServiceStudentHomeworkProvider } from '../providers/service-student-homework/service-student-homework';
 import { StudentHomeworkPage } from '../pages/student-homework/student-homework';
+import { DeleteAnnouncementsPage } from '../pages/delete-announcements/delete-announcements';
+import { DeleteEditAnnouncementPage } from '../pages/delete-edit-announcement/delete-edit-announcement';
+import { UpdateAnnouncementPage } from '../pages/update-announcement/update-announcement';
+import { ViewTimeTablePage } from '../pages/view-time-table/view-time-table';
+import{ServiceDeleteAndUpdateTimeTableProvider} from '../providers/Service-delete-and-update-time-table/Service-delete-and-update-time-table'
+import { UpdateTimeTablePage } from '../pages/update-time-table/update-time-table';
+import { UpdateMarksPage } from '../pages/update-marks/update-marks';
+import { UpdateTestPage } from '../pages/update-test/update-test';
+import { UpdateAttendancePage } from '../pages/update-attendance/update-attendance';
+import { DeleteTestPage } from '../pages/delete-test/delete-test';
+import { ServiceDeleteTestProvider } from '../providers/service-delete-test/service-delete-test';
+import { ServiceGetResultDataProvider } from '../providers/service-get-result-data/service-get-result-data';
+import { ServiceCalculateResultProvider } from '../providers/service-calculate-result/service-calculate-result';
  
 
  @NgModule({ 
@@ -212,7 +224,16 @@ import { StudentHomeworkPage } from '../pages/student-homework/student-homework'
     AssignSubPage,
     StudentMessagePage,
     StudentMessage2Page,
-    StudentHomeworkPage
+    StudentHomeworkPage,
+    DeleteAnnouncementsPage,
+    DeleteEditAnnouncementPage,
+    UpdateAnnouncementPage,
+    ViewTimeTablePage,
+    UpdateTimeTablePage,
+    UpdateMarksPage,
+    UpdateTestPage,
+    UpdateAttendancePage,
+    DeleteTestPage,
   ],
   imports: [
     BrowserModule,
@@ -308,7 +329,16 @@ import { StudentHomeworkPage } from '../pages/student-homework/student-homework'
     AssignSubPage,
     StudentMessagePage,
     StudentMessage2Page,
-    StudentHomeworkPage
+    StudentHomeworkPage,
+    DeleteAnnouncementsPage,
+    DeleteEditAnnouncementPage,
+    UpdateAnnouncementPage,
+    ViewTimeTablePage,
+    UpdateTimeTablePage,
+    UpdateMarksPage,
+    UpdateTestPage,
+    UpdateAttendancePage,
+    DeleteTestPage,
   ],
   providers: [
     StatusBar,
@@ -317,8 +347,6 @@ import { StudentHomeworkPage } from '../pages/student-homework/student-homework'
     SplashScreen,
 
     File, 
-    FileChooser,
-    FileOpener,
     Transfer,
     Camera,
     FilePath,
@@ -358,6 +386,9 @@ import { StudentHomeworkPage } from '../pages/student-homework/student-homework'
     ServiceCreateTestProvider,
     ServiceUploadMarksProvider,
     ServiceAddStudentfeedbackProvider,
+    ServiceUploadAttendenceProvider,
+    ServiceFetchTimeTableProvider,
+    ServiceGetResultProvider,
     ServiceFetchTimeTableProvider,
     ServiceGetResultProvider,
     ServiceUploadAttendenceProvider,
@@ -370,6 +401,10 @@ import { StudentHomeworkPage } from '../pages/student-homework/student-homework'
     ServiceAssignSubProvider,
     ServiceStudentMessageProvider,
     ServiceStudentHomeworkProvider,
+    ServiceDeleteTestProvider,
+    ServiceGetResultDataProvider,
+    ServiceCalculateResultProvider,
+    ServiceDeleteAndUpdateTimeTableProvider,
   ]
 })
 export class AppModule {}
