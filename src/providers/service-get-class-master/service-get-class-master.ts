@@ -4,11 +4,11 @@ import { ServiceLoginProvider } from '../service-login/service-login';
 
 @Injectable()
 export class ServiceGetClassMasterProvider {
-  public URL=this.one.URL; //for local use
-    //public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; //for hosting use
-  // public URL="https://direct-school.000webhostapp.com/"; //for hosting
+  public URL=this.one.URL;
+  
   public classData:any;
   public subjectData:any;
+  public studentData:any; // for getting student's infos
   public sessionData:any;
   public termData:any;
   public userData:any;
@@ -137,7 +137,42 @@ export class ServiceGetClassMasterProvider {
     });
 
   }
+  // GET Students from data base
+  // GET SUBJECTS FROM SUBJECT TABLE IN DATABASE---------------------------------------------------------------->
+  getStudentFun()
+  {
+    var url=this.URL+"getUser.php";
+    return this.getStudent(url);
 
+  }
+  getStudent(url)
+  {
+    //console.log("service call",sessionData);
+    return new Promise(resolve=>{
+      this.http.post(url,JSON.stringify("admin")).subscribe(data=>{
+        if(data['statuscode']==1)
+        {
+          
+          this.studentData=data['data'];
+          console.log("users",this.studentData);
+        }
+        else
+        {
+          alert("no data fetched");
+        }        
+        
+         resolve(data);
+
+      },error=>{
+        console.log("Error",error);
+      });
+    });
+
+  }
+
+
+  // End of get Students from data base
+  // ------------------------------------------------------------------------------------
   // GET DATA FROM SESSION TABLE IN DATABASE---------------------------------------------------------------->
   getSessionFun()
   {

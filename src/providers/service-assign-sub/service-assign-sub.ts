@@ -6,8 +6,7 @@ import { ServiceLoginProvider } from '../service-login/service-login';
 @Injectable()
 export class ServiceAssignSubProvider {
 
-  public URL=this.one.URL; //for local use
-
+  public URL=this.one.URL;
   private SubjectAvail:any;
 
   constructor(public http: HttpClient,public toast:ToastController,public one:ServiceLoginProvider) {

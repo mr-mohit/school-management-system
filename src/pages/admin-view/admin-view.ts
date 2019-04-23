@@ -5,6 +5,7 @@ import { ViewSubjectsPage } from '../view-subjects/view-subjects';
 import { ViewClassPage } from '../view-class/view-class';
 import { ViewTermPage } from '../view-term/view-term';
 import { ViewSessionPage } from '../view-session/view-session';
+import { ViewTimeTablePage } from '../view-time-table/view-time-table';
 
 /**
  * Generated class for the AdminViewPage page.
@@ -45,5 +46,9 @@ export class AdminViewPage {
   ViewSession()
   {
     this.navCtrl.push(ViewSessionPage);
+  }
+  ViewTimeTable()
+  {
+    this.navCtrl.push(ViewTimeTablePage);
   }
 }

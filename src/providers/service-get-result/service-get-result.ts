@@ -5,7 +5,9 @@ import { ServiceLoginProvider } from '../service-login/service-login';
 
 @Injectable()
 export class ServiceGetResultProvider {
-  public URL=this.one.URL; //for local use
+
+  public URL=this.one.URL;
+
   constructor(public http: HttpClient,public one:ServiceLoginProvider) {
     console.log('Hello ServiceGetResultProvider Provider');
   }

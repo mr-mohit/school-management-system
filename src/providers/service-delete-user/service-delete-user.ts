@@ -5,7 +5,7 @@ import { ServiceLoginProvider } from '../service-login/service-login';
 @Injectable()
 export class ServiceDeleteUserProvider {
 
-  public URL=this.one.URL; //for local use
+  public URL=this.one.URL;
   recdata: any;
 
   constructor(public http: HttpClient,public one:ServiceLoginProvider) {

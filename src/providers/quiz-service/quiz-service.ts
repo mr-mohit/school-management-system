@@ -13,7 +13,6 @@ export class QuizServiceProvider {
 
   public data:any;
   public URL=this.one.URL;
- // public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/";
   public recdata: any;//this variable will store info coming from API
   public index; // index use to fetch element from quiz API 
   public question; // get the question from dthe API

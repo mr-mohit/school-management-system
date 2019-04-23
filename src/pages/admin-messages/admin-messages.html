@@ -12,4 +12,59 @@
 
 <ion-content padding>
 
+     <!-- Category Type here -->
+<ion-list>
+      <!-- Sender here -->
+        <ion-item>
+            <ion-label>
+              Send by :
+            </ion-label>
+            <ion-label > {{getuserid.recdata.data[0].REG_NO}}</ion-label>
+        </ion-item>
+    <ion-item>
+        <ion-label>
+          Send to:
+        </ion-label>
+        <ion-select name="receiver" [(ngModel)]="receiver">
+          <ion-option *ngFor="let i of getstudent?.studentData"  value="{{i.REG_NO}}">
+            {{i.REG_NO}} : {{i.FIRST_NAME}} {{i.LAST_NAME}}
+          </ion-option >
+         
+        </ion-select>
+      </ion-item>
+
+      <!-- Title here -->
+      <ion-item>
+          <ion-label floating >
+            Title
+          </ion-label>
+          <ion-textarea type="text" [(ngModel)]="MessageTitle"> </ion-textarea>
+        </ion-item>
+
+        <!-- DESCRIPTION here -->
+
+        <ion-item>
+            <ion-label floating >
+            Message
+            </ion-label>
+            <ion-textarea type="text" [(ngModel)]="MessageDescription" name="MessageDescription"></ion-textarea>
+          </ion-item>
+
+          <!-- blank space -->
+          <ion-label>
+
+          </ion-label>
+
+        
+    <!-- blank space -->
+    <ion-label>
+
+    </ion-label>
+
+    <button id="AddMessages" ion-button color="header" on-click="SendMessages()" block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;">
+          Send
+        </button>
+
+  </ion-list>
+
 </ion-content>

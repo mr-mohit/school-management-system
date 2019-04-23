@@ -12,9 +12,8 @@ import { ServiceLoginProvider } from '../service-login/service-login';
 export class ServiceAnnouncementProvider {
   public data:any;
   public status:boolean=false;
-  public URL=this.one.URL; //for local use
- // public URL="https://direct-school.000webhostapp.com/"; //for hosting
-
+  public URL=this.one.URL; 
+  
   constructor(public http: HttpClient,public one:ServiceLoginProvider) {
     console.log('Hello ServiceAnnouncementProvider Provider');
   }
@@ -41,9 +40,8 @@ export class ServiceAnnouncementProvider {
            alert("No Data");
          }
          resolve(data);
-
       },error=>{
-        alert("Connection Error");
+        console.log("Error",error);
       });
     });
   }
@@ -69,15 +67,14 @@ export class ServiceAnnouncementProvider {
         if(data['statuscode'] == 1)
          {
           alert("Removed");
-          return 1;
+          //return 1;
          }
          else
          {
            alert("Unable to remove");
-           return 0;
+           //return 0;
          }
-        //  resolve(data);
-
+         resolve(data);
       },error=>{
         alert("Connection Error");
       });
@@ -99,21 +96,17 @@ export class ServiceAnnouncementProvider {
         if(data['statuscode'] == 1)
          {
           alert("Updated");
-          return 1;
+          // return 1;
          }
          else
-      {
-        alert("not updated");
-      }        
-      
-       resolve(data);
-
-    },error=>{
-      console.log("Error",error);
+         {
+           alert("Unable to update");
+          //  return 0;
+         }
+         resolve(data);
+      },error=>{
+        alert("Connection Error");
+      });
     });
-  });
-
   }
-
-
 }

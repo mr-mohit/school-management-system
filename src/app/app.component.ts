@@ -19,7 +19,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
 import { LocalNotifications } from '@ionic-native/local-notifications';
-import { SchoolInfoPage } from '../pages/school-info/school-info';
+//import { SchoolInfoPage } from '../pages/school-info/school-info';
 import { ViewCalendarPage } from '../pages/view-calendar/view-calendar';
 import { DeleteTermPage } from '../pages/delete-term/delete-term';
 import { DeleteTestPage } from '../pages/delete-test/delete-test';
@@ -42,11 +42,14 @@ export class MyApp {
     Admin_a:Array<{title:string,icon:string,component:any}>;        //for Admin
     help:Array<{title:string, icon:string,component:any,}>;         //Same For All
 
+
   constructor(platform: Platform, statusBar: StatusBar,private nativeStorage: NativeStorage,public toastCtrl: ToastController,
-             public service:ServiceLoginProvider, splashScreen: SplashScreen, private push: Push,
+             public service:ServiceLoginProvider, public splashScreen: SplashScreen, private push: Push,
              public alertCtrl:AlertController,public translate:TranslateService, private localNotifications: LocalNotifications) {
 
               platform.ready().then(() => {
+
+                this.splashScreen.hide();
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       translate.addLangs(["en", "fr"]);
@@ -107,10 +110,10 @@ export class MyApp {
     //initializing the student array elements for side menu
     this.Student_a=[
       {title:'Home', icon:'home', component:StudentdashboardPage},
-      {title:'School Info', icon:'contact', component:SchoolInfoPage},
-      {title:'Events', icon:'contact',component:ViewCalendarPage},
-      {title:'Feedback', icon:'contact',component:StudentFeedbackPage},
-      {title:'Quiz', icon:'contact', component:StudentQuizPage},
+     // {title:'School Info', icon:'contact', component:SchoolInfoPage},
+      {title:'Events', icon:'calendar',component:ViewCalendarPage},
+      {title:'Feedback', icon:'thumbs-up',component:StudentFeedbackPage},
+      {title:'Quiz', icon:'list', component:StudentQuizPage},
       {title:'Gallery',icon:'images',component:GalleryPage}
     ];
 
@@ -119,9 +122,9 @@ export class MyApp {
       {title:'Home', icon:'home',component:TeacherdashboardPage},
       {title:'Messages', icon:'text',component:TeacherSendMessagePage},
       {title:'Announcements',icon:'megaphone',component:TeacherAnnouncementPage},
-      {title:'Feedback',icon:'contact',component:TeacherFeedbackPage},      
+      {title:'Feedback',icon:'thumbs-up',component:TeacherFeedbackPage},      
       {title:'Gallery',icon:'images',component:GalleryPage},
-      {title:'Events', icon:'contact',component:ViewCalendarPage},
+      {title:'Events', icon:'calendar',component:ViewCalendarPage},
       {title:'Delete Test',icon:'book',component:DeleteTestPage}
     ];
     //initializing the Admin array elements for side menu
@@ -225,6 +228,9 @@ this.toast.present();
      //Here we get the FCM id for specific user
     pushObject.on('registration').subscribe((registration: any) =>{
        console.log('Device registered', registration)
+       // here we will insert registration into fcm_key column of user table of our database 
+       // and the row corresponding of the user who has logged in with the corresponding phone
+       
     });
 
     pushObject.on('error').subscribe(error => console.error('Error with Push plugin', error));

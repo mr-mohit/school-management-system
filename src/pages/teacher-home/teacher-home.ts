@@ -6,6 +6,7 @@ import{TeacherTimeTablePage} from '../teacher-time-table/teacher-time-table';
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 import { AttendenceInfoPage } from '../attendence-info/attendence-info';
 import { ViewCalendarPage } from '../view-calendar/view-calendar';
+import { TeacherUploadHomeworkPage } from '../teacher-upload-homework/teacher-upload-homework';
 import { CreateTestPage } from '../create-test/create-test';
 import { UploadMarksInfoPage } from '../upload-marks-info/upload-marks-info';
 import { ViewStudentsPage } from '../view-students/view-students';
@@ -47,6 +48,10 @@ export class TeacherHomePage {
   gotoCalendar()
   {
     this.navCtrl.push(ViewCalendarPage);
+  }
+  uploadHW()
+  {
+    this.navCtrl.push(TeacherUploadHomeworkPage);
   }
 
   CreateTest()

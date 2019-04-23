@@ -11,6 +11,7 @@
 </ion-header>
 
 <ion-content padding>
+  <div *ngIf="SeeExam.status">
 <ion-list *ngFor="let i of SeeExam?.Exam_Data">
     <div>
   <ion-item>
@@ -26,29 +27,13 @@
   </ion-item>
   </div>
 </ion-list>
+</div>
 
+ <!-- No data found default view -->
+<div *ngIf="SeeExam.status==false" text-center style="margin-top:20%;">
+    <ion-icon name="information-circle" style="font-size:300%">
+           <h2>No information Available</h2>
+    </ion-icon>
+   </div>
 
-<!-- <div *ngIf="status">
-  <ion-grid *ngFor="let i of getData?.StudentTime" style="border:solid 1px;">
-      <ion-row>
-        <ion-col>
-          <div>
-            {{i.SUBJECT_ID}} 
-          </div>
-        </ion-col>
-
-        <ion-col>
-            <div>
-              {{i.TIME_SLOT}} 
-            </div>
-          </ion-col>
-
-        <ion-col>
-          <div>
-            {{i.DAY}}
-          </div>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-    </div> -->
 </ion-content>

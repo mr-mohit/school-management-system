@@ -7,8 +7,8 @@ import { ServiceLoginProvider } from '../service-login/service-login';
 @Injectable()
 export class ServiceResetpasswordProvider {
 
- // public URL="http://localhost/schoolapi/";
-  public URL=this.one.URL; //for local use
+ 
+  public URL=this.one.URL;
   recdata: any;
   loading: any;
  

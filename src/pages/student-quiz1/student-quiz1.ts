@@ -41,7 +41,7 @@ export class StudentQuiz1Page {
       console.log("score :\n",this.service.score);
         this.service.index +=1;
         console.log(this.service.index);
-         if(this.service.index < 4)
+         if(this.service.index < this.service.recdata.length)
          {
           this.service.getquestion(this.service.index);
           this.navCtrl.setRoot(StudentQuiz1Page);

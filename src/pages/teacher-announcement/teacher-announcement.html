@@ -13,7 +13,7 @@
 
 
   <ion-content padding>
-      
+    <div *ngIf="Service.status">
      <ion-card *ngFor="let item of Service?.data;">
        
          <ion-card-header class="header-style" (click)="enablecontent(item)">
@@ -32,6 +32,15 @@
            {{item.DESCRIPTION}}<br/>
          </ion-card-content>
        </ion-card>
+       </div>
+      
+       <!-- No data found default view -->
+
+       <div *ngIf="Service.status==false" text-center style="margin-top:20%;">
+          <ion-icon name="information-circle" style="font-size:300%">
+                 <h2>No information Available</h2>
+          </ion-icon>
+         </div>
       
        
      
