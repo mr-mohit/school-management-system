@@ -1,11 +1,11 @@
 <ion-header>
   <ion-navbar color="header">
-    <ion-title>Update User</ion-title>
+    <ion-title>{{'update_user' |translate}}</ion-title>
      <ion-buttons start>
-        <button ion-button icon-left (click)="prev()"><ion-icon name="arrow-back"></ion-icon> Prev</button>
+        <button ion-button icon-left (click)="prev()"><ion-icon name="arrow-back"></ion-icon> {{'prev' |translate}}</button>
       </ion-buttons>
       <ion-buttons end>
-        <button ion-button icon-right (click)="next()">Next <ion-icon name="arrow-forward"></ion-icon></button>
+        <button ion-button icon-right (click)="next()">{{'next' |translate}} <ion-icon name="arrow-forward"></ion-icon></button>
       </ion-buttons>
   </ion-navbar>
 </ion-header>
@@ -18,7 +18,7 @@
           <!-- slide1 -->
       <ion-slide >
 
-        <p *ngIf="submitAttempt" style="color: #ea6153;">Please fill out all details accurately.</p>
+        <p *ngIf="submitAttempt" style="color: #ea6153;">{{'fill_out_details_accurately' |translate}}</p>
 
         <ion-list no-lines >
 
@@ -26,21 +26,21 @@
 
                <!-- user id -->
                 <ion-item *ngIf="!slideOneForm.controls.userrole.value">
-                    <ion-label *ngIf="!slideOneForm.controls.userrole.value" floating > Enter Registration number here :  </ion-label>
+                    <ion-label *ngIf="!slideOneForm.controls.userrole.value" floating > {{'enter_reg_no' |translate}} :  </ion-label>
                     <ion-input *ngIf="!slideOneForm.controls.userrole.value" type="number" formControlName="userid" [class.invalid]="!slideOneForm.controls.userid.valid && (slideOneForm.controls.userid.dirty || submitAttempt)" > </ion-input>
                 </ion-item> 
                 <button *ngIf="!slideOneForm.controls.userrole.value" ion-button full color="primary" (click)="UserInfos()">
-                        <ion-icon name="eye"></ion-icon> &nbsp; View User
+                        <ion-icon name="eye"></ion-icon> &nbsp; {{'view_user' |translate}}
                     </button>
     
                 <ion-item *ngIf="!slideOneForm.controls.userid.valid  && (slideOneForm.controls.userid.dirty || submitAttempt)">
-                    <p>Please enter a valid registration id.</p>
+                    <p>{{'enter_valid_reg_id' |translate}}</p>
                 </ion-item>
                 
              
                    <!-- user role -->
                 <ion-item>
-                    <ion-label class="printid">User Role : </ion-label>
+                    <ion-label class="printid">{{'role' |translate}} : </ion-label>
                     <ion-label class="printid" *ngIf="service.recdata" >
                            {{slideOneForm.controls.userrole.value}}             
                     </ion-label>
@@ -51,7 +51,7 @@
                 </ion-item>   <br>         
                    <!-- user id -->
                 <ion-item>
-                    <ion-label class="printid"> Reg_No  :  </ion-label>
+                    <ion-label class="printid"> {{'Reg_No' |translate}} :  </ion-label>
                     <ion-label class="printid" *ngIf="service.recdata" > {{Reg_No}} </ion-label>
                     
                 </ion-item> 
@@ -68,7 +68,7 @@
                 <ion-item>
                     <ion-label floating>
                         <ion-icon ios="ios-person" md="md-person"></ion-icon>
-                        User First Name
+                        {{'first_name' |translate}}
                     </ion-label>
                     <ion-input formControlName="userfirstname" type="text" [class.invalid]="!slideOneForm.controls.userfirstname.valid && (slideOneForm.controls.userfirstname.dirty || submitAttempt)"> 
                          </ion-input>
@@ -82,7 +82,7 @@
                 <ion-item>
                     <ion-label floating>
                         <ion-icon ios="ios-person" md="md-person"></ion-icon>
-                        User Last Name
+                        {{'last_name' |translate}}
                     </ion-label>
                     <ion-input formControlName="userlastname" type="text" [class.invalid]="!slideOneForm.controls.userlastname.valid && (slideOneForm.controls.userlastname.dirty || submitAttempt)" > 
                          
@@ -97,14 +97,14 @@
                 <ion-item>
                     <ion-label floating>
                         <ion-icon ios="ios-male" md="md-male"></ion-icon>
-                        User gender
+                        {{'gender' |translate}}
                     </ion-label>
                     <ion-select  [placeholder]="slideOneForm.controls.usergender.value" formControlName="usergender" [class.invalid]="!slideOneForm.controls.usergender.valid && (slideOneForm.controls.usergender.dirty || submitAttempt)">
                           <ion-option value="male">
-                                male
+                                {{'male' |translate}}
                           </ion-option>
                           <ion-option value="female">
-                                female
+                                {{'female' |translate}}
                           </ion-option>
                     </ion-select>
                 </ion-item>
@@ -116,7 +116,7 @@
                 <ion-item>
                     <ion-label floating>
                         <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
-                        User Date of Birth
+                        {{'dob' |translate}}
                     </ion-label>
                       <ion-datetime display-format="MMMM YYYY" min="1930" max="2012-12-31" formControlName="userdob" [class.invalid]="!slideOneForm.controls.userdob.valid && (slideOneForm.controls.userdob.dirty || submitAttempt)"  > 
                       </ion-datetime>
@@ -145,7 +145,7 @@
                 <ion-item>
                     <ion-label floating>
                         <ion-icon ios="ios-at" md="md-at"></ion-icon>
-                        User email 
+                        Email 
                     </ion-label>
                     <ion-input formControlName="useremail" type="email" [class.invalid]="!slideTwoForm.controls.useremail.valid && (slideTwoForm.controls.useremail.dirty || submitAttempt)"> </ion-input>
                 </ion-item>
@@ -158,7 +158,7 @@
                 <ion-item>
                     <ion-label floating>
                         <ion-icon ios="ios-lock" md="md-lock"></ion-icon>
-                        User password
+                        {{'password' |translate}}
                     </ion-label>
                     <ion-input formControlName="userpassword" type="password" [class.invalid]="!slideTwoForm.controls.userpassword.valid && (slideTwoForm.controls.userpassword.dirty || submitAttempt)" ></ion-input>
                 </ion-item>
@@ -170,7 +170,7 @@
                 <ion-item>
                     <ion-label floating>
                         <ion-icon ios="ios-lock" md="md-lock"></ion-icon>
-                        Confirm password
+                        {{'confirm_password' |translate}}
                     </ion-label>
                     <ion-input formControlName="userpassword2" type="password" [class.invalid]="!slideTwoForm.controls.userpassword2.valid && (slideTwoForm.controls.userpassword2.dirty || submitAttempt)"></ion-input>
                 </ion-item>
@@ -183,7 +183,7 @@
                 <ion-item>
                     <ion-label floating>
                         <ion-icon ios="ios-text" md="md-text"></ion-icon>
-                        User father_Name
+                        {{'father_name' |translate}}
                     </ion-label>
                     <ion-input formControlName="userfathername" type="text" [class.invalid]="!slideTwoForm.controls.userfathername.valid && (slideTwoForm.controls.userfathername.dirty || submitAttempt)" ></ion-input>
                 </ion-item>
@@ -195,7 +195,7 @@
                 <ion-item>
                     <ion-label floating>
                         <ion-icon ios="ios-text" md="md-text"></ion-icon>
-                        User Mother_Name 
+                        {{'mother_name' |translate}} 
                     </ion-label>
                     <ion-input formControlName="usermothername" type="text" [class.invalid]="!slideTwoForm.controls.usermothername.valid && (slideTwoForm.controls.usermothername.dirty || submitAttempt)"></ion-input>
                 </ion-item>
@@ -207,7 +207,7 @@
                 <ion-item>
                     <ion-label floating>
                             <ion-icon ios="ios-locate" md="md-locate"></ion-icon>
-                        User City 
+                        {{'city' |translate}} 
                     </ion-label>
                     <ion-input formControlName="usercity" type="text" [class.invalid]="!slideTwoForm.controls.usercity.valid && (slideTwoForm.controls.usercity.dirty || submitAttempt)" ></ion-input>
                 </ion-item>
@@ -232,27 +232,27 @@
                 <ion-item>
                     <ion-label floating>
                         <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>
-                        address Type 
+                        {{'address_type' |translate}} 
                     </ion-label>
                    <ion-select [placeholder]="slideThreeForm.controls.addressType.value" formControlName="addressType" [class.invalid]="!slideThreeForm.controls.addressType.valid && (slideThreeForm.controls.addressType.dirty || submitAttempt)" >
                           <ion-option value="Permanent">
-                                Permanent
+                                {{'permanent' |translate}}
                           </ion-option>
                           <ion-option value="temporarly">
-                                Temporarly
+                                {{'Temporary' |translate}}
                           </ion-option>
                     </ion-select>
                 </ion-item>
 
                 <ion-item *ngIf="!slideThreeForm.controls.addressType.valid  && (slideThreeForm.controls.addressType.dirty || submitAttempt)">
-                    <p>Please select one address type.</p>
+                    <p>{{'select_one_address_type' |translate}}</p>
                 </ion-item>
                 
                   <!-- address Line 1 -->
                 <ion-item>
                     <ion-label floating>
                         <ion-icon ios="ios-text" md="md-text"></ion-icon>
-                        address Line 1
+                        {{'address_line1' |translate}}
                     </ion-label>
                     <ion-input formControlName="address1" type="text" [class.invalid]="!slideThreeForm.controls.address1.valid && (slideThreeForm.controls.addressType.dirty || submitAttempt)" ></ion-input>
                 </ion-item>
@@ -264,7 +264,7 @@
                 <ion-item>
                     <ion-label floating>
                         <ion-icon ios="ios-text" md="md-text"></ion-icon>
-                        address Line 2
+                        {{'address_line2' |translate}}
                     </ion-label>
                     <ion-input formControlName="address2" type="text" [class.invalid]="!slideThreeForm.controls.address2.valid && (slideThreeForm.controls.address2.dirty || submitAttempt)" ></ion-input>
                 </ion-item>
@@ -277,7 +277,7 @@
                 <ion-item>
                     <ion-label floating>
                         <ion-icon ios="ios-locate" md="md-locate"></ion-icon>
-                        state
+                        {{'state' |translate}}
                     </ion-label>
                     <ion-input formControlName="state" type="text" [class.invalid]="!slideThreeForm.controls.state.valid && (slideThreeForm.controls.state.dirty || submitAttempt)"></ion-input>
                 </ion-item>
@@ -289,7 +289,7 @@
                 <ion-item>
                     <ion-label floating>
                         <ion-icon ios="ios-calculator" md="md-calculator"></ion-icon>
-                        Pin Code 
+                        {{'pincode' |translate}} 
                     </ion-label>
                     <ion-input formControlName="pincode" type="number" [class.invalid]="!slideThreeForm.controls.pincode.valid && (slideThreeForm.controls.pincode.dirty || submitAttempt)"> </ion-input>
                 </ion-item>
@@ -301,7 +301,7 @@
                 <ion-item>
                     <ion-label floating>
                         <ion-icon ios="ios-phone-portrait" md="md-phone-portrait"></ion-icon>
-                        Mobile Contact 
+                        {{'mobile_contact' |translate}} 
                     </ion-label>
                    <ion-input formControlName="contact" type="text" [class.invalid]="!slideThreeForm.controls.contact.valid && (slideThreeForm.controls.contact.dirty || submitAttempt)"></ion-input>
 
@@ -330,10 +330,10 @@
                     <!-- <ion-label floating>User Picture</ion-label>
                     <ion-input formControlName="userpic" type="text" [class.invalid]="!slideOneForm.controls.userpic.valid && (slideOneForm.controls.userpic.dirty || submitAttempt)"></ion-input> -->
                     <img src="{{pathForImage(lastImage)}}" style="width: 100%; height:80% ;" [hidden]="lastImage === null">
-                    <h5 [hidden]="lastImage !== null">Please Select Image!</h5>
+                    <h5 [hidden]="lastImage !== null">{{'select_img_text' |translate}}</h5>
                     <ion-buttons>
                             <button ion-button icon-right (click)="presentActionSheet()">
-                                <ion-icon name="camera"></ion-icon> &nbsp; Select Image
+                                <ion-icon name="camera"></ion-icon> &nbsp; {{'select_img_btn' |translate}}
                             </button>
                             <!-- <button ion-button icon-right (click)="uploadImage()" [disabled]="lastImage === null">
                                 <ion-icon name="cloud-upload"></ion-icon>&nbsp; Upload
@@ -343,7 +343,7 @@
 
              <!-- student class   -->
                 <ion-item [hidden]='slideOneForm.controls.userrole.value !=="student"'>
-                     <ion-label  floating  [hidden]='slideOneForm.controls.userrole.value !=="student"'>CLASS</ion-label>
+                     <ion-label  floating  [hidden]='slideOneForm.controls.userrole.value !=="student"'>{{'class' |translate}}</ion-label>
                     <ion-select  [placeholder]="slideFourForm.controls.studentClass.value" formControlName="studentClass" [class.invalid]="!slideFourForm.controls.studentClass.valid && (slideFourForm.controls.studentClass.dirty || submitAttempt)">
                           <ion-option  *ngFor=" let p of cid.classData" [value]="p.CLASS">
                                 {{p.CLASS}}
@@ -389,7 +389,7 @@
                 <ion-item [hidden]='slideOneForm.controls.userrole.value !=="teacher" '>
                     <ion-label floating>
                         <ion-icon ios="ios-person-add" md="md-person-add"></ion-icon>
-                        Teacher designation 
+                        {{'teacher_designation' |translate}}
                     </ion-label>
                     <ion-input  formControlName="teacherDesg" type="text" [class.invalid]="!slideFourForm.controls.teacherDesg.valid && (slideFourForm.controls.teacherDesg.dirty || submitAttempt)" >  
                     </ion-input>
@@ -404,20 +404,20 @@
                 <ion-item [hidden]='slideOneForm.controls.userrole.value !=="teacher"'>
                     <ion-label floating  [hidden]='slideOneForm.controls.userrole.value !=="teacher"'>
                         <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>
-                        Department
+                        {{'department' |translate}}
                     </ion-label>
                     <ion-select [placeholder]="slideFourForm.controls.teacherDepart.value" formControlName="teacherDepart" [class.invalid]="!slideFourForm.controls.teacherDepart.valid && (slideFourForm.controls.teacherDepart.dirty || submitAttempt)">
                           <ion-option value=" computer application">
-                                computer application
+                                {{'computer_application' |translate}}
                           </ion-option>
                           <ion-option value="computer science engineering">
-                                computer science engineering
+                                {{'computer_science' |translate}}
                           </ion-option>
                            <ion-option value=" Business">
-                                Business
+                                {{'business' |translate}}
                           </ion-option>
                           <ion-option value="Machine Learning">
-                                Machine Learning
+                                {{'machine_learning' |translate}}
                           </ion-option>
                           
                     </ion-select>
@@ -428,7 +428,7 @@
         </ion-list>
             
             <button ion-button full color="primary" (click)="save()">
-                <ion-icon name="cloud-upload"></ion-icon> &nbsp; UPDATE Account!
+                <ion-icon name="cloud-upload"></ion-icon> &nbsp; {{'update_account' |translate}}!
              </button>
 
       </ion-slide>

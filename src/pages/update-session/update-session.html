@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="header"> 
-    <ion-title>Update Session</ion-title>
+    <ion-title>{{'update' |translate}} Session</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -9,7 +9,7 @@
       <ion-item>
           <ion-label floating >
               <ion-icon ios="ios-copy" md="md-copy"></ion-icon>
-              Select Session
+              {{'select' |translate}} Session
             </ion-label>
         <ion-select name="SID" [(ngModel)]="SID">
          <ion-option *ngFor="let i of SS?.sessionData"  value="{{i.SESSION_MASTER_ID}}" >{{i.SESSION_START_DATE}} {{i.SESSION_END_DATE}}</ion-option>
@@ -21,7 +21,7 @@
     <ion-item>
       <ion-label>
         <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
-        New Start Date
+        {{'new' |translate}} {{'start_date' |translate}}
       </ion-label>
       <ion-datetime name="START_DATE" displayFormat="DD MMM YYYY" min="2019" max="2050" [(ngModel)]="START_DATE"></ion-datetime>
     </ion-item>
@@ -31,7 +31,7 @@
     <ion-item>
       <ion-label>
         <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
-        New End Date 
+        {{'new'}} {{'end_date' |translate}} 
       </ion-label>
       <ion-datetime name="END_DATE" displayFormat="DD MMM YYYY" min="2020" max="2051" [(ngModel)]="END_DATE"></ion-datetime>
     </ion-item>
@@ -44,7 +44,7 @@
       <button ion-button color="header"
        block style="border-radius:2px 2px 2px 2px;width: 200px; 
         margin:auto;"on-click="Submit(SID,START_DATE,END_DATE)" >
-        Update
+        {{'submit' |translate}}
       </button>
     </div>
     

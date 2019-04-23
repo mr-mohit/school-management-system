@@ -6,14 +6,14 @@
 -->
 <ion-header>
   <ion-navbar color="header">
-    <ion-title>Delete Class</ion-title>
+    <ion-title>{{'delete_class' |translate}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <form>
     <ion-item>
-      <ion-label>Class</ion-label>
+      <ion-label>{{'class' |translate}}</ion-label>
        <ion-select  name="CLASS" [(ngModel)]="CLASS">
   
         <ion-option *ngFor="let i of cid?.classData"  value="{{i.CLASS_MASTER_ID}}" >{{i.CLASS}} {{i.SECTION}}</ion-option>
@@ -25,7 +25,7 @@
     </ion-label>
     <button ion-button color="header" on-click="deleteClass(CLASS)"
         block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;">
-        Delete
+        {{'delete' |translate}}
     </button>
   </form>
 </ion-content>
