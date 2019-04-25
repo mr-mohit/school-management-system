@@ -17,6 +17,7 @@ declare var cordova: any;
 })
 export class AddUsersPage {
 
+ public  myDate: string = new Date().toISOString();
 
 
 
@@ -54,6 +55,7 @@ export class AddUsersPage {
      "userstate":"",
      "userpincode":"",
      "usercontact":"",
+     "date":"",
      "studentclass":"c",
      "studentsection":"s",
      "studentsession":0,
@@ -70,6 +72,8 @@ export class AddUsersPage {
               private filePath: FilePath,public actionSheetCtrl: ActionSheetController,
               public toastCtrl: ToastController,public loadingCtrl: LoadingController,
               public alertController: AlertController,public cid:ServiceGetClassMasterProvider) {
+
+                console.log("date is ",this.myDate);
   
     // this slide is used to enter basics infos of the user
     this.slideOneForm = formBuilder.group({
@@ -96,8 +100,8 @@ export class AddUsersPage {
     // this slide is used to enter infos address of the user
     this.slideThreeForm = formBuilder.group({
         addressType: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z]*')])],
-        address1: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z]*')])],
-        address2: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z]*')])],
+        address1: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z ]*')])],
+        address2: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z ]*')])],
         state: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z]*')])],
         pincode: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('(?=.*[0-9]).{6}')])],
         contact: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('(?=.*[0-9]).{8,15}')])]  
@@ -156,6 +160,9 @@ export class AddUsersPage {
       if(this.slideTwoForm.getRawValue().userpassword == this.slideTwoForm.getRawValue().userpassword2)
       {
          // this.userInfos["userpic"] = this.slideOneForm.getRawValue().userpic;
+         
+         this.userInfos["date"] =  this.myDate;
+
           this.userInfos["userRegNo"] = this.service.userID;
           this.userInfos["userfirstname"] = this.slideOneForm.getRawValue().userfirstname;
           this.userInfos["userlastname"] = this.slideOneForm.getRawValue().userlastname;
@@ -167,6 +174,7 @@ export class AddUsersPage {
           this.userInfos["userfathername"] =  this.slideTwoForm.getRawValue().userfathername;
           this.userInfos["usermothername"] =  this.slideTwoForm.getRawValue().usermothername;
           this.userInfos["usercity"] =  this.slideTwoForm.getRawValue().usercity;
+
           this.userInfos["useraddresstype"] =  this.slideThreeForm.getRawValue().addressType;
           this.userInfos["useraddress1"] =  this.slideThreeForm.getRawValue().address1;
           this.userInfos["useraddress2"] =  this.slideThreeForm.getRawValue().address2;
