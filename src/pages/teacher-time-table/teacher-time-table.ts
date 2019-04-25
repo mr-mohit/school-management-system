@@ -18,12 +18,12 @@ export class TeacherTimeTablePage {
   public status:boolean=false;
 
   private Days:any=[
-    {Day:"Monday"},
-    {Day:"Tuesday"},
-    {Day:"Wednesday"},
-    {Day:"Thursday"},
-    {Day:"Friday"},
-    {Day:"Saturday"},
+    {Day:"mon"},
+    {Day:"tues"},
+    {Day:"wed"},
+    {Day:"thu"},
+    {Day:"fri"},
+    {Day:"sat"},
  ];
 
  private TimeElement:any={

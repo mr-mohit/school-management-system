@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="header">
-    <ion-title>Update Term</ion-title>
+    <ion-title>{{'update_term' | translate}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -9,7 +9,7 @@
     <ion-item>
         <ion-label floating >
           <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>
-          Select Term
+          {{'select' |translate}} {{'term' |translate}}
         </ion-label>
       <ion-select name="TID" [(ngModel)]="TID">
        <ion-option *ngFor="let i of TS?.termData"  value="{{i.TERM_ID}}" >{{i.TERM}} {{i.START_DATE}} {{i.END_DATE}}</ion-option>
@@ -35,12 +35,12 @@
       <ion-item>
         <ion-label floating>
           <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>
-          Term
+          {{'term' |translate}}
         </ion-label>
         <ion-select name="TERM" [(ngModel)]="TERM">
-          <ion-option value="1">FIRST</ion-option>
-          <ion-option value="2">SECOND</ion-option>
-          <ion-option value="3">THIRD</ion-option>
+          <ion-option value="1">{{'first' |translate}}</ion-option>
+          <ion-option value="2">{{'second' |translate}}</ion-option>
+          <ion-option value="3">{{'third' |translate}}</ion-option>
         </ion-select>
       </ion-item>
 
@@ -49,7 +49,7 @@
       <ion-item>
         <ion-label >
           <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
-          Start Date 
+          {{'start_date' |translate}} 
         </ion-label>
         <ion-datetime name="START_DATE" displayFormat="DD MMM YYYY" min="2019" max="2050" [(ngModel)]="START_DATE"></ion-datetime>
       </ion-item>
@@ -59,20 +59,17 @@
       <ion-item>
         <ion-label>
           <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
-          End Date 
+          {{'end_date' |translate}} 
         </ion-label>
         <ion-datetime name="END_DATE" displayFormat="DD MMM YYYY" min="2020" max="2051" [(ngModel)]="END_DATE"></ion-datetime>
       </ion-item>
+      
+<ion-label> <!-- Space Here -->  </ion-label> 
 
-      <div class="center">
-          <ion-label>
-              <!-- Space Here -->
-            </ion-label>
-        <button ion-button color="header"
-         block style="border-radius:2px 2px 2px 2px;width: 200px;
-         margin:auto;" on-click="Submit(TID,SESSION,TERM,START_DATE,END_DATE)" >
-          Update
+        <button ion-button color="header" 
+        block style="border-radius:2px 2px 2px 2px;width: 200px;
+          margin:auto;" on-click="Submit(TID,SESSION,TERM,START_DATE,END_DATE)" >
+          {{'submit' |translate}}
         </button>
-      </div>
-    </ion-list>
+  </ion-list>
 </ion-content>
