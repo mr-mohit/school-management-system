@@ -43,6 +43,7 @@ if($con){
 			$gender = test_input($obj->{'usergender'});
 			$email=test_input($obj->{'useremail'});
 			$password=test_input($obj->{'userpassword'});
+			$date=test_input($obj->{'date'});
 
 			// address infos
 			$address1=test_input($obj->{'useraddress1'});
@@ -65,8 +66,8 @@ if($con){
 			$teacherdesg = test_input($obj->{'teacherdesg'});
 			
 			//insert user into user table
-			$sql = "INSERT INTO user (REG_NO,USER_PIC,ROLE,FIRST_NAME,LAST_NAME,DOB,GENDER,E_MAIL,PASSWORD,IS_ACTIVE) 
-					 VALUES ('$RegNo','$userpic','$role','$userfirstname','$userlastname','$dob','$gender','$email','$password','1')";
+			$sql = "INSERT INTO user (REG_NO,USER_PIC,ROLE,FIRST_NAME,LAST_NAME,DOB,GENDER,E_MAIL,PASSWORD,DATE_OF_AD,IS_ACTIVE) 
+					 VALUES ('$RegNo','$userpic','$role','$userfirstname','$userlastname','$dob','$gender','$email','$password','$date','1')";
 			if(mysqli_query($con,$sql))
 			{	
 		
