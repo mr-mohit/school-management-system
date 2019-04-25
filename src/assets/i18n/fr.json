@@ -14,7 +14,8 @@
 	"admin_announcement": "Administrateur : Annonces",
 	"admin_dash": "tableau de bord administrateur",
 	"and": "et",
-	"announcement": "annonces",
+	"announcement": "Annonce",
+	"announcements": "Annonces",
 	"cancel": "Annuler",
 	"change_app_language": "Changer la langue de l'application",
 	"change_password": "Changer le mot de passe",
@@ -40,7 +41,7 @@
 	"first": "Premier",
 	"first_name": "Nom",
 	"gender": "Genre",
-	"home": "Home",
+	"home": "Accueil",
 	"last_name": "prénom",
 	"log_in": "Log In",
 	"login": "connexion",
@@ -143,6 +144,7 @@
 	"machine_learning":"Apprentissage À Machine",
 	"update_subjects":"Modifier Matière",
 	"update_class":"Modifier Classe",
+	"update_marks":"Mise À Jour Des Scores",
 	"teacher_dash":"Bureau enseignant",
     "mark_attendance":"marquer la présence ",
     "create_test":"Créer Test",
@@ -168,5 +170,10 @@
     "syllabus":"Programme",
     "marks_obtained":"Notes Obtenues",
     "reg_no":"Identifiant:",
-    "profile":"Profil"
+	"profile":"Profil",
+	"feedback":"Vos commentaires",
+	"gallery":"Galerie Photos",
+	"delete_test":"Supprimer Test",
+	"logout":"DÉCONNEXION",
+	"add_event":"Ajouter Événement"
 }
