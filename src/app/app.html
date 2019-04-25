@@ -16,21 +16,21 @@
         Logout
       </ion-item>
     </ion-list> -->
-    <ion-list *ngIf="service.user_role=='STUDENT' ||service.user_role=='Student'||service.user_role=='student'" >
+    <ion-list *ngIf="service.user_role=='STUDENT' ||service.user_role=='Student'||service.user_role=='student'||type==='student'" >
       <button menuClose ion-item *ngFor="let p of Student_a" (click)="openPage(p)" >
         <ion-icon name="{{p.icon}}" item-left>   </ion-icon>
         {{p.title}}
       </button>
     </ion-list>
     <!-- Techer Element -->
-    <ion-list *ngIf="service.user_role=='TEACHER' || service.user_role=='Teacher'||service.user_role=='teacher'" >
+    <ion-list *ngIf="service.user_role=='TEACHER' || service.user_role=='Teacher'||service.user_role=='teacher' || type==='teacher'" >
         <button menuClose ion-item *ngFor="let p of Teacher_a" (click)="openPage(p)" >
           <ion-icon name="{{p.icon}}" item-left>   </ion-icon>
-          {{p.title}}
+          {{p.title |translate}}
         </button>
       </ion-list>
       <!-- Admin Element -->
-      <ion-list class="item" *ngIf="service.user_role=='ADMIN' || service.user_role=='Admin'||service.user_role=='admin'" >
+      <ion-list class="item" *ngIf="service.user_role=='ADMIN' || service.user_role=='Admin'||service.user_role=='admin' || type==='admin'" >
         <button menuClose ion-item *ngFor="let p of Admin_a" (click)="openPage(p)" >
           <ion-icon name="{{p.icon}}" item-left></ion-icon>
           {{p.title}}
@@ -45,14 +45,14 @@
     <ion-list class="item">
         <button menuClose ion-item *ngFor="let p of help" (click)="openPage(p)" >
             <ion-icon name="{{p.icon}}" item-left></ion-icon>
-            {{p.title}}
+            {{p.title |translate}}
           </button>
     </ion-list>
   </ion-content>
   <ion-footer>
     <button full menuClose ion-button (click)="goToLogin()">
       <ion-icon name="log-out"></ion-icon>&nbsp;
-      Logout      
+      {{'logout' |translate}}      
     </button>
   </ion-footer>
 </ion-menu>
