@@ -137,7 +137,7 @@ import { DeleteTestPage } from '../pages/delete-test/delete-test';
 import { ServiceDeleteTestProvider } from '../providers/service-delete-test/service-delete-test';
 import { ServiceGetResultDataProvider } from '../providers/service-get-result-data/service-get-result-data';
 import { ServiceCalculateResultProvider } from '../providers/service-calculate-result/service-calculate-result';
- 
+import { IonicImageViewerModule } from 'ionic-img-viewer';
 
  @NgModule({ 
   declarations: [
@@ -231,6 +231,7 @@ import { ServiceCalculateResultProvider } from '../providers/service-calculate-r
     BrowserModule,
     CalendarModule,
     HttpClientModule,
+    IonicImageViewerModule,
     IonicModule.forRoot(MyApp),
     TranslateModule.forRoot({
       loader: {
