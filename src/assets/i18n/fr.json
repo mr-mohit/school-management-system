@@ -168,5 +168,6 @@
     "syllabus":"Programme",
     "marks_obtained":"Notes Obtenues",
     "reg_no":"Identifiant:",
-    "profile":"Profil"
+	"profile":"Profil",
+	"select_date":"Sélectionner une date"
 }
