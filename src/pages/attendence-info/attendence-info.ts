@@ -54,8 +54,8 @@ export class AttendenceInfoPage {
       alert("Please select required fields.")
     }
     
-    console.log("class id as per students to be display",this.classID);
-    this.navCtrl.push(MarkAttendancePage);
+    // console.log("class id as per students to be display",this.classID);
+    // this.navCtrl.push(MarkAttendancePage);
     //this.GU.getSDCfun(this.classID);
   }
 

@@ -30,7 +30,7 @@ if($con){
 	             $id=test_input($obj);
 
 			//echo"Connection Sucessfull";
-			$sql="SELECT * FROM subject WHERE SUBJECT_ID in (SELECT SUBJECT_ID from class_reg WHERE CLASS_MASTER_ID='$id' AND IS_ACTIVE='1')";
+			$sql="SELECT * FROM subject WHERE SUBJECT_ID in (SELECT SUBJECT_ID from class_reg WHERE CLASS_MASTER_ID='$id' AND IS_ACTIVE=1)";
             // $sql="SELECT * FROM class_reg WHERE CLASS_MASTER_ID='$id' and IS_ACTIVE=1";
              $query = mysqli_query($con,$sql);
 		         $count = mysqli_num_rows($query);

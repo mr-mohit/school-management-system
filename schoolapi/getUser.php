@@ -25,8 +25,18 @@ if($con){
 				}
 
 			//echo"Connection Sucessfull";
-             $sql="SELECT * FROM user WHERE ROLE='STUDENT'";
-             $query = mysqli_query($con,$sql);
+			 $postdata=file_get_contents("php://input");
+	         $obj=json_decode($postdata);
+			 
+			 if($obj =="admin")
+			 {
+				  $sql="SELECT * FROM user WHERE ROLE='STUDENT' OR ROLE='TEACHER'";
+			 }
+			 else
+			 {
+				 $sql="SELECT * FROM user WHERE ROLE='STUDENT'";				 
+			 }
+            $query = mysqli_query($con,$sql);
 		         $count = mysqli_num_rows($query);
 				 
 		         if ($count == 0) {
@@ -46,12 +56,7 @@ if($con){
                      }
 					 
                        
-				       
-					
-					   
-					   
-					   
-    }
+        }
     }
 	else{
 		die("Connection failed: " . mysqli_connect_error());

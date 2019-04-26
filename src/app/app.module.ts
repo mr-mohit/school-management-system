@@ -142,6 +142,8 @@ import { DeleteTestPage } from '../pages/delete-test/delete-test';
 import { ServiceDeleteTestProvider } from '../providers/service-delete-test/service-delete-test';
 import { ServiceGetResultDataProvider } from '../providers/service-get-result-data/service-get-result-data';
 import { ServiceCalculateResultProvider } from '../providers/service-calculate-result/service-calculate-result';
+import { FileChooser } from '@ionic-native/file-chooser';
+import { FileOpener } from '@ionic-native/file-opener';
  
 
  @NgModule({ 
@@ -234,6 +236,7 @@ import { ServiceCalculateResultProvider } from '../providers/service-calculate-r
     UpdateTestPage,
     UpdateAttendancePage,
     DeleteTestPage,
+    TeacherUploadHomeworkPage
   ],
   imports: [
     BrowserModule,
@@ -339,6 +342,7 @@ import { ServiceCalculateResultProvider } from '../providers/service-calculate-r
     UpdateTestPage,
     UpdateAttendancePage,
     DeleteTestPage,
+    TeacherUploadHomeworkPage
   ],
   providers: [
     StatusBar,
@@ -347,6 +351,8 @@ import { ServiceCalculateResultProvider } from '../providers/service-calculate-r
     SplashScreen,
 
     File, 
+    FileChooser,
+    FileOpener,
     Transfer,
     Camera,
     FilePath,

@@ -24,6 +24,7 @@ import { ViewCalendarPage } from '../pages/view-calendar/view-calendar';
 import { ServiceAdminmessageProvider } from '../providers/service-adminmessage/service-adminmessage';
 import { DeleteTermPage } from '../pages/delete-term/delete-term';
 import { DeleteTestPage } from '../pages/delete-test/delete-test';
+import { AdminMessagesPage } from '../pages/admin-messages/admin-messages';
 
 
 @Component({
@@ -122,7 +123,7 @@ export class MyApp {
     //initializing the teacher array elements for side menu
     this.Teacher_a=[
       {title:'Home', icon:'home',component:TeacherdashboardPage},
-      {title:'Messages', icon:'text',component:TeacherSendMessagePage},
+      {title:'Messages', icon:'text',component:AdminMessagesPage},
       {title:'Announcements',icon:'megaphone',component:TeacherAnnouncementPage},
       {title:'Feedback',icon:'thumbs-up',component:TeacherFeedbackPage},      
       {title:'Gallery',icon:'images',component:GalleryPage},
