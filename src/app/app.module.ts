@@ -145,6 +145,7 @@ import { ServiceCalculateResultProvider } from '../providers/service-calculate-r
 import { FileChooser } from '@ionic-native/file-chooser';
 import { FileOpener } from '@ionic-native/file-opener';
  
+import { IonicImageViewerModule } from 'ionic-img-viewer';
 
  @NgModule({ 
   declarations: [
@@ -242,6 +243,7 @@ import { FileOpener } from '@ionic-native/file-opener';
     BrowserModule,
     CalendarModule,
     HttpClientModule,
+    IonicImageViewerModule,
     IonicModule.forRoot(MyApp),
     TranslateModule.forRoot({
       loader: {
