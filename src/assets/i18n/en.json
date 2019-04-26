@@ -182,5 +182,6 @@
 	"start_time":"Start Time",
 	"end_time":"End Time",
 	"room_no":"Room No",
-	"error _while_processing":"error while processing"
+	"error _while_processing":"error while processing",
+	"select_date":"Select Date"
 }

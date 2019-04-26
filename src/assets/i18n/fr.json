@@ -181,6 +181,6 @@
 	"start_time":"Heure de début",
 	"end_time":"Heure De Fin",
 	"room_no":"Numéro de chambre",
-	"error_while_processing":"erreur lors du traitement de"
-
+	"error_while_processing":"erreur lors du traitement de",
+	"select_date":"Sélectionner une date"
 }
