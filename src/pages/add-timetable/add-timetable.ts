@@ -41,12 +41,12 @@ export class AddTimetablePage {
  }
 
  private Days:any=[
-   {Day:"Monday"},
-   {Day:"Tuesday"},
-   {Day:"Wednesday"},
-   {Day:"Thursday"},
-   {Day:"Friday"},
-   {Day:"Saturday"},
+   {Day:"mon"},
+   {Day:"tues"},
+   {Day:"wed"},
+   {Day:"thu"},
+   {Day:"fri"},
+   {Day:"sat"},
 ];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,

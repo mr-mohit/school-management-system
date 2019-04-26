@@ -17,9 +17,9 @@
 
      <!-- Day -->
      <ion-item>
-        <ion-label floating>Select Day</ion-label>
+        <ion-label floating>{{'select_day' |translate}}</ion-label>
         <ion-select  name="Day" [(ngModel)]="Day" (ionChange)="getCurrentTimeTable(Day)">
-            <ion-option *ngFor="let i of Days">{{i.Day}}</ion-option>
+            <ion-option *ngFor="let i of Days">{{i.Day |translate}}</ion-option>
            </ion-select>
   
       </ion-item>
