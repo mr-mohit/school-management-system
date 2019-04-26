@@ -97,8 +97,6 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
 import { SchoolInfoPage } from '../pages/school-info/school-info';
 import { GalleryPage } from '../pages/gallery/gallery';
 import { ServiceAdminmessageProvider } from '../providers/service-adminmessage/service-adminmessage';
-import {FileChooser} from '@ionic-native/file-chooser';
-import {FileOpener} from '@ionic-native/file-opener';
 import { TeacherUploadHomeworkPage } from '../pages/teacher-upload-homework/teacher-upload-homework';
 import { CreateTestPage } from '../pages/create-test/create-test';
 import { ServiceCreateTestProvider } from '../providers/service-create-test/service-create-test';
@@ -135,7 +133,11 @@ import { UpdateTimeTablePage } from '../pages/update-time-table/update-time-tabl
 import { UpdateMarksPage } from '../pages/update-marks/update-marks';
 import { UpdateTestPage } from '../pages/update-test/update-test';
 import { UpdateAttendancePage } from '../pages/update-attendance/update-attendance';
- 
+import { DeleteTestPage } from '../pages/delete-test/delete-test';
+import { ServiceDeleteTestProvider } from '../providers/service-delete-test/service-delete-test';
+import { ServiceGetResultDataProvider } from '../providers/service-get-result-data/service-get-result-data';
+import { ServiceCalculateResultProvider } from '../providers/service-calculate-result/service-calculate-result';
+import { IonicImageViewerModule } from 'ionic-img-viewer';
 
  @NgModule({ 
   declarations: [
@@ -223,11 +225,13 @@ import { UpdateAttendancePage } from '../pages/update-attendance/update-attendan
     UpdateMarksPage,
     UpdateTestPage,
     UpdateAttendancePage,
+    DeleteTestPage,
   ],
   imports: [
     BrowserModule,
     CalendarModule,
     HttpClientModule,
+    IonicImageViewerModule,
     IonicModule.forRoot(MyApp),
     TranslateModule.forRoot({
       loader: {
@@ -324,6 +328,7 @@ import { UpdateAttendancePage } from '../pages/update-attendance/update-attendan
     UpdateMarksPage,
     UpdateTestPage,
     UpdateAttendancePage,
+    DeleteTestPage,
   ],
   providers: [
     StatusBar,
@@ -332,8 +337,6 @@ import { UpdateAttendancePage } from '../pages/update-attendance/update-attendan
     SplashScreen,
 
     File, 
-    FileChooser,
-    FileOpener,
     Transfer,
     Camera,
     FilePath,
@@ -386,6 +389,9 @@ import { UpdateAttendancePage } from '../pages/update-attendance/update-attendan
     ServiceDeleteTimetableProvider,
     ServiceGetTeacherProvider,
     ServiceAssignSubProvider,
+    ServiceDeleteTestProvider,
+    ServiceGetResultDataProvider,
+    ServiceCalculateResultProvider,
     ServiceDeleteAndUpdateTimeTableProvider,
   ]
 })

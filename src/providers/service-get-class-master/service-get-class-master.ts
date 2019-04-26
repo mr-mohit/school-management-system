@@ -33,14 +33,45 @@ export class ServiceGetClassMasterProvider {
   public term:any;
   public rows:any;
 //end
- 
+ public ClassTest:any;
   
 
 
   constructor(public http: HttpClient,public one:ServiceLoginProvider) {
     
   }
+   //GET TEST FROM CLASS_TEST_TABLE
+  getClassTestFun(subjectID)
+  {
+    var url=this.URL+"getClassTest.php";
+    return this.getClassTest(url,subjectID);
+  }
 
+  getClassTest(url,subjectID)
+  {
+    //console.log("Class is which we passing to api",postId);
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(subjectID)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.ClassTest=data['data'];
+        //console.log("Row data",this.attsubject);
+        console.log("Class Test",this.ClassTest);
+        //return 1;
+      }
+      else
+      {
+        this.SubjectOnTimeTable=[];
+        alert("no data fetched");
+        //return 0;
+      }        
+       resolve(data);
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+
+  }
 
   getClassFun() //GET DATA FROM CLASS_MASTER_TABLE IN DATABASE----------------------------------------------------->
   {

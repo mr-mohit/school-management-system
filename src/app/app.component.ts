@@ -22,6 +22,8 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
 //import { SchoolInfoPage } from '../pages/school-info/school-info';
 import { ViewCalendarPage } from '../pages/view-calendar/view-calendar';
 import { ServiceAdminmessageProvider } from '../providers/service-adminmessage/service-adminmessage';
+import { DeleteTermPage } from '../pages/delete-term/delete-term';
+import { DeleteTestPage } from '../pages/delete-test/delete-test';
 
 
 @Component({
@@ -73,15 +75,15 @@ export class MyApp {
   .then(
     data => {this.userId= data.RegistrationId;
             this.pass=data.PASSWORD;
-            this.type=data.role;
+            this.type=data.role.toLowerCase();
 
             if(this.userId!=undefined){
-              if(this.type.toLowerCase()==='admin'){
+              if(this.type ==='admin'){
                   this.rootPage=AdminDashboardPage;
                   console.log(this.userId+' '+this.pass);
-              }else if(this.type.toLowerCase()==='student'){
+              }else if(this.type ==='student'){
                   this.rootPage=StudentdashboardPage;
-              }else if(this.type.toLowerCase()==='teacher'){
+              }else if(this.type ==='teacher'){
                   this.rootPage=TeacherdashboardPage;
               }
             }else{
@@ -109,34 +111,35 @@ export class MyApp {
     
     //initializing the student array elements for side menu
     this.Student_a=[
-      {title:'Home', icon:'home', component:StudentdashboardPage},
+      {title:'home', icon:'home', component:StudentdashboardPage},
      // {title:'School Info', icon:'contact', component:SchoolInfoPage},
-      {title:'Events', icon:'calendar',component:ViewCalendarPage},
-      {title:'Feedback', icon:'thumbs-up',component:StudentFeedbackPage},
+      {title:'events', icon:'calendar',component:ViewCalendarPage},
+      {title:'feedback', icon:'thumbs-up',component:StudentFeedbackPage},
       {title:'Quiz', icon:'list', component:StudentQuizPage},
-      {title:'Gallery',icon:'images',component:GalleryPage}
+      {title:'gallery',icon:'images',component:GalleryPage}
     ];
 
     //initializing the teacher array elements for side menu
     this.Teacher_a=[
-      {title:'Home', icon:'home',component:TeacherdashboardPage},
+      {title:'home', icon:'home',component:TeacherdashboardPage},
       {title:'Messages', icon:'text',component:TeacherSendMessagePage},
-      {title:'Announcements',icon:'megaphone',component:TeacherAnnouncementPage},
-      {title:'Feedback',icon:'thumbs-up',component:TeacherFeedbackPage},      
-      {title:'Gallery',icon:'images',component:GalleryPage},
-      {title:'Events', icon:'calendar',component:ViewCalendarPage}
+      {title:'announcements',icon:'megaphone',component:TeacherAnnouncementPage},
+      {title:'feedback',icon:'thumbs-up',component:TeacherFeedbackPage},      
+      {title:'gallery',icon:'images',component:GalleryPage},
+      {title:'events', icon:'calendar',component:ViewCalendarPage},
+      {title:'delete_test',icon:'book',component:DeleteTestPage}
     ];
     //initializing the Admin array elements for side menu
     this.Admin_a=[
-      {title:"Home",icon:"home",component:AdminDashboardPage},
-      {title:"Gallery",icon:"images",component:GalleryPage},
+      {title:"home",icon:"home",component:AdminDashboardPage},
+      {title:"gallery",icon:"images",component:GalleryPage},
       
     ];
 
     //initializing the common array elements for side menu
     this.help=[
-      {title:'About Us', icon:'mail',component:AboutUsPage},
-      {title:'Settings',icon:'settings',component:SettingPage}
+      {title:'about', icon:'mail',component:AboutUsPage},
+      {title:'settings',icon:'settings',component:SettingPage}
            
     ];
 

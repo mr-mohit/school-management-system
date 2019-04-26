@@ -1,26 +1,26 @@
 <ion-header>
   <ion-navbar color="header">
-    <ion-title>Attendence Info</ion-title>
+    <ion-title>{{'attendence' |translate}} Info</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
     <form>
         <ion-item>
-          <ion-label floating>Class</ion-label>
+          <ion-label floating>{{'class' |translate}}</ion-label>
            <ion-select  name="Class" [(ngModel)]="Class" (ionChange)="getSubject(Class)">
             <ion-option *ngFor="let i of GU?.classData"  value="{{i.CLASS_MASTER_ID}}" >{{i.CLASS}} {{i.SECTION}}</ion-option>
            </ion-select>
         </ion-item>
         <ion-item>
-            <ion-label floating>SUBJECT</ion-label>
+            <ion-label floating>{{'subject' |translate}}</ion-label>
              <ion-select  name="Subject" [(ngModel)]="Subject">
               <ion-option *ngFor="let i of GU?.attsubject"  value="{{i.SUBJECT_ID}}" >{{i.SUBJECT_ID}} {{i.SUBJECT_NAME}}</ion-option>
              </ion-select>
           </ion-item>
           <ion-item>
             <ion-label floating>
-              Time Slot
+              {{'time_slot' |translate}}
             </ion-label>
             <ion-select name="SLOT" [(ngModel)]="SLOT">
               <ion-option value="09_10">
@@ -45,20 +45,20 @@
           </ion-item>
       
           <ion-item >
-            <ion-label >Date </ion-label>
+            <ion-label >{{'date' |translate}} </ion-label>
             <ion-label > </ion-label>\
             <ion-label > </ion-label>
             <ion-label> {{myDate | date: 'dd-MM-yyyy'}}</ion-label>            
           </ion-item>
           <ion-item>
-            <ion-label>Time</ion-label>
+            <ion-label>{{'time' |translate}}</ion-label>
             <ion-label > </ion-label>
             <ion-label > </ion-label>
             <ion-label> {{mytime}}</ion-label>            </ion-item>
             <ion-label> </ion-label>
         <button ion-button color="header" on-click="Submit(SLOT,Class,Subject)"
             block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;">
-            Next
+            {{'next' |translate}}
         </button>
       <ion-label> </ion-label>
       <ion-label> </ion-label>

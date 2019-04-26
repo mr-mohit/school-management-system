@@ -58,6 +58,7 @@
     "cordova-sqlite-storage": "^3.1.0",
     "cordova-support-google-services": "^1.1.0",
     "ionic-angular": "3.9.3",
+    "ionic-img-viewer": "^2.9.0",
     "ionic3-calendar": "^1.1.6",
     "ionic3-calendar-en": "^1.1.3",
     "ionicons": "3.0.0",
