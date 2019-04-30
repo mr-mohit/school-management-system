@@ -2,12 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ServiceLoginProvider } from '../service-login/service-login';
 
-/*
-  Generated class for the ServiceUploadAttendenceProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class ServiceUploadAttendenceProvider {
   public URL=this.one.URL;
@@ -19,7 +13,6 @@ export class ServiceUploadAttendenceProvider {
   uploadAttFun(Attendence)
   {
     console.log("Attendence going to punched",Attendence);
-    // console.log("Details",Details);
     var url=this.URL+"uploadAttendence.php";
     return this.getSDC(url,Attendence);
   
@@ -33,6 +26,7 @@ export class ServiceUploadAttendenceProvider {
         {
           console.log(data);
           alert("Attendance Marked");
+          this.AMFun(Attendence);
           
         }
         else
@@ -79,5 +73,36 @@ export class ServiceUploadAttendenceProvider {
     });
   
   }
+
+
+
+  AMFun(details)
+  {
+    var url=this.URL+"AttendanceMaster.php";
+    return this.AM(url,details);
+  
+  }
+  AM(url,details)
+  {
+    return new Promise(resolve=>{
+      this.http.post(url,JSON.stringify(details)).subscribe(data=>{
+        if(data['statuscode']==1)
+        {
+          console.log("AM sucessful");
+          
+        }
+        else
+        {
+          console.log("AM error");
+        }        
+        
+        //  resolve(data);
+  
+      });
+    });
+  
+  }
+
+
   
 }
