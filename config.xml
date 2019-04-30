@@ -103,4 +103,5 @@
     </plugin>
     <plugin name="cordova-plugin-filechooser" spec="1.2.0" />
     <engine name="android" spec="7.1.4" />
+    <plugin name="com-sarriaroman-photoviewer" spec="1.2.1" />
 </widget>
