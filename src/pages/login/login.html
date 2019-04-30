@@ -21,7 +21,7 @@
               <ion-item class="user">
                   <ion-label floating>
                       <ion-icon ios="ios-contact" md="md-contact"  danger></ion-icon>
-                   Registration No
+                   User ID
                   </ion-label>
                   <!-- (keyup)="REG_NOCHECK($event)" -->
                   <ion-input type="tel" name="REG_NO" maxlength="8"  [(ngModel)]="REG_NO"  (keyup)="REG_NOCHECK($event)" >  
@@ -61,7 +61,9 @@
                Forgot Password ?
             </button>
         </div>
-      
+        <button ion-button  clear style="margin-left:0px;margin-top: -21px;" on-click="jump()">
+          JUMP
+       </button>
         
       </div>
      
