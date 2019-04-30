@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 import { MarkAttendancePage } from '../mark-attendance/mark-attendance';
 import { UpdateAttendancePage } from '../update-attendance/update-attendance';
+import * as moment from "moment"; 
 
 
 
@@ -14,7 +15,8 @@ import { UpdateAttendancePage } from '../update-attendance/update-attendance';
 export class AttendenceInfoPage {
   public classID:any;
   today = new Date();
-  myDate: String = new Date().toISOString();
+  // myDate= new Date().toISOString();
+  myDate = moment().format("YYYY-MM-DD");
   myHour  = this.today.getHours();
   myMin  =  this.today.getMinutes();
   mytime : string = this.myHour.toString()+':'+ this.myMin.toString(); 
@@ -31,7 +33,9 @@ export class AttendenceInfoPage {
   this.GU.getClassFun();
     
   // this.time=  new Date().toISOString();
-  console.log(this.mytime);
+  console.log("time",this.mytime);
+  console.log("date",this.myDate);
+  console.log("today",this.mytime);
 
   }
 
@@ -46,8 +50,8 @@ export class AttendenceInfoPage {
     if(DATE!=undefined && TIME!= undefined && SLOT!=undefined && Class!=undefined && Subject!=undefined)
     {
       this.navCtrl.push(MarkAttendancePage,{"date":DATE,"time":TIME,"slot":SLOT,"class":Class,"subject":Subject});
-      //this.GU.getSDCfun(this.classID);
       this.GU.getSDCFun(this.classID);
+      console.log(DATE);
     }
     else
     {
@@ -80,6 +84,7 @@ export class AttendenceInfoPage {
     this.navCtrl.push(UpdateAttendancePage,{"date":DATE,"slot":SLOT,"class":Class,"subject":Subject});
     this.GU.getSDCFun(this.classID);
     this.GU.getAttStatusFun(this.UP);
+    console.log(DATE);
 
     }
     else{
