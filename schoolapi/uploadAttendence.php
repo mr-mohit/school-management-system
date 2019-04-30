@@ -59,7 +59,8 @@ if($con)
 				$date=test_input($obj[$i]['date']);
 				$slot=test_input($obj[$i]['slot']);		
 				$term=test_input($obj[$i]['term']);
-				$sql = "INSERT INTO attendance(REG_NO, TERM_ID, CLASS_MASTER_ID, SUBJECT_ID, DATE, TIME, TIME_SLOT, STATUS) VALUES ('$reg','$term','$class','$subject','$date','$time','$slot','$statuss')";
+				$sql = "INSERT INTO attendance(REG_NO, TERM_ID, CLASS_MASTER_ID, SUBJECT_ID, DATE, TIME, TIME_SLOT, STATUS) VALUES 
+				('$reg','$term','$class','$subject','$date','$time','$slot','$statuss')";
 
 			mysqli_query($con,$sql);		 
 			$i++;	
