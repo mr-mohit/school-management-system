@@ -5,8 +5,8 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
-    <ion-title>DeleteTest</ion-title>
+  <ion-navbar color="header">
+    <ion-title>Delete Test</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -19,29 +19,31 @@
        </ion-select>
     </ion-item>
     <ion-item>
-        <ion-label floating>SUBJECT</ion-label>
+        <ion-label floating>Subject</ion-label>
          <ion-select  name="Subject" [(ngModel)]="Subject" (ionChange)="getTest(Subject)">
           <ion-option *ngFor="let i of GU?.attsubject"  value="{{i.SUBJECT_ID}}" >{{i.SUBJECT_ID}} {{i.SUBJECT_NAME}}</ion-option>
          </ion-select>
       </ion-item>
       <ion-item>
-        <ion-label floating>TEST TYPE</ion-label>
+        <ion-label floating>Test Type</ion-label>
          <ion-select  name="TEST_TYPE" [(ngModel)]="TEST_TYPE">
           <ion-option *ngFor="let i of GU?.ClassTest"  value="{{i.TEST_TYPE}}" >{{i.TEST_TYPE}}</ion-option>
          </ion-select>
       </ion-item>
       <ion-item>
-        <ion-label floating>TEST NAME</ion-label>
+        <ion-label floating>Test Name</ion-label>
          <ion-select  name="TEST_NAME" [(ngModel)]="TEST_NAME">
           <ion-option *ngFor="let i of GU?.ClassTest"  value="{{i.TEST_NAME}}" >{{i.TEST_NAME}}</ion-option>
          </ion-select>
       </ion-item>
       <ion-item>
-        <ion-label floating>DATE</ion-label>
+        <ion-label floating>Date</ion-label>
          <ion-select  name="DATE" [(ngModel)]="DATE">
           <ion-option *ngFor="let i of GU?.ClassTest"  value="{{i.DATE}}" >{{i.DATE}}</ion-option>
          </ion-select>
       </ion-item>
+
+      <ion-label>  <!-- For Space --></ion-label>
   
     <button ion-button color="header" on-click="deleteTest(Class,Subject,TEST_TYPE,TEST_NAME,DATE)"
         block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;">

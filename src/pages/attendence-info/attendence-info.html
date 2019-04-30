@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="header">
-    <ion-title>{{'attendence' |translate}} Info</ion-title>
+    <ion-title>{{'Attendence' |translate}} Info</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -65,24 +65,22 @@
       <ion-label> </ion-label>
       <ion-label> </ion-label>
       <ion-label> </ion-label>
-      <ion-label> </ion-label>
-      <ion-label> </ion-label>
-      <ion-label> </ion-label>
 
 
-      <ion-label  class="center" > FOR UPDATION PLEASE SELECT DATE ALSO </ion-label>
+
+      <ion-label  class="center" > {{'please_select_date' |translate}}</ion-label>
       <ion-item>
         <ion-label>
          <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
-         Date 
+         {{'date' |translate}} 
         </ion-label>
-        <ion-datetime name="DATE" displayFormat="DD MMM YYYY" placeholder="Date of Attendence " min="2019"  [(ngModel)]="DATE"></ion-datetime>
+        <ion-datetime name="DATE" displayFormat="DD MMM YYYY" placeholder="{{'Date_of_attendance' |translate}}" min="2019"  [(ngModel)]="DATE"></ion-datetime>
       </ion-item>
 
       <ion-label> </ion-label>
         <button ion-button color="header" on-click="Update(DATE,SLOT,Class,Subject)"
         block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;">
-        UPDATE
+        {{'update' |translate}}
     </button>
       </form>
 </ion-content>

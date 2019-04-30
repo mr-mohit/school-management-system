@@ -490,7 +490,6 @@ getFeedbackFun()
 }
 getFeedback(url)
 {
-  //console.log("service call",sessionData);
   return new Promise(resolve=>{
     this.http.post(url,JSON.stringify(" ")).subscribe(data=>{
       if(data['statuscode']==1)
