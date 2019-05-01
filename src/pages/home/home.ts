@@ -14,6 +14,8 @@ import { ServiceStudentMessageProvider } from '../../providers/service-student-m
 import { StudentHomeworkPage } from '../student-homework/student-homework';
 import { ServiceStudentHomeworkProvider } from '../../providers/service-student-homework/service-student-homework';
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
+import { StudentSyllabusPage } from '../student-syllabus/student-syllabus';
+import { ServiceAddsubjectProvider } from '../../providers/service-addsubject/service-addsubject';
 
 
 @Component({
@@ -27,7 +29,8 @@ export class HomePage {
   constructor(public navCtrl: NavController, public Menu: MenuController,public CRD:ServiceLoginProvider ,
     public result:ServiceStudentResultProvider,public UR:ServiceLoginProvider, 
     public SM:ServiceStudentMessageProvider, public SH:ServiceStudentHomeworkProvider,
-     public SA:ServiceGetClassMasterProvider
+     public SA:ServiceGetClassMasterProvider, public Sy:ServiceAddsubjectProvider,
+     public log:ServiceLoginProvider
     ) {
     this.Menu.enable(true);
   }
@@ -97,6 +100,13 @@ export class HomePage {
   gotoViewCalendar()
   {
     this.navCtrl.push(ViewCalendarPage);
+  }
+
+  gotoViewSyllabus()
+  {
+    this.Sy.postSyllFun(this.log.reg);
+
+    this.navCtrl.push(StudentSyllabusPage);
   }
    
 

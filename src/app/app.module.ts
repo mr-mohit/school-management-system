@@ -146,6 +146,7 @@ import { FileChooser } from '@ionic-native/file-chooser';
 import { FileOpener } from '@ionic-native/file-opener';
  
 import { IonicImageViewerModule } from 'ionic-img-viewer';
+import { StudentSyllabusPage } from '../pages/student-syllabus/student-syllabus';
 
  @NgModule({ 
   declarations: [
@@ -237,7 +238,8 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
     UpdateTestPage,
     UpdateAttendancePage,
     DeleteTestPage,
-    TeacherUploadHomeworkPage
+    TeacherUploadHomeworkPage,
+    StudentSyllabusPage
   ],
   imports: [
     BrowserModule,
@@ -344,7 +346,8 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
     UpdateTestPage,
     UpdateAttendancePage,
     DeleteTestPage,
-    TeacherUploadHomeworkPage
+    TeacherUploadHomeworkPage,
+    StudentSyllabusPage
   ],
   providers: [
     StatusBar,

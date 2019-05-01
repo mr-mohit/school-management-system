@@ -1,0 +1,32 @@
+<!--
+  Generated template for the StudentSyllabusPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Student_Syllabus</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding >
+      <ion-card>
+        <ion-card-header text-wrap *ngFor="let i of service?.subject">
+          <ion-icon  >  
+            <strong>{{i.SUBJECT_ID}}</strong>
+            </ion-icon>        
+        </ion-card-header>
+        <ion-card-content>
+          <ion-label text-wrap text-justify>
+              {{i.SUBJECT_NAME}}
+          </ion-label>
+         <ion-label text-wrap text-justify>
+              {{i.SUBJECT_MATERIAL}}
+          </ion-label>
+         
+        </ion-card-content>
+      </ion-card>
+
+
+</ion-content>
