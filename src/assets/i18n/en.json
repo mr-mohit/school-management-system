@@ -177,5 +177,12 @@
 	"gallery":"Gallery",
 	"delete_test":"Delete Test",
 	"logout":"LOGOUT",
-	"add_event":"Add Event"
+	"add_event":"Add Event",
+	"please_select_date":"FOR UPDATION PLEASE SELECT DATE ALSO",
+	"Date of attendance":"Date of attendance",
+	"start_time":"Start Time",
+	"end_time":"End Time",
+	"room_no":"Room No",
+	"error _while_processing":"error while processing",
+	"select_date":"Select Date"
 }

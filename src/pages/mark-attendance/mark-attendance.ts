@@ -18,17 +18,7 @@ export class MarkAttendancePage {
   public time:any;
   public date:any;
   public slot:any;
-  public details:any={
-
-    "REG_NO":"",
-    "class":"",
-    "subject":"",
-    "date":"",
-    "time":"",
-    "slot":"",
-    "status":""
-  };
-
+  
   public infos : any =
   {
     'attendance': '',
@@ -39,6 +29,13 @@ export class MarkAttendancePage {
   public AA:any=[];
  
 
+   public  AM:any={
+    "class":"",
+    "subject":"",
+    "term":""
+  };
+
+
   constructor(public navCtrl: NavController, public navParams: NavParams,public GU:ServiceGetClassMasterProvider,
     public Upload:ServiceUploadAttendenceProvider,public alertCtrl:AlertController,public toastController:ToastController) {
       
@@ -46,7 +43,11 @@ export class MarkAttendancePage {
       this.GU.subject=this.navParams.get('subject');
       this.GU.date=this.navParams.get('date');
       this.GU.time=this.navParams.get('time');      
-      this.GU.slot=this.navParams.get('slot');    
+      this.GU.slot=this.navParams.get('slot'); 
+      
+      console.log()
+
+
       this.AA=this.GU.attendence;
       console.log(this.AA,'array aa gya');
         
@@ -82,11 +83,11 @@ export class MarkAttendancePage {
     if(status!=undefined)
     {
         this.GU.attendence[index].status = status;
-        this.GU.attendence[index].class = this.details['class'];
-        this.GU.attendence[index].subject = this.details['subject'];
-        this.GU.attendence[index].date = this.details['date'];
-        this.details['time'];      
-        this.details['slot']=this.navParams.get('slot'); 
+        this.GU.attendence[index].class = details['class'];
+        this.GU.attendence[index].subject =details['subject'];
+        this.GU.attendence[index].date = details['date'];
+        details['time']=this.navParams.get('time');      
+        details['slot']=this.navParams.get('slot'); 
         console.log("Attendance",this.GU.attendence);
     
       
@@ -115,7 +116,14 @@ export class MarkAttendancePage {
          text: 'Okay',
          handler: () => {
                           this.Upload.uploadAttFun(this.AA);
+
+                          this.AM['class']=this.GU.class;
+                          this.AM['subject']=this.GU.subject;
+                          this.AM['term']=this.GU.term;
+
+                          // this.Upload.AMFun(this.AA);
                           this.navCtrl.pop();
+                          // console.log("details are ",this.AM);
                         }
         }
       ]

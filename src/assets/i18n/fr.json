@@ -176,5 +176,12 @@
 	"gallery":"Galerie Photos",
 	"delete_test":"Supprimer Test",
 	"logout":"DÉCONNEXION",
-	"add_event":"Ajouter Événement"
+	"add_event":"Ajouter Événement",
+	"please_select_date":"POUR LA MISE À JOUR VEUILLEZ SÉLECTIONNER LA DATE",
+	"Date_of_attendance":"Date de présence",
+	"start_time":"Heure de début",
+	"end_time":"Heure De Fin",
+	"room_no":"Numéro de chambre",
+	"error_while_processing":"erreur lors du traitement de",
+	"select_date":"Sélectionner une date"
 }
