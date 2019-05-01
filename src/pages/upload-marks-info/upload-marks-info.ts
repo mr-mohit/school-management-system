@@ -15,6 +15,8 @@ export class UploadMarksInfoPage {
    public CID:any;
    public SID:any;
    public TID:any;
+   public CLASS:any;
+   public SUBJECT:any;
    public CTD={
      "CID":"",
      "SID":""
@@ -32,16 +34,19 @@ export class UploadMarksInfoPage {
     public RD:ServiceGetResultDataProvider) {
   }
 
-  getSubject(CID)
+
+  getSubject()
   {
-    this.CID=CID;
+    this.CID=this.CLASS;
+    this.SID="";
+    this.TID="";
     //console.log(this.postId['classId']);
-    this.GU.getAttSubjectFun(CID);
+    this.GU.getAttSubjectFun(this.CID);
   }
 
-  getTest(SUBJECT)
+  getTest()
   {    
-    this.SID=SUBJECT;
+    this.SID=this.SUBJECT;
     this.CTD['CID']= this.CID;
     this.CTD['SID']=this.SID;
     console.log("test id's",this.CTD);
