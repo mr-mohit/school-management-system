@@ -169,10 +169,7 @@ togglePassword()
   }
 }
 
-jump()
-{
-  this.navCtrl.push(AdminDashboardPage);
-}
+
 
 }
 

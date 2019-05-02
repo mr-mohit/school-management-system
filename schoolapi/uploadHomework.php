@@ -28,18 +28,22 @@ if($con)
         $postdata=file_get_contents("php://input");
         $obj=json_decode($postdata,true);
 	    
-		    $reg=test_input($obj['REG_NO']);
+		    $reg=test_input($obj['teacherID']);
 			$cid=test_input($obj['class']);  
             $sid=test_input($obj['subject']);
-            $dt=test_input($obj['date']);			
-            $tt=test_input($obj['time']);
-			$file ="http://localhost/schoolapi/image_uploads/".test_input($obj['userpic']);			
+            $title=test_input($obj['title']);
+			$dt =  date("Y/m/d");
+            $tt=  date("h:i:sa");;
+			$file ="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/image_uploads/".test_input($obj['file']);			
 			$sqll = "SELECT * from homework where
-			  REG_NO='$reg' and CLASS_MASTER_ID='$cid', and SUBJECT_ID='$sid' and FILE='$file' ";
+			  REG_NO='$reg' and CLASS_MASTER_ID='$cid' and SUBJECT_ID='$sid' and FILE='$file' ";
 			$query=mysqli_query($con,$sqll);	
 				$count = mysqli_num_rows($query);				 
 		         if ($count == 0) {					 
 			         $temp=1;
+					  // $response['message'] = "Error during the insertion process";
+					  // $response['statuscode']=1;
+					  // echo json_encode($response); 
                     }
 					else
 					{
@@ -52,12 +56,13 @@ if($con)
 		if($temp==1)
 		{
 			
-		  $sql = "INSERT INTO homework(REG_NO,CLASS_MASTER_ID, SUBJECT_ID, FILE, DATE, TIME) 
-		           VALUES ('$reg','$class','$subject','$file','$date','$time')";
+		  $sql = "INSERT INTO homework(CLASS_MASTER_ID,SUBJECT_ID,TITLE,REG_NO,FILE,DATE,TIME) 
+		           VALUES ('$cid','$sid','$title','$reg','$file','$dt','$tt')";
 
 			if(mysqli_query($con,$sql))
 			{
 				$response['statuscode']=1;
+				$response['message'] = "Homeword Uploaded sucessfully";
 				echo json_encode($response); 
 			}				
 			else
@@ -69,8 +74,7 @@ if($con)
 			 
 		}
 	  
-		  
-	   
+		 
 	   
 	}
 	else

@@ -29,7 +29,7 @@
          <ion-label style="padding-left:2vw;color:white;">Attendance</ion-label>
        </ion-col>
        <ion-col col-4>
-         <ion-card class="bkgcolor"  no-margin >
+         <ion-card class="bkgcolor"  no-margin on-click="gotoStudentHomework()">
           <p> <ion-icon name="book" style="margin-left:27%; margin-top:20%;color:white; font-size:400%"></ion-icon></p>
             
          </ion-card>
@@ -47,7 +47,7 @@
         <ion-row no-padding>
         
           <ion-col col-4 >
-         <ion-card class="bkgcolor"  no-margin >
+         <ion-card class="bkgcolor" no-margin on-click="gotoStudentMessages()" >
            <p> <ion-icon name="text" style="margin-left:27%;color:white; margin-top:20%; font-size:400%"></ion-icon></p>
 
          </ion-card>
@@ -78,17 +78,15 @@
          <ion-label style="padding-left:7vw;color:white;">Results</ion-label>
        </ion-col>
        <ion-col col-4>
-         <ion-card class="bkgcolor"  no-margin>
+         <ion-card class="bkgcolor"  no-margin on-click="gotoViewSyllabus()">
            <p> <ion-icon name="logo-buffer" style="margin-left:27%;color:white; margin-top:20%; font-size:400%"></ion-icon></p>
-
          </ion-card>
          <ion-label style="padding-left:5vw;color:white;">Syllabus</ion-label>
        </ion-col>
-       <ion-col col-4>
-         <ion-card class="bkgcolor"  no-margin on-click="gotoViewCalendar()">
-       
-           <p> <ion-icon name="calendar" style="margin-left:27%;color:white; margin-top:20%; font-size:400%"></ion-icon></p>
 
+       <ion-col col-4>
+         <ion-card class="bkgcolor"  no-margin on-click="gotoViewCalendar()">       
+           <p> <ion-icon name="calendar" style="margin-left:27%;color:white; margin-top:20%; font-size:400%"></ion-icon></p>
          </ion-card>
          <ion-label style="padding-left:4vw;color:white;">Calendar</ion-label>
        </ion-col>

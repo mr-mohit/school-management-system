@@ -100,9 +100,9 @@ export class AddUsersPage {
     // this slide is used to enter infos address of the user
     this.slideThreeForm = formBuilder.group({
         addressType: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z]*')])],
-        address1: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z ]*')])],
-        address2: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z ]*')])],
-        state: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z]*')])],
+        address1: ['', Validators.compose([Validators.maxLength(100),Validators.required])],
+        address2: ['', Validators.compose([Validators.maxLength(100),Validators.required])],
+        state: ['', Validators.compose([Validators.maxLength(100),Validators.required, Validators.pattern('[a-zA-Z]*')])],
         pincode: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('(?=.*[0-9]).{6}')])],
         contact: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('(?=.*[0-9]).{8,15}')])]  
     });
