@@ -26,10 +26,13 @@ getRD(url,TID)
     this.http.post(url,JSON.stringify(TID)).subscribe(data=>{
       if(data['statuscode']==1)
       {
-        this.RData=data['data'][0];
+        // this.RData=data['data'][0];
+        this.RData=data['data'];
         console.log("test data is",this.RData);
-        this.TermID=this.RData.TERM_ID
-        console.log("term is coming",this.TermID);
+        // alert("Marks Uploaded");
+        // this.TermID=this.RData;
+        // this.TermID=this.RData.TERM_ID;
+        // console.log("term is coming",this.TermID);
       }
       else
       {

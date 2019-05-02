@@ -6,21 +6,21 @@
 -->
 <ion-header>
   <ion-navbar color="header">
-    <ion-title>Update TimeTable</ion-title>
+    <ion-title>{{'update_timetable' |translate}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
   <ion-item>
-     <ion-label floating>Select Class and Section</ion-label>
+     <ion-label floating>{{'select_class' |translate}} {{'and' |translate}} Section</ion-label>
       <ion-select  name="CLASSID" [(ngModel)]="CLASSID" (ionChange)="getSubject(CLASSID)" >
        <ion-option *ngFor="let i of service?.classData"  value="{{i.CLASS_MASTER_ID}}">Class: {{i.CLASS}} Section : {{i.SECTION}}</ion-option>
       </ion-select>
  </ion-item>
 
  <ion-item>
-     <ion-label floating>Select Day</ion-label>
+     <ion-label floating>{{'select_day' |translate}}</ion-label>
      <ion-select  name="Day" [(ngModel)]="Day" (ionChange)="getCurrentTimeTable(Day)">
          <ion-option *ngFor="let i of Days">{{i.Day}}</ion-option>
         </ion-select>
@@ -30,7 +30,7 @@
    <ion-item>
        <ion-label floating>
            <ion-icon ios="ios-book" md="md-book"></ion-icon>
-           Select Subject
+           {{'select_subject' |translate}}
          </ion-label> 
    
         <ion-select  name="SUBJECTID" [(ngModel)]="SUBJECTID">
@@ -42,7 +42,7 @@
      <ion-item>
          <ion-label floating>
              <ion-icon ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>
-           Time Slot
+           {{'time_slot' |translate}}
          </ion-label>
          <ion-select  name="SLOT" [(ngModel)]="SLOT">
              <ion-option *ngFor="let i of service?.timeview">{{i.TIME_SLOT}}</ion-option>
@@ -56,7 +56,7 @@
  <button id="DeleteTimeTable" on-click="UpdateTimeTable()" 
  ion-button color="header" 
  block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;">
-     Update
+     {{'update' |translate}}
  </button>
 
  <ion-label>
@@ -74,13 +74,13 @@
             <div>Code</div>
           </ion-col>
           <ion-col>
-            <div>Name</div>
+            <div>{{'name' |translate}}</div>
           </ion-col>
           <ion-col>
-             <div>Time</div>
+             <div>{{'time' |translate}}</div>
           </ion-col>
           <ion-col>
-            <div>Day</div>
+            <div>{{'day' |translate}}</div>
           </ion-col>
         </ion-row>
         

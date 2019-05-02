@@ -91,11 +91,11 @@ export class MarkAttendancePage {
         console.log("Attendance",this.GU.attendence);
     
       
-      details['status']="P";
+      details['status']="A";
 
     }
     else{
-      details['status']="A";
+      details['status']="P";
     }
     this.AA[index] = details;
     console.log("Attendence wala copy",this.AA);
