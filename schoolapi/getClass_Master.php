@@ -25,7 +25,7 @@ if($con){
 				}
 
 			//echo"Connection Sucessfull";
-             $sql="SELECT * FROM CLASS_MASTER WHERE IS_ACTIVE=1";
+             $sql="SELECT DISTINCT CLASS_MASTER_ID,CLASS FROM class_master WHERE IS_ACTIVE=1  ";
              $query = mysqli_query($con,$sql);
 		         $count = mysqli_num_rows($query);
 				 

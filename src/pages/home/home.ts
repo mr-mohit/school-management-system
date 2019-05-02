@@ -9,7 +9,13 @@ import { ViewCalendarPage } from '../view-calendar/view-calendar';
 import { ResultPage } from '../result/result';
 import { ServiceLoginProvider } from '../../providers/service-login/service-login';
 import { ServiceStudentResultProvider } from '../../providers/service-student-result/service-student-result';
+import { StudentMessagePage } from '../student-message/student-message';
+import { ServiceStudentMessageProvider } from '../../providers/service-student-message/service-student-message';
+import { StudentHomeworkPage } from '../student-homework/student-homework';
+import { ServiceStudentHomeworkProvider } from '../../providers/service-student-homework/service-student-homework';
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
+import { StudentSyllabusPage } from '../student-syllabus/student-syllabus';
+import { ServiceAddsubjectProvider } from '../../providers/service-addsubject/service-addsubject';
 
 
 @Component({
@@ -21,7 +27,10 @@ export class HomePage {
   public Reg:any;
 
   constructor(public navCtrl: NavController, public Menu: MenuController,public CRD:ServiceLoginProvider ,
-    public result:ServiceStudentResultProvider,public UR:ServiceLoginProvider,public SA:ServiceGetClassMasterProvider
+    public result:ServiceStudentResultProvider,public UR:ServiceLoginProvider, 
+    public SM:ServiceStudentMessageProvider, public SH:ServiceStudentHomeworkProvider,
+     public SA:ServiceGetClassMasterProvider, public Sy:ServiceAddsubjectProvider,
+     public log:ServiceLoginProvider
     ) {
     this.Menu.enable(true);
   }
@@ -37,7 +46,36 @@ export class HomePage {
   {
     this.navCtrl.push(TeacherAnnouncementPage);
   }
-  
+  //get messages
+  gotoStudentMessages()
+  {
+    this.SM.getData(this.UR.reg).then(data=>{
+
+      if(data['statuscode'] == 1)
+      {
+        this.navCtrl.push(StudentMessagePage);
+     
+      }
+
+    }); //get message data according to the user 
+   
+
+  }
+  // fetch available Homework
+  gotoStudentHomework()
+  {
+
+      this.SH.getClassHomeWork(this.UR.reg).then(data=>{
+
+        if(data['statuscode'] == 1)
+        {
+          this.navCtrl.push(StudentHomeworkPage);
+      
+        }
+      });
+      //this.navCtrl.push(StudentHomeworkPage);
+  }
+  //
   gotoStudentTimeTable()
   {
     this.navCtrl.push(StudentTimeTablePage);
@@ -62,6 +100,13 @@ export class HomePage {
   gotoViewCalendar()
   {
     this.navCtrl.push(ViewCalendarPage);
+  }
+
+  gotoViewSyllabus()
+  {
+    this.Sy.postSyllFun(this.log.reg);
+
+    this.navCtrl.push(StudentSyllabusPage);
   }
    
 

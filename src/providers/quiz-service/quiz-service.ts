@@ -17,7 +17,7 @@ export class QuizServiceProvider {
   public answer; // answer got from the API
   public score = 0; // total score
   public quiz_status = 1; // check if the quiz has already attempted by the user or nor
- 
+  public size :any;
 
 
 
@@ -26,42 +26,76 @@ export class QuizServiceProvider {
   }
 
 
-  getnext()
+  getnext(data)
   { 
+    console.log(data);
      this.index = 0; //idex initial when we start the quiz
      this.score = 0 ; // initialized the score
+    var url = this.URL+"quiz.php"; 
     return new Promise(resolve=>{
-      this.http.get(this.URL).subscribe(data=>{
-        this.recdata=data;
+      this.http.post(url,JSON.stringify(data)).subscribe(data=>{
+        console.log("passing data",data);
         if(data['statuscode'] == 1)
-         {
+        {
+          this.recdata =data['data'];
           console.log(this.recdata);
 
-          this.question = this.recdata.data[0].ques;
-          this.option1 = this.recdata.data[0].option1;
-          this.option2 = this.recdata.data[0].option2;
-          this.option3 = this.recdata.data[0].option3;
-          this.option4 = this.recdata.data[0].option4;
-          this.answer = this.recdata.data[0].ans;
+          this.question = this.recdata[this.index].QUESTION;
+          this.option1 = this.recdata[this.index].OPTION1;
+          this.option2 = this.recdata[this.index].OPTION2;
+          this.option3 = this.recdata[this.index].OPTION3;
+          this.option4 = this.recdata[this.index].OPTION4;
+          this.answer = this.recdata[this.index].ANSWER;
+          this.size = this.recdata.length;
+          console.log(this.size);
+          
+        }
+             
+         resolve(data);
 
-            resolve(data);
-         }
-         
       },error=>{
-                alert("error while processing");
-      })
+        console.log("Error",error);
+      });
+    });
+
+
+
+  //   return new Promise(resolve=>{
+  //     this.http.post(url,JSON.stringify("30191001")).subscribe(data=>{
+  //       this.recdata=data;
+  //       if(data['statuscode'] == 1)
+  //        {
+  //         console.log(this.recdata);
+
+  //           // this.question = this.recdata.data[0].ques;
+  //           // this.option1 = this.recdata.data[0].option1;
+  //           // this.option2 = this.recdata.data[0].option2;
+  //           // this.option3 = this.recdata.data[0].option3;
+  //           // this.option4 = this.recdata.data[0].option4;
+  //           // this.answer = this.recdata.data[0].ans;
+  //           // this.size = this.recdata.data[0].length;
+  //           // console.log(this.size);
+            
+  //        }
+  //        resolve(data);
+         
+  //     },error=>{
+  //       console.log(error);
+  //       alert("error while processing");
+  //     })
     
-   }); 
+  //  }); 
   }
 
    getquestion(i)
   {
-    this.question = this.recdata.data[i].ques;
-    this.option1 = this.recdata.data[i].option1;
-    this.option2 = this.recdata.data[i].option2;
-    this.option3 = this.recdata.data[i].option3;
-    this.option4 = this.recdata.data[i].option4;
-    this.answer = this.recdata.data[i].ans;
+    this.question = this.recdata[this.index].QUESTION;
+    this.option1 = this.recdata[this.index].OPTION1;
+    this.option2 = this.recdata[this.index].OPTION2;
+    this.option3 = this.recdata[this.index].OPTION3;
+    this.option4 = this.recdata[this.index].OPTION4;
+    this.answer = this.recdata[this.index].ANSWER;
+         
   }
 
 

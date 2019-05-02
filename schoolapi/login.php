@@ -27,6 +27,7 @@ if($con){
 			//echo"Connection Sucessfull";
              $postdata=file_get_contents("php://input");
 	         $obj=json_decode($postdata);
+			 
 	         $regNo=test_input($obj->{'REG_NO'});
 	         $password=test_input($obj->{'PASSWORD'});
              $sql="SELECT * FROM user WHERE REG_NO='$regNo' and PASSWORD='$password'";
@@ -35,18 +36,17 @@ if($con){
 				 
 		         if ($count == 0) {
 					 
-			         result(0,"Invalid REG_NO or Password");  
+			         result(0,"Invalid username or Password");  
                     }
 		          else{ 
-					     
-					   $query="SELECT * FROM user WHERE REG_NO='$regNo'";
-					   $result = mysqli_query($con,$query);
-                       while($row=mysqli_fetch_assoc($result)){						   
+
+                       while($row=mysqli_fetch_assoc($query)){						   
                        $data[]=$row;
 						
 						//print_r($data);
 					   }
-						 //$temp=$data[0]['USER_ID'];
+						 $temp=$data[0]['REG_NO'];
+						 
 						 $query1="SELECT * FROM user_address WHERE REG_NO='$regNo'";
 					     $result = mysqli_query($con,$query1);
                          while($row=mysqli_fetch_assoc($result)){						   
@@ -61,9 +61,8 @@ if($con){
 					   $response['address']=$data1;
 				       $response['statuscode']=1;
 				       echo json_encode($response);
-					
-					   
-					   }
+							   
+					}
 					   
     }
     }else{

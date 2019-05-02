@@ -22,7 +22,7 @@ export class StudentdashboardPage {
 
 
   tab1Root: any = HomePage;
-tab2Root: any = StudentProfilePage;
+  tab2Root: any = StudentProfilePage;
   tab3Root: any = SettingPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public Menu: MenuController ) {
