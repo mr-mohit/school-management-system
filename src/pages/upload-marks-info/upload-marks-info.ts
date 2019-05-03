@@ -17,6 +17,7 @@ export class UploadMarksInfoPage {
    public TID:any;
    public CLASS:any;
    public SUBJECT:any;
+   public TEST:any;
    public CTD={
      "CID":"",
      "SID":""
@@ -100,5 +101,16 @@ ReData(TEST)
   this.RD.getRDFun(TEST);
   
 }
+
+reset(){
+this.SUBJECT=null;
+this.TEST=null;
+
+}
+reset_two(){
+  this.SUBJECT=null;
+  this.TEST=null;
+  
+  }
 
 }

@@ -11,7 +11,7 @@
           <ion-icon ios="ios-people" md="md-people"></ion-icon>
         {{'class' |translate}}
       </ion-label>
-       <ion-select  name="CLASS" [(ngModel)]="CLASS" (ionChange)="getSubject()">
+       <ion-select  name="CLASS" [(ngModel)]="CLASS" on-click="reset()" (ionChange)="getSubject()">
         <ion-option *ngFor="let i of GU?.classData"  value="{{i.CLASS_MASTER_ID}}" >{{i.CLASS}} {{i.SECTION}}</ion-option>
        </ion-select>
     </ion-item>
@@ -20,7 +20,7 @@
             <ion-icon ios="ios-book" md="md-book"></ion-icon>
           {{'subject' |translate}}
         </ion-label>
-         <ion-select  name="SUBJECT" [(ngModel)]="SUBJECT"  (ionChange)="getTest()">
+         <ion-select  name="SUBJECT" [(ngModel)]="SUBJECT"  on-click="reset_two()" (ionChange)="getTest()">
           <ion-option *ngFor="let i of GU?.attsubject"  value="{{i.SUBJECT_ID}}" >{{i.SUBJECT_ID}} {{i.SUBJECT_NAME}}</ion-option>
          </ion-select>
       </ion-item>

@@ -12,6 +12,8 @@ import { UploadMarksInfoPage } from '../upload-marks-info/upload-marks-info';
 import { ViewStudentsPage } from '../view-students/view-students';
 import { ServiceLoginProvider } from '../../providers/service-login/service-login';
 import { AddEventPage } from '../add-event/add-event';
+import { ServiceCalculateResultProvider } from '../../providers/service-calculate-result/service-calculate-result';
+import { GetEventProvider } from '../../providers/get-event/get-event';
 
 @IonicPage()
 @Component({
@@ -22,7 +24,7 @@ export class TeacherHomePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public Menu: MenuController,
     public GU:ServiceGetClassMasterProvider,public GCM:ServiceGetClassMasterProvider,public alertCtrl:AlertController,
-    public ad:ServiceLoginProvider) {
+    public ad:ServiceLoginProvider, public GE:GetEventProvider) {
     this.Menu.enable(true);
    
     
@@ -48,6 +50,7 @@ export class TeacherHomePage {
   gotoCalendar()
   {
     this.navCtrl.push(ViewCalendarPage);
+    this.GE.getEventsFun();
   }
   uploadHW()
   {

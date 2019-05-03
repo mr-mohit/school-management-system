@@ -33,6 +33,7 @@ public REG:any;
 
   FR()
   {
+    console.log("student is",this.REG);
     this.navCtrl.push(StudentResultPage,{"data":this.REG});
     this.CR.CalFun(this.REG);
   }

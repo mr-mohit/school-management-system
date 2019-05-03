@@ -142,7 +142,24 @@ export class CreateTestPage {
     this.cid.getAttSubjectFun(CLASS);
   }
 
+  reset(){
+    
+    this.TERM=null;
+    this.SUBJECT=null;
+    this.TYPE=null;
 
+  }
+  reset_two(){
+    
+    this.SUBJECT=null;
+    this.TYPE=null;
+
+  }
+  reset_three(){
+    
+    this.TYPE=null;
+
+  }
 
 
 }

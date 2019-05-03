@@ -26,9 +26,9 @@ if($con)
 				}
 				$postdata=file_get_contents("php://input");
 				$obj=json_decode($postdata,true);
-				$reg=test_input($obj);   
-
-				$sql="SELECT user.*, user_address.* FROM user JOIN user_address ON user.REG_NO = user_address.REG_NO WHERE user.REG_NO=$reg	";
+				                
+                $sql="SELECT YEAR(EVENT_DATE),MONTH(EVENT_DATE),DAY(EVENT_DATE) from event";
+				
 				$result=mysqli_query($con,$sql);
 				$count = mysqli_num_rows($result);
 				 
@@ -38,9 +38,14 @@ if($con)
                     }
 		          else{ 				     
 					   
-								while($row=mysqli_fetch_assoc($result)){						   
-								$data[]=$row;						
+					   $i=0;
+								while($row=mysqli_fetch_assoc($result)){											
+								$data[$i]['year']=intval($row['YEAR(EVENT_DATE)']);
+								$data[$i]['month']=intval($row['MONTH(EVENT_DATE)']);
+								$data[$i]['day']=intval($row['DAY(EVENT_DATE)']);
+								$i++;
 								}
+								 // print_r($data);
 								
 								$response['data']=$data;
 								$response['statuscode']=1;
