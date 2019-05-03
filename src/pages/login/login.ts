@@ -169,6 +169,5 @@ togglePassword()
   }
 }
 
-
 }
 

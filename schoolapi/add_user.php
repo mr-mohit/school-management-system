@@ -126,6 +126,10 @@ if($con){
 								result(0," teacher not created ");
 							}
 						}
+						else
+						{
+							result(1,"admin has been created successfully");
+						}
 					}
 					else
 					{

@@ -20,7 +20,7 @@
 
 <ion-content padding>
 
-  <ion-list radio-group *ngIf="service.index < service.recdata.length" [(ngModel)]="useransw">
+  <ion-list radio-group *ngIf="service.index < service.size" [(ngModel)]="useransw">
 
        <ion-item>
       
@@ -28,41 +28,42 @@
       
       </ion-item>
       <ion-item>
-        <ion-label>{{service.option1}}</ion-label>
+        <ion-label text-wrap>{{service.option1}}</ion-label>
         <ion-radio  value="{{service.option1}}" checked></ion-radio>
       </ion-item>
       <ion-item>
-        <ion-label>{{service.option2}}</ion-label>
+        <ion-label text-wrap>{{service.option2}}</ion-label>
         <ion-radio value="{{service.option2}}" checked></ion-radio>
       </ion-item>
       <ion-item>
-        <ion-label>{{service.option3}}</ion-label>
+        <ion-label text-wrap>{{service.option3}}</ion-label>
         <ion-radio value="{{service.option3}}" checked></ion-radio>
       </ion-item>
        <ion-item>
-        <ion-label>{{service.option4}}</ion-label>
+        <ion-label text-wrap>{{service.option4}}</ion-label>
         <ion-radio value="{{service.option4}}" checked></ion-radio>
       </ion-item>
 </ion-list>
   
-  <div *ngIf="service.index < 4">
+  <div *ngIf="service.index < service.size">
        <br><br><br>
-       <strong> <label style="font-size:130%"> Your choice is :->   {{useransw}} </label> </strong> <br> <br>
+       <strong> <label style="font-size:130%" text-wrap> Your choice is :->   {{useransw}} </label> </strong> <br> <br>
        <label>  press next button , to validate your choice </label>
   </div>
-   <button *ngIf="service.index < 4" full menuClose ion-button (click)="next()"> 
+   <button *ngIf="service.index < service.size" full menuClose ion-button (click)="next()"> 
       <ion-icon name="next"></ion-icon>&nbsp;
        Next      
     </button>
 
 
-    <div *ngIf="service.index >=4"style="padding:20%">
-         <label> Your Score is :  </label> <br><br><br>
-          <label  style="margin-top:10%; font-size:130%">   {{service.score}}  / {{service.recdata.length}} </label> 
-          <!-- <label style="margin-top:10%; font-size:70%"> Correct Answer : </label>
+    <div *ngIf="service.index >= service.size   "style="margin-top:20%">
+         <label text-wrap> Your Score is :  </label> <br><br><br>
+          <label  style="margin-top:10%; font-size:130%" text-wrap>   {{service.score}}  / {{service.recdata.length}} </label> 
+          <br> <br>
+          <label style="margin-top:10%; color:red; font-size:210%"> Correction : </label> <br> <br>
           <div *ngFor ="let item of service.recdata">
-                <label style="margin:10%">   {{item.ques}}  - >>> </label> 
-               <label style="margin-top:10%"> {{item.ans}}  </label>
-          </div> -->
+                <label style="margin:10%">   {{item.QUESTION}}  - >>> </label> 
+               <label style="margin-top:10%; bacground-color:red"> {{item.ANSWER}}  </label>
+          </div>
     </div> 
 </ion-content>

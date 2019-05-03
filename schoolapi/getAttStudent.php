@@ -30,8 +30,10 @@ if($con){
 
 
 			//echo"Connection Sucessfull";
-             $sql="select user.FIRST_NAME,user.LAST_NAME, student_class_reg.REG_NO from student_class_reg inner join user on student_class_reg.REG_NO=user.REG_NO and student_class_reg.CLASS_MASTER_ID='$id'";
-             $query = mysqli_query($con,$sql);
+             $sql="select user.*, student_class_reg.CLASS_MASTER_ID from student_class_reg inner join user 
+					on student_class_reg.REG_NO=user.REG_NO and student_class_reg.CLASS_MASTER_ID='$id'";
+             //$sql="SELECT * FROM subject WHERE SUBJECT_ID in (SELECT SUBJECT_ID from class_reg WHERE CLASS_MASTER_ID='$id' AND IS_ACTIVE=1)";
+			 $query = mysqli_query($con,$sql);
 		         $count = mysqli_num_rows($query);
 				 
 		         if ($count == 0) {
@@ -39,23 +41,62 @@ if($con){
 			         result(0,"User Table is Empty.");  
                     }
 		          else{ 
-					     
-					   
-								while($row=mysqli_fetch_assoc($query)){						   
-								$data[]=$row;						
-								}
-								//print_r($data);
-						$response['data']=$data;
-						$response['statuscode']=1;
-						echo json_encode($response);
+					    
+						while($row=mysqli_fetch_assoc($query))
+						{						   
+							$data[]=$row;						
+						}
+						
+						 $role = $data[0]['ROLE'];
+						 $regNo = $data[0]['REG_NO'];
+						 // get address infos from address table
+						 $query1="SELECT * FROM user_address WHERE REG_NO='$regNo'";
+					     $result = mysqli_query($con,$query1);
+                         while($row=mysqli_fetch_assoc($result))
+						 {						   
+                           $data1[]=$row;
+						 }
+						 // end of getting address infos from user_address table
+						 //if the user is student 
+						 
+						 if($role == 'student')
+						 {
+							 ////////////////// class name and section
+							 $query = "SELECT class_master.CLASS, class_master.SECTION, student_class_reg.CLASS_MASTER_ID
+										from student_class_reg INNER JOIN class_master ON 
+									    class_master.CLASS_MASTER_ID = student_class_reg.CLASS_MASTER_ID AND REG_NO='$regNo' ";
+										
+							 $result = mysqli_query($con,$query);
+							 while($row=mysqli_fetch_assoc($result))
+							 {						   
+							   $class[] = $row;
+							 }
+							 $response['class'] = $class ; // send the class_name and section to the front-end
+							 
+							 // get the session 
+								 $query = "select user.FIRST_NAME,user.LAST_NAME, student_class_reg.REG_NO from 
+								 student_class_reg inner join user on student_class_reg.REG_NO=user.REG_NO and 
+								 student_class_reg.CLASS_MASTER_ID='$id' WHERE student_class_reg.IS_ACTIVE=1";
+								 $result = mysqli_query($con,$query);
+							 while($row=mysqli_fetch_assoc($result))
+							 {						   
+							   $session[] = $row;
+							 }
+							 $response['session'] = $session ; // send the session starting  and ending date to the front-end	 
+						 }
+						 		
+								
+															
+						 mysqli_close($con);
+				         $response['data']=$data; // basics user infos
+					     $response['address']=$data1; //user address
+						 $response['statuscode']=1;
+						 echo json_encode($response);
                      }
 					 
                        
-				       
-					
-					   
-					   
-					   
+						   
+					   				   
     }
     }
 	else{
