@@ -138,6 +138,7 @@ import { ServiceDeleteTestProvider } from '../providers/service-delete-test/serv
 import { ServiceGetResultDataProvider } from '../providers/service-get-result-data/service-get-result-data';
 import { ServiceCalculateResultProvider } from '../providers/service-calculate-result/service-calculate-result';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
+import { GetEventProvider } from '../providers/get-event/get-event';
 
  @NgModule({ 
   declarations: [
@@ -393,6 +394,7 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
     ServiceGetResultDataProvider,
     ServiceCalculateResultProvider,
     ServiceDeleteAndUpdateTimeTableProvider,
+    GetEventProvider,
   ]
 })
 export class AppModule {}

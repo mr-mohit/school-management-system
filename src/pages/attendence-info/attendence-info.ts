@@ -20,6 +20,8 @@ export class AttendenceInfoPage {
   myHour  = this.today.getHours();
   myMin  =  this.today.getMinutes();
   mytime : string = this.myHour.toString()+':'+ this.myMin.toString(); 
+  public Subject:any;
+  public SLOT:any;
 
   public UP:any=
   {
@@ -93,6 +95,15 @@ export class AttendenceInfoPage {
     
   }
 
-
-
+  Reset() {
+    console.log(this.Subject);
+    console.log(this.SLOT);
+    this.Subject = null;
+    this.SLOT = null;
+  }
+ 
+  Reset_two()
+  {
+    this.SLOT = null;
+  }
 }

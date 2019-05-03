@@ -579,7 +579,7 @@ getTIMESLOT(url,Data)
 
 getCSFun(CS)
 {
-  var url=this.URL+"emmy.php";
+  var url=this.URL+"viewStudents.php";
   return this.getCS(url,CS);
 }
 

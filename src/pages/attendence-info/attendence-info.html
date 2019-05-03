@@ -8,13 +8,13 @@
     <form>
         <ion-item>
           <ion-label floating>{{'class' |translate}}</ion-label>
-           <ion-select  name="Class" [(ngModel)]="Class" (ionChange)="getSubject(Class)">
+           <ion-select  name="Class" [(ngModel)]="Class" on-click="Reset()" (ionChange)="getSubject(Class)">
             <ion-option *ngFor="let i of GU?.classData"  value="{{i.CLASS_MASTER_ID}}" >{{i.CLASS}} {{i.SECTION}}</ion-option>
            </ion-select>
         </ion-item>
         <ion-item>
             <ion-label floating>{{'subject' |translate}}</ion-label>
-             <ion-select  name="Subject" [(ngModel)]="Subject">
+             <ion-select  name="Subject" [(ngModel)]="Subject" on-click="Reset_two()">
               <ion-option *ngFor="let i of GU?.attsubject"  value="{{i.SUBJECT_ID}}" >{{i.SUBJECT_ID}} {{i.SUBJECT_NAME}}</ion-option>
              </ion-select>
           </ion-item>
