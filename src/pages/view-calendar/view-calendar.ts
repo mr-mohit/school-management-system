@@ -70,7 +70,7 @@ export class ViewCalendarPage {
     // console.log("array",this.GE.Event);
     console.log($event);
     this.date=$event.date;
-    this.month=$event.month;
+    this.month=$event.month+1;
     this.year=$event.year;
     // console.log(this.date,this.month,this.year);
 

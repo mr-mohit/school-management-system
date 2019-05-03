@@ -59,7 +59,7 @@ export class ServiceAdminmessageProvider {
     //set title and description of message for push notification
     this.fcndata.data["title"] = data["messageTitle"];
     this.fcndata.data["value"] = data["messageDescription"];
-    this.getfcm(data["messageReceiver"]);
+    //this.getfcm(data["messageReceiver"]);
 
     console.log("Fcndata : ", this.fcndata);
     // this.postfcm(this.fcndata,this.google_url);
