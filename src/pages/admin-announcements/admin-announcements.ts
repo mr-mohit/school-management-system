@@ -95,4 +95,9 @@ public Announcement={
   {
     this.navCtrl.push(DeleteAnnouncementsPage);
   }
+  getCurrent()
+  {
+    return this.Year=new Date().getFullYear();
+    console.log("",this.Year);
+  }
 }
