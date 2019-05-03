@@ -124,6 +124,11 @@ import { ServiceDeleteTimetableProvider } from '../providers/service-delete-time
 import { AssignSubPage } from '../pages/assign-sub/assign-sub';
 import { ServiceGetTeacherProvider } from '../providers/service-get-teacher/service-get-teacher';
 import { ServiceAssignSubProvider } from '../providers/service-assign-sub/service-assign-sub';
+import { ServiceStudentMessageProvider } from '../providers/service-student-message/service-student-message';
+import { StudentMessagePage } from '../pages/student-message/student-message';
+import { StudentMessage2Page } from '../pages/student-message2/student-message2';
+import { ServiceStudentHomeworkProvider } from '../providers/service-student-homework/service-student-homework';
+import { StudentHomeworkPage } from '../pages/student-homework/student-homework';
 import { DeleteAnnouncementsPage } from '../pages/delete-announcements/delete-announcements';
 import { DeleteEditAnnouncementPage } from '../pages/delete-edit-announcement/delete-edit-announcement';
 import { UpdateAnnouncementPage } from '../pages/update-announcement/update-announcement';
@@ -137,7 +142,11 @@ import { DeleteTestPage } from '../pages/delete-test/delete-test';
 import { ServiceDeleteTestProvider } from '../providers/service-delete-test/service-delete-test';
 import { ServiceGetResultDataProvider } from '../providers/service-get-result-data/service-get-result-data';
 import { ServiceCalculateResultProvider } from '../providers/service-calculate-result/service-calculate-result';
+import { FileChooser } from '@ionic-native/file-chooser';
+import { FileOpener } from '@ionic-native/file-opener';
+ 
 import { IonicImageViewerModule } from 'ionic-img-viewer';
+import { StudentSyllabusPage } from '../pages/student-syllabus/student-syllabus';
 import { GetEventProvider } from '../providers/get-event/get-event';
 
  @NgModule({ 
@@ -218,6 +227,9 @@ import { GetEventProvider } from '../providers/get-event/get-event';
     DeleteTimeTablePage,
     TeacherTimeTablePage,
     AssignSubPage,
+    StudentMessagePage,
+    StudentMessage2Page,
+    StudentHomeworkPage,
     DeleteAnnouncementsPage,
     DeleteEditAnnouncementPage,
     UpdateAnnouncementPage,
@@ -227,6 +239,8 @@ import { GetEventProvider } from '../providers/get-event/get-event';
     UpdateTestPage,
     UpdateAttendancePage,
     DeleteTestPage,
+    TeacherUploadHomeworkPage,
+    StudentSyllabusPage
   ],
   imports: [
     BrowserModule,
@@ -321,6 +335,9 @@ import { GetEventProvider } from '../providers/get-event/get-event';
     DeleteTimeTablePage,
     TeacherTimeTablePage,
     AssignSubPage,
+    StudentMessagePage,
+    StudentMessage2Page,
+    StudentHomeworkPage,
     DeleteAnnouncementsPage,
     DeleteEditAnnouncementPage,
     UpdateAnnouncementPage,
@@ -330,6 +347,8 @@ import { GetEventProvider } from '../providers/get-event/get-event';
     UpdateTestPage,
     UpdateAttendancePage,
     DeleteTestPage,
+    TeacherUploadHomeworkPage,
+    StudentSyllabusPage
   ],
   providers: [
     StatusBar,
@@ -338,6 +357,8 @@ import { GetEventProvider } from '../providers/get-event/get-event';
     SplashScreen,
 
     File, 
+    FileChooser,
+    FileOpener,
     Transfer,
     Camera,
     FilePath,
@@ -390,6 +411,8 @@ import { GetEventProvider } from '../providers/get-event/get-event';
     ServiceDeleteTimetableProvider,
     ServiceGetTeacherProvider,
     ServiceAssignSubProvider,
+    ServiceStudentMessageProvider,
+    ServiceStudentHomeworkProvider,
     ServiceDeleteTestProvider,
     ServiceGetResultDataProvider,
     ServiceCalculateResultProvider,

@@ -33,17 +33,13 @@ if($con)
 	   $name=test_input($obj['NAME']);
 	   $date=test_input($obj['DATE']);
 	   $subject=test_input($obj['SUBJECT']);
-	   $type=test_input($obj['TYPE']);
 	   $topic=test_input($obj['TOPIC']);
 	   $tm=test_input($obj['TM']);
 	   $wm=test_input($obj['WM']);
-	   $st=test_input($obj['ST']);
-	   $et=test_input($obj['ET']);
-	   $rm=test_input($obj['RM']);
 	   
 	   
-	   $sql="INSERT INTO class_test_master(CLASS_MASTER_ID, TERM_ID, SUBJECT_ID,TEST_TYPE, TEST_NAME, TOPIC, TOTAL_MARKS, WEIGHT_MAX_MARKS, DATE, START_TIME, END_TIME, ROOM_NO, IS_ACTIVE)
-	   VALUES ('$class','$term','$subject','$type','$name','$topic','$tm','$wm','$date','$st','$et','$rm',1)";
+	   $sql="INSERT INTO class_test_master(CLASS_MASTER_ID, TERM_ID, SUBJECT_ID, TEST_NAME, TOPIC, TOTAL_MARKS, WEIGHT_MAX_MARKS, DATE, IS_ACTIVE)
+	   VALUES ('$class','$term','$subject','$name','$topic','$tm','$wm','$date',1)";
 	   if(mysqli_query($con,$sql))
 		{
 		   result(1,"success");

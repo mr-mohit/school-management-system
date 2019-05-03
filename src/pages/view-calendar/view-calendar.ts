@@ -69,7 +69,7 @@ export class ViewCalendarPage {
   {
     console.log($event);
     this.date=$event.date;
-    this.month=$event.month;
+    this.month=$event.month+1;
     this.year=$event.year;
 
     this.CalendarData['date']= this.year+"-"+this.month+"-"+this.date;

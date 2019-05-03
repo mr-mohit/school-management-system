@@ -33,7 +33,7 @@ if($con){
 			//echo"Connection Sucessfull";
 			
 
-			$sql="SELECT * FROM timeslot WHERE SLOT NOT IN(SELECT TIME_SLOT FROM time_table WHERE CLASS_MASTER_ID='$id' AND DAY='$day' AND IS_ACTIVE=1)";
+			$sql="SELECT * FROM timeslot WHERE SLOT NOT IN(SELECT TIME_SLOT FROM time_table WHERE CLASS_MASTER_ID='$id' AND DAY='$day')";
        
              $query = mysqli_query($con,$sql);
 		         $count = mysqli_num_rows($query);

@@ -8,7 +8,7 @@
   <ion-item>
       <ion-label floating >
           <ion-icon ios="ios-contacts" md="md-contacts"></ion-icon>
-          {{'old_class' |translate}} {{'name' |translate}}
+          {{'old_class_name' |translate}}
         </ion-label>
     <ion-select name="CID" [(ngModel)]="CID">
      <ion-option *ngFor="let i of GS?.classData"  value="{{i.CLASS_MASTER_ID}}" >{{i.CLASS}} {{i.SECTION}}</ion-option>
@@ -18,7 +18,7 @@
     <ion-item>
       <ion-label floating >
         <ion-icon ios="ios-contacts" md="md-contacts"></ion-icon>
-        {{'new_class' |translate}} {{'name' |translate}}
+        {{'new_class_name' |translate}}
       </ion-label>
       <ion-input type="text" maxlength="5" [(ngModel)]="CLASS" placeholder="" name="CLASS"></ion-input>
     </ion-item>
