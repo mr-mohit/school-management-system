@@ -28,7 +28,7 @@ if($con)
 				$obj=json_decode($postdata,true);
 				$reg=test_input($obj);   
 
-				$sql="SELECT USER.*, user_address.* FROM user JOIN user_address ON user.REG_NO = user_address.REG_NO WHERE user.REG_NO=$reg	";
+				$sql="SELECT user.*, user_address.* FROM user JOIN user_address ON user.REG_NO = user_address.REG_NO WHERE user.REG_NO=$reg	";
 				$result=mysqli_query($con,$sql);
 				$count = mysqli_num_rows($result);
 				 

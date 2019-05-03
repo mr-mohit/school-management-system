@@ -25,6 +25,8 @@ export class AddEventPage {
 
   submitEvent(DATE,EVENT) 
   {
+    let Year=DATE.year;
+    console.log("year is",Year);
     if(DATE!=undefined && EVENT!=undefined)
     {
       const confirm = this.alertCtrl.create({

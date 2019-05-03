@@ -426,7 +426,7 @@ getSDC(CLASS,url)
         for (var i in this.SDC)
         {
           this.attendence[i]=this.SDC[i];
-          this.attendence[i].status ="A";
+          this.attendence[i].status ="P";
           this.attendence[i].class=this.class;
           this.attendence[i].subject=this.subject;
           this.attendence[i].time=this.time;
@@ -579,7 +579,7 @@ getTIMESLOT(url,Data)
 
 getCSFun(CS)
 {
-  var url=this.URL+"emmy.php";
+  var url=this.URL+"viewStudents.php";
   return this.getCS(url,CS);
 }
 

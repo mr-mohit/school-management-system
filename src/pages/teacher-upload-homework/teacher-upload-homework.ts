@@ -28,7 +28,6 @@ export class TeacherUploadHomeworkPage {
   lastfile: any;
   loading: Loading;
   //here creating object to access file transfer object.  
-   private fileTransfer: TransferObject;  
    public classID:any;
    public RegNo:any;
    public a : any; // used to check if file has been updated 
@@ -37,8 +36,7 @@ export class TeacherUploadHomeworkPage {
       "teacherID" :"" ,
       "class" : "",
       "subject" : "",
-      "date" : "",
-      "time" : "",
+      "title" : "",
       "file" : "",
    }
 
@@ -65,15 +63,14 @@ export class TeacherUploadHomeworkPage {
     this.GU.getAttSubjectFun(this.classID);
   }
 
-  chooseFile(Class,Subject,DATE,TIME)
+  chooseFile(Class,Subject,Title)
   {
       // send class subject infos to INFOS array
 
       this.Infos['teacherID']=this.Regserv.reg;
       this.Infos['class']=Class;
       this.Infos['subject']=Subject;
-      this.Infos['date']=DATE;
-      this.Infos['time']=TIME;
+      this.Infos['title']=Title;
        
 
       // start choosing the file 
@@ -90,7 +87,7 @@ export class TeacherUploadHomeworkPage {
        //check if all the fields have been filled by the admin
        //console.log(this.userInfos[index]);
        if(this.Infos['teacherID'] && this.Infos['class'] && this.Infos['subject']
-               && this.Infos['date'] && this.Infos['time'] && this.Infos['file'])
+               && this.Infos['title']&& this.Infos['file'])
        {
           this.ConfirmCreationHomework(this.Infos); 
           
@@ -149,27 +146,6 @@ export class TeacherUploadHomeworkPage {
     // present toast
   } 
 
-  
-  public download(fileName) 
-  {  
-    //here encoding path as encodeURI() format.  
-    let url = encodeURI("http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/uploadImage.php/Chanda_kumari_resume.pdf");  
-    //here initializing object.  
-    this.fileTransfer = this.transfer.create();  
-    // here i mentioned this line this.file.externalRootDirectory is a native pre-defined file path storage. 
-    //You can change a file path whatever pre-defined method.  
-     this.fileTransfer.download(url, this.file.externalRootDirectory + fileName, true).then((entry) => {  
-        //here logging our success downloaded file path in mobile.  
-        alert('download completed: ' + entry.toURL());  
-      //  alert('download completed');
-    }, (error) => {  
-        //here logging our error its easier to find out what type of error occured.  
-        console.log('download failed: ' + error);  
-        alert('download failed');
-
-    });  
-  } 
-  
   // confirmation alert
   async ConfirmCreationHomework(a) {
     const alert = await this.alertController.create({

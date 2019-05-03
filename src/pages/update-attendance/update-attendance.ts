@@ -43,11 +43,11 @@ export class UpdateAttendancePage {
     if(status!=undefined)
     {
       
-      details['status']="P";
+      details['status']="A";
 
     }
     else{
-      details['status']="A";
+      details['status']="P";
     }
     this.AA[index] = details;
     console.log("Updation wala copy",this.AA);
