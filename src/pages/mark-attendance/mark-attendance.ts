@@ -46,7 +46,11 @@ export class MarkAttendancePage {
       this.GU.subject=this.navParams.get('subject');
       this.GU.date=this.navParams.get('date');
       this.GU.time=this.navParams.get('time');      
-      this.GU.slot=this.navParams.get('slot');    
+      this.GU.slot=this.navParams.get('slot'); 
+      
+      console.log()
+
+
       this.AA=this.GU.attendence;
       console.log(this.AA,'array aa gya');
         

@@ -2,12 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ServiceLoginProvider } from '../service-login/service-login';
 
-/*
-  Generated class for the QuizServiceProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class QuizServiceProvider {
 
@@ -60,35 +54,8 @@ export class QuizServiceProvider {
          resolve(data);
 
       },error=>{
-        console.log("Error",error);
-      });
-    });
-
-
-
-  //   return new Promise(resolve=>{
-  //     this.http.post(url,JSON.stringify("30191001")).subscribe(data=>{
-  //       this.recdata=data;
-  //       if(data['statuscode'] == 1)
-  //        {
-  //         console.log(this.recdata);
-
-  //           // this.question = this.recdata.data[0].ques;
-  //           // this.option1 = this.recdata.data[0].option1;
-  //           // this.option2 = this.recdata.data[0].option2;
-  //           // this.option3 = this.recdata.data[0].option3;
-  //           // this.option4 = this.recdata.data[0].option4;
-  //           // this.answer = this.recdata.data[0].ans;
-  //           // this.size = this.recdata.data[0].length;
-  //           // console.log(this.size);
-            
-  //        }
-  //        resolve(data);
-         
-  //     },error=>{
-  //       console.log(error);
-  //       alert("error while processing");
-  //     })
+                alert("error while processing");
+      })
     
   //  }); 
   }
