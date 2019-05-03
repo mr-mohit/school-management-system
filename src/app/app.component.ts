@@ -24,6 +24,7 @@ import { ViewCalendarPage } from '../pages/view-calendar/view-calendar';
 import { ServiceAdminmessageProvider } from '../providers/service-adminmessage/service-adminmessage';
 import { DeleteTermPage } from '../pages/delete-term/delete-term';
 import { DeleteTestPage } from '../pages/delete-test/delete-test';
+import { AdminMessagesPage } from '../pages/admin-messages/admin-messages';
 
 
 @Component({
@@ -45,7 +46,7 @@ export class MyApp {
 
 
   constructor(platform: Platform, statusBar: StatusBar,private nativeStorage: NativeStorage,public toastCtrl: ToastController,
-             public service:ServiceLoginProvider, public splashScreen: SplashScreen, private push: Push,
+             public service:ServiceLoginProvider,public splashScreen: SplashScreen, private push: Push,
              public alertCtrl:AlertController,public translate:TranslateService, private localNotifications: LocalNotifications,
              public messageserv:ServiceAdminmessageProvider) {
 

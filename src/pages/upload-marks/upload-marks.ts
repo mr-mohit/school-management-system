@@ -27,10 +27,14 @@ export class UploadMarksPage {
   this.CLASS=navParams.get('class');
   this.SUBJECT=navParams.get('subject');
   this.TEST=navParams.get('test');
+
+
   console.log(this.CLASS,this.SUBJECT,this.TEST);
   this.status=false;
- this.TERM=this.RD.RData.TERM_ID;
- this.TYPE=this.RD.RData.TEST_TYPE;
+
+
+ this.TERM=this.RD.RData[0].TERM_ID;
+ this.TYPE=this.RD.RData[0].TEST_TYPE;
  console.log("term is coming",this.TEST ,"and type is",this.TYPE);
 
   }
@@ -100,6 +104,8 @@ Submit(){
          handler: () => {
                           console.log(this.Marks_array);
                           this.UM.UploadFun(this.Marks_array);
+
+
                           console.log(this.Result_array);
                           this.RD.UploadRDFun(this.Result_array);
                           this.navCtrl.pop();

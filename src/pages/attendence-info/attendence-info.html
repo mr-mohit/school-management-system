@@ -8,13 +8,13 @@
     <form>
         <ion-item>
           <ion-label floating>{{'class' |translate}}</ion-label>
-           <ion-select  name="Class" [(ngModel)]="Class" (ionChange)="getSubject(Class)">
+           <ion-select  name="Class" [(ngModel)]="Class" on-click="Reset()" (ionChange)="getSubject(Class)">
             <ion-option *ngFor="let i of GU?.classData"  value="{{i.CLASS_MASTER_ID}}" >{{i.CLASS}} {{i.SECTION}}</ion-option>
            </ion-select>
         </ion-item>
         <ion-item>
             <ion-label floating>{{'subject' |translate}}</ion-label>
-             <ion-select  name="Subject" [(ngModel)]="Subject">
+             <ion-select  name="Subject" [(ngModel)]="Subject" on-click="Reset_two()">
               <ion-option *ngFor="let i of GU?.attsubject"  value="{{i.SUBJECT_ID}}" >{{i.SUBJECT_ID}} {{i.SUBJECT_NAME}}</ion-option>
              </ion-select>
           </ion-item>
@@ -46,13 +46,11 @@
       
           <ion-item >
             <ion-label >{{'date' |translate}} </ion-label>
-            <ion-label > </ion-label>\
             <ion-label > </ion-label>
             <ion-label> {{myDate | date: 'dd-MM-yyyy'}}</ion-label>            
           </ion-item>
           <ion-item>
             <ion-label>{{'time' |translate}}</ion-label>
-            <ion-label > </ion-label>
             <ion-label > </ion-label>
             <ion-label> {{mytime}}</ion-label>            </ion-item>
             <ion-label> </ion-label>
@@ -74,7 +72,7 @@
          <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
          {{'date' |translate}} 
         </ion-label>
-        <ion-datetime name="DATE" displayFormat="DD MMM YYYY" placeholder="{{'Date_of_attendance' |translate}}" min="2019"  [(ngModel)]="DATE"></ion-datetime>
+        <ion-datetime name="DATE" displayFormat="DD MMM YYYY" placeholder="{{'Date_of_attendance' |translate}}"   [(ngModel)]="DATE"></ion-datetime>
       </ion-item>
 
       <ion-label> </ion-label>

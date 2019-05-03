@@ -11,7 +11,7 @@
         <ion-icon ios="ios-people" md="md-people"></ion-icon>
         {{'select_class' | translate}}
       </ion-label>
-       <ion-select  name="CLASS" [(ngModel)]="CLASS" (ionChange)="getSubject(CLASS)">
+       <ion-select  name="CLASS" [(ngModel)]="CLASS" on-click="reset()" (ionChange)="getSubject(CLASS)">
   
         <ion-option *ngFor="let a of cid?.classData"  value="{{a.CLASS_MASTER_ID}}" >{{a.CLASS}} {{a.SECTION}}</ion-option>
         
@@ -23,7 +23,7 @@
                     <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
                     {{'select_term' |translate}}
                   </ion-label>
-                   <ion-select  name="TERM" [(ngModel)]="TERM">
+                   <ion-select  name="TERM" [(ngModel)]="TERM" on-click="reset_two()"> 
             
                     <ion-option *ngFor="let c of cid?.termData"  value="{{c.TERM_ID}}" >{{c.TERM}} {{c.START_DATE}} TO {{c.END_DATE}}</ion-option>
                     
@@ -35,7 +35,7 @@
                   <ion-icon ios="ios-book" md="md-book"></ion-icon>
                   {{'subject' |translate}}
                 </ion-label>
-                 <ion-select  name="SUBJECT" [(ngModel)]="SUBJECT">
+                 <ion-select  name="SUBJECT" [(ngModel)]="SUBJECT" on-click="reset_three()">
             
                   <ion-option *ngFor="let d of cid?.attsubject"  value="{{d.SUBJECT_ID}}" > {{d.SUBJECT_ID}} {{d.SUBJECT_NAME}}</ion-option>
                   
@@ -48,9 +48,9 @@
                   {{'type' |translate}}
                   </ion-label>
                 <ion-select name="TYPE" [(ngModel)]="TYPE">
-                  <ion-option value="CLASS TEST">CLASS TEST</ion-option>
-                  <ion-option value="MID TERM">MID TERM</ion-option>
-                  <ion-option value="END TERM">END TERM</ion-option>
+                  <ion-option value="CA1">CA1</ion-option>
+                  <ion-option value="CA2">CA2</ion-option>
+                  <ion-option value="END_TERM">END TERM</ion-option>
                 </ion-select>
               </ion-item>
             
@@ -81,7 +81,7 @@
         <ion-item>
           <ion-label floating>
            <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
-           {{'room_no'|translate}
+           {{'room_no'|translate}}
           </ion-label>
           <ion-input type="text" [(ngModel)]="RM" name="RM"></ion-input>
         </ion-item>
