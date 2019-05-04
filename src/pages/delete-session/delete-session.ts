@@ -51,7 +51,7 @@ export class DeleteSessionPage {
      
     }
     else{
-      alert("plese fill required fields");
+      alert("NO Session Selected");
     }
 
   }

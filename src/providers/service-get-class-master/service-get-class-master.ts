@@ -195,7 +195,8 @@ export class ServiceGetClassMasterProvider {
         }
         else
         {
-          alert("no data fetched");
+          this.sessionData=[];
+          alert("No Session Available To Delete");
         }        
         
          resolve(data);
