@@ -79,7 +79,8 @@ export class UpdateTimeTablePage {
 
   UpdateTimeTable()
   {
-     if(this.CLASSID!=undefined && this.Day!=undefined && this.SLOT!=undefined && this.SLOT!=undefined)
+     if(this.CLASSID!=undefined && this.Day!=undefined 
+      && this.SUBJECTID!=undefined && this.SLOT!=undefined && this.SLOT!=undefined)
      {
       this.timetableData['CLASSID']=this.CLASSID;
       this.timetableData['SUBJECTID']=this.SUBJECTID;
