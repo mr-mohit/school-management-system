@@ -95,7 +95,7 @@ export class TeacherUploadHomeworkPage {
        else
        { 
          // if one field is empty => print an alert 
-         alert("empty fields are not allowed / You should fill all the fields properly");
+         alert("Empty fields are not allowed / You should fill all the fields properly");
        }
     
         // this.fileOpener.open(resolveFilePath, 'application/PDF').then(value=>{ 
@@ -129,7 +129,7 @@ export class TeacherUploadHomeworkPage {
     const fileTransfer: TransferObject = this.transfer.create();
    
     this.loading = this.loadingCtrl.create({
-      content: 'Uploading...',
+      content: 'Uploading',
     });
     this.loading.present();
    
@@ -140,7 +140,7 @@ export class TeacherUploadHomeworkPage {
       this.navCtrl.pop();
     }, err => {
       this.loading.dismissAll()
-      alert("Failed to upload file");
+      alert("Failed to upload the file");
     });
 
     // present toast
@@ -150,7 +150,7 @@ export class TeacherUploadHomeworkPage {
   async ConfirmCreationHomework(a) {
     const alert = await this.alertController.create({
      
-      message: 'Message <br> <strong>Do You Want to Upload this HomeWork :</strong>???',
+      message: '<strong>Do you want to upload the homeWork?</strong>',
       buttons: [
         {
           text: 'Cancel',

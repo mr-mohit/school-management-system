@@ -31,8 +31,8 @@ deleteSubject(SUBJECT)
     if(SUBJECT!=undefined)
     {
       const confirm = this.alertctrl.create({
-        title: 'Delete this Subject',
-        message: 'Do you really want to delete this Subject ?',
+        title: 'Delete this Subject?',
+        message: 'Do you really want to delete this Subject?',
         buttons: [
           {
             text: 'Cancel',
@@ -58,7 +58,7 @@ deleteSubject(SUBJECT)
      
     }
     else{
-      alert("plese fill required fields");
+      alert("Please fill the required fields");
     }
 
   }

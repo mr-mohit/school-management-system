@@ -87,7 +87,6 @@ public Announcement={
     }
     else
     {
-    
        alert("Fields cannot be empty");
     }
   }

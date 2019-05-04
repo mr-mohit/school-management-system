@@ -37,7 +37,7 @@ if(CID!=undefined && SID!=undefined )
       }
     }
     else{
-      alert("plese fill required fields");
+      alert("Please fill the required fields");
     }
 
 }

@@ -60,7 +60,7 @@ export class CreateTestPage {
           if(TM>=0 && TM<=100 && WM>=0 && WM<=100)
           {
             const confirm = this.alertCtrl.create({
-              title: 'Create Test',
+              title: 'Create Test?',
               message: 'Do you want to create this test?',
               buttons: [
                 {
@@ -130,7 +130,7 @@ export class CreateTestPage {
 
     }
     else{
-      alert("Plese fill required fields");
+      alert("Please fill the required fields");
     }
 
   }

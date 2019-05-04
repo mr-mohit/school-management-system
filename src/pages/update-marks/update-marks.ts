@@ -50,7 +50,7 @@ export class UpdateMarksPage {
      }      
       else
       {
-        alert("Marks should be in between 0 and 100");
+        alert("Marks must be between 0 and 100");
         
       }                
 
@@ -62,8 +62,8 @@ Update(){
   if(this.Marks_array.length-this.GU.rows == 0)
   {
     const confirm = this.alertCtrl.create({
-      title: 'Update Marks',
-      message: 'Do you want to Update Marks?',
+      title: 'Update marks?',
+      message: 'Do you want to update marks?',
       buttons: [
         {
           text: 'Cancel',
@@ -84,7 +84,7 @@ Update(){
     confirm.present();
   }
   else{
-    alert("please fill all fields");
+    alert("Please fill the required fields");
   }
    
   }
@@ -103,7 +103,7 @@ Update(){
       this.status=false;
 
       const toast = this.toastController.create({
-        message: 'Please Enter Numbers Only',
+        message: 'Please enter numbers only',
         showCloseButton: true,
         position: 'bottom',
         closeButtonText: 'Ok'

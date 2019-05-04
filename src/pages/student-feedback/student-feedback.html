@@ -6,7 +6,7 @@
 -->
 <ion-header>
   <ion-navbar color="header"> 
-    <ion-title>Student Feedback</ion-title>
+    <ion-title>{{'student_feedback' |translate}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -14,7 +14,7 @@
 
     <ion-item>
         <ion-label >
-          Registration No:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          {{'registration_no' |translate}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           {{log?.details.REG_NO}}
         </ion-label>
         <!-- <span></span> -->
@@ -29,7 +29,7 @@
 
     <ion-item>
         <ion-label floating >
-          Subject of Feedback
+          {{'subject_feedback' |translate}}
         </ion-label>
         <ion-input type="text" [(ngModel)]="subject" name="subject"></ion-input>
       </ion-item>
@@ -38,7 +38,7 @@
 
       <ion-item>
           <ion-label floating >
-            Description
+            {{'description' |translate}}
           </ion-label>
           <ion-textarea [(ngModel)]="description" name="description"></ion-textarea>
         </ion-item>
@@ -47,6 +47,6 @@
 
         <button id="addfeedback" ion-button color="header" on-click="postData(date,subject,description)"
                 block style="border-radius:2px 2px 2px 2px;width: 200px;  margin:auto;">
-          Save
+        {{'save' |translate}}
         </button>
 </ion-content>

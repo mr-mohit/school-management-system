@@ -72,8 +72,7 @@ export class UpdateTimeTablePage {
       this.fetchTimetableData['CLASSID']=this.CLASSID;
       this.fetchTimetableData['DAY']=Day;
       console.log("HERE ",this.fetchTimetableData)
-   this.service.getCurrentTimeTable(this.fetchTimetableData)
-  
+      this.service.getCurrentTimeTable(this.fetchTimetableData)
   }
 
 
@@ -93,8 +92,7 @@ export class UpdateTimeTablePage {
      }
      else
      {
-
+        
      }
   }
-
 }

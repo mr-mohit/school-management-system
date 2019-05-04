@@ -60,7 +60,7 @@ export class AddEventPage {
 
     }
     else{
-      alert("Please fill required fields");
+      alert("Please fill the required fields");
     }
 
   }
