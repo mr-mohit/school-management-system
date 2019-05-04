@@ -35,6 +35,7 @@ export class ServiceDeleteTimetableProvider {
         {
           console.log("Data here from DeleteTime",data);
           this.TimeTableData=data['data'];
+          alert("Delete Successfully");
         }
         else
         {

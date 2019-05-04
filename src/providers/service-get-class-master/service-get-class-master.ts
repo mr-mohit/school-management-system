@@ -195,7 +195,8 @@ export class ServiceGetClassMasterProvider {
         }
         else
         {
-          alert("no data fetched");
+          this.sessionData=[];
+          alert("No Session Available To Delete");
         }        
         
          resolve(data);
@@ -530,9 +531,7 @@ FetchViewTimeTable(url,Class)
       }
       else
       {
-        this.timeview=[
-          {SUBJECT_ID: "NA", SUBJECT_NAME: "NA", TIME_SLOT: "NA", DAY: "NA"}
-        ];
+        this.timeview=[];
         alert("No Time Table");
         //return 0;
       }        
