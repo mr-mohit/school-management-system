@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar color="header">
+    <ion-title>Attendance</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding >
+  <ion-item >
+    <ion-label floating>
+      <ion-icon ios="ios-browsers" md="md-browsers"></ion-icon>
+      Select Subject
+    </ion-label>
+     <ion-select  name="SUBJECT" [(ngModel)]="SUBJECT" (ionChange)="getAtt(SUBJECT)" >
+
+      <ion-option  *ngFor="let p of SA?.SAData"  value="{{p.SUBJECT_ID}}">{{p.SUBJECT_NAME}}</ion-option>
+     </ion-select>
+      </ion-item>
+       
+</ion-content>

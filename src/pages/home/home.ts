@@ -16,6 +16,7 @@ import { ServiceStudentHomeworkProvider } from '../../providers/service-student-
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 import { StudentSyllabusPage } from '../student-syllabus/student-syllabus';
 import { ServiceAddsubjectProvider } from '../../providers/service-addsubject/service-addsubject';
+import { StudentAttendanceSubjectsPage } from '../student-attendance-subjects/student-attendance-subjects';
 
 
 @Component({
@@ -25,7 +26,7 @@ import { ServiceAddsubjectProvider } from '../../providers/service-addsubject/se
 export class HomePage {
 
   public Reg:any;
-
+  
   constructor(public navCtrl: NavController, public Menu: MenuController,public CRD:ServiceLoginProvider ,
     public result:ServiceStudentResultProvider,public UR:ServiceLoginProvider, 
     public SM:ServiceStudentMessageProvider, public SH:ServiceStudentHomeworkProvider,
@@ -38,7 +39,7 @@ export class HomePage {
 //Student Functions
   gotoStudentAttendance()
   {
-    this.navCtrl.push(StudentAttendancePage);
+    this.navCtrl.push(StudentAttendanceSubjectsPage);
     this.SA.getSAFun(this.UR.reg);
   }
 
