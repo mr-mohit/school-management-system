@@ -46,7 +46,7 @@ public user:any=
         
          //Showing Loading
       const loader = this.loadingCtrl.create({
-        content: "Please wait...",
+        content: "Please wait",
         duration:3000,
         dismissOnPageChange:true,
       });

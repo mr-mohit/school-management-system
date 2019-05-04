@@ -68,7 +68,7 @@ public sessionData:any=
 
         }
         else{
-          alert("plese fill required fields");
+          alert("Please fill the required fields");
         }
         
   }

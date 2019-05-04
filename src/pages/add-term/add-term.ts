@@ -79,7 +79,7 @@ export class AddTermPage {
 
     }
     else{
-      alert("plese fill required fields");
+      alert("Please fill the required fields");
     }
     console.log("last",this.indata);
 }
