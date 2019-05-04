@@ -93,7 +93,7 @@ export class UpdateTimeTablePage {
      }
      else
      {
-
+        alert("Please select all the fields");
      }
   }
 

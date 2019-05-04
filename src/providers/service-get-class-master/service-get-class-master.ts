@@ -530,9 +530,7 @@ FetchViewTimeTable(url,Class)
       }
       else
       {
-        this.timeview=[
-          {SUBJECT_ID: "NA", SUBJECT_NAME: "NA", TIME_SLOT: "NA", DAY: "NA"}
-        ];
+        this.timeview=[];
         alert("No Time Table");
         //return 0;
       }        
