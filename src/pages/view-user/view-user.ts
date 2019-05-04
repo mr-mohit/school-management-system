@@ -78,6 +78,7 @@ export class ViewUserPage {
 UserInfos()
 {
    
+  
   if(this.slideOneForm.valid)
   {
     // here we send the reg_No

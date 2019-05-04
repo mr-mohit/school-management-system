@@ -26,12 +26,33 @@
         </button>
         <br/><br/> -->
          
-          <!-- here we print the different homework available for a subject -->
+         <ion-grid class="head" style="border:solid 1px;" *ngIf="Class"> 
+
+            <ion-row>
+                <ion-col>
+                  <div><strong> Title </strong></div>
+                </ion-col>
+                <ion-col>
+                  <div> <strong>Upload Date </strong></div>
+                </ion-col>
+                <ion-col>
+                  <div>   </div>
+                </ion-col>
+            </ion-row>
+         
+         </ion-grid>
+
+         <!-- here we print the different homework available for a subject -->
          <ion-grid *ngFor="let i of HW; let j = index"   class="head" style="border:solid 1px;">
         <ion-row color="header">
           <ion-col>
             <div>
               {{i.TITLE}}  
+            </div>
+          </ion-col>
+          <ion-col>
+            <div>
+              {{i.DATE}}  
             </div>
           </ion-col>
           <ion-col>

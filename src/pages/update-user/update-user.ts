@@ -431,46 +431,47 @@ UserInfos()
     this.service.postUserID(this.slideOneForm.getRawValue().userid).then((data:any)=>{
      // console.log("data coming in reponse",data.data[0]['FIRST_NAME'], typeof data);
       //this.slideOneForm.controls.userfirstname=data.data[0]['FIRST_NAME'];
+      if(data['statuscode'] == 1)
+      {
+        this.Reg_No=data.data[0]['REG_NO'];
+        
+        this.slideOneForm.controls.userfirstname.setValue( data.data[0]['FIRST_NAME']);
+        this.slideOneForm.controls.userlastname.setValue( data.data[0]['LAST_NAME']);
+        this.slideOneForm.controls.usergender.setValue( data.data[0]['GENDER']);
+        this.slideOneForm.controls.userrole.setValue( data.data[0]['ROLE']);
+        this.slideOneForm.controls.userdob.setValue( data.data[0]['DOB']);
+        this.slideTwoForm.controls.useremail.setValue(data.data[0]['E_MAIL']);
+        this.slideTwoForm.controls.userpassword.setValue(data.data[0]['PASSWORD']);
+        this.slideTwoForm.controls.userpassword2.setValue(data.data[0]['PASSWORD']);
+        this.slideTwoForm.controls.userfathername.setValue(data.address[0]['FATHER_NAME']);
+        this.slideTwoForm.controls.usermothername.setValue(data.address[0]['MOTHER_NAME']);
+        this.slideTwoForm.controls.usercity.setValue(data.address[0]['CITY']);
+        this.slideThreeForm.controls.addressType.setValue(data.address[0]['ADDRESS_TYPE']);
+        this.slideThreeForm.controls.address1.setValue(data.address[0]['ADDRESS_LINE_1']);
+        this.slideThreeForm.controls.address2.setValue(data.address[0]['ADDRESS_LINE_2']);
+        this.slideThreeForm.controls.state.setValue(data.address[0]['STATE']);
+        this.slideThreeForm.controls.pincode.setValue(data.address[0]['PINCODE']);
+        this.slideThreeForm.controls.contact.setValue(data.address[0]['CONTACT_NO']);
 
-      this.Reg_No=data.data[0]['REG_NO'];
-      
-      this.slideOneForm.controls.userfirstname.setValue( data.data[0]['FIRST_NAME']);
-      this.slideOneForm.controls.userlastname.setValue( data.data[0]['LAST_NAME']);
-      this.slideOneForm.controls.usergender.setValue( data.data[0]['GENDER']);
-      this.slideOneForm.controls.userrole.setValue( data.data[0]['ROLE']);
-      this.slideOneForm.controls.userdob.setValue( data.data[0]['DOB']);
-      this.slideTwoForm.controls.useremail.setValue(data.data[0]['E_MAIL']);
-      this.slideTwoForm.controls.userpassword.setValue(data.data[0]['PASSWORD']);
-      this.slideTwoForm.controls.userpassword2.setValue(data.data[0]['PASSWORD']);
-      this.slideTwoForm.controls.userfathername.setValue(data.address[0]['FATHER_NAME']);
-      this.slideTwoForm.controls.usermothername.setValue(data.address[0]['MOTHER_NAME']);
-      this.slideTwoForm.controls.usercity.setValue(data.address[0]['CITY']);
-      this.slideThreeForm.controls.addressType.setValue(data.address[0]['ADDRESS_TYPE']);
-      this.slideThreeForm.controls.address1.setValue(data.address[0]['ADDRESS_LINE_1']);
-      this.slideThreeForm.controls.address2.setValue(data.address[0]['ADDRESS_LINE_2']);
-      this.slideThreeForm.controls.state.setValue(data.address[0]['STATE']);
-      this.slideThreeForm.controls.pincode.setValue(data.address[0]['PINCODE']);
-      this.slideThreeForm.controls.contact.setValue(data.address[0]['CONTACT_NO']);
-
-          if(data.data[0]['ROLE'] =="student")
-          {
-              
-              this.slideFourForm.controls.studentClass.setValue(data.class[0].CLASS);
-              this.slideFourForm.controls.studentSection.setValue(data.class[0].SECTION);
-              this.slideFourForm.controls.studentSession.setValue(data.session[0].SESSION_START_DATE +'--'+data.session[0].SESSION_END_DATE);
-          }
-          // in case of teacher
-          else if(data.data[0]['ROLE'] == "teacher")
-          {
-            this.slideFourForm.controls.teacherDepart.setValue(data.teacher[0].DEPARTMENT);
-            this.slideFourForm.controls.teacherDesg.setValue(data.teacher[0].DESIGNATION);
-          }
-          else
-          {
-              
-              
-          }    
-      
+            if(data.data[0]['ROLE'] =="student")
+            {
+                
+                this.slideFourForm.controls.studentClass.setValue(data.class[0].CLASS);
+                this.slideFourForm.controls.studentSection.setValue(data.class[0].SECTION);
+                this.slideFourForm.controls.studentSession.setValue(data.session[0].SESSION_START_DATE +'--'+data.session[0].SESSION_END_DATE);
+            }
+            // in case of teacher
+            else if(data.data[0]['ROLE'] == "teacher")
+            {
+              this.slideFourForm.controls.teacherDepart.setValue(data.teacher[0].DEPARTMENT);
+              this.slideFourForm.controls.teacherDesg.setValue(data.teacher[0].DESIGNATION);
+            }
+            else
+            {
+                
+                
+            }    
+     }
       })
     }
     else
