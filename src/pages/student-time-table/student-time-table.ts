@@ -17,6 +17,7 @@ import { ServiceFetchTimeTableProvider } from '../../providers/service-fetch-tim
 })
 export class StudentTimeTablePage {
 
+  public Today:any;
   public status:boolean=false;
   private REG_NO:any;
   private Days:any=[
@@ -43,6 +44,8 @@ export class StudentTimeTablePage {
     this.REG_NO=this.getREG_NO.recdata.data[0].REG_NO;
     console.log(this.REG_NO);
     console.log(this.Days);
+    this.Today=new Date().getDay;
+    console.log("Today is ",this.Today);
   }
 
   getTimeTable(Day)

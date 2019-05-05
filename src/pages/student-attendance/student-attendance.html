@@ -1,60 +1,40 @@
 
 <ion-header>
   <ion-navbar color="header">
-    <ion-title>Student : Attendance</ion-title>
+    <ion-title>Attendance</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-grid class="head" style="border:solid 1px;">
-    <ion-row color="header">
-      <ion-col>
-        <div>
-          <ion-label>Subject</ion-label> 
-        </div>
-      </ion-col>
-      <ion-col>
-          <div>
-              <ion-label>Date</ion-label>             
+<ion-content padding style="background:rgb(229, 231, 228)">
+  
+    <ion-grid no-padding *ngFor="let i of SA?.crSub; let j = index" style="border:solid 0px;">
+      <ion-card no-padding>
+      <ion-row  no-padding no-lines >
+        <ion-col >
+          <div >
+            <label *ngIf="i.STATUS == 'A'" style="color:red"> {{i.STATUS}}  </label>
+           <label *ngIf="i.STATUS == 'P'" style="color:rgb(84, 236, 70)"> {{i.STATUS}}  </label> 
           </div>
         </ion-col>
         <ion-col>
-          <div>
-              <ion-label>Slot</ion-label>             
-          </div>
-        </ion-col>
-      <ion-col class="button-container">
-        <div>
-          <ion-label>Status</ion-label>
-        </div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
-  <ion-grid *ngFor="let i of SA?.SAData; let j = index" style="border:solid 1px;">
-    <ion-row >
-      <ion-col>
-        <div>
-          {{i.SUBJECT_NAME}} 
-        </div>
-      </ion-col>
-      <ion-col>
+            <div>
+              {{i.SUBJECT_ID}} 
+            </div>
+          </ion-col>
+          <ion-col>
+            <div>
+              {{i.TIME_SLOT}} 
+            </div>
+          </ion-col>
+        <ion-col>
           <div>
             {{i.DATE}}
           </div>
         </ion-col>
-          <ion-col>
-              <div>
-                {{i.TIME_SLOT}}
-              </div>
-            </ion-col>
-
-      <ion-col>
-        <div>
-          {{i.STATUS}}
-        </div>
-      </ion-col>
-    </ion-row>
-    </ion-grid>
+      </ion-row>
+    </ion-card>
+      </ion-grid>
+  
+  
 
 </ion-content>

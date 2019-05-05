@@ -67,13 +67,10 @@ export class ViewCalendarPage {
 
   onDaySelect($event)
   {
-    // console.log("array",this.GE.Event);
     console.log($event);
     this.date=$event.date;
     this.month=$event.month+1;
     this.year=$event.year;
-    // console.log(this.date,this.month,this.year);
-
 
     this.CalendarData['date']= this.year+"-"+this.month+"-"+this.date;
     console.log(this.CalendarData['date']);

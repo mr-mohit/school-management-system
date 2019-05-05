@@ -77,7 +77,7 @@ export class UploadMarksPage {
      }      
       else
       {
-        alert("Marks should be in between 0 and 100");
+        alert("Marks must be between 0 and 100");
         
       }                
 
@@ -90,8 +90,8 @@ Submit(){
   if(this.Marks_array.length-this.GU.rows == 0)
   {
     const confirm = this.alertCtrl.create({
-      title: 'Upload Marks',
-      message: 'Do you want to Upload Marks?',
+      title: 'Upload Marks?',
+      message: 'Do you want to upload marks?',
       buttons: [
         {
           text: 'Cancel',
@@ -117,7 +117,7 @@ Submit(){
     confirm.present();
   }
   else{
-    alert("please fill all fields");
+    alert("Please fill the required fields");
   }
    
   }
@@ -136,7 +136,7 @@ Submit(){
       this.status=false;
 
       const toast = this.toastController.create({
-        message: 'Please Enter Numbers Only',
+        message: 'Please enter numbers only',
         showCloseButton: true,
         position: 'bottom',
         closeButtonText: 'Ok'

@@ -59,7 +59,7 @@ public status:boolean;
 
     }
     else{
-      alert("plese fill required fields");
+      alert("Please fill the required fields");
     }
 
   }
@@ -84,7 +84,7 @@ public status:boolean;
     }
     else
     {
-     alert("Special Characters are not allowed");
+     alert("Special characters are not allowed");
      this.status=false;
      //  console.log(regExp.test(newValue));
     }
@@ -105,7 +105,7 @@ public status:boolean;
     }
     else
     {
-     alert("Special Characters are not allowed");
+     alert("Special characters are not allowed");
      this.status=false;
      //  console.log(regExp.test(newValue));
     }

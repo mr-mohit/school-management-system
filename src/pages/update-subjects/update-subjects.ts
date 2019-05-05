@@ -78,7 +78,7 @@ export class UpdateSubjectsPage {
   }
   else
   {
-    alert("Please fill required information")
+    alert("Please fill the required information")
   }
  }
 }

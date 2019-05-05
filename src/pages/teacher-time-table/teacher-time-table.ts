@@ -61,7 +61,7 @@ export class TeacherTimeTablePage {
       this.status=false;
 
       const toast = this.toast.create({
-        message: 'Please Select The Subject And Day',
+        message: 'Please select subject and day',
         duration: 3000,
         position: 'top'
       });

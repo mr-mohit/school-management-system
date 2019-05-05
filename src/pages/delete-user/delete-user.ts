@@ -51,7 +51,7 @@ export class DeleteUserPage {
       }
       else
       {
-        alert("enter a valid Registration ID");
+        alert("Enter a valid User Id");
       }  
   }
 
@@ -64,8 +64,8 @@ export class DeleteUserPage {
         this.userInfos['userRegNo'] = this.slideOneForm.getRawValue().userid;
         this.userInfos['userrole'] = this.service.recdata.data[0].ROLE;
         const confirm = this.alertctrl.create({
-          title: 'Delete  User',
-          message: 'Do you really want to delete this User ?',
+          title: 'Delete User?',
+          message: 'Do you really want to delete this User?',
           buttons: [
             {
               text: 'Cancel',
@@ -87,7 +87,7 @@ export class DeleteUserPage {
       confirm.present();   
     }
     else{
-      alert("plese fill required fields");
+      alert("Please fill the required fields");
     }
 
   }

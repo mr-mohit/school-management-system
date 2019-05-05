@@ -9,13 +9,16 @@ import { ServiceAddSessionProvider } from '../../providers/service-add-session/s
   templateUrl: 'add-session.html',
 })
 export class AddSessionPage {
+  public STATUS:boolean=false;
+  public ACTIVE:number;
   public START_DATE:any;
   public END_DATE:any;
   
 public sessionData:any=
 {
   "START_DATE":"",
-  "END_DATE":" "
+  "END_DATE":" ",
+  "STATUS":" "
 };
 
   constructor(public navCtrl: NavController,public addSession: ServiceAddSessionProvider,public navParams: NavParams,public alertCtrl: AlertController) {
@@ -49,6 +52,7 @@ public sessionData:any=
                                 this.END_DATE=END_DATE;
                                 this.sessionData['START_DATE']=this.START_DATE;
                                 this.sessionData['END_DATE']=this.END_DATE;
+                                this.sessionData['STATUS']=this.ACTIVE;
                                 //console.log("sending data",this.sessionData);
                                 if(this.addSession.addSessionFun(this.sessionData))
                                 {
@@ -68,8 +72,24 @@ public sessionData:any=
 
         }
         else{
-          alert("plese fill required fields");
+          alert("Please fill the required fields");
         }
         
   }
+  
+  
+change()
+{
+  if(this.STATUS==false)
+  {
+    this.ACTIVE=0;
+    console.log(this.ACTIVE);
+  }
+  else
+  {
+    this.ACTIVE=1;
+    console.log(this.ACTIVE);
+  }
+}
+
   }

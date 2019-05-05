@@ -12,11 +12,17 @@ import { ServiceLoginProvider } from '../service-login/service-login';
 export class ServiceChangepasswordProvider {
 
   public URL=this.one.URL;
+  public status:boolean=false;
 
   constructor(public http: HttpClient,public one:ServiceLoginProvider) {
     console.log('Hello ServiceChangepasswordProvider Provider');
   }
 
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad Change Password Service');
+    this.status=false;
+   
+  }
   postChangeData(NewPasswordData)
   {
     var url=this.URL+"ChangePassword.php";
@@ -33,11 +39,13 @@ export class ServiceChangepasswordProvider {
         if(data['statuscode'] == 1)
         {
           alert(data['msg']);
+          this.status=true;
           
         }
         else
         {
           alert(data['msg']);
+          this.status=false;
         }
         resolve(data);
       },error=>{

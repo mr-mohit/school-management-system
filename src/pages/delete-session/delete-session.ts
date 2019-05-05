@@ -24,8 +24,8 @@ export class DeleteSessionPage {
     if(SESSION!=undefined)
     {
       const confirm = this.alertctrl.create({
-        title: 'Delete this Session',
-        message: 'Do you really want to delete this Session ?',
+        title: 'Delete this Session?',
+        message: 'Do you really want to delete this Session?',
         buttons: [
           {
             text: 'Cancel',
@@ -51,7 +51,7 @@ export class DeleteSessionPage {
      
     }
     else{
-      alert("plese fill required fields");
+      alert("NO Session Selected");
     }
 
   }

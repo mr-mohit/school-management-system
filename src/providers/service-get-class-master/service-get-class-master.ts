@@ -34,6 +34,7 @@ export class ServiceGetClassMasterProvider {
   public rows:any;
 //end
  public ClassTest:any;
+ public crSub:any;//to get current attendance of a particular subject 
   
 
 
@@ -138,7 +139,6 @@ export class ServiceGetClassMasterProvider {
 
   }
   // GET Students from data base
-  // GET SUBJECTS FROM SUBJECT TABLE IN DATABASE---------------------------------------------------------------->
   getStudentFun()
   {
     var url=this.URL+"getUser.php";
@@ -195,7 +195,8 @@ export class ServiceGetClassMasterProvider {
         }
         else
         {
-          alert("no data fetched");
+          this.sessionData=[];
+          alert("No Session Available To Delete");
         }        
         
          resolve(data);
@@ -530,9 +531,7 @@ FetchViewTimeTable(url,Class)
       }
       else
       {
-        this.timeview=[
-          {SUBJECT_ID: "NA", SUBJECT_NAME: "NA", TIME_SLOT: "NA", DAY: "NA"}
-        ];
+        this.timeview=[];
         alert("No Time Table");
         //return 0;
       }        
@@ -662,6 +661,37 @@ getAttStatus(url,UP)
       console.log("Error",error);
     });
   });
+}
+
+
+// Get attendance for a paricular subject ---------------------------------------------------------------->
+SubjectAttFun(data)
+{
+  var url=this.URL+"currentAtt.php";
+  return this.SubjectAtt(url,data);
+
+}
+SubjectAtt(url,data)
+{
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(data)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.crSub=data['data'];
+        console.log("Attendance for this subject is:",this.crSub);
+      }
+      else
+      {
+        alert("Attendance not found");
+      }        
+      
+       resolve(data);
+
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+
 }
 
 

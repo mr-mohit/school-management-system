@@ -184,5 +184,7 @@
 	"end_time":"End Time",
 	"room_no":"Room No",
 	"error _while_processing":"error while processing",
-	"select_date":"Select Date"
+	"select_date":"Select Date",
+	"subject_feedback":"Subject of Feedback",
+	"student_feedback":"Student Feedback"
 }

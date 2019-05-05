@@ -56,8 +56,8 @@ export class UpdateAttendancePage {
 
   ViewAtt(){
     const confirm = this.alertCtrl.create({
-      title: 'Update Attendance',
-      message: 'Do you want to Update Attendance',
+      title: 'Update Attendance?',
+      message: 'Do you want to Update Attendance?',
       buttons: [
         {
           text: 'Cancel',

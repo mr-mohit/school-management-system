@@ -38,7 +38,7 @@ export class StudentQuizPage {
             }
             else
             {
-                alert(" Sorry the interface is closed because You have already attempted the quiz");
+                alert("Sorry, the interface is closed because you have already attempted the quiz");
                 this.navCtrl.setRoot(StudentdashboardPage);
             }
       });

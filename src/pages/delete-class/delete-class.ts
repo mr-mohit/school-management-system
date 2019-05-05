@@ -25,7 +25,7 @@ export class DeleteClassPage {
     {
       const confirm = this.alertctrl.create({
         title: 'Delete this Class?',
-        message: 'Do you really want to delete this Class ?',
+        message: 'Do you really want to delete this Class?',
         buttons: [
           {
             text: 'Cancel',
@@ -51,7 +51,7 @@ export class DeleteClassPage {
      
     }
     else{
-      alert("plese fill required fields");
+      alert("Please fill the required fields");
     }
 
   }

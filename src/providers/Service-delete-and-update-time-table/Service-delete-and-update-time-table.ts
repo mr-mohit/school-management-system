@@ -69,12 +69,12 @@ export class ServiceDeleteAndUpdateTimeTableProvider {
         console.log("passing data",UpdateData);
         if(data['statuscode']==1)
         {
-          alert("Updated")
+          alert(data['msg']);
         }
         else
         {
          
-          alert("Unable to update");
+          alert(data['msg']);
 
         }        
         
