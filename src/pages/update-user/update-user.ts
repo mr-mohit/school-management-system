@@ -396,7 +396,7 @@ export class UpdateUserPage {
   async ConfirmCreationUser(a) {
     const alert = await this.alertController.create({
      
-      message: 'Message <strong>Do You Want to update This user :</strong>!!!',
+      message: 'Message <strong>Do You Want to update This user :</strong>?',
       buttons: [
         {
           text: 'Cancel',
