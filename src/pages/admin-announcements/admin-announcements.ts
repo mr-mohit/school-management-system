@@ -4,6 +4,7 @@ import { ServiceLoginProvider } from '../../providers/service-login/service-logi
 import { ServiceAdminAnnouncements } from '../../providers/service-AdminAnnoucement/service-announcement';
 import { DeleteAnnouncementsPage } from '../delete-announcements/delete-announcements';
 
+
 /**
  * Generated class for the AdminAnnouncementsPage page.
  *
@@ -18,11 +19,12 @@ import { DeleteAnnouncementsPage } from '../delete-announcements/delete-announce
 })
 export class AdminAnnouncementsPage {
 
-private Date=new Date().getDate();
-private Month=new Date().getMonth()+1;
-private Year=new Date().getFullYear();
-private timestarts:any;
-private timeEnds:any;
+//private Date=new Date().getDate();
+public minDate:String=new Date().toISOString();
+//private Month=new Date().getMonth()+1;
+//private Year=new Date().getFullYear();
+private timestarts=new Date().toISOString();
+private timeEnds=new Date().toISOString();
 private category:any;
 private AnnouncementsTitle:any;
 private AnnouncementsDescription:any;
@@ -37,14 +39,17 @@ public Announcement={
 };
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public getuserid:ServiceLoginProvider,public AdminAnnouncements:ServiceAdminAnnouncements,public alertCtrl:AlertController) {
-    this.timestarts=this.Date+"-"+this.Month+"-"+this.Year;
-    this.timeEnds=this.Date+"-"+this.Month+"-"+this.Year;
-    console.log(this.timestarts);
+    // this.timestarts=this.Date+"-"+this.Month+"-"+this.Year;
+    // this.timeEnds=this.Date+"-"+this.Month+"-"+this.Year;
+    // console.log(this.timestarts);
+    // console.log(this.Date);
+    // console.log(this.minDate);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AdminAnnouncementsPage');
     // console.log(this.date);
+  
    
   }
 
@@ -52,7 +57,10 @@ public Announcement={
   {
     if(this.category!=undefined && this.AnnouncementsTitle!=undefined && this.AnnouncementsDescription!=undefined)
     {
-  
+        if(this.timeEnds>=this.timestarts)
+        {
+          console.log("Start "+this.timestarts +" and End "+this.timeEnds);
+          
          const confirm=this.alertCtrl.create({
           title:'Publish Announcement?',
           buttons:[
@@ -87,6 +95,11 @@ public Announcement={
     }
     else
     {
+      alert("End Date Cannot be Before Start Date");
+    }
+  }
+    else
+    {
        alert("Fields cannot be empty");
     }
   }
@@ -94,8 +107,5 @@ public Announcement={
   {
     this.navCtrl.push(DeleteAnnouncementsPage);
   }
-  getCurrent()
-  {
-    return this.Year=new Date().getFullYear();
-  }
+ 
 }
