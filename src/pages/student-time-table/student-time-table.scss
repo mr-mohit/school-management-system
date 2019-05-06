@@ -7,4 +7,16 @@ page-student-time-table {
         // margin: 0 !important;
 
       }
+      .card-header-md {
+        font-size: 1.5rem;
+        background: rgba(51,102,204,1);
+        padding: 10px;
+    }
+
+    .card-content-md {
+      padding: 10px 10px;
+      background: rgb(240, 237, 227);
+      font-size: 1.5rem;
+      line-height: 1.8;
+  }
 }
