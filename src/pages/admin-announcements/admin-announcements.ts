@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { ServiceLoginProvider } from '../../providers/service-login/service-login';
 import { ServiceAdminAnnouncements } from '../../providers/service-AdminAnnoucement/service-announcement';
 import { DeleteAnnouncementsPage } from '../delete-announcements/delete-announcements';
-// import differenceInCalendarDays from 'date-fns/difference_in_calendar_days'
+//import differenceInCalendarDays from 'date-fns/difference_in_calendar_days'
 
 
 /**
@@ -64,8 +64,9 @@ public Announcement={
         {
           console.log("Start "+this.timestarts +" and End "+this.timeEnds);
 
-          //var result = differenceInCalendarDays(this.timestarts ,this.timeEnds);
-         // console.log("diff "+result);
+         // var result = differenceInCalendarDays(this.timestarts
+         //   ,this.timeEnds);
+        //  console.log("diff "+result);
          const confirm=this.alertCtrl.create({
           title:'Publish Announcement?',
           buttons:[
@@ -99,11 +100,6 @@ public Announcement={
          confirm.present();
 
       }
-      else{
-        alert("Please check the Start and End Date");
-      }
-         
-    }
     else
     {
       alert("End Date Cannot be Before Start Date");

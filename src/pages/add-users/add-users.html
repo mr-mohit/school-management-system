@@ -46,8 +46,9 @@
                 </ion-item>   <br>         
                    <!-- user id -->
                 <ion-item>
-                    <ion-label class="printid"*ngIf="!service.userID"> {{'reg_no(Click)' |translate}} :  </ion-label>
-                    <ion-label class="printid" *ngIf="service.userID">{{'reg_no(Click)' |translate}}  &nbsp; : &nbsp; &nbsp;&nbsp;&nbsp; {{service.userID}} </ion-label>
+                    <ion-label class="printid"*ngIf="!service.userID"> {{'UID' |translate}} :  </ion-label>
+                    <!-- <ion-label class="printid"*ngIf="userrole='student'"> {{'Reg_No' |translate}} :  </ion-label> -->
+                    <ion-label class="printid" *ngIf="service.userID">{{'UID' |translate}}  &nbsp; : &nbsp; &nbsp;&nbsp;&nbsp; {{service.userID}} </ion-label>
                     
                 </ion-item> 
     
@@ -86,7 +87,7 @@
                         {{'gender' |translate}}</ion-label>
                     <ion-select formControlName="usergender" [class.invalid]="!slideOneForm.controls.usergender.valid && (slideOneForm.controls.usergender.dirty || submitAttempt)">
                           <ion-option value="male">                                
-                                male
+                                Male
                           </ion-option>
                           <ion-option value="female">
                                 Female
@@ -250,7 +251,7 @@
                 <ion-item>
                     <ion-label floating>
                             <ion-icon ios="ios-text" md="md-text"></ion-icon>
-                        {{'address_Line1'}}</ion-label>
+                        {{'Address_Line1' |translate}}</ion-label>
                     <ion-input formControlName="address1" type="text" [class.invalid]="!slideThreeForm.controls.address1.valid && (slideThreeForm.controls.addressType.dirty || submitAttempt)"></ion-input>
                 </ion-item>
 
@@ -261,7 +262,7 @@
                 <ion-item>
                     <ion-label floating>
                     <ion-icon ios="ios-text" md="md-text"></ion-icon>
-                    {{'address_Line2' |translate}}</ion-label>
+                    {{'Address_Line2' |translate}}</ion-label>
                     <ion-input formControlName="address2" type="text" [class.invalid]="!slideThreeForm.controls.address2.valid && (slideThreeForm.controls.address2.dirty || submitAttempt)"></ion-input>
                 </ion-item>
 
@@ -360,13 +361,7 @@
                           <ion-option  value="B">
                                 B
                           </ion-option>
-                          <ion-option  value="C">
-                                C
-                          </ion-option>
-                          <ion-option  value="D">
-                                D
-                          </ion-option>
-                          
+                         
                     </ion-select>
                 </ion-item>
                  <!-- session   -->
