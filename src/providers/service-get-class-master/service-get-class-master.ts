@@ -625,6 +625,7 @@ getSA(url,RG)
       }
       else
       {
+        this.SAData=[];
         alert("No data found");
         //return 0;
       }        

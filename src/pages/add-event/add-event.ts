@@ -10,6 +10,7 @@ export class AddEventPage {
   myDate = moment().format("YYYY-MM-DD");
  public DATE:any;
  public EVENT:any;
+ public minDate:String=new Date().toISOString();
  public eventData:any=
  {
    "DATE":"",

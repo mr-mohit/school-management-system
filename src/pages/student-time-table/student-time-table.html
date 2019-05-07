@@ -25,10 +25,10 @@
 
      <ion-item *ngIf="status">
   <ion-card *ngFor="let i of getData?.StudentTime" style="border:solid 1px;" class="ion-card">
-        <ion-card-header text-center style="background-color:rgba(51,102,204,1); ">
+        <ion-card-header  text-center class="card-header-md">
             {{i.SUBJECT_ID}} 
         </ion-card-header>
-        <ion-card-content text-center>
+        <ion-card-content text-center class="card-content-md">
             {{i.TIME_SLOT}} 
          </ion-card-content>
       </ion-card>

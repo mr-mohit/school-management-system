@@ -61,7 +61,7 @@
               <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
             {{'start_date' | translate}}
           </ion-label>
-          <ion-datetime displayFormat="DD-MMMM-YYYY" min="2019" max="2030" placeholder="Select Date" [(ngModel)]="timestarts"></ion-datetime>
+          <ion-datetime id="Start" displayFormat="DD-MMMM-YYYY" [min]="minDate" [(ngModel)]="timestarts" placeholder="Select Date"  max="2030"></ion-datetime>
         </ion-item>
 
     <!-- END DATE -->
@@ -70,7 +70,7 @@
               <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
             {{'end_date' |translate}}
           </ion-label>
-          <ion-datetime displayFormat="DD-MMMM-YYYY" placeholder="Select Date" [(ngModel)]="timeEnds" min="2019" max="2030"></ion-datetime>
+          <ion-datetime id="End" displayFormat="DD-MMMM-YYYY" placeholder="Select Date"  [min]="minDate" max="2030" [(ngModel)]="timeEnds"></ion-datetime>
         </ion-item>
 
 <!-- blank space -->

@@ -10,8 +10,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: 'create-test.html',
 })
 export class CreateTestPage {
-  myDate: String = new Date().toISOString();
+ public myDate: String = new Date().toISOString();
  public classID:any;
+
+ public minDate:String=new Date().toISOString();
  slideOneForm: FormGroup;
  submitAttempt: boolean = false;
 
@@ -21,7 +23,7 @@ export class CreateTestPage {
   public TYPE:any;
   public NAME:any;
   public TOPIC:any;
-  public DATE:any;
+  public DATE=new Date().toISOString();
   public TM:any;
   public WM:any;
   public ST:any;
