@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { ServiceLoginProvider } from '../../providers/service-login/service-login';
 import { ServiceAdminAnnouncements } from '../../providers/service-AdminAnnoucement/service-announcement';
 import { DeleteAnnouncementsPage } from '../delete-announcements/delete-announcements';
+import differenceInCalendarDays from 'date-fns/difference_in_calendar_days'
 
 
 /**
@@ -29,6 +30,8 @@ private category:any;
 private AnnouncementsTitle:any;
 private AnnouncementsDescription:any;
 
+public test:any;
+
 public Announcement={
   "REG_NO":"",
   "category":"",
@@ -43,7 +46,7 @@ public Announcement={
     // this.timeEnds=this.Date+"-"+this.Month+"-"+this.Year;
     // console.log(this.timestarts);
     // console.log(this.Date);
-    // console.log(this.minDate);
+  
   }
 
   ionViewDidLoad() {
@@ -60,7 +63,10 @@ public Announcement={
         if(this.timeEnds>=this.timestarts)
         {
           console.log("Start "+this.timestarts +" and End "+this.timeEnds);
-          
+
+          var result = differenceInCalendarDays(this.timestarts
+            ,this.timeEnds);
+          console.log("diff "+result);
          const confirm=this.alertCtrl.create({
           title:'Publish Announcement?',
           buttons:[
