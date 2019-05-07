@@ -4,6 +4,7 @@ import { ServiceGetClassMasterProvider } from '../../providers/service-get-class
 import * as moment from "moment"; 
 import { GetEventProvider } from '../../providers/get-event/get-event';
 import { FunctionCall } from '@angular/compiler';
+import { Push } from '@ionic-native/push';
 
 @IonicPage()
 @Component({
@@ -38,13 +39,18 @@ export class ViewCalendarPage {
  {
    "date":"",
  };
-
+ public ar:any=[];
  public i:any;
-
+//  public ob={
+//    year:"",
+//    month:"",
+//    day:""
+//  }
+public temp:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,public VCal:ServiceGetClassMasterProvider,
     public GE:GetEventProvider) {   
       
-      this.functCall();
+     
        
    
   }
@@ -54,14 +60,24 @@ export class ViewCalendarPage {
        for (let i in this.GE.Event)
        {
          console.log("checking value of i ",i);
+         
         this.currentEvents = [
           {
             year: this.GE.Event[i].year,
             month:this.GE.Event[i].month,
             date: this.GE.Event[i].day
-          },     
-        ];
+          },
+       ];
+        // let ob={
+        //   "year":this.GE.Event[i].year,
+        //   "month":this.GE.Event[i].month,
+        //   "day":this.GE.Event[i].day
+        // }
+        // this.ar.row=ob[i];
+
        }
+      //  console.log("temporary array: ",this.ar);
+      //  console.log("Object variable: ",ob)
 
   }
 
@@ -88,7 +104,7 @@ export class ViewCalendarPage {
       this.VCal.getEventFun(this.Load).then((data:any)=>{
         this.eventlist=data.data;
         
-        
+        this.functCall();
         // console.log("date events",this.eventlist);
       })
     }
