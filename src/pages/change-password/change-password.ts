@@ -58,9 +58,8 @@ export class ChangePasswordPage {
         this.Data['NEWPASSWORD']=this.ConfirmPassword;
         if(this.ChangeService.postChangeData(this.Data))
         {
-          // this.navCtrl.pop();
-          // this.navCtrl.setRoot(LoginPage);
-        }
+          this.navCtrl.pop();
+         // this.navCtrl.setRoot(LoginPage);
       
         }
       }
