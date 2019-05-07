@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import {  NavController, NavParams, AlertController } from 'ionic-angular';
 import { ServiceAddEventProvider } from '../../providers/service-add-event/service-add-event';
-import * as moment from "moment"; 
+//import * as moment from "moment"; 
 @Component({
   selector: 'page-add-event',
   templateUrl: 'add-event.html',
 })
 export class AddEventPage {
-  myDate = moment().format("YYYY-MM-DD");
- public DATE:any;
+ public myDate =new Date().toISOString();
+ public DATE=new Date().toISOString();;
  public EVENT:any;
  public minDate:String=new Date().toISOString();
  public eventData:any=
