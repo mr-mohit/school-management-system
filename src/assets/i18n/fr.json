@@ -185,5 +185,6 @@
 	"error_while_processing":"erreur lors du traitement de",
 	"select_date":"Sélectionner une date",
 	"subject_feedback":"Sujet de commentaires",
-	"student_feedback":"Commentaires des étudiants"
+	"student_feedback":"Commentaires des étudiants",
+	"duration":"DURÉE"
 }
