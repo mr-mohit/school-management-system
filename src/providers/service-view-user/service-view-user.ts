@@ -26,8 +26,8 @@ export class ServiceViewUserProvider {
             console.log(this.recdata);
          }else
          {
-           
-           alert("Registration Number Doesn't exist");
+          
+           alert("User ID Doesn't exist");
          }
          resolve(data);
 

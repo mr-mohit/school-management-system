@@ -29,14 +29,15 @@ export class ResetpasswordPage {
   }
 
  // reset password
- reset(){
-  this.otp=Math.floor(100000 + Math.random() * 900000000);
-  let userinfos={
-    regNo: this.regNo, 
-    email: this.email,
-    otp: this.otp,
-    process:'1'
-  } // these infos are used to check if the user exists in the system and also to send him the otp
+ reset()
+ {
+    this.otp=Math.floor(100000 + Math.random() * 900000000);
+    let userinfos={
+      regNo: this.regNo, 
+      email: this.email,
+      otp: this.otp,
+      process:'1'
+    } // these infos are used to check if the user exists in the system and also to send him the otp
 
  
 

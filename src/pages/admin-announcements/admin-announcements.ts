@@ -3,13 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { ServiceLoginProvider } from '../../providers/service-login/service-login';
 import { ServiceAdminAnnouncements } from '../../providers/service-AdminAnnoucement/service-announcement';
 import { DeleteAnnouncementsPage } from '../delete-announcements/delete-announcements';
-
-/**
- * Generated class for the AdminAnnouncementsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import * as moment from "moment"; 
 
 @IonicPage()
 @Component({
@@ -17,7 +11,7 @@ import { DeleteAnnouncementsPage } from '../delete-announcements/delete-announce
   templateUrl: 'admin-announcements.html',
 })
 export class AdminAnnouncementsPage {
-
+  myDate = moment().format("YYYY-MM-DD");
 private Date=new Date().getDate();
 private Month=new Date().getMonth()+1;
 private Year=new Date().getFullYear();
@@ -52,8 +46,11 @@ public Announcement={
   {
     if(this.category!=undefined && this.AnnouncementsTitle!=undefined && this.AnnouncementsDescription!=undefined)
     {
-  
-         const confirm=this.alertCtrl.create({
+        
+      if(this.myDate<this.timestarts &&  this.timestarts<this.timeEnds)
+      {
+
+        const confirm=this.alertCtrl.create({
           title:'Publish Announcement?',
           buttons:[
             {
@@ -84,6 +81,12 @@ public Announcement={
 
          });
          confirm.present();
+
+      }
+      else{
+        alert("Please check the Start and End Date");
+      }
+         
     }
     else
     {

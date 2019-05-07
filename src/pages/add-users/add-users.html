@@ -31,7 +31,7 @@
                     <ion-label floating>
                     <ion-icon ios="ios-albums" md="md-albums"></ion-icon>
                         {{'user_role' |translate}}</ion-label>
-                    <ion-select formControlName="userrole" [class.invalid]="!slideOneForm.controls.userrole.valid && (slideOneForm.controls.userrole.dirty || submitAttempt)">
+                    <ion-select formControlName="userrole" [class.invalid]="!slideOneForm.controls.userrole.valid && (slideOneForm.controls.userrole.dirty || submitAttempt)"(ionChange)="getID()">
                           <ion-option value="student" >
                                 {{'student' |translate}}
                           </ion-option>
@@ -42,12 +42,12 @@
                 </ion-item>
                <!-- this is the item for  selecting class if role is student -->
                 <ion-item *ngIf="!slideOneForm.controls.userrole.valid  && (slideOneForm.controls.userrole.dirty || submitAttempt)">
-                    <p>Please enter a valid name.</p>
+                    <p style="color:red">Please enter a valid name.</p>
                 </ion-item>   <br>         
                    <!-- user id -->
                 <ion-item>
-                    <ion-label class="printid" (click)="getID()"> {{'reg_no(Click)' |translate}} :  </ion-label>
-                    <ion-label class="printid"(click)="getID()"> {{service.userID}} </ion-label>
+                    <ion-label class="printid"*ngIf="!service.userID"> {{'reg_no(Click)' |translate}} :  </ion-label>
+                    <ion-label class="printid" *ngIf="service.userID">{{'reg_no(Click)' |translate}}  &nbsp; : &nbsp; &nbsp;&nbsp;&nbsp; {{service.userID}} </ion-label>
                     
                 </ion-item> 
     
@@ -64,7 +64,7 @@
                 </ion-item>
 
                 <ion-item *ngIf="!slideOneForm.controls.userfirstname.valid  && (slideOneForm.controls.userfirstname.dirty || submitAttempt)">
-                    <p>Please enter a valid name.</p>
+                    <p style="color:red">Please enter a valid name.</p>
                 </ion-item>
                   <!-- user last name -->
                 <ion-item>
@@ -75,7 +75,7 @@
                 </ion-item>
 
                 <ion-item *ngIf="!slideOneForm.controls.userlastname.valid  && (slideOneForm.controls.userlastname.dirty || submitAttempt)">
-                    <p>Please enter a valid name.</p>
+                    <p style="color:red">Please enter a valid name.</p>
                 </ion-item>
                 
                   <!-- user gender -->
@@ -94,7 +94,7 @@
                 </ion-item>
 
                 <ion-item *ngIf="!slideOneForm.controls.usergender.valid  && (slideOneForm.controls.usergender.dirty || submitAttempt)">
-                    <p>Please enter a valid name.</p>
+                    <p style="color:red">Please enter a valid name.</p>
                 </ion-item>
                   <!-- user date of birth -->
                 <ion-item>
@@ -107,7 +107,7 @@
                 </ion-item>
 
                 <ion-item *ngIf="!slideOneForm.controls.userdob.valid  && (slideOneForm.controls.userdob.dirty || submitAttempt)">
-                    <p>Please enter a valid date.</p>
+                    <p style="color:red">Please enter a valid date.</p>
                 </ion-item>
               
             
@@ -133,7 +133,7 @@
                 </ion-item>
 
                 <ion-item *ngIf="!slideTwoForm.controls.useremail.valid  && (slideTwoForm.controls.useremail.dirty || submitAttempt)">
-                    <p>Please enter a valid email ex : ali21@gmail.com.</p>
+                    <p style="color:red">Please enter a valid email ex : ali21@gmail.com.</p>
                 </ion-item>
                 
                   <!-- user password -->
@@ -145,7 +145,9 @@
                 </ion-item>
 
                 <ion-item *ngIf="!slideTwoForm.controls.userpassword.valid  && (slideTwoForm.controls.userpassword.dirty || submitAttempt)">
-                    <p>Please enter a valid password. ex: Aabc@&123</p>
+                    <p style="color:red">Please enter a valid password : length>=8.</p>
+                    <p style="color:red">Should contain: at least one capital letter, </p> 
+                    <p style="color:red">one small letter, one special character. </p>
                 </ion-item>
                   <!-- user confirm password -->
                 <ion-item>
@@ -156,7 +158,9 @@
                 </ion-item>
 
                 <ion-item *ngIf="!slideTwoForm.controls.userpassword2.valid  && (slideTwoForm.controls.userpassword2.dirty || submitAttempt)">
-                    <p>Please enter a valid password. ex: Aabc@&123</p>
+                    <p style="color:red">Please enter a valid password : length>=8.</p>
+                    <p style="color:red">Should contain: at least one capital letter, </p> 
+                    <p style="color:red">one small letter, one special character. </p>
                 </ion-item>
 
                   <!-- user father's name -->
@@ -168,7 +172,7 @@
                 </ion-item>
 
                 <ion-item *ngIf="!slideTwoForm.controls.userfathername.valid  && (slideTwoForm.controls.userfathername.dirty || submitAttempt)">
-                    <p>Please enter a valid name.</p>
+                    <p style="color:red">Please enter a valid name.</p>
                 </ion-item>
                        <!-- user mother's name -->
                 <ion-item>
@@ -179,7 +183,7 @@
                 </ion-item>
 
                 <ion-item *ngIf="!slideTwoForm.controls.usermothername.valid  && (slideTwoForm.controls.usermothername.dirty || submitAttempt)">
-                    <p>Please enter a valid name.</p>
+                    <p style="color:red">Please enter a valid name.</p>
                 </ion-item>
                        <!-- user city -->
                 <ion-item>
@@ -190,7 +194,7 @@
                 </ion-item>
 
                 <ion-item *ngIf="!slideTwoForm.controls.usercity.valid  && (slideTwoForm.controls.usercity.dirty || submitAttempt)">
-                    <p>Please enter a valid name.</p>
+                    <p style="color:red">Please enter a valid name.</p>
                 </ion-item>
                  <!-- user activation -->
                 <!-- <ion-item>
@@ -238,7 +242,7 @@
                 </ion-item>
 
                 <ion-item *ngIf="!slideThreeForm.controls.addressType.valid  && (slideThreeForm.controls.addressType.dirty || submitAttempt)">
-                    <p>Please select one address type.</p>
+                    <p style="color:red">Please select one address type.</p>
                 </ion-item>
                 
                   <!-- address Line 1 -->
@@ -250,7 +254,7 @@
                 </ion-item>
 
                 <ion-item *ngIf="!slideThreeForm.controls.address1.valid  && (slideThreeForm.controls.address1.dirty || submitAttempt)">
-                    <p>Please enter a valid name.</p>
+                    <p style="color:red">Please enter a valid name.</p>
                 </ion-item>
                   <!-- address Line 2 -->
                 <ion-item>
@@ -261,7 +265,7 @@
                 </ion-item>
 
                 <ion-item *ngIf="!slideThreeForm.controls.address2.valid  && (slideThreeForm.controls.address2.dirty || submitAttempt)">
-                    <p>Please enter a valid name.</p>
+                    <p style="color:red">Please enter a valid name.</p>
                 </ion-item>
 
                   <!-- state -->
@@ -273,7 +277,7 @@
                 </ion-item>
 
                 <ion-item *ngIf="!slideThreeForm.controls.state.valid  && (slideThreeForm.controls.state.dirty || submitAttempt)">
-                    <p>Please enter a valid name.</p>
+                    <p style="color:red">Please enter a valid name.</p>
                 </ion-item>
                    <!-- Pin Code -->
                 <ion-item>
@@ -284,7 +288,7 @@
                 </ion-item>
 
                 <ion-item *ngIf="!slideThreeForm.controls.pincode.valid  && (slideThreeForm.controls.pincode.dirty || submitAttempt)">
-                    <p>Please enter a valid name.</p>
+                    <p style="color:red">Please enter a valid pincode. length=6</p>
                 </ion-item>
                  <!-- contact -->
                 <ion-item>
@@ -296,7 +300,7 @@
                 </ion-item>
 
                 <ion-item *ngIf="!slideThreeForm.controls.contact.valid  && (slideThreeForm.controls.contact.dirty || submitAttempt)">
-                    <p>Please enter a valid value</p>
+                    <p style="color:red">Please enter a valid value</p>
                 </ion-item> 
 
 
@@ -389,7 +393,7 @@
                 </ion-item>
 
                 <ion-item *ngIf="!slideFourForm.controls.teacherDesg.valid  && (slideFourForm.controls.teacherDesg.dirty || submitAttempt)">
-                    <p>Please enter a valid value</p>
+                    <p style="color:red">Please enter a valid value</p>
                 </ion-item> 
                
 
