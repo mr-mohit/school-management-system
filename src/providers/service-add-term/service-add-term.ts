@@ -17,11 +17,11 @@ export class ServiceAddTermProvider {
         console.log("passing data",termData);
         if(data['statuscode']==1)
         {
-          alert("Term Added");
+          alert(data['msg']);
         }
         else
         {
-          alert("Term Not-Added");
+          alert(data['msg']);
         }        
         
          resolve(data);

@@ -22,12 +22,12 @@ export class ServiceAddSessionProvider {
       this.http.post(url,JSON.stringify(sessionData)).subscribe(data=>{
         if(data['statuscode']==1)
         {
-          alert("Session Added");
+          alert(data['msg']);
 
         }
         else
         {
-          alert("Session Not-Added");
+          alert(data['msg']);
         }        
         
          resolve(data);
