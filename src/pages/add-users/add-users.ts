@@ -142,7 +142,7 @@ export class AddUsersPage {
      console.log(this.slideOneForm.getRawValue().userrole);
       if(this.slideOneForm.getRawValue().userrole =="")
       {
-         alert("please select one user role ");
+         alert("Please select either of the roles");
       }
       else
       {
@@ -203,14 +203,14 @@ export class AddUsersPage {
               {
                 this.userInfos["teacherdepart"] = "";
                 this.userInfos["teacherdesg"] = "";
-                alert("Please select an appropirate designationand/or departement for teacher");
+                alert("Please select an appropirate designation or departement for teacher");
               }
               else
               {
                 this.userInfos["studentclass"] ="";
                 this.userInfos["studentsection"]= "";
                 this.userInfos["studentsession"]= 0;
-                 alert("Please Select a valid class/section/session infos for the student");
+                 alert("Please select a valid class/section/session for the student");
               }
               
           }
@@ -223,7 +223,7 @@ export class AddUsersPage {
             if(this.userInfos[index] == "")
             {
               // if one field is empty => print an alert 
-                alert("empty fields are not allowed / You should fill all the fields properly");
+                alert("Empty fields are not allowed / You should fill all the fields properly");
                 break;
             }
             else
@@ -248,7 +248,7 @@ export class AddUsersPage {
             
       }
       else{
-          alert("password and confirmation password are not matching");
+          alert("Password and confirmation password do not match");
       }
      }
      else
@@ -375,7 +375,7 @@ export class AddUsersPage {
     const fileTransfer: TransferObject = this.transfer.create();
    
     this.loading = this.loadingCtrl.create({
-      content: 'Uploading...',
+      content: 'Uploading',
     });
     this.loading.present();
    
@@ -384,7 +384,7 @@ export class AddUsersPage {
       this.loading.dismissAll()
     }, err => {
       this.loading.dismissAll()
-      this.presentToast('Error while uploading file.');
+      this.presentToast('Error while uploading file');
     });
   } 
 
@@ -392,7 +392,7 @@ export class AddUsersPage {
   async ConfirmCreationUser(a) {
     const alert = await this.alertController.create({
      
-      message: 'Message <strong>Do You Want to Create This user :</strong>?',
+      message: 'Message <strong>Do you want to create this user?</strong>',
       buttons: [
         {
           text: 'Cancel',

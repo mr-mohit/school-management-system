@@ -16,6 +16,8 @@ import { ServiceStudentHomeworkProvider } from '../../providers/service-student-
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 import { StudentSyllabusPage } from '../student-syllabus/student-syllabus';
 import { ServiceAddsubjectProvider } from '../../providers/service-addsubject/service-addsubject';
+import { StudentAttendanceSubjectsPage } from '../student-attendance-subjects/student-attendance-subjects';
+import { GetEventProvider } from '../../providers/get-event/get-event';
 
 
 @Component({
@@ -25,12 +27,12 @@ import { ServiceAddsubjectProvider } from '../../providers/service-addsubject/se
 export class HomePage {
 
   public Reg:any;
-
+  
   constructor(public navCtrl: NavController, public Menu: MenuController,public CRD:ServiceLoginProvider ,
     public result:ServiceStudentResultProvider,public UR:ServiceLoginProvider, 
     public SM:ServiceStudentMessageProvider, public SH:ServiceStudentHomeworkProvider,
      public SA:ServiceGetClassMasterProvider, public Sy:ServiceAddsubjectProvider,
-     public log:ServiceLoginProvider
+     public log:ServiceLoginProvider,public GE:GetEventProvider
     ) {
     this.Menu.enable(true);
   }
@@ -38,7 +40,7 @@ export class HomePage {
 //Student Functions
   gotoStudentAttendance()
   {
-    this.navCtrl.push(StudentAttendancePage);
+    this.navCtrl.push(StudentAttendanceSubjectsPage);
     this.SA.getSAFun(this.UR.reg);
   }
 
@@ -100,6 +102,7 @@ export class HomePage {
   gotoViewCalendar()
   {
     this.navCtrl.push(ViewCalendarPage);
+    this.GE.getEventsFun();
   }
 
   gotoViewSyllabus()

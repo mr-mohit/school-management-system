@@ -128,7 +128,7 @@ chooseFile(CLASS,SUBJECT)
     {
       const confirm = this.alertCtrl.create({
         title: 'Register Subject under Class?',
-        message: 'Do you want to register ?',
+        message: 'Do you want to register?',
         buttons: [
           {
             text: 'Cancel',
@@ -153,7 +153,7 @@ chooseFile(CLASS,SUBJECT)
 
     }
     else{
-      alert("please fill required fields");
+      alert("Please fill the required fields");
     }
 
   }

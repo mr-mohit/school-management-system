@@ -147,7 +147,7 @@ export class UpdateUserPage {
      console.log(this.slideOneForm.getRawValue().userrole);
       if(this.slideOneForm.getRawValue().userrole =="")
       {
-         alert("please select one user role ");
+         alert("Please select either of the roles");
       }
       else
       {
@@ -207,14 +207,14 @@ export class UpdateUserPage {
                 {
                   this.userInfos["teacherdepart"] = "";
                   this.userInfos["teacherdesg"] = "";
-                  alert("Please select an appropirate designationand/or departement for teacher");
+                  alert("Please select an appropirate designation or departement for teacher");
                 }
                 else
                 {
                   this.userInfos["studentclass"] ="";
                   this.userInfos["studentsection"]= "";
                   this.userInfos["studentsession"]= 0;
-                   alert("Please Select a valid class/section/session infos for the student");
+                   alert("Please select a valid class/section/session for the student");
                 }
                 
             }
@@ -228,7 +228,7 @@ export class UpdateUserPage {
               {
                 // if one field is empty => print an alert 
                 console.log("index: ",index,"---",this.userInfos[index]);
-                  alert("empty fields are not allowed / You should fill all the fields properly");
+                  alert("Empty fields are not allowed / You should fill all the fields properly");
                   break;
               }
               else
@@ -252,12 +252,12 @@ export class UpdateUserPage {
               
         }
         else{
-            alert("password and confirmation password are not matching");
+            alert("Password and confirmation password do not match");
         }
        }
        else
        {
-        alert('Please fill all the fields properly, some of them are not valid or some selection are not done');
+        alert('Please fill all the fields properly, some of them are not valid');
        }   
         
   
@@ -317,7 +317,7 @@ export class UpdateUserPage {
         this.copyFileToLocalDir(correctPath, currentName, this.createFileName());
       }
     }, (err) => {
-      this.presentToast('Error while selecting image.');
+      this.presentToast('Error while selecting image');
     });
   }
 
@@ -333,7 +333,7 @@ export class UpdateUserPage {
     this.file.copyFile(namePath, currentName, cordova.file.dataDirectory, newFileName).then(success => {
       this.lastImage = newFileName;
     }, error => {
-      this.presentToast('Error while storing file.');
+      this.presentToast('Error while storing file');
     });
   }
    
@@ -379,7 +379,7 @@ export class UpdateUserPage {
     const fileTransfer: TransferObject = this.transfer.create();
    
     this.loading = this.loadingCtrl.create({
-      content: 'Uploading...',
+      content: 'Uploading',
     });
     this.loading.present();
    
@@ -388,7 +388,7 @@ export class UpdateUserPage {
       this.loading.dismissAll()
     }, err => {
       this.loading.dismissAll()
-      this.presentToast('Error while uploading file.');
+      this.presentToast('Error while uploading file');
     });
   } 
 
@@ -396,7 +396,7 @@ export class UpdateUserPage {
   async ConfirmCreationUser(a) {
     const alert = await this.alertController.create({
      
-      message: 'Message <strong>Do You Want to update This user :</strong>?',
+      message: 'Message <strong>Do you want to update this user?</strong>',
       buttons: [
         {
           text: 'Cancel',
@@ -476,7 +476,7 @@ UserInfos()
     }
     else
     {
-      alert("enter a valid Registration ID");
+      alert("Enter a valid User Id");
     }  
   }
 

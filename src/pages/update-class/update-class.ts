@@ -29,8 +29,8 @@ export class UpdateClassPage {
     if(CID!=undefined && CLASS!=undefined && SECTION!=undefined)
     {
       const confirm = this.alertCtrl.create({
-        title: 'Save Class?',
-        message: 'Do you want to save this Class?',
+        title: 'Update class?',
+        message: 'Do you want to update this class?',
         buttons: [
           {
             text: 'Cancel',
@@ -60,7 +60,7 @@ export class UpdateClassPage {
 
     }
     else{
-      alert("plese fill required fields");
+      alert("Please fill the required fields");
     }
 
   }

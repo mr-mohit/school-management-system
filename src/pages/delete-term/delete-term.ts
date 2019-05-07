@@ -23,8 +23,8 @@ export class DeleteTermPage {
     if(TERM!=undefined)
     {
       const confirm = this.alertctrl.create({
-        title: 'Delete this Term',
-        message: 'Do you really want to delete this Term ?',
+        title: 'Delete this Term?',
+        message: 'Do you really want to delete this Term?',
         buttons: [
           {
             text: 'Cancel',
@@ -50,7 +50,7 @@ export class DeleteTermPage {
      
     }
     else{
-      alert("plese fill required fields");
+      alert("Please fill the required fields");
     }
 
   }

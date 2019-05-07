@@ -27,8 +27,8 @@ public sessionData:any=
     if(SID!=undefined &&START_DATE!=undefined && END_DATE!=undefined)
     {
       const confirm = this.alertCtrl.create({
-        title: 'UPdate Session?',
-        message: 'Do you want to update the Session?',
+        title: 'Update session?',
+        message: 'Do you want to update the session?',
         buttons: [
           {
             text: 'Cancel',
@@ -37,7 +37,7 @@ public sessionData:any=
                            }
           },
           {
-           text: 'Okey',
+           text: 'Okay',
            handler: () => {
                           console.log('Agree clicked');
                           this.SID=SID;
@@ -58,7 +58,7 @@ public sessionData:any=
 
     }
     else{
-      alert("plese fill required fields");
+      alert("Please fill the required fields");
     }
     
 }

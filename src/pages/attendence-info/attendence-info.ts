@@ -57,7 +57,7 @@ export class AttendenceInfoPage {
     }
     else
     {
-      alert("Please select required fields.")
+      alert("Please select the fields to proceed")
     }
     
     // console.log("class id as per students to be display",this.classID);
@@ -90,7 +90,7 @@ export class AttendenceInfoPage {
 
     }
     else{
-      alert("please fill all information");
+      alert("Please fill the required fields");
     }
     
   }

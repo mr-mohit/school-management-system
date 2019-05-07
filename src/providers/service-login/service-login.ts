@@ -5,7 +5,7 @@ export class ServiceLoginProvider {
   public data:any;
     public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; //for server use
     //public URL="http://localhost/schoolapi/"; //for local use
-     //public URL="https://direct-school.000webhostapp.com/"; //for hosting
+    //public URL="https://direct-school.000webhostapp.com/"; //for hosting
   
   public recdata: any;//this variable will store info coming from API
   public address:any;//for storing address
@@ -13,6 +13,8 @@ export class ServiceLoginProvider {
   public user_role:any; //this variable is used to define side menu as per user role
   //these variable for Student result
   public reg:any;
+  public actSess:any;
+  public actTerm:any;
 
 
   constructor(public http: HttpClient) {
@@ -36,7 +38,7 @@ export class ServiceLoginProvider {
          this.address=this.recdata.address[0]; 
          //console.log(typeof(this.address));
          this.details=this.recdata.data[0];
-         //console.log("regertration number",this.details.REG_NO);
+         console.log("regertration number",this.details);
          //console.log("Address");
          //console.log(this.address);
          }else
@@ -58,5 +60,67 @@ export class ServiceLoginProvider {
     var url=this.URL+"login.php";
     return this.postData(url,data);
   }
+
+  getASession(){
+    var url=this.URL+"activeSession.php";
+    return this.ASession(url);
+  }
+
+  ASession(url){
+
+    return new Promise(resolve=>{
+      this.http.post(url,JSON.stringify("")).subscribe(data=>{
+        if(data['statuscode']==1)
+        {
+          // alert("Term Added");
+          this.actSess=data['data'];
+          console.log("current session is :",this.actSess);
+
+
+        }
+        else
+        {
+          alert("No data Found");
+        }        
+        
+         resolve(data);
+
+      },error=>{
+        console.log("Error",error);
+      });
+    });
+  }
+
+
+  getATerm(){
+    var url=this.URL+"activeTerm.php";
+    return this.ASession(url);
+  }
+
+  ATerm(url){
+
+    return new Promise(resolve=>{
+      this.http.post(url,JSON.stringify("")).subscribe(data=>{
+        if(data['statuscode']==1)
+        {
+          // alert("Term Added");
+          this.actTerm=data['data'];
+          console.log("current term is :",this.actTerm);
+
+
+        }
+        else
+        {
+          alert("No data Found");
+        }        
+        
+         resolve(data);
+
+      },error=>{
+        console.log("Error",error);
+      });
+    });
+  }
+
 
 }

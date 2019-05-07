@@ -107,7 +107,7 @@ export class ViewTimeTablePage {
        console.log("SUBJECT ID ",this.SUBJECTID);
        console.log("SLOT ",this.SLOT);
        console.log("DAY",this.Day);
-       alert("please fill required fields");
+       alert("Please fill the required fields");
      }
  
    }

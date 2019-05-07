@@ -45,12 +45,12 @@ export class StudentHomeworkPage {
     //You can change a file path whatever pre-defined method.  
      this.fileTransfer.download(url, this.file.externalRootDirectory  + fileName, true).then((entry) => {  
         //here logging our success downloaded file path in mobile.  
-        alert(' -- > download completed: ' + entry.toURL());  
+        alert('Download complete' + entry.toURL());  
       //  alert('download completed');
     }, (error) => {  
         //here logging our error its easier to find out what type of error occured.  
-        console.log('download failed: ' + error);  
-        alert('download failed'+ error);
+        console.log('Download failed' + error);  
+        alert('Download failed'+ error);
 
     });  
   }

@@ -52,12 +52,6 @@ export class MarkAttendancePage {
       console.log(this.AA,'array aa gya');
         
   }
-
-
-
-
-
-
   Submit(reg,status,index)
   {
 
@@ -103,8 +97,8 @@ export class MarkAttendancePage {
 
   ViewAtt(){
     const confirm = this.alertCtrl.create({
-      title: 'Upload Attendance',
-      message: 'Do you want to Upload Attendance',
+      title: 'Upload Attendance?',
+      message: 'Do you want to Upload Attendance?',
       buttons: [
         {
           text: 'Cancel',

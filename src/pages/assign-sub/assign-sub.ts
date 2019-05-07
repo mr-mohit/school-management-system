@@ -72,7 +72,7 @@ export class AssignSubPage {
     else
     {
       const toast = this.toast.create({
-        message: 'Please select all fileds',
+        message: 'Please select all the fields',
         duration: 3000,
         position: 'top'
       });

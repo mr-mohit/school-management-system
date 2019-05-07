@@ -90,12 +90,15 @@ public Announcement={
     }
     else
     {
-    
        alert("Fields cannot be empty");
     }
   }
   SeeAnnouncements()
   {
     this.navCtrl.push(DeleteAnnouncementsPage);
+  }
+  getCurrent()
+  {
+    return this.Year=new Date().getFullYear();
   }
 }

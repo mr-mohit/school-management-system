@@ -87,12 +87,12 @@ Update(CLASS,SUBJECT,TEST)
   this.INS['CID']= CLASS;
   this.INS['SID']=SUBJECT;
   this.INS['TID']=TEST;
-  console.log("Updating MArks",this.INS);
+  console.log("Updating Marks",this.INS);
   this.GU.getSDCFun(CLASS);
   this.navCtrl.push(UpdateMarksPage,{"class":CLASS,"subject":SUBJECT,"test":TEST});
   }
   else{
-    alert("Please select all fields");
+    alert("Please select all the fields");
   }
 }
 

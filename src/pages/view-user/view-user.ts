@@ -69,7 +69,7 @@ export class ViewUserPage {
       }
       else
       {
-        alert("enter a valid Registration ID");
+        alert("Enter a valid User ID");
       }  
 
     }
@@ -86,7 +86,7 @@ UserInfos()
   }
   else
   {
-    alert("enter a valid Registration ID");
+    alert("Enter a valid User ID");
   }  
 }
 

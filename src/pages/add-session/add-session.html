@@ -21,6 +21,19 @@
             {{'end_date' |translate}}</ion-label>
           <ion-datetime name="END_DATE" displayFormat="DD MMM YYYY" placeholder="Select Date" min="2019" max="2030" [(ngModel)]="END_DATE"></ion-datetime>
         </ion-item>
+
+
+        <ion-item>
+          <ion-label>Session Status</ion-label>
+          <ion-label class="right" *ngIf="STATUS"color="secondary">Active</ion-label>
+          <ion-label class="right" *ngIf="!STATUS" color="danger">Not Active</ion-label>
+          <ion-toggle [(ngModel)]="STATUS" (ionChange)="change()"></ion-toggle>
+          
+        </ion-item>
+
+
+        
+      
         
       <ion-label>  <!-- For Space --></ion-label>
       <ion-label>  <!-- For Space --></ion-label>

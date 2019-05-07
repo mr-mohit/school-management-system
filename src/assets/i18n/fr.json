@@ -58,7 +58,7 @@
 	"profile_img": "Image de profil",
 	"image":"Image",
 	"reg_no(Click)": "Identifiant d'enregistrement(Click here):",
-	"registration_no": "identifiant",
+	"registration_no": "Identifiant",
 	"reset_password": "réinitialiser le mot de passe ?",
 	"role": "Role",
 	"save": "Sauvegarder",
@@ -147,7 +147,7 @@
 	"update_class":"Modifier Classe",
 	"update_marks":"Mise À Jour Des Scores",
 	"teacher_dash":"Bureau enseignant",
-    "mark_attendance":"marquer la présence ",
+    "mark_attendance":"Marquer la présence ",
     "create_test":"Créer Test",
 	"upload_homewrk":"Soumettre devoirs",
 	"marks":"Scores",
@@ -183,5 +183,8 @@
 	"end_time":"Heure De Fin",
 	"room_no":"Numéro de chambre",
 	"error_while_processing":"erreur lors du traitement de",
-	"select_date":"Sélectionner une date"
+	"select_date":"Sélectionner une date",
+	"subject_feedback":"Sujet de commentaires",
+	"student_feedback":"Commentaires des étudiants",
+	"duration":"DURÉE"
 }

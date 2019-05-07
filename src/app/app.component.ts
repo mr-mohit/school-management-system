@@ -112,35 +112,35 @@ export class MyApp {
     
     //initializing the student array elements for side menu
     this.Student_a=[
-      {title:'home', icon:'home', component:StudentdashboardPage},
+      {title:'Home', icon:'home', component:StudentdashboardPage},
      // {title:'School Info', icon:'contact', component:SchoolInfoPage},
-      {title:'events', icon:'calendar',component:ViewCalendarPage},
-      {title:'feedback', icon:'thumbs-up',component:StudentFeedbackPage},
+      {title:'Events', icon:'calendar',component:ViewCalendarPage},
+      {title:'Feedback', icon:'thumbs-up',component:StudentFeedbackPage},
       {title:'Quiz', icon:'list', component:StudentQuizPage},
-      {title:'gallery',icon:'images',component:GalleryPage}
+      {title:'Gallery',icon:'images',component:GalleryPage}
     ];
 
     //initializing the teacher array elements for side menu
     this.Teacher_a=[
-      {title:'home', icon:'home',component:TeacherdashboardPage},
+      {title:'Home', icon:'home',component:TeacherdashboardPage},
       {title:'Messages', icon:'text',component:TeacherSendMessagePage},
-      {title:'announcements',icon:'megaphone',component:TeacherAnnouncementPage},
-      {title:'feedback',icon:'thumbs-up',component:TeacherFeedbackPage},      
-      {title:'gallery',icon:'images',component:GalleryPage},
-      {title:'events', icon:'calendar',component:ViewCalendarPage},
-      {title:'delete_test',icon:'book',component:DeleteTestPage}
+      {title:'Announcements',icon:'megaphone',component:TeacherAnnouncementPage},
+      {title:'Feedback',icon:'thumbs-up',component:TeacherFeedbackPage},      
+      {title:'Gallery',icon:'images',component:GalleryPage},
+      {title:'Events', icon:'calendar',component:ViewCalendarPage},
+      {title:'Delete Test',icon:'book',component:DeleteTestPage}
     ];
     //initializing the Admin array elements for side menu
     this.Admin_a=[
-      {title:"home",icon:"home",component:AdminDashboardPage},
-      {title:"gallery",icon:"images",component:GalleryPage},
+      {title:"Home",icon:"home",component:AdminDashboardPage},
+      {title:"Gallery",icon:"images",component:GalleryPage},
       
     ];
 
     //initializing the common array elements for side menu
     this.help=[
-      {title:'about', icon:'mail',component:AboutUsPage},
-      {title:'settings',icon:'settings',component:SettingPage}
+      {title:'About', icon:'mail',component:AboutUsPage},
+      {title:'Settings',icon:'settings',component:SettingPage}
            
     ];
 

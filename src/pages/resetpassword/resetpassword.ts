@@ -53,12 +53,12 @@ export class ResetpasswordPage {
         //alert box
        const alert = this.alertCtrl.create({
         title: 'hello'+' '+this.recdata.data[0].FIRST_NAME, 
-        subTitle: 'The otp has been sent to your email',
-        message: 'Click Ok -> to set the new password',
+        subTitle: 'The otp has been sent to your email address',
+        message: 'Click OK to set the new password',
         buttons: [
         {
             text: 'Cancel',
-            role: 'cancel',
+            role: 'Cancel',
             handler: (blah) => {
             }
         },
