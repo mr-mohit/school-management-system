@@ -8,6 +8,7 @@ import { ServiceAddEventProvider } from '../../providers/service-add-event/servi
 export class AddEventPage {
  public DATE:any;
  public EVENT:any;
+ public minDate:String=new Date().toISOString();
  public eventData:any=
  {
    "DATE":"",
