@@ -148,6 +148,7 @@ import { FileOpener } from '@ionic-native/file-opener';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
 import { StudentSyllabusPage } from '../pages/student-syllabus/student-syllabus';
 import { GetEventProvider } from '../providers/get-event/get-event';
+import { ServiceSyllabusProvider } from '../providers/service-syllabus/service-syllabus';
 
  @NgModule({ 
   declarations: [
@@ -418,6 +419,7 @@ import { GetEventProvider } from '../providers/get-event/get-event';
     ServiceCalculateResultProvider,
     ServiceDeleteAndUpdateTimeTableProvider,
     GetEventProvider,
+    ServiceSyllabusProvider,
   ]
 })
 export class AppModule {}
