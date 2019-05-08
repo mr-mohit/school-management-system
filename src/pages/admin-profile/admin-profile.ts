@@ -14,14 +14,25 @@ import { ServiceLoginProvider } from '../../providers/service-login/service-logi
   selector: 'page-admin-profile',
   templateUrl: 'admin-profile.html',
 })
+
 export class AdminProfilePage {
 
+  public imgurl:String="assets/imgs/defuser.png";
+
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:ServiceLoginProvider) {
+     
+      
 
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AdminProfilePage');
+   
+  //  if(this.service.Uimag!=undefined)
+  //  {
+  //    this.imgurl=this.service.Uimag;
+  //    console.log("USER PIC ",this.imgurl);
+  //  }
   }
 
 }
