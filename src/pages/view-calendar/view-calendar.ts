@@ -3,8 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 import * as moment from "moment"; 
 import { GetEventProvider } from '../../providers/get-event/get-event';
-import { FunctionCall } from '@angular/compiler';
-import { Push } from '@ionic-native/push';
+
 
 @IonicPage()
 @Component({

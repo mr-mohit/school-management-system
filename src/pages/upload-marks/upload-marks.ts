@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { ToastController,IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 import { ServiceUploadMarksProvider } from '../../providers/service-upload-marks/service-upload-marks';

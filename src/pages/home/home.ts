@@ -35,13 +35,17 @@ export class HomePage {
      public log:ServiceLoginProvider,public GE:GetEventProvider
     ) {
     this.Menu.enable(true);
+    this.SA.getSAFun(this.UR.reg);
+    this.SA.perAttFun(this.CRD.reg);
   }
 
 //Student Functions
   gotoStudentAttendance()
   {
+    
     this.navCtrl.push(StudentAttendanceSubjectsPage);
-    this.SA.getSAFun(this.UR.reg);
+    
+    
   }
 
   gotoStudentAnnouncements()

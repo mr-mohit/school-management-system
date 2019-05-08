@@ -24,11 +24,11 @@ export class UploadMarksInfoPage {
    };
 
 
-   public INS=[{
+   public INS={
     "CID":"",
     "SID":"",
     "TID":""
-  }];
+  };
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public GU:ServiceGetClassMasterProvider,
@@ -88,7 +88,7 @@ Update(CLASS,SUBJECT,TEST)
   this.INS['SID']=SUBJECT;
   this.INS['TID']=TEST;
   console.log("Updating Marks",this.INS);
-  this.GU.getSDCFun(CLASS);
+  this.GU.getUploadMarksFun(this.INS);
   this.navCtrl.push(UpdateMarksPage,{"class":CLASS,"subject":SUBJECT,"test":TEST});
   }
   else{
