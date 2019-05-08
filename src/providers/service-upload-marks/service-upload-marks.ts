@@ -25,6 +25,7 @@ export class ServiceUploadMarksProvider {
         if(data['statuscode']==1)
         {
           alert("Marks Uploaded");
+          
         }
         else
         {
@@ -40,6 +41,7 @@ export class ServiceUploadMarksProvider {
   }
 
 
+
   // FOR UPDATING UPLOAD MARKS//////////////////////////////////////////////////////////////////////
   UpdateFun(data)
   {
@@ -49,7 +51,7 @@ export class ServiceUploadMarksProvider {
 
  update(url,data)
   {
-    console.log("Length",data['length']);
+    // console.log("Length",data['length']);
     console.log("updating marks",data);
     return new Promise(resolve=>{
       this.http.post(url,JSON.stringify(data)).subscribe(data=>{
