@@ -42,17 +42,17 @@ export class ServiceGetClassMasterProvider {
     
   }
 //get distinct sections for add user
-  getSectionFun()
+  getSectionFun(id)
   {
     var url=this.URL+"getSection.php";
-    return this.getSection(url);
+    return this.getSection(url,id);
   }
 
-  getSection(url)
+  getSection(url,id)
   {
     //console.log("Class is which we passing to api",postId);
   return new Promise(resolve=>{
-    this.http.post(url,JSON.stringify("")).subscribe(data=>{
+    this.http.post(url,JSON.stringify(id)).subscribe(data=>{
       if(data['statuscode']==1)
       {
         this.sectionData=data['data'];
@@ -63,6 +63,7 @@ export class ServiceGetClassMasterProvider {
       else
       {
         // this.SubjectOnTimeTable=[];
+        
         console.log("no data fetched");
         //return 0;
       }        

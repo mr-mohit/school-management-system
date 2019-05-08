@@ -341,8 +341,8 @@
                     <ion-label floating  [hidden]='slideOneForm.controls.userrole.value ==="teacher" || slideOneForm.controls.userrole.value ==="" '>
                             <ion-icon ios="ios-people" md="md-people"></ion-icon>
                         {{'class' |translate}}</ion-label>
-                    <ion-select formControlName="studentClass" [class.invalid]="!slideFourForm.controls.studentClass.valid && (slideFourForm.controls.studentClass.dirty || submitAttempt)">
-                          <ion-option  *ngFor=" let p of cid.classData" [value]="p.CLASS">
+                    <ion-select formControlName="studentClass" name="classId" (ionChange)="selectSection(classId)" [class.invalid]="!slideFourForm.controls.studentClass.valid && (slideFourForm.controls.studentClass.dirty || submitAttempt)">
+                          <ion-option   *ngFor=" let p of cid.classData" [value]="p.CLASS_MASTER_ID" >
                                 {{p.CLASS}}
                           </ion-option>                          
                     </ion-select>
