@@ -19,7 +19,9 @@ import { AddEventPage } from '../add-event/add-event';
 })
 export class AdminAddPage{
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public getSession:ServiceViewSessionProvider,public cid:ServiceGetClassMasterProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public getSession:ServiceViewSessionProvider,
+    public cid:ServiceGetClassMasterProvider) {
   
   }
 
@@ -28,6 +30,7 @@ export class AdminAddPage{
     this.navCtrl.push(AddUsersPage);
     this.cid.getClassFun();   //this will call the function of ServiceGetClassMaster through cid object of same service
     this.getSession.getSessionFun(); //
+    this.cid.getSectionFun();
   }
   AddSubject()
   {

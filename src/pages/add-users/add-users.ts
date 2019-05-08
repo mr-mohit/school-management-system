@@ -64,7 +64,6 @@ export class AddUsersPage {
 
   }
 
-
   constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform,
               public formBuilder: FormBuilder, public service:ServiceAdduserProvider,
               public getSession:ServiceViewSessionProvider,
