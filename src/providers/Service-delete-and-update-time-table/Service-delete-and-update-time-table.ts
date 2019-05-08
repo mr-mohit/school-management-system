@@ -40,7 +40,7 @@ export class ServiceDeleteAndUpdateTimeTableProvider {
         else
         {
           this.SubjectsInTimeTable=[{}];
-          alert("No Time table to delete");
+          alert("No timetable to delete");
 
         }        
         
@@ -69,12 +69,12 @@ export class ServiceDeleteAndUpdateTimeTableProvider {
         console.log("passing data",UpdateData);
         if(data['statuscode']==1)
         {
-          alert(data['msg']);
+          alert("Timetable updated")
         }
         else
         {
          
-          alert(data['msg']);
+          alert("Unable to update the timetable");
 
         }        
         

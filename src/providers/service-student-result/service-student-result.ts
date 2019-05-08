@@ -31,7 +31,7 @@ export class ServiceStudentResultProvider {
         }
         else
         {
-          alert("No data Found");
+          alert("No result found");
         }        
         
          resolve(data);
@@ -57,7 +57,7 @@ export class ServiceStudentResultProvider {
         }
         else
         {
-          alert("No data Found");
+          alert("Student information not found");
         }        
         
          resolve(data);

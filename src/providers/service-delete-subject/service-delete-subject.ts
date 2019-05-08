@@ -33,12 +33,12 @@ export class ServiceDeleteSubjectProvider {
         console.log("passing data",SUB);
         if(data['statuscode']==1)
         {
-          alert("Subject Deleted");
+          alert("Subject deleted");
 
         }
         else
         {
-          alert("Subject Not-Deleted");
+          alert("Subject not deleted");
 
         }        
         

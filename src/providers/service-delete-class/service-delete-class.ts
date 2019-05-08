@@ -24,12 +24,12 @@ export class ServiceDeleteClassProvider {
         console.log("passing data",CD);
         if(data['statuscode']==1)
         {
-          alert("Class Deleted");
+          alert("Class deleted");
 
         }
         else
         {
-          alert("Class Not-Deleted");
+          alert("Class not deleted");
 
         }        
         

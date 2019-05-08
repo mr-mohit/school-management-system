@@ -67,7 +67,7 @@ export class ServiceGetClassMasterProvider {
       else
       {
         this.SubjectOnTimeTable=[];
-        alert("no data fetched");
+        alert("No test found");
         //return 0;
       }        
        resolve(data);
@@ -99,7 +99,7 @@ export class ServiceGetClassMasterProvider {
         }
         else
         {
-          alert("No data Found");
+          alert("No class found");
         }        
         
          resolve(data);
@@ -131,7 +131,7 @@ export class ServiceGetClassMasterProvider {
         }
         else
         {
-          alert("no data fetched");
+          alert("No subjects found");
         }        
         
          resolve(data);
@@ -162,7 +162,7 @@ export class ServiceGetClassMasterProvider {
         }
         else
         {
-          alert("no data fetched");
+          alert("No users found");
         }        
         
          resolve(data);
@@ -200,7 +200,7 @@ export class ServiceGetClassMasterProvider {
         else
         {
           this.sessionData=[];
-          alert("No Session Available To Delete");
+          alert("No sessions found");
         }        
         
          resolve(data);
@@ -232,7 +232,7 @@ export class ServiceGetClassMasterProvider {
         }
         else
         {
-          alert("no data fetched");
+          alert("No terms found");
         }        
         
          resolve(data);
@@ -267,7 +267,7 @@ getUser(url)
       }
       else
       {
-        alert("no data fetched");
+        alert("No users found");
       }        
       
        resolve(data);
@@ -340,7 +340,7 @@ getSubjectOnTimeTable(url,postId)
       else
       {
         this.SubjectOnTimeTable=[];
-        alert("no data fetched");
+        alert("Not found");
         //return 0;
       }        
        resolve(data);
@@ -376,7 +376,7 @@ getAttSubject(url,postId)
       }
       else
       {
-        alert("no data fetched");
+        alert("No subjects found for attendance");
         //return 0;
       }        
        resolve(data);
@@ -405,7 +405,7 @@ getTest(url,CTD)
       }
       else
       {
-        alert("no data fetched");
+        alert("No test found");
       }        
        resolve(data);
     },error=>{
@@ -450,7 +450,7 @@ getSDC(CLASS,url)
       }
       else
       {
-        alert("no data fetched");
+        alert("No students found for the selected class");
       }        
       
        resolve(data);
@@ -479,7 +479,7 @@ getAttTerm(url,t)
       }
       else
       {
-        alert("no data fetched");
+        alert("No term found for attendance");
       }        
        resolve(data);
     },error=>{
@@ -508,7 +508,7 @@ getFeedback(url)
       }
       else
       {
-        alert("no data fetched");
+        alert("No feedback found");
       }        
        resolve(data);
     },error=>{
@@ -570,7 +570,7 @@ getTIMESLOT(url,Data)
       }
       else
       {
-        alert("NO TIME SLOT IS FREE");
+        alert("Time slot is not free");
         this.timeslot=[];
 
         //return 0;
@@ -603,7 +603,7 @@ getCS(url,CS)
       }
       else
       {
-        alert("No Student found");
+        alert("No student found");
         //return 0;
       }        
        resolve(data);
@@ -633,7 +633,7 @@ getSA(url,RG)
       }
       else
       {
-        alert("No data found");
+        alert("No attendance found for the student");
         //return 0;
       }        
        resolve(data);
@@ -661,7 +661,7 @@ getAttStatus(url,UP)
       }
       else
       {
-        alert("No data found");
+        alert("No status found for attendance of the student");
         //return 0;
       }        
        resolve(data);

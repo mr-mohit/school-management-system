@@ -22,12 +22,12 @@ export class ServiceCreateTestProvider {
         console.log("passing test data",testData);
         if(data['statuscode']==1)
         {
-          alert("Test Created");
+          alert("Test created");
 
         }
         else
         {
-          alert("Unable to Create Test");
+          alert("Unable to create the test");
 
         }        
         

@@ -35,7 +35,7 @@ export class ServiceUpdateUserProvider {
 
       },error=>{
         console.log("error in updation process");
-        alert("error in updation process");
+        alert("Error occured while updating the User");
       });
     });
   }

@@ -5,90 +5,62 @@
 </ion-header>
 
 <ion-content padding>
-<ion-slides pager="true">
-  <ion-slide class="slide_top">
-      <button ion-button on-click="FR()">View Final Result</button>
-    <ion-grid   class="head" style="border:solid 1px;">
+    <button ion-button on-click="FR()">View Final Result</button>
+     <ion-label class="center"><h1>TERM 1</h1></ion-label>
+      
+    <ion-grid   class="head" style="border:solid 1px;font-size:75%">
       <ion-row >
         <ion-col>
           <div>
             <ion-label>Subject</ion-label> 
           </div>
         </ion-col>
-        <ion-col>
-            <div>
-                <ion-label>Term</ion-label>             
-            </div>
-          </ion-col>
         <ion-col class="button-container">
           <div>
-            <ion-label>TYPE</ion-label>
+            <ion-label>Type</ion-label>
           </div>
         </ion-col>
+        <ion-col>
+          <div>
+            <ion-label class="center">Marks</ion-label> 
+          </div>
+        </ion-col>
+        <ion-col>
+            <div>
+                <ion-label class="center">Weightage</ion-label>             
+            </div>
+          </ion-col>
       </ion-row>
     </ion-grid>
 
-    <ion-grid *ngFor="let i of RES?.resultData" style="border:solid 1px;">
+    <ion-grid *ngFor="let i of RES?.resultData" style="border:solid 1px;font-size:75%">
       <ion-row >
         <ion-col>
           <div>
             {{i.SUBJECT_NAME}} 
           </div>
         </ion-col>
-        <ion-col>
-            <div>
-              {{i.TERM}} 
-            </div>
-          </ion-col>
           <ion-col>
             <div>
               {{i.TEST_TYPE}} 
             </div>
           </ion-col>
 
+          <ion-col>
+            <div>
+               {{i.MARKS_OBTAINED}}
+             </div>
+           </ion-col>
+           <ion-col>
+              <div >
+                 {{i.WEIGHTAGE_MARKS_OBTAINED}}
+               </div>
+           </ion-col>
+
       </ion-row>
       </ion-grid>
-    </ion-slide>
+      <ion-label> </ion-label>
 
+      <ion-label class="center"><h1>TERM 1</h1></ion-label>
 
-
-
-  <ion-slide class="slide_top">
-      <button ion-button on-click="FR()">View Final Result</button>
-    <ion-grid  class="head" style="border:solid 1px;">
-      <ion-row color="header">
-        <ion-col>
-          <div>
-            <ion-label>Marks Obtained</ion-label> 
-          </div>
-        </ion-col>
-        <ion-col>
-            <div>
-                <ion-label class="center">Weightage Marks</ion-label>             
-            </div>
-          </ion-col>
-        </ion-row>
-
-    </ion-grid>
-
-
-    <ion-grid *ngFor="let i of RES?.resultData" style="border:solid 1px;">
-      <ion-row >
-       <ion-col>
-         <div>
-            {{i.MARKS_OBTAINED}}
-          </div>
-        </ion-col>
-        <ion-col>
-           <div >
-              {{i.WEIGHTAGE_MARKS_OBTAINED}}
-            </div>
-        </ion-col>
-    </ion-row>
-
-    </ion-grid>
-    
-
-  </ion-slide>
-</ion-slides>
 </ion-content>

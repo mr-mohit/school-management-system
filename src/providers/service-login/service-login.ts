@@ -44,13 +44,13 @@ export class ServiceLoginProvider {
          }else
          {
            //console.log("Worng")
-           alert("Invalid REGISTRATION NO or PASSWORD");
+           alert("Invalid User id and Password");
          }
          resolve(data);``
 
       },error=>{
         console.log(" error: invalid username and/or password");
-        alert(" error: invalid username and/or password");
+        //alert(" error: invalid username and/or password");
       });
     });
   }

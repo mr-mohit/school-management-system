@@ -23,12 +23,12 @@ export class ServiceUpdateProvider {
         console.log("passing data",classData);
         if(data['statuscode']==1)
         {
-          alert("Updated");
+          alert("Class updated");
 
         }
         else
         {
-          alert("Not-Updated");
+          alert("Class not updated");
 
         }        
         
@@ -56,12 +56,12 @@ export class ServiceUpdateProvider {
         console.log("passing data",sessionData);
         if(data['statuscode']==1)
         {
-          alert("Updated");
+          alert("Session updated");
 
         }
         else
         {
-          alert("Not-Updated");
+          alert("Session not updated");
 
         }        
         
@@ -89,12 +89,12 @@ export class ServiceUpdateProvider {
         console.log("passing data",termData);
         if(data['statuscode']==1)
         {
-          alert("Updated");
+          alert("Term updated");
 
         }
         else
         {
-          alert("Not-Updated");
+          alert("Term not updated");
 
         }        
         
@@ -122,12 +122,12 @@ updateSubject(url,updateSub)
       console.log("passing data",updateSub);
       if(data['statuscode']==1)
       {
-        alert("Updated");
+        alert("Subject updated");
 
       }
       else
       {
-        alert("Not-Updated");
+        alert("Subject not updated");
 
       }        
       

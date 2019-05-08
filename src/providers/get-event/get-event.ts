@@ -29,7 +29,7 @@ export class GetEventProvider {
         }
         else
         {
-          alert("no event fetched");
+          alert("No event fetched");
         }        
          resolve(data);
       },error=>{

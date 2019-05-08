@@ -25,7 +25,7 @@ export class ServiceAddTimetableProvider {
         console.log("passing data",timetableData);
         if(data['statuscode']==1)
         {
-          alert("Timetable Added");
+          alert("Timetable added");
 
         }
         else
