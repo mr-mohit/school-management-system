@@ -105,8 +105,8 @@ export class ServiceGetClassMasterProvider {
   });
 
   }
-
-  getClassFun() //GET DATA FROM CLASS_MASTER_TABLE IN DATABASE----------------------------------------------------->
+ //GET DATA FROM CLASS_MASTER_TABLE IN DATABASE----------------------------------------------------->
+  getClassFun()  
   {
     var url=this.URL+"getClass_Master.php";
     return this.getClass(url);
