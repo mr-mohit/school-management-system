@@ -416,4 +416,12 @@ export class AddUsersPage {
   }
 
 
+
+  selectSection(classId)
+  {
+    console.log("Class id ",classId);
+  this.cid.getSectionFun(classId);
+  }
+
+
 }
