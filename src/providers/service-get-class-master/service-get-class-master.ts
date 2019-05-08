@@ -35,11 +35,43 @@ export class ServiceGetClassMasterProvider {
 //end
  public ClassTest:any;
  public crSub:any;//to get current attendance of a particular subject 
-  
+ public sectionData:any;
 
 
   constructor(public http: HttpClient,public one:ServiceLoginProvider) {
     
+  }
+//get distinct sections for add user
+  getSectionFun()
+  {
+    var url=this.URL+"getSection.php";
+    return this.getSection(url);
+  }
+
+  getSection(url)
+  {
+    //console.log("Class is which we passing to api",postId);
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify("")).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.sectionData=data['data'];
+        //console.log("Row data",this.attsubject);
+        console.log("Distinct Section",this.sectionData);
+        //return 1;
+      }
+      else
+      {
+        // this.SubjectOnTimeTable=[];
+        console.log("no data fetched");
+        //return 0;
+      }        
+       resolve(data);
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+
   }
    //GET TEST FROM CLASS_TEST_TABLE
   getClassTestFun(subjectID)

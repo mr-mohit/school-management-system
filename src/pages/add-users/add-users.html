@@ -344,8 +344,7 @@
                     <ion-select formControlName="studentClass" [class.invalid]="!slideFourForm.controls.studentClass.valid && (slideFourForm.controls.studentClass.dirty || submitAttempt)">
                           <ion-option  *ngFor=" let p of cid.classData" [value]="p.CLASS">
                                 {{p.CLASS}}
-                          </ion-option>
-                          
+                          </ion-option>                          
                     </ion-select>
                 </ion-item>
                  <!-- student  SECTION   -->
@@ -355,12 +354,9 @@
                         SECTION 
                     </ion-label>
                     <ion-select formControlName="studentSection" [class.invalid]="!slideFourForm.controls.studentSection.valid && (slideFourForm.controls.studentSection.dirty || submitAttempt)">
-                          <ion-option  value="A">
-                                A
-                          </ion-option>
-                          <ion-option  value="B">
-                                B
-                          </ion-option>
+                        <ion-option  *ngFor=" let p of cid.sectionData" [value]="p.SECTION">
+                            {{p.SECTION}}
+                      </ion-option>
                          
                     </ion-select>
                 </ion-item>
