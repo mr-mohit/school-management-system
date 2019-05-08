@@ -1,4 +1,4 @@
-import { NgModule, ErrorHandler } from '@angular/core';
+import { NgModule,NO_ERRORS_SCHEMA,CUSTOM_ELEMENTS_SCHEMA, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -149,6 +149,7 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
 import { StudentSyllabusPage } from '../pages/student-syllabus/student-syllabus';
 import { GetEventProvider } from '../providers/get-event/get-event';
 import { StudentAttendanceSubjectsPage } from '../pages/student-attendance-subjects/student-attendance-subjects';
+import {RoundProgressModule} from 'angular-svg-round-progressbar';
 
  @NgModule({ 
   declarations: [
@@ -248,6 +249,7 @@ import { StudentAttendanceSubjectsPage } from '../pages/student-attendance-subje
     BrowserModule,
     CalendarModule,
     HttpClientModule,
+    RoundProgressModule,
     IonicImageViewerModule,
     IonicModule.forRoot(MyApp),
     TranslateModule.forRoot({
@@ -257,7 +259,8 @@ import { StudentAttendanceSubjectsPage } from '../pages/student-attendance-subje
         deps: [HttpClient]
       }
     }),
-    HttpClientModule
+    HttpClientModule,
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -421,7 +424,12 @@ import { StudentAttendanceSubjectsPage } from '../pages/student-attendance-subje
     ServiceCalculateResultProvider,
     ServiceDeleteAndUpdateTimeTableProvider,
     GetEventProvider,
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
   ]
+  
 })
 export class AppModule {}
 

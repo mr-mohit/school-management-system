@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ServiceLoginProvider } from '../service-login/service-login';
+import { ToastController } from 'ionic-angular';
 
 @Injectable()
 export class ServiceGetClassMasterProvider {
@@ -30,15 +31,18 @@ export class ServiceGetClassMasterProvider {
   public date:any;
   public slot:any;
   public attendence:any=[];
+  public UMarks:any=[];
   public term:any;
   public rows:any;
 //end
  public ClassTest:any;
  public crSub:any;//to get current attendance of a particular subject 
   
+ public per:number;
+ public UploadM:any;
 
 
-  constructor(public http: HttpClient,public one:ServiceLoginProvider) {
+  constructor(public http: HttpClient,public one:ServiceLoginProvider,public toastController:ToastController ) {
     
   }
    //GET TEST FROM CLASS_TEST_TABLE
@@ -298,8 +302,12 @@ getEvent(url,CalendarData)
       }
       else
       {
-        alert("no data fetched");
-        //return 0;
+        const toast = this.toastController.create({
+          message: 'No events today',
+          position: 'top',
+          duration:2000,
+        });
+        toast.present();
       }        
        resolve(data);
     },error=>{
@@ -694,9 +702,70 @@ SubjectAtt(url,data)
 
 }
 
+//get total attendance of a student
+perAttFun(id)
+{
+  var url=this.URL+"calculateAttendance.php";
+  return this.perAtt(url,id);
+
+}
+perAtt(url,id)
+{
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(id)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.per=data['data'];
+        console.log("Attendance percentage:",this.per);
+      }
+       resolve(data);
+
+    },error=>{
+      console.log("Error",error);
+    });
+  });
 
 }
 
 
+
+
+
+//TO UPDATE THE MARKS ---------------------------------------------------------------->
+
+getUploadMarksFun(uploadData)
+{
+  var url=this.URL+"getUploadMarks.php";
+  return this.getUploadMarks(uploadData,url);
+
+}
+getUploadMarks(uploadData,url)
+{
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(uploadData)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.UploadM=data['data'];
+        
+        console.log("Student marks are",this.UploadM);
+        
+
+      }
+      else
+      {
+        alert("Marks are not uploaded yet");
+      }        
+      
+       resolve(data);
+
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+
+}
+
+
+}
 
 // THIS IS THE END OF FILE

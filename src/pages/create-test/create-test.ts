@@ -52,7 +52,7 @@ export class CreateTestPage {
         topic: ['', Validators.compose([Validators.maxLength(50), Validators.pattern('[a-zA-Z1-9 ][0-9].{5,50}$'), Validators.required])],
         total_marks:['', Validators.compose([Validators.maxLength(3),Validators.required, Validators.pattern('^([1-9][0-9]|100)$')])],
         weightage_marks: ['', Validators.compose([Validators.maxLength(3),Validators.required, Validators.pattern('^([1-9][0-9]|100)$')])],
-        room_no: ['', Validators.compose([Validators.maxLength(10), Validators.pattern('[a-zA-Z0-9 ].{0,10}$'), Validators.required])],
+        room_no: ['', Validators.compose([Validators.maxLength(10), Validators.pattern('[a-zA-Z0-9].{0,10}$'), Validators.required])],
 
       });
 
