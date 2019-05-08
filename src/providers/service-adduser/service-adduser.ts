@@ -37,16 +37,15 @@ export class ServiceAdduserProvider {
         console.log(data);
         if(data['statuscode'] == 1)
          {
-            alert("Insertion succesfull")
+            alert("User added successfully")
          }else
          {  
-           alert("Insertion failed");
+           alert("Unable to add the user");
          }
          resolve(data);
 
       },error=>{
         console.log("error in insertion process");
-        alert("error in insertion process");
       });
     });
   }
@@ -72,13 +71,12 @@ export class ServiceAdduserProvider {
               
             }else
             {  
-              alert("get User ID failed");
+              alert("Unable to retrieve the User ID");
             }
             resolve(data);
    
          },error=>{
            console.log("error in get User ID process");
-           alert("error in get user ID proces");
          });
        });
  }

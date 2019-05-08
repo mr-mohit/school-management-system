@@ -61,12 +61,12 @@ export class ServiceAnnouncementProvider {
       this.http.post(url,JSON.stringify(Data)).subscribe(data=>{ 
         if(data['statuscode'] == 1)
          {
-          alert("Removed");
+          alert("Announcement removed");
           //return 1;
          }
          else
          {
-           alert("Unable to remove");
+           alert("Unable to remove the announcement");
            //return 0;
          }
          resolve(data);

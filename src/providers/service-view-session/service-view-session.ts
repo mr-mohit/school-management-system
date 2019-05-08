@@ -26,7 +26,7 @@ export class ServiceViewSessionProvider {
         }
         else
         {
-          alert("no data fetched");
+          alert("No sessions found");
         }        
         
          resolve(data);

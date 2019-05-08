@@ -24,12 +24,12 @@ export class ServiceDeleteTermProvider {
         console.log("passing data",TD);
         if(data['statuscode']==1)
         {
-          alert("Term Deleted");
+          alert("Term deleted");
 
         }
         else
         {
-          alert("Term Not-Deleted");
+          alert("Term not deleted");
 
         }        
         

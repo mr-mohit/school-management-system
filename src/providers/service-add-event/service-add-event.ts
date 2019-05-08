@@ -24,7 +24,7 @@ export class ServiceAddEventProvider {
         //console.log("passing data",eventData);
         if(data['statuscode']==1)
         {
-          alert("Event Added");
+          alert("Event added");
         }
         else
         {

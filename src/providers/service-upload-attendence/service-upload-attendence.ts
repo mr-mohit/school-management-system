@@ -25,13 +25,13 @@ export class ServiceUploadAttendenceProvider {
         if(data['statuscode']==1)
         {
           console.log(data);
-          alert("Attendance Marked");
+          alert("Attendance marked successfully");
           this.AMFun(Attendence);
           
         }
         else
         {
-          alert("Unable to mark Attendance");
+          alert("Unable to mark the attendance");
         }        
         
          resolve(data);
@@ -57,12 +57,12 @@ export class ServiceUploadAttendenceProvider {
         if(data['statuscode']==1)
         {
           console.log(data);
-          alert("Attendance Updated");
+          alert("Attendance updated");
           
         }
         else
         {
-          alert("Unable to Update Attendance");
+          alert("Unable to update the attendance");
         }        
         
          resolve(data);

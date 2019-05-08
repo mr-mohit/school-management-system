@@ -24,11 +24,11 @@ export class ServiceUploadMarksProvider {
         
         if(data['statuscode']==1)
         {
-          alert("Marks Uploaded");
+          alert("Marks uploaded successfully");
         }
         else
         {
-          alert("Unable to Upload Marks , check if marks are already uploaded");
+          alert("Unable to upload marks, check if marks are already uploaded");
         }              
          resolve(data);
 
@@ -56,11 +56,11 @@ export class ServiceUploadMarksProvider {
         
         if(data['statuscode']==1)
         {
-          alert("Marks Updated");
+          alert("Marks updated");
         }
         else
         {
-          alert("Unable to Update Marks ");
+          alert("Unable to update the marks ");
         }              
          resolve(data);
 

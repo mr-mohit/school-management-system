@@ -22,7 +22,7 @@ export class ServiceAddClassProvider {
         console.log("passing data",classData);
         if(data['statuscode']==1)
         {
-          alert("Class Added");
+          alert("Class added");
 
         }
         else

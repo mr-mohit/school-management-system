@@ -38,7 +38,7 @@ export class ServiceDeleteTimetableProvider {
         }
         else
         {
-          alert("Unable to Delete");
+          alert("Unable to delete the timetable");
 
         }        
         

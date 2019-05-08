@@ -31,12 +31,12 @@ export class ServiceDeleteSessionProvider {
         console.log("passing data",SD);
         if(data['statuscode']==1)
         {
-          alert("Session Deleted");
+          alert("Session deleted");
 
         }
         else
         {
-          alert("Session Not-Deleted");
+          alert("Session not deleted");
 
         }        
         

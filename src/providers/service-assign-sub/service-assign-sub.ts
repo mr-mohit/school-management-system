@@ -35,7 +35,7 @@ export class ServiceAssignSubProvider {
         }
         else
         {
-          alert("All Subjects of this Class Already Assigned");
+          alert("All the subjects of this class are already assigned");
         }
         resolve(data);
       },error=>{
@@ -62,7 +62,7 @@ export class ServiceAssignSubProvider {
         {
           console.log("Data Got");
           const toast = this.toast.create({
-            message: 'Subject assign sucessfully',
+            message: 'Subject assigned sucessfully',
             duration: 3000,
             position: 'top'
           });
