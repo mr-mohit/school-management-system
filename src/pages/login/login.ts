@@ -25,7 +25,7 @@ export class LoginPage {
 
 private status:boolean;
 public dataitem:any;
-public REG:any;
+public REG_NO:any;
 
 public user:any=
 {
@@ -44,7 +44,7 @@ public user:any=
 
     if(REG_NO!=undefined && PASSWORD!=undefined &&this.status!=false || this.status!=undefined)
     {
-      this.REG=REG_NO;
+      this.REG_NO=REG_NO;
         this.user['REG_NO']=REG_NO;//get user name from login.html
         this.user['PASSWORD']=PASSWORD;//get password entered by user from login.html
         
@@ -136,9 +136,9 @@ REG_NOCHECK(event:any)
     position: 'top'
   });
   toast.present();
-}
-   this.status=false;
-
+   this.REG_NO=null;
+  }
+  this.status=false;
 }
 ts()
 {
