@@ -419,7 +419,6 @@ import { ResultTermPage } from '../pages/result-term/result-term';
     ServiceUploadAttendenceProvider,
     ServiceStudentResultProvider,
     ServiceUploadHomeworkProvider,
-  
     ServiceExamProvider,
     ServiceDeleteTimetableProvider,
     ServiceGetTeacherProvider,
