@@ -144,12 +144,12 @@ import { ServiceGetResultDataProvider } from '../providers/service-get-result-da
 import { ServiceCalculateResultProvider } from '../providers/service-calculate-result/service-calculate-result';
 import { FileChooser } from '@ionic-native/file-chooser';
 import { FileOpener } from '@ionic-native/file-opener';
- 
 import { IonicImageViewerModule } from 'ionic-img-viewer';
 import { StudentSyllabusPage } from '../pages/student-syllabus/student-syllabus';
 import { GetEventProvider } from '../providers/get-event/get-event';
 import { ServiceSyllabusProvider } from '../providers/service-syllabus/service-syllabus';
 import { StudentAttendanceSubjectsPage } from '../pages/student-attendance-subjects/student-attendance-subjects';
+import { IonicImageLoader } from 'ionic-image-loader';
 import {RoundProgressModule} from 'angular-svg-round-progressbar';
 import { ResultTermPage } from '../pages/result-term/result-term';
 
@@ -255,6 +255,7 @@ import { ResultTermPage } from '../pages/result-term/result-term';
     HttpClientModule,
     RoundProgressModule,
     IonicImageViewerModule,
+    IonicImageLoader.forRoot(),
     IonicModule.forRoot(MyApp),
     TranslateModule.forRoot({
       loader: {

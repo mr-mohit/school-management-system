@@ -73,7 +73,7 @@ export class ChangePasswordPage {
        
        if(this.status==false)
        {
-        alert("Password Should Include\nAtleast One Uppercase and One Lower Character\nOne Number and Special Character\nMinimum length: 8\n Maximum length : 10\n Example: Abba@123");
+        alert("Password Should Include\nAtleast One Uppercase and One Lower Character\nOne Number and Special Character\nMinimum length: 8\nMaximum length : 10\nExample: Abba@123");
      }
        else
        {
@@ -147,7 +147,7 @@ check(event:any)
     }
     else
     {
-     alert("Password Should Include\nAtleast One Uppercase and One Lower Character\nOne Number and Special Character\nMinimum length: 8\n Maximum length : 10\nExample: Abba@123");
+     alert("Password Should Include\nAtleast One Uppercase and One Lower Character\nOne Number and Special Character\nMinimum length: 8\nMaximum length : 10\nExample: Abba@123");
      this.status=false;
      //  console.log(regExp.test(newValue));
     }

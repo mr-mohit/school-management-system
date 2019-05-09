@@ -121,11 +121,12 @@ chooseFile(CLASS,SUBJECT)
   } 
 
 // method call when we want to add a subject to a class
-  Submit(data) 
+  Submit() 
   {
- 
-    if(data)
+   if(this.SUBJECT!=undefined && this.CLASS!=undefined)
     {
+      if(this.csrData)
+      {
       const confirm = this.alertCtrl.create({
         title: 'Register Subject under Class?',
         message: 'Do you want to register?',
@@ -150,8 +151,13 @@ chooseFile(CLASS,SUBJECT)
       ]
     });
     confirm.present();
-
-    }
+  }
+  else
+  {
+    alert("No file selected for upload");
+  }
+  }
+    
     else{
       alert("Please fill the required fields");
     }

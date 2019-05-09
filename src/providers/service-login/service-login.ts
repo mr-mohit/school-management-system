@@ -15,6 +15,7 @@ export class ServiceLoginProvider {
   public reg:any;
   public actSess:any;
   public actTerm:any;
+  public Uimag:any;
 
 
   constructor(public http: HttpClient) {
@@ -33,13 +34,15 @@ export class ServiceLoginProvider {
          {
           this.user_role=this.recdata.data[0].ROLE;//storing the role of user into the variable named user_role
           this.reg=this.recdata.data[0].REG_NO;
+          this.Uimag=this.recdata.data[0].USER_PIC;
           //console.log(this.user_role);
          //console.log("sucessfully implemented",data['statuscode']);
-         this.address=this.recdata.address[0]; 
+        this.address=this.recdata.address[0]; 
+         
          //console.log(typeof(this.address));
-         this.details=this.recdata.data[0];
+        // this.details=this.recdata.data[0];
          console.log("regertration number",this.details);
-         //console.log("Address");
+         console.log("IMAGE URL",this.Uimag);
          //console.log(this.address);
          }else
          {
