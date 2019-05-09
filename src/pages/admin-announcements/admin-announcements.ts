@@ -5,12 +5,7 @@ import { ServiceAdminAnnouncements } from '../../providers/service-AdminAnnoucem
 import { DeleteAnnouncementsPage } from '../delete-announcements/delete-announcements';
 
 
-/**
- * Generated class for the AdminAnnouncementsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import * as moment from "moment"; 
 
 @IonicPage()
 @Component({
@@ -19,12 +14,18 @@ import { DeleteAnnouncementsPage } from '../delete-announcements/delete-announce
 })
 export class AdminAnnouncementsPage {
 
-//private Date=new Date().getDate();
-public minDate:String=new Date().toISOString();
-//private Month=new Date().getMonth()+1;
-//private Year=new Date().getFullYear();
-private timestarts=new Date().toISOString();
-private timeEnds=new Date().toISOString();
+// //private Date=new Date().getDate();
+// public minDate:String=new Date().toISOString();
+// //private Month=new Date().getMonth()+1;
+// //private Year=new Date().getFullYear();
+// private timestarts=new Date().toISOString();
+// private timeEnds=new Date().toISOString();
+  myDate = moment().format("YYYY-MM-DD");
+private Date=new Date().getDate();
+private Month=new Date().getMonth()+1;
+private Year=new Date().getFullYear();
+private timestarts:any;
+private timeEnds:any;
 private category:any;
 private AnnouncementsTitle:any;
 private AnnouncementsDescription:any;
@@ -57,11 +58,11 @@ public Announcement={
   {
     if(this.category!=undefined && this.AnnouncementsTitle!=undefined && this.AnnouncementsDescription!=undefined)
     {
-        if(this.timeEnds>=this.timestarts)
-        {
-          console.log("Start "+this.timestarts +" and End "+this.timeEnds);
-          
-         const confirm=this.alertCtrl.create({
+        
+      if(this.myDate<this.timestarts &&  this.timestarts<this.timeEnds)
+      {
+
+        const confirm=this.alertCtrl.create({
           title:'Publish Announcement?',
           buttons:[
             {
@@ -92,7 +93,9 @@ public Announcement={
 
          });
          confirm.present();
-    }
+
+      }
+      
     else
     {
       alert("End Date Cannot be Before Start Date");
@@ -103,6 +106,7 @@ public Announcement={
        alert("Fields cannot be empty");
     }
   }
+  
   SeeAnnouncements()
   {
     this.navCtrl.push(DeleteAnnouncementsPage);

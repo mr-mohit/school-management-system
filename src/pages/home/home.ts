@@ -19,6 +19,7 @@ import { ServiceAddsubjectProvider } from '../../providers/service-addsubject/se
 import { StudentAttendanceSubjectsPage } from '../student-attendance-subjects/student-attendance-subjects';
 import { GetEventProvider } from '../../providers/get-event/get-event';
 import { ResultTermPage } from '../result-term/result-term';
+import { ServiceSyllabusProvider } from '../../providers/service-syllabus/service-syllabus';
 
 
 @Component({
@@ -33,7 +34,7 @@ export class HomePage {
     public result:ServiceStudentResultProvider,public UR:ServiceLoginProvider, 
     public SM:ServiceStudentMessageProvider, public SH:ServiceStudentHomeworkProvider,
      public SA:ServiceGetClassMasterProvider, public Sy:ServiceAddsubjectProvider,
-     public log:ServiceLoginProvider,public GE:GetEventProvider
+     public log:ServiceLoginProvider,public GE:GetEventProvider, public SYL :ServiceSyllabusProvider
     ) {
     this.Menu.enable(true);
     this.SA.getSAFun(this.UR.reg);
@@ -112,9 +113,16 @@ export class HomePage {
 
   gotoViewSyllabus()
   {
-    this.Sy.postSyllFun(this.log.reg);
+   // this.Sy.postSyllFun(this.log.reg);
 
-    this.navCtrl.push(StudentSyllabusPage);
+   this.SYL.getClassSyllabus(this.UR.reg).then(data=>{
+
+    if(data['statuscode'] == 1)
+    {
+      this.navCtrl.push(StudentSyllabusPage);
+  
+    }
+  });
   }
    
 

@@ -3,34 +3,35 @@ import { Injectable } from '@angular/core';
 import { ServiceLoginProvider } from '../service-login/service-login';
 
 /*
-  Generated class for the ServiceStudentHomeworkProvider provider.
+  Generated class for the ServiceSyllabusProvider provider.
 
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
 @Injectable()
-export class ServiceStudentHomeworkProvider {
+export class ServiceSyllabusProvider {
 
   public URL=this.one.URL;
-  public classHW: any;
-  public classSB: any;
+  public classSYL: any;  // get the syllabus here 
+  public classSB: any;   // get the corresponding subjects
 
 
   constructor(public http: HttpClient,public one:ServiceLoginProvider) {
-    console.log('Hello ServiceStudentHomeworkProvider Provider');
+    console.log('Hello ServiceSyllabusProvider Provider');
   }
+   
   postData(usr,url){
   
-
+    console.log(usr,url);
     return new Promise(resolve=>{
       this.http.post(url,JSON.stringify(usr)).subscribe(data=>{ 
         //console.log(data);     
         if(data['statuscode'] == 1)
          {
-          this.classHW=data['data']; 
+          this.classSYL=data['data']; 
           this.classSB=data['subject']; 
           console.log(this.classSB); 
-          console.log(this.classHW); 
+          console.log(this.classSYL); 
           //return this.data;
         
          }
@@ -42,14 +43,14 @@ export class ServiceStudentHomeworkProvider {
          resolve(data);
 
       },error=>{
-        alert("Connection error");
+        alert("Connection to API Error");
       });
     });
   }
 
 
-  getClassHomeWork(usr){
-    var url=this.URL+"getClassHomework.php";
+  getClassSyllabus(usr){
+    var url=this.URL+"getClassSyllabus.php";
     return this.postData(usr,url);
   }
 
