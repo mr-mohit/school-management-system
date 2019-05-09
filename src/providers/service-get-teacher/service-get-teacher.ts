@@ -49,7 +49,7 @@ export class ServiceGetTeacherProvider {
           USER_ID: "",
           USER_PIC: ""}];
           
-          alert("No Teacher Found");
+          alert("No teacher found");
          }
          resolve(data);
 

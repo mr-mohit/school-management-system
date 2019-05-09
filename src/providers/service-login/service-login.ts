@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ServiceLoginProvider {
   public data:any;
-   //public URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; //for server use
-    public URL="http://192.168.1.101/schoolapi/"; //for local use
+    URL="http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/"; //for server use
+   // public URL="http://192.168.1.101/schoolapi/"; //for local use
     //public URL="https://direct-school.000webhostapp.com/"; //for hosting
   
   public recdata: any;//this variable will store info coming from API
@@ -47,13 +47,13 @@ export class ServiceLoginProvider {
          }else
          {
            //console.log("Worng")
-           alert("Invalid REGISTRATION NO or PASSWORD");
+           alert("Invalid User id and Password");
          }
          resolve(data);``
 
       },error=>{
         console.log(" error: invalid username and/or password");
-        alert(" error: invalid username and/or password");
+        //alert(" error: invalid username and/or password");
       });
     });
   }

@@ -41,7 +41,7 @@ export class ServiceStudentMessageProvider {
          resolve(data);
 
       },error=>{
-        alert("Connection Error");
+        alert("Connection error");
       });
     });
   }

@@ -4,16 +4,33 @@
   </ion-navbar>
 </ion-header>
 
+
+<ion-content>
+       <h1 style="margin-left:41%; margin-top:34%">{{current}}%</h1>
+</ion-content>
+
 <ion-content padding >
+    <h1 style="text-align: center; color:black">Aggregate Attendance</h1>
+    <round-progress style="margin-left:27%; margin-top:10%" [current]="current" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
+    [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
+    [duration]="duration"  [animationDelay]="animationDelay">
+   
+   </round-progress>
+  <ion-label></ion-label>
+  <ion-label></ion-label>
   <ion-item >
     <ion-label floating>
       <ion-icon ios="ios-browsers" md="md-browsers"></ion-icon>
-      Select Subject
+      Select Subject to View Attendance
     </ion-label>
      <ion-select  name="SUBJECT" [(ngModel)]="SUBJECT" (ionChange)="getAtt(SUBJECT)" >
 
       <ion-option  *ngFor="let p of SA?.SAData"  value="{{p.SUBJECT_ID}}">{{p.SUBJECT_NAME}}</ion-option>
      </ion-select>
-      </ion-item>
+     </ion-item>
+
+     
+ 
        
 </ion-content>
+

@@ -32,7 +32,7 @@ postData(url,data1){
 
     },error=>{
       console.log("error in uploading process");
-      alert("error in uploading process");
+      alert("Not able to upload the homework");
     });
   });
 }

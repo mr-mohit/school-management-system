@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ServiceLoginProvider } from '../service-login/service-login';
+import { ToastController } from 'ionic-angular';
 
 @Injectable()
 export class ServiceGetClassMasterProvider {
@@ -30,15 +31,19 @@ export class ServiceGetClassMasterProvider {
   public date:any;
   public slot:any;
   public attendence:any=[];
+  public UMarks:any=[];
   public term:any;
   public rows:any;
 //end
  public ClassTest:any;
  public crSub:any;//to get current attendance of a particular subject 
  public sectionData:any;
+  
+ public per:number;
+ public UploadM:any;
 
 
-  constructor(public http: HttpClient,public one:ServiceLoginProvider) {
+  constructor(public http: HttpClient,public one:ServiceLoginProvider,public toastController:ToastController ) {
     
   }
 //get distinct sections for add user
@@ -96,7 +101,7 @@ export class ServiceGetClassMasterProvider {
       else
       {
         this.SubjectOnTimeTable=[];
-        alert("no data fetched");
+        alert("No test found");
         //return 0;
       }        
        resolve(data);
@@ -128,7 +133,7 @@ export class ServiceGetClassMasterProvider {
         }
         else
         {
-          alert("No data Found");
+          alert("No class found");
         }        
         
          resolve(data);
@@ -160,7 +165,7 @@ export class ServiceGetClassMasterProvider {
         }
         else
         {
-          alert("no data fetched");
+          alert("No subjects found");
         }        
         
          resolve(data);
@@ -191,7 +196,7 @@ export class ServiceGetClassMasterProvider {
         }
         else
         {
-          alert("no data fetched");
+          alert("No users found");
         }        
         
          resolve(data);
@@ -229,7 +234,7 @@ export class ServiceGetClassMasterProvider {
         else
         {
           this.sessionData=[];
-          alert("No Session Available To Delete");
+          alert("No sessions found");
         }        
         
          resolve(data);
@@ -261,7 +266,7 @@ export class ServiceGetClassMasterProvider {
         }
         else
         {
-          alert("no data fetched");
+          alert("No terms found");
         }        
         
          resolve(data);
@@ -296,7 +301,7 @@ getUser(url)
       }
       else
       {
-        alert("no data fetched");
+        alert("No users found");
       }        
       
        resolve(data);
@@ -331,8 +336,12 @@ getEvent(url,CalendarData)
       }
       else
       {
-        alert("no data fetched");
-        //return 0;
+        const toast = this.toastController.create({
+          message: 'No events today',
+          position: 'top',
+          duration:2000,
+        });
+        toast.present();
       }        
        resolve(data);
     },error=>{
@@ -365,7 +374,7 @@ getSubjectOnTimeTable(url,postId)
       else
       {
         this.SubjectOnTimeTable=[];
-        alert("no data fetched");
+        alert("Not found");
         //return 0;
       }        
        resolve(data);
@@ -401,7 +410,7 @@ getAttSubject(url,postId)
       }
       else
       {
-        alert("no data fetched");
+        alert("No subjects found for attendance");
         //return 0;
       }        
        resolve(data);
@@ -430,7 +439,7 @@ getTest(url,CTD)
       }
       else
       {
-        alert("no data fetched");
+        alert("No test found");
       }        
        resolve(data);
     },error=>{
@@ -475,7 +484,7 @@ getSDC(CLASS,url)
       }
       else
       {
-        alert("no data fetched");
+        alert("No students found for the selected class");
       }        
       
        resolve(data);
@@ -504,7 +513,7 @@ getAttTerm(url,t)
       }
       else
       {
-        alert("no data fetched");
+        alert("No term found for attendance");
       }        
        resolve(data);
     },error=>{
@@ -533,7 +542,7 @@ getFeedback(url)
       }
       else
       {
-        alert("no data fetched");
+        alert("No feedback found");
       }        
        resolve(data);
     },error=>{
@@ -595,7 +604,7 @@ getTIMESLOT(url,Data)
       }
       else
       {
-        alert("NO TIME SLOT IS FREE");
+        alert("Time slot is not free");
         this.timeslot=[];
 
         //return 0;
@@ -628,7 +637,7 @@ getCS(url,CS)
       }
       else
       {
-        alert("No Student found");
+        alert("No student found");
         //return 0;
       }        
        resolve(data);
@@ -659,7 +668,7 @@ getSA(url,RG)
       else
       {
         this.SAData=[];
-        alert("No data found");
+        alert("No attendance found for the student");
         //return 0;
       }        
        resolve(data);
@@ -687,7 +696,7 @@ getAttStatus(url,UP)
       }
       else
       {
-        alert("No data found");
+        alert("No status found for attendance of the student");
         //return 0;
       }        
        resolve(data);
@@ -728,9 +737,70 @@ SubjectAtt(url,data)
 
 }
 
+//get total attendance of a student
+perAttFun(id)
+{
+  var url=this.URL+"calculateAttendance.php";
+  return this.perAtt(url,id);
+
+}
+perAtt(url,id)
+{
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(id)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.per=data['data'];
+        console.log("Attendance percentage:",this.per);
+      }
+       resolve(data);
+
+    },error=>{
+      console.log("Error",error);
+    });
+  });
 
 }
 
 
+
+
+
+//TO UPDATE THE MARKS ---------------------------------------------------------------->
+
+getUploadMarksFun(uploadData)
+{
+  var url=this.URL+"getUploadMarks.php";
+  return this.getUploadMarks(uploadData,url);
+
+}
+getUploadMarks(uploadData,url)
+{
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(uploadData)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.UploadM=data['data'];
+        
+        console.log("Student marks are",this.UploadM);
+        
+
+      }
+      else
+      {
+        alert("Marks are not uploaded yet");
+      }        
+      
+       resolve(data);
+
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+
+}
+
+
+}
 
 // THIS IS THE END OF FILE

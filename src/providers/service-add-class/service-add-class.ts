@@ -5,7 +5,7 @@ import { ServiceLoginProvider } from '../service-login/service-login';
 export class ServiceAddClassProvider {
   public URL=this.one.URL;
   constructor(public http: HttpClient,public one:ServiceLoginProvider) {
-    
+  
   }
   addClassFun(classData)
   {
@@ -22,12 +22,12 @@ export class ServiceAddClassProvider {
         console.log("passing data",classData);
         if(data['statuscode']==1)
         {
-          alert("Class Added");
+          alert("Class added");
 
         }
         else
         {
-          alert("Unable to add class");
+          alert("Class Already Exist/Unable To Add");
 
         }        
         

@@ -28,11 +28,11 @@ UploadRD(url,result)
     this.http.post(url,JSON.stringify(result)).subscribe(data1=>{
       if(data1['statuscode']==1)
       {
-        alert("Uploaded Successfully");
+        alert("Result uploaded successfully");
       }
       else
       {
-        alert("Not able to upload");
+        alert("Not able to upload the result");
       }        
        resolve(data1);
     },error=>{
@@ -60,7 +60,7 @@ getRD(url,TID)
       }
       else
       {
-        alert("no data fetched");
+        alert("No result found");
       }        
        resolve(data);
     },error=>{

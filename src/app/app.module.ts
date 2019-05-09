@@ -1,4 +1,4 @@
-import { NgModule, ErrorHandler } from '@angular/core';
+import { NgModule,NO_ERRORS_SCHEMA,CUSTOM_ELEMENTS_SCHEMA, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -150,6 +150,9 @@ import { GetEventProvider } from '../providers/get-event/get-event';
 import { ServiceSyllabusProvider } from '../providers/service-syllabus/service-syllabus';
 import { StudentAttendanceSubjectsPage } from '../pages/student-attendance-subjects/student-attendance-subjects';
 import { IonicImageLoader } from 'ionic-image-loader';
+import {RoundProgressModule} from 'angular-svg-round-progressbar';
+import { ResultTermPage } from '../pages/result-term/result-term';
+
  @NgModule({ 
   declarations: [
     MyApp,
@@ -243,11 +246,14 @@ import { IonicImageLoader } from 'ionic-image-loader';
     TeacherUploadHomeworkPage,
     StudentSyllabusPage,
     StudentAttendanceSubjectsPage,
+    ResultTermPage,
+    ResultPage,
   ],
   imports: [
     BrowserModule,
     CalendarModule,
     HttpClientModule,
+    RoundProgressModule,
     IonicImageViewerModule,
     IonicImageLoader.forRoot(),
     IonicModule.forRoot(MyApp),
@@ -258,7 +264,8 @@ import { IonicImageLoader } from 'ionic-image-loader';
         deps: [HttpClient]
       }
     }),
-    HttpClientModule
+    HttpClientModule,
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -353,6 +360,8 @@ import { IonicImageLoader } from 'ionic-image-loader';
     TeacherUploadHomeworkPage,
     StudentSyllabusPage,
     StudentAttendanceSubjectsPage,
+    ResultTermPage,
+    ResultPage,
   ],
   providers: [
     StatusBar,
@@ -423,7 +432,12 @@ import { IonicImageLoader } from 'ionic-image-loader';
     ServiceDeleteAndUpdateTimeTableProvider,
     GetEventProvider,
     ServiceSyllabusProvider,
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
   ]
+  
 })
 export class AppModule {}
 

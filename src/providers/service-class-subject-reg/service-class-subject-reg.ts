@@ -26,12 +26,12 @@ export class ServiceClassSubjectRegProvider {
         console.log("passing data",csrData);
         if(data['statuscode']==1)
         {
-          alert("Subject registered ");
+          alert("Subject registered");
 
         }
         else
         {
-          alert("Subject not Registerd ");
+          alert("Subject not registered");
 
         }        
         

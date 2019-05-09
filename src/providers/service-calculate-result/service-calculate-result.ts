@@ -32,7 +32,7 @@ Cal(url,REG)
       }
       else
       {
-        alert("Not able to fetch data");
+        alert("Result not found");
       }        
        resolve(data1);
     },error=>{

@@ -26,13 +26,12 @@ export class ServiceFetchTimeTableProvider {
          }else
          {  
           this.StudentTime=[{ID: "NA", CLASS_MASTER_ID: "NA", SUBJECT_ID: "NA", TIME_SLOT: "NA", DAY: "NA"}];
-          alert("No Class Today");
+          alert("No class today");
          }
          resolve(data);
 
       },error=>{
         console.log("error in deletion process");
-        alert("error in Service");
       });
     });
   }

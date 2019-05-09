@@ -24,10 +24,10 @@ export class ServiceViewUserProvider {
          {
             this.recdata=data; 
             console.log(this.recdata);
-         }else
-         {
-          
-           alert("User ID Doesn't exist");
+         }
+         else
+         {  
+           alert("user ID does not exist");
          }
          resolve(data);
 

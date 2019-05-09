@@ -26,8 +26,7 @@ export class ServiceDeleteUserProvider {
          resolve(data);
 
       },error=>{
-        console.log("error in deletion process");
-        alert("error in deletion process");
+        alert("Unable to delete the user");
       });
     });
   }

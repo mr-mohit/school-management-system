@@ -17,11 +17,11 @@ export class ServiceAdminAnnouncements {
       this.http.post(url,JSON.stringify(data1)).subscribe(data=>{
         if(data['statuscode'] == 1)
         {
-          alert("Added successfully");
+          alert("Announcement added successfully");
         }
         else
         {
-          alert("Unable to Add");
+          alert("Unable to add the announcement");
         }
            resolve(data);
       },error=>{

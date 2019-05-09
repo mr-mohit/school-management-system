@@ -18,6 +18,7 @@ import { StudentSyllabusPage } from '../student-syllabus/student-syllabus';
 import { ServiceAddsubjectProvider } from '../../providers/service-addsubject/service-addsubject';
 import { StudentAttendanceSubjectsPage } from '../student-attendance-subjects/student-attendance-subjects';
 import { GetEventProvider } from '../../providers/get-event/get-event';
+import { ResultTermPage } from '../result-term/result-term';
 
 
 @Component({
@@ -35,13 +36,17 @@ export class HomePage {
      public log:ServiceLoginProvider,public GE:GetEventProvider
     ) {
     this.Menu.enable(true);
+    this.SA.getSAFun(this.UR.reg);
+    this.SA.perAttFun(this.CRD.reg);
   }
 
 //Student Functions
   gotoStudentAttendance()
   {
+    
     this.navCtrl.push(StudentAttendanceSubjectsPage);
-    this.SA.getSAFun(this.UR.reg);
+    
+    
   }
 
   gotoStudentAnnouncements()
@@ -90,10 +95,10 @@ export class HomePage {
 
   gotoStudentResult()
   {
-    this.navCtrl.push(ResultPage,{"data":this.UR.reg});
+    this.navCtrl.push(ResultTermPage,{"data":this.UR.reg});
     this.Reg=this.CRD.recdata;
     console.log(this.Reg);
-    this.result.getResultFun(this.UR.reg);
+    // this.result.getResultFun(this.UR.reg);
     console.log(this.UR.reg,'spelling mistake');
   
   

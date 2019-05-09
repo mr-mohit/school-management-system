@@ -60,7 +60,7 @@ export class ServiceAddsubjectProvider {
       this.http.post(url,JSON.stringify(data1)).subscribe(data=>{
         if(data['statuscode'] == 1)
         {
-          alert("Added successfully");
+          alert("Subject added successfully");
         }
         else
         {

@@ -22,7 +22,13 @@ export class ServiceResetpasswordProvider {
   postData(url,data1){
     console.log(data1);
 
-  
+     // start wait  loading process 
+  this.loading = this.loadingCtrl.create({
+    content: 'Sending OTP',
+    dismissOnPageChange:true,
+    duration:1000000
+  });
+  this.loading.present();
 
     return new Promise(resolve=>{
       this.http.post(url,JSON.stringify(data1)).subscribe(data=>{
@@ -45,7 +51,7 @@ export class ServiceResetpasswordProvider {
       },error=>{
         this.loading.dismissAll();
         console.log("Error in reset Process");
-        alert("Error during the Reset password process");
+        alert("Error occured while resetting the password");
       });
   });
   }
@@ -73,8 +79,8 @@ export class ServiceResetpasswordProvider {
         resolve(data);
 
       },error=>{
-        console.log("Error during the insertion of the New password process");
-        alert("Error during the insertion of the New password process");
+        console.log("Error occured while inserting the New Password");
+        alert("Error occured while inserting the New Password");
       });
     });
   }

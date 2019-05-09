@@ -5,6 +5,7 @@ import { ResultPage } from '../result/result';
 import { ServiceStudentResultProvider } from '../../providers/service-student-result/service-student-result';
 
 import { ViewStudentPage } from '../view-student/view-student';
+import { ResultTermPage } from '../result-term/result-term';
 
 
 @IonicPage()
@@ -21,8 +22,8 @@ export class ViewStudents_2Page {
   submit(REG)
   {
     console.log(REG);
-    this.navCtrl.push(ResultPage,{"reg":REG});
-    this.RES.getResultFun(REG); 
+    this.navCtrl.push(ResultTermPage,{"reg":REG});
+    // this.RES.getResultFun(REG); 
   }
 
   enter(REG){
