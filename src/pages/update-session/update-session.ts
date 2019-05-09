@@ -9,9 +9,10 @@ import { ServiceUpdateProvider } from '../../providers/service-update/service-up
   templateUrl: 'update-session.html',
 })
 export class UpdateSessionPage {
+  public minDate:String=new Date().toISOString();
   public SID:any;
-  public START_DATE:any;
-  public END_DATE:any;
+  public START_DATE=new Date().toISOString();
+  public END_DATE=new Date().toISOString();
   
 public sessionData:any=
 {

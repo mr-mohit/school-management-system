@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-grid  style="border:solid 1px;">
+  <ion-grid class="head" style="border:solid 1px;">
     <ion-row color="header">
       <ion-col>
         <div>
@@ -42,6 +42,7 @@
           <ion-input type="number" [(ngModel)]="i[j]" (keyup)="check($event)"  (ionBlur)=" Save(i.REG_NO,i[j],j)"></ion-input>
         </ion-item>
       </ion-col>
+      
       </ion-row>
     </ion-grid>
     <ion-label>  <!--  for giving space  -->  </ion-label>

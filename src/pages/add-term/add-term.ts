@@ -13,11 +13,12 @@ export class AddTermPage {
   public STATUS:boolean=false;
   public ACTIVE:number;
 
+  public minDate:String=new Date().toISOString();
 
   public SESSION:any;
   public TERM:any;
-  public START_DATE:any;
-  public END_DATE:any;
+  public START_DATE=new Date().toISOString();
+  public END_DATE=new Date().toISOString();
   public termData:any=
    {
      "SESSION":"",

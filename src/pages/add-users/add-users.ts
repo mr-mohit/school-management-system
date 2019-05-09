@@ -64,7 +64,6 @@ export class AddUsersPage {
 
   }
 
-
   constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform,
               public formBuilder: FormBuilder, public service:ServiceAdduserProvider,
               public getSession:ServiceViewSessionProvider,
@@ -414,6 +413,14 @@ export class AddUsersPage {
     });
 
     await alert.present();
+  }
+
+
+
+  selectSection(classId)
+  {
+    console.log("Class id ",classId);
+  this.cid.getSectionFun(classId);
   }
 
 

@@ -37,6 +37,7 @@ export class ServiceGetClassMasterProvider {
 //end
  public ClassTest:any;
  public crSub:any;//to get current attendance of a particular subject 
+ public sectionData:any;
   
  public per:number;
  public UploadM:any;
@@ -44,6 +45,39 @@ export class ServiceGetClassMasterProvider {
 
   constructor(public http: HttpClient,public one:ServiceLoginProvider,public toastController:ToastController ) {
     
+  }
+//get distinct sections for add user
+  getSectionFun(id)
+  {
+    var url=this.URL+"getSection.php";
+    return this.getSection(url,id);
+  }
+
+  getSection(url,id)
+  {
+    //console.log("Class is which we passing to api",postId);
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(id)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.sectionData=data['data'];
+        //console.log("Row data",this.attsubject);
+        console.log("Distinct Section",this.sectionData);
+        //return 1;
+      }
+      else
+      {
+        // this.SubjectOnTimeTable=[];
+        
+        console.log("no data fetched");
+        //return 0;
+      }        
+       resolve(data);
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+
   }
    //GET TEST FROM CLASS_TEST_TABLE
   getClassTestFun(subjectID)
@@ -77,8 +111,8 @@ export class ServiceGetClassMasterProvider {
   });
 
   }
-
-  getClassFun() //GET DATA FROM CLASS_MASTER_TABLE IN DATABASE----------------------------------------------------->
+ //GET DATA FROM CLASS_MASTER_TABLE IN DATABASE----------------------------------------------------->
+  getClassFun()  
   {
     var url=this.URL+"getClass_Master.php";
     return this.getClass(url);
@@ -633,6 +667,7 @@ getSA(url,RG)
       }
       else
       {
+        this.SAData=[];
         alert("No attendance found for the student");
         //return 0;
       }        

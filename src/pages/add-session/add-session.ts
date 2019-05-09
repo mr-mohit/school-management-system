@@ -11,8 +11,9 @@ import { ServiceAddSessionProvider } from '../../providers/service-add-session/s
 export class AddSessionPage {
   public STATUS:boolean=false;
   public ACTIVE:number;
-  public START_DATE:any;
-  public END_DATE:any;
+  public START_DATE=new Date().toISOString();
+  public END_DATE=new Date().toISOString();
+  public minDate:String=new Date().toISOString();
   
 public sessionData:any=
 {

@@ -9,11 +9,12 @@ import { ServiceUpdateProvider } from '../../providers/service-update/service-up
   templateUrl: 'update-term.html',
 })
 export class UpdateTermPage {
+  public minDate:String=new Date().toISOString();
   public TID:any;
   public SESSION:any;
   public TERM:any;
-  public START_DATE:any;
-  public END_DATE:any;
+  public START_DATE=new Date().toISOString();
+  public END_DATE=new Date().toISOString();
   public termData:any=
    {
      "TID":"",

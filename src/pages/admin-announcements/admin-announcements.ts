@@ -30,6 +30,8 @@ private category:any;
 private AnnouncementsTitle:any;
 private AnnouncementsDescription:any;
 
+public test:any;
+
 public Announcement={
   "REG_NO":"",
   "category":"",
@@ -44,7 +46,7 @@ public Announcement={
     // this.timeEnds=this.Date+"-"+this.Month+"-"+this.Year;
     // console.log(this.timestarts);
     // console.log(this.Date);
-    // console.log(this.minDate);
+  
   }
 
   ionViewDidLoad() {
