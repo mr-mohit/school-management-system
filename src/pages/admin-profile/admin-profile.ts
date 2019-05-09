@@ -28,11 +28,11 @@ export class AdminProfilePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad AdminProfilePage');
    
-  //  if(this.service.Uimag!=undefined)
-  //  {
-  //    this.imgurl=this.service.Uimag;
-  //    console.log("USER PIC ",this.imgurl);
-  //  }
+   if(this.service.Uimag!=undefined)
+   {
+     this.imgurl=this.service.Uimag;
+     console.log("USER PIC ",this.imgurl);
+   }
   }
 
 }
