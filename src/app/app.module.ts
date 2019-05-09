@@ -435,7 +435,7 @@ import { ResultTermPage } from '../pages/result-term/result-term';
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
-    NO_ERRORS_SCHEMA
+    NO_ERRORS_SCHEMA,
   ]
   
 })

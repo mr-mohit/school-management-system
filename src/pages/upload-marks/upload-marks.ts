@@ -74,7 +74,7 @@ export class UploadMarksPage {
          
          console.log("Result data is ",this.Result_array);
          
-     }      
+      }      
       else
       {
         alert("Marks must be between 0 and 100");

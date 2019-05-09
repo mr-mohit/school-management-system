@@ -24,7 +24,7 @@ export class StudentHomeworkPage {
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private file: File,
-               public GU:ServiceStudentHomeworkProvider,private transfer: Transfer,) {
+               public GU:ServiceStudentHomeworkProvider,private transfer: Transfer) {
   }
 
   ionViewDidLoad() {
