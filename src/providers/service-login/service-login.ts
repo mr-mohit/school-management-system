@@ -40,7 +40,7 @@ export class ServiceLoginProvider {
         this.address=this.recdata.address[0]; 
          
          //console.log(typeof(this.address));
-        // this.details=this.recdata.data[0];
+        this.details=this.recdata.data[0];
          console.log("regertration number",this.details);
          console.log("IMAGE URL",this.Uimag);
          //console.log(this.address);
