@@ -10,13 +10,13 @@
 
   <ion-calendar #calendar [events]="currentEvents" (onDaySelect)="onDaySelect($event)"></ion-calendar>
   <ion-list *ngFor="let item of eventlist">
-    <ion-item>
-      <ion-label>
-
-          <ion-label><!-- Space Here --></ion-label>
-          
+    <ion-card >
+    <ion-item class="calendar_card">
+      <ion-label class="header">
         <ion-icon name="attach"></ion-icon>       {{item.EVENT}}
       </ion-label>
     </ion-item>
+  </ion-card>
+
   </ion-list>
 </ion-content>

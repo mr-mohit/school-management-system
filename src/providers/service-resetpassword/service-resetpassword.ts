@@ -11,6 +11,7 @@ export class ServiceResetpasswordProvider {
   public URL=this.one.URL;
   recdata: any;
   loading: any;
+  chk : any = 0;
  
 
   constructor(public http: HttpClient,public alertCtrl: AlertController,
@@ -33,6 +34,18 @@ export class ServiceResetpasswordProvider {
       this.http.post(url,JSON.stringify(data1)).subscribe(data=>{
         console.log("email",data);
         this.recdata = data;
+        // if(data['statuscode']==1)
+        // {
+        //       // start wait  loading process 
+        //       this.loading = this.loadingCtrl.create({
+        //         content: 'Sending OTP...',
+        //         dismissOnPageChange:true,
+        //         duration:1000000
+        //       });
+        //       this.loading.present();
+
+        //       this.chk = 1;
+        // }
         resolve(data);
   
       },error=>{

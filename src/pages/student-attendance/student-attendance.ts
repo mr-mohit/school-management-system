@@ -15,6 +15,10 @@ export class StudentAttendancePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad StudentAttendancePage');
+    console.log(this.SA.crSub);
   }
-
+ test(STATUS)
+ {
+   console.log("row is clicked",STATUS);
+ }
 }

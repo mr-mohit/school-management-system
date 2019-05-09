@@ -10,16 +10,22 @@ import { ServiceViewSessionProvider } from '../../providers/service-view-session
   templateUrl: 'add-term.html',
 })
 export class AddTermPage {
+  public STATUS:boolean=false;
+  public ACTIVE:number;
+
+  public minDate:String=new Date().toISOString();
+
   public SESSION:any;
   public TERM:any;
-  public START_DATE:any;
-  public END_DATE:any;
+  public START_DATE=new Date().toISOString();
+  public END_DATE=new Date().toISOString();
   public termData:any=
    {
      "SESSION":"",
     "TERM":"",
     "START_DATE":"",
-    "END_DATE":" "
+    "END_DATE":" ",
+    "STATUS":""
    };
 
    public indata:any;
@@ -60,6 +66,7 @@ export class AddTermPage {
                             this.termData['TERM']=this.TERM;
                             this.termData['START_DATE']=this.START_DATE;
                             this.termData['END_DATE']=this.END_DATE;
+                            this.termData['STATUS']=this.STATUS;
                             
                             if(this.addTerm.addTermFun(this.termData))
                             {
@@ -88,4 +95,21 @@ getDate(SESSION)
 {
   console.log(SESSION,"id of session");
 }
+
+
+ST()
+{
+  if(this.STATUS==false)
+  {
+    this.ACTIVE=0;
+    console.log(this.ACTIVE);
+  }
+  else
+  {
+    this.ACTIVE=1;
+    console.log(this.ACTIVE);
+  }
+}
+
+
 }

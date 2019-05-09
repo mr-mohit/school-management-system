@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component,ChangeDetectorRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 import { ServiceUploadMarksProvider } from '../../providers/service-upload-marks/service-upload-marks';
+
 
 @IonicPage()
 @Component({
@@ -14,12 +15,21 @@ export class UpdateMarksPage {
   public SUBJECT:any;
   public TEST:any;
   public status:boolean=false;
+  public new:any;
+  public upMarks:any={
+    "REG":"",
+    "TEST":"",
+    "MARKS":""
+  };
   
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public GU:ServiceGetClassMasterProvider,
-    public alertCtrl:AlertController,public UM:ServiceUploadMarksProvider,public toastController: ToastController
+    public alertCtrl:AlertController,public UM:ServiceUploadMarksProvider,public toastController: ToastController,private cdr: ChangeDetectorRef
     ) {
+ 
+      this.Marks_array=this.GU.UploadM;
+
   this.CLASS=navParams.get('class');
   this.SUBJECT=navParams.get('subject');
   this.TEST=navParams.get('test');
@@ -33,20 +43,28 @@ export class UpdateMarksPage {
   Save(reg,Marks,index)
   {
 
+    //this.Marks_array=this.GU.UploadM;
+
     let mk={
       "REG_NO":"",
       "TEST":"",
-      "MARKS":""
+      "MARKS":"",
+      "CLASS":"",
+      "SUBJECT":"",
+      "FIRST_NAME":"",
+      "LAST_NAME":""
     };
     mk['REG_NO']=reg;
     mk['TEST']=this.TEST;
     mk['MARKS']=Marks;
+    mk['CLASS']=this.CLASS;
+    mk['SUBJECT']=this.SUBJECT;
     if(Marks!=undefined && Marks!="")
     {
       if(Marks>=0 && Marks<=100)
       {        
         this.Marks_array[index]=mk;      
-         console.log("data ",this.Marks_array);
+         console.log("data to be stored ",this.Marks_array);
      }      
       else
       {
@@ -57,37 +75,33 @@ export class UpdateMarksPage {
     }
   }
 
-Update(){
-//  console.log("length value",this.Marks_array.length);
-  if(this.Marks_array.length-this.GU.rows == 0)
-  {
-    const confirm = this.alertCtrl.create({
-      title: 'Update marks?',
-      message: 'Do you want to update marks?',
-      buttons: [
-        {
-          text: 'Cancel',
-          handler: () => {
-                          this.navCtrl.pop();
-                         }
-        },
-        {
-         text: 'Okay',
-         handler: () => {
-                          console.log(this.Marks_array);
-                          this.UM.UpdateFun(this.Marks_array);
-                          this.navCtrl.pop();
-                        }
-        }
-      ]
-    });
-    confirm.present();
-  }
-  else{
-    alert("Please fill the required fields");
-  }
+// Update(){
+//   {
+//     const confirm = this.alertCtrl.create({
+//       title: 'Update marks?',
+//       message: 'Do you want to update marks?',
+//       buttons: [
+//         {
+//           text: 'Cancel',
+//           handler: () => {
+//                           this.navCtrl.pop();
+//                          }
+//         },
+//         {
+//          text: 'Okay',
+//          handler: () => {
+//                           console.log(this.Marks_array);
+//                           this.UM.UpdateFun(this.Marks_array);
+//                           this.navCtrl.pop();
+//                         }
+//         }
+//       ]
+//     });
+//     confirm.present();
+//   }
+  
    
-  }
+  // }
 
   //Validation
   check(event:any)
@@ -111,5 +125,59 @@ Update(){
       toast.present();
     }
   }
+      
+
+  ngAfterViewChecked(){
+    //your code to update the model
+    
+    this.cdr.detectChanges();
+ }
+
+ updateMarks(REG_NO) {
+  let alert = this.alertCtrl.create({
+    title: 'New Marks',
+    inputs: [
+      {
+        name: 'Marks',
+        type:"number",
+        placeholder: '123'
+      }
+    ],
+    buttons: [
+      {
+        text: 'Cancel',
+        role: 'cancel',
+        handler: data => {
+          console.log('Cancel clicked');
+        }
+      },
+      {
+        text: 'Update',
+        handler: data => {
+          console.log("Reg_no",REG_NO);
+          console.log("Data",data.Marks);
+          this.new=data.Marks;
+          if(this.new>=0 && this.new<=100)
+           {
+                   
+              this.upMarks['REG']=REG_NO;
+              this.upMarks['TEST']=this.TEST;
+              this.upMarks['MARKS']=this.new;
+              this.UM.UpdateFun(this.upMarks);
+              console.log("Updation",this.upMarks);         
+            
+             }
+             else
+             {
+               console.log("Marks must be between 0 and 100");
+             }
+          
+        }
+      }
+    ]
+  });
+  alert.present();
+}
+
 
 }

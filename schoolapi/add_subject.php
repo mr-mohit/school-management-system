@@ -11,7 +11,7 @@ if($con){
        $postdata=file_get_contents("php://input");
        $postdata=json_decode($postdata,true);
 	
-	   $subject_id=test_input($_POST['subject_id']);
+       $subject_id=test_input($_POST['subject_id']);
        $subject_name=test_input($_POST['subject_name']);
        $subject_type=test_input($_POST['subject_type']);  
        $subject_material=test_input($_POST['subject_material']);

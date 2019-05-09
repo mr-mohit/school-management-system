@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 import { ServiceCreateTestProvider } from '../../providers/service-create-test/service-create-test';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @IonicPage()
 @Component({
@@ -10,9 +10,12 @@ import { ServiceCreateTestProvider } from '../../providers/service-create-test/s
   templateUrl: 'create-test.html',
 })
 export class CreateTestPage {
-  myDate: String = new Date().toISOString();
+ public myDate: String = new Date().toISOString();
  public classID:any;
 
+ public minDate:String=new Date().toISOString();
+ slideOneForm: FormGroup;
+ submitAttempt: boolean = false;
 
   public CLASS:any;
   public TERM:any;
@@ -20,11 +23,11 @@ export class CreateTestPage {
   public TYPE:any;
   public NAME:any;
   public TOPIC:any;
-  public DATE:any;
+  public DATE=new Date().toISOString();
   public TM:any;
   public WM:any;
   public ST:any;
-  public ET:any;
+  public DURATION:any;
   public RM:any;
   public testData:any=
   {
@@ -38,27 +41,33 @@ export class CreateTestPage {
    "TM":"",
    "WM":"",
    "ST":"",
-   "ET":"",
+   "DURATION":"",
    "RM":""
 
   };
   constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl:AlertController,
-    public CT:ServiceCreateTestProvider,public cid:ServiceGetClassMasterProvider
+    public CT:ServiceCreateTestProvider,public cid:ServiceGetClassMasterProvider,public formBuilder: FormBuilder
     ) {
+
+      this.slideOneForm = formBuilder.group({
+        test_name: ['', Validators.compose([Validators.maxLength(30),Validators.minLength(5), Validators.pattern('[a-zA-Z ]+'), Validators.required])],
+        topic: ['', Validators.compose([Validators.maxLength(50),Validators.minLength(5) , Validators.required])],
+        total_marks:['', Validators.compose([Validators.maxLength(3),Validators.required, Validators.pattern('^([1-9][0-9]|100)$')])],
+        weightage_marks: ['', Validators.compose([Validators.maxLength(3),Validators.required, Validators.pattern('^([1-9][0-9]|100)$')])],
+        room_no: ['', Validators.compose([Validators.maxLength(10), Validators.pattern('[a-zA-Z0-9].{0,10}$'), Validators.required])],
+
+      });
+
+
   }
 
-  Submit(CLASS,SUBJECT,TYPE,TERM,DATE,NAME,TOPIC,TM,WM,ST,ET,RM) 
+  Submit(CLASS,SUBJECT,TYPE,TERM,DATE,ST,DURATION) 
   {
     if(CLASS!=undefined && TERM!=undefined && SUBJECT!=undefined && TYPE!=undefined &&
-      DATE!=undefined && NAME!=undefined && TOPIC!=undefined && TM!=undefined && WM!=undefined
-      && ST!=undefined && ET!=undefined && RM!=undefined
-      )
+      DATE!=undefined  && ST!=undefined && DURATION!=undefined )
     {
       if(this.myDate<DATE)
       {
-        if(ST<ET){
-          if(TM>=0 && TM<=100 && WM>=0 && WM<=100)
-          {
             const confirm = this.alertCtrl.create({
               title: 'Create Test?',
               message: 'Do you want to create this test?',
@@ -76,14 +85,14 @@ export class CreateTestPage {
                                 this.TERM=TERM;
                                 this.SUBJECT=SUBJECT;
                                 this.TYPE=TYPE;
-                                this.NAME=NAME;
+                                this.NAME=this.slideOneForm.getRawValue().test_name;
                                 this.DATE=DATE;
-                                this.TOPIC=TOPIC;
-                                this.TM=TM;
-                                this.WM=WM;
+                                this.TOPIC=this.slideOneForm.getRawValue().topic;
+                                this.TM=this.slideOneForm.getRawValue().total_marks;
+                                this.WM=this.slideOneForm.getRawValue().weightage_marks;
                                 this.ST=ST;
-                                this.ET=ET;
-                                this.RM=RM;
+                                this.DURATION=DURATION;
+                                this.RM=this.slideOneForm.getRawValue().room_no;
   
       
                                 this.testData['CLASS']= this.CLASS;
@@ -96,7 +105,7 @@ export class CreateTestPage {
                                 this.testData['TM']=this.TM;
                                 this.testData['WM']=this.WM;
                                 this.testData['ST']=this.ST;
-                                this.testData['ET']=this.ET;
+                                this.testData['DURATION']=this.DURATION;
                                 this.testData['RM']=this.RM;
       
                                 console.log("sending data",this.testData);
@@ -109,18 +118,7 @@ export class CreateTestPage {
                 }
             ]
           });
-          confirm.present();
-          }
-          else{
-            alert("Entered marks must be between 0 and 100");
-          }
-          
-       
-        }
-        else{
-          alert("Start time and End Time is invalid")
-        }
-        
+          confirm.present(); 
         
       }
       else{
@@ -138,7 +136,6 @@ export class CreateTestPage {
   getSubject(CLASS)
   {
     this.classID=CLASS;
-    //console.log(this.postId['classId']);
     this.cid.getAttSubjectFun(CLASS);
   }
 

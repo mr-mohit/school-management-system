@@ -37,17 +37,17 @@ export class AdminDeletePage {
     this.cid.getClassFun();
   }
 
-  DeleteSession()
-  {
-    this.navCtrl.push(DeleteSessionPage);
-    this.cid.getSessionFun();
-  }
+  // DeleteSession()
+  // {
+  //   this.navCtrl.push(DeleteSessionPage);
+  //   this.cid.getSessionFun();
+  // }
 
-  DeleteTerm()
-  {
-    this.navCtrl.push(DeleteTermPage);
-    this.cid.getTermFun();
-  }
+  // DeleteTerm()
+  // {
+  //   this.navCtrl.push(DeleteTermPage);
+  //   this.cid.getTermFun();
+  // }
 
   DeleteUser()
   {

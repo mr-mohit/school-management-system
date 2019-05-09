@@ -11,6 +11,7 @@ import { AdminHomePage } from '../admin-home/admin-home';
 import { HomePage } from '../home/home';
 import { ResultPage } from '../result/result';
 import { DeleteUserPage } from '../delete-user/delete-user';
+import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 
 
 @Component({
@@ -24,13 +25,15 @@ export class LoginPage {
 
 private status:boolean;
 public dataitem:any;
+public REG_NO:any;
+
 public user:any=
 {
   "REG_NO":"",
   "PASSWORD":" "
 };
   constructor(private nativeStorage: NativeStorage,public Menu: MenuController,public navCtrl: NavController,public alertCtrl:AlertController,public loadingCtrl: LoadingController,
-    public service:ServiceLoginProvider,public toast:ToastController) {
+    public service:ServiceLoginProvider,public toast:ToastController,public GCM:ServiceGetClassMasterProvider) {
       this.Menu.enable(false);
 
   }
@@ -41,6 +44,7 @@ public user:any=
 
     if(REG_NO!=undefined && PASSWORD!=undefined &&this.status!=false || this.status!=undefined)
     {
+      this.REG_NO=REG_NO;
         this.user['REG_NO']=REG_NO;//get user name from login.html
         this.user['PASSWORD']=PASSWORD;//get password entered by user from login.html
         
@@ -73,8 +77,11 @@ public user:any=
            //console.log("login sucessfully implimented");
            if(this.dataitem.data[0].ROLE=='student'|| this.dataitem.data[0].ROLE=='Student' || this.dataitem.data[0].ROLE=='STUDENT')
            {
+
             //console.log("student");
             this.navCtrl.setRoot(StudentdashboardPage);
+            
+
              //this.navCtrl.setRoot('StudentdashboardPage');//calling student dashboard
            }
            else if(this.dataitem.data[0].ROLE=='teacher'|| this.dataitem.data[0].ROLE=='Teacher' || this.dataitem.data[0].ROLE=='TEACHER')
@@ -129,9 +136,9 @@ REG_NOCHECK(event:any)
     position: 'top'
   });
   toast.present();
-}
-   this.status=false;
-
+   this.REG_NO=null;
+  }
+  this.status=false;
 }
 ts()
 {
@@ -169,6 +176,11 @@ togglePassword()
   }
 }
 
+ionViewDidLoad()
+{
+  this.service.getASession();
+  this.service.getATerm();
 
 }
 
+}

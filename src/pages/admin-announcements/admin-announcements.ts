@@ -4,12 +4,8 @@ import { ServiceLoginProvider } from '../../providers/service-login/service-logi
 import { ServiceAdminAnnouncements } from '../../providers/service-AdminAnnoucement/service-announcement';
 import { DeleteAnnouncementsPage } from '../delete-announcements/delete-announcements';
 
-/**
- * Generated class for the AdminAnnouncementsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
+import * as moment from "moment"; 
 
 @IonicPage()
 @Component({
@@ -18,6 +14,13 @@ import { DeleteAnnouncementsPage } from '../delete-announcements/delete-announce
 })
 export class AdminAnnouncementsPage {
 
+// //private Date=new Date().getDate();
+// public minDate:String=new Date().toISOString();
+// //private Month=new Date().getMonth()+1;
+// //private Year=new Date().getFullYear();
+// private timestarts=new Date().toISOString();
+// private timeEnds=new Date().toISOString();
+  myDate = moment().format("YYYY-MM-DD");
 private Date=new Date().getDate();
 private Month=new Date().getMonth()+1;
 private Year=new Date().getFullYear();
@@ -26,6 +29,8 @@ private timeEnds:any;
 private category:any;
 private AnnouncementsTitle:any;
 private AnnouncementsDescription:any;
+
+public test:any;
 
 public Announcement={
   "REG_NO":"",
@@ -37,14 +42,17 @@ public Announcement={
 };
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public getuserid:ServiceLoginProvider,public AdminAnnouncements:ServiceAdminAnnouncements,public alertCtrl:AlertController) {
-    this.timestarts=this.Date+"-"+this.Month+"-"+this.Year;
-    this.timeEnds=this.Date+"-"+this.Month+"-"+this.Year;
-    console.log(this.timestarts);
+    // this.timestarts=this.Date+"-"+this.Month+"-"+this.Year;
+    // this.timeEnds=this.Date+"-"+this.Month+"-"+this.Year;
+    // console.log(this.timestarts);
+    // console.log(this.Date);
+  
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AdminAnnouncementsPage');
     // console.log(this.date);
+  
    
   }
 
@@ -52,8 +60,11 @@ public Announcement={
   {
     if(this.category!=undefined && this.AnnouncementsTitle!=undefined && this.AnnouncementsDescription!=undefined)
     {
-  
-         const confirm=this.alertCtrl.create({
+        
+      if(this.myDate<this.timestarts &&  this.timestarts<this.timeEnds)
+      {
+
+        const confirm=this.alertCtrl.create({
           title:'Publish Announcement?',
           buttons:[
             {
@@ -84,14 +95,23 @@ public Announcement={
 
          });
          confirm.present();
+
+      }
+      
+    else
+    {
+      alert("End Date Cannot be Before Start Date");
     }
+  }
     else
     {
        alert("Fields cannot be empty");
     }
   }
+  
   SeeAnnouncements()
   {
     this.navCtrl.push(DeleteAnnouncementsPage);
   }
+ 
 }

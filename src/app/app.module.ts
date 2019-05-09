@@ -1,4 +1,4 @@
-import { NgModule, ErrorHandler } from '@angular/core';
+import { NgModule,NO_ERRORS_SCHEMA,CUSTOM_ELEMENTS_SCHEMA, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -148,6 +148,10 @@ import { FileOpener } from '@ionic-native/file-opener';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
 import { StudentSyllabusPage } from '../pages/student-syllabus/student-syllabus';
 import { GetEventProvider } from '../providers/get-event/get-event';
+import { ServiceSyllabusProvider } from '../providers/service-syllabus/service-syllabus';
+import { StudentAttendanceSubjectsPage } from '../pages/student-attendance-subjects/student-attendance-subjects';
+import {RoundProgressModule} from 'angular-svg-round-progressbar';
+import { ResultTermPage } from '../pages/result-term/result-term';
 
  @NgModule({ 
   declarations: [
@@ -240,12 +244,16 @@ import { GetEventProvider } from '../providers/get-event/get-event';
     UpdateAttendancePage,
     DeleteTestPage,
     TeacherUploadHomeworkPage,
-    StudentSyllabusPage
+    StudentSyllabusPage,
+    StudentAttendanceSubjectsPage,
+    ResultTermPage,
+    ResultPage,
   ],
   imports: [
     BrowserModule,
     CalendarModule,
     HttpClientModule,
+    RoundProgressModule,
     IonicImageViewerModule,
     IonicModule.forRoot(MyApp),
     TranslateModule.forRoot({
@@ -255,7 +263,8 @@ import { GetEventProvider } from '../providers/get-event/get-event';
         deps: [HttpClient]
       }
     }),
-    HttpClientModule
+    HttpClientModule,
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -348,7 +357,10 @@ import { GetEventProvider } from '../providers/get-event/get-event';
     UpdateAttendancePage,
     DeleteTestPage,
     TeacherUploadHomeworkPage,
-    StudentSyllabusPage
+    StudentSyllabusPage,
+    StudentAttendanceSubjectsPage,
+    ResultTermPage,
+    ResultPage,
   ],
   providers: [
     StatusBar,
@@ -418,7 +430,13 @@ import { GetEventProvider } from '../providers/get-event/get-event';
     ServiceCalculateResultProvider,
     ServiceDeleteAndUpdateTimeTableProvider,
     GetEventProvider,
+    ServiceSyllabusProvider,
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA,
   ]
+  
 })
 export class AppModule {}
 

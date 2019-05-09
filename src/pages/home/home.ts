@@ -16,6 +16,10 @@ import { ServiceStudentHomeworkProvider } from '../../providers/service-student-
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 import { StudentSyllabusPage } from '../student-syllabus/student-syllabus';
 import { ServiceAddsubjectProvider } from '../../providers/service-addsubject/service-addsubject';
+import { StudentAttendanceSubjectsPage } from '../student-attendance-subjects/student-attendance-subjects';
+import { GetEventProvider } from '../../providers/get-event/get-event';
+import { ResultTermPage } from '../result-term/result-term';
+import { ServiceSyllabusProvider } from '../../providers/service-syllabus/service-syllabus';
 
 
 @Component({
@@ -25,21 +29,25 @@ import { ServiceAddsubjectProvider } from '../../providers/service-addsubject/se
 export class HomePage {
 
   public Reg:any;
-
+  
   constructor(public navCtrl: NavController, public Menu: MenuController,public CRD:ServiceLoginProvider ,
     public result:ServiceStudentResultProvider,public UR:ServiceLoginProvider, 
     public SM:ServiceStudentMessageProvider, public SH:ServiceStudentHomeworkProvider,
      public SA:ServiceGetClassMasterProvider, public Sy:ServiceAddsubjectProvider,
-     public log:ServiceLoginProvider
+     public log:ServiceLoginProvider,public GE:GetEventProvider, public SYL :ServiceSyllabusProvider
     ) {
     this.Menu.enable(true);
+    this.SA.getSAFun(this.UR.reg);
+    this.SA.perAttFun(this.CRD.reg);
   }
 
 //Student Functions
   gotoStudentAttendance()
   {
-    this.navCtrl.push(StudentAttendancePage);
-    this.SA.getSAFun(this.UR.reg);
+    
+    this.navCtrl.push(StudentAttendanceSubjectsPage);
+    
+    
   }
 
   gotoStudentAnnouncements()
@@ -88,10 +96,10 @@ export class HomePage {
 
   gotoStudentResult()
   {
-    this.navCtrl.push(ResultPage,{"data":this.UR.reg});
+    this.navCtrl.push(ResultTermPage,{"data":this.UR.reg});
     this.Reg=this.CRD.recdata;
     console.log(this.Reg);
-    this.result.getResultFun(this.UR.reg);
+    // this.result.getResultFun(this.UR.reg);
     console.log(this.UR.reg,'spelling mistake');
   
   
@@ -100,13 +108,21 @@ export class HomePage {
   gotoViewCalendar()
   {
     this.navCtrl.push(ViewCalendarPage);
+    this.GE.getEventsFun();
   }
 
   gotoViewSyllabus()
   {
-    this.Sy.postSyllFun(this.log.reg);
+   // this.Sy.postSyllFun(this.log.reg);
 
-    this.navCtrl.push(StudentSyllabusPage);
+   this.SYL.getClassSyllabus(this.UR.reg).then(data=>{
+
+    if(data['statuscode'] == 1)
+    {
+      this.navCtrl.push(StudentSyllabusPage);
+  
+    }
+  });
   }
    
 

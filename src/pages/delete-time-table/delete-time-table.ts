@@ -28,7 +28,7 @@ export class DeleteTimeTablePage {
   {
     "CLASSID":"",
     "DAY":"",
-    "SUBJECT":"",
+    // "SUBJECT":"",
      "SLOT":""
   }
 
@@ -87,13 +87,12 @@ export class DeleteTimeTablePage {
   }
   DeleteTimeTable()
   {
-    if(this.CLASSID!=undefined && this.Day!=undefined &&
-      this.SUBJECTID!=undefined && this.SLOT)
+    if(this.CLASSID!=undefined && this.Day!=undefined && this.SLOT)
       {
        
         this.deleteData['CLASSID']=this.CLASSID;
         this.deleteData['DAY']=this.Day;
-        this.deleteData['SUBJECT']=this.SUBJECTID;
+        // this.deleteData['SUBJECT']=this.SUBJECTID;
         this.deleteData['SLOT']=this.SLOT;
         console.log("DELETE DATA",this.deleteData);
 
@@ -104,7 +103,7 @@ export class DeleteTimeTablePage {
       }
       else
       {
-
+        alert("Please select all the fields");
       }
 
   }

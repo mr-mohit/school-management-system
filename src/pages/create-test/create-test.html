@@ -59,7 +59,7 @@
             <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
            {{'date' |translate}}
            </ion-label>
-           <ion-datetime name="DATE" displayFormat="DD MMM YYYY" placeholder="Select Date" min="2019"  [(ngModel)]="DATE"></ion-datetime>
+           <ion-datetime name="DATE" displayFormat="DD MMM YYYY" placeholder="Select Date" [min]="minDate"  [(ngModel)]="DATE"></ion-datetime>
          </ion-item>
 
          <ion-item>
@@ -73,54 +73,99 @@
         <ion-item>
           <ion-label>
            <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
-           {{'end_time'|translate}}
+           {{'duration'|translate}}
           </ion-label>
-          <ion-datetime name="ET" displayFormat="HH:mm" placeholder="{{'end_time'|translate}}"   [(ngModel)]="ET"></ion-datetime>
+          <ion-select name="DURATION" [(ngModel)]="DURATION">
+            <ion-option value="30 MIN">
+              30 MIN
+            </ion-option >
+            <ion-option value="45 MIN">
+              45 MIN
+            </ion-option>
+            <ion-option value="1 HOUR">
+             1 HOUR
+            </ion-option>
+            <ion-option value="1.5 HOUR">
+             1.5 HOUR
+            </ion-option>  
+            <ion-option value=" 2 HOURS">
+              2 HOURS
+             </ion-option>
+             <ion-option value="2.5 HOURS">
+              2.5 HOURS
+             </ion-option> 
+             <ion-option value="3 HOURS">
+              3 HOURS
+             </ion-option> 
+          </ion-select>
         </ion-item>
 
+     <form [formGroup]="slideOneForm">
         <ion-item>
           <ion-label floating>
            <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
            {{'room_no'|translate}}
           </ion-label>
-          <ion-input type="text" [(ngModel)]="RM" name="RM"></ion-input>
+          <ion-input formControlName="room_no" type="text" [class.invalid]="!slideOneForm.controls.room_no.valid && (slideOneForm.controls.room_no.dirty || submitAttempt)"></ion-input>
         </ion-item>
 
-
-    <ion-item>
+        <ion-item *ngIf="!slideOneForm.controls.room_no.valid  && (slideOneForm.controls.room_no.dirty || submitAttempt)">
+          <ion-label style="color:red">No symbols allowed and max length is 10 </ion-label>
+        </ion-item>
+      
+       <ion-item>
         <ion-label floating >
             <ion-icon ios="ios-text" md="md-text"></ion-icon>
           {{'test_name' |translate}}
         </ion-label>
-        <ion-input type="text" [(ngModel)]="NAME" name="NAME"></ion-input>
-      </ion-item>
+         <ion-input formControlName="test_name" type="text" [class.invalid]="!slideOneForm.controls.test_name.valid && (slideOneForm.controls.test_name.dirty || submitAttempt)"></ion-input>
+        </ion-item>
 
-      <ion-item>
+         <ion-item *ngIf="!slideOneForm.controls.test_name.valid  && (slideOneForm.controls.test_name.dirty || submitAttempt)">
+          <ion-label style="color:red">No symbols allowed and max length is 30 </ion-label>
+        </ion-item>
+
+        
+        <ion-item>
           <ion-label floating >
               <ion-icon ios="ios-text" md="md-text"></ion-icon>
             {{'topic' |translate}}
           </ion-label>
-          <ion-input type="text"  min="5" max="30" [(ngModel)]="TOPIC" name="TOPIC"></ion-input>
-      </ion-item>
+          <ion-input formControlName="topic" type="text" [class.invalid]="!slideOneForm.controls.topic.valid && (slideOneForm.controls.topic.dirty || submitAttempt)"></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="!slideOneForm.controls.topic.valid  && (slideOneForm.controls.topic.dirty || submitAttempt)">
+          <ion-label style="color:red"> No symbols allowed and max length is 50</ion-label>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label floating >
+              <ion-icon ios="ios-calculator" md="md-calculator"></ion-icon>
+           {{'total_marks' |translate}}
+          </ion-label>
+          <ion-input formControlName="total_marks" type="number" [class.invalid]="!slideOneForm.controls.total_marks.valid && (slideOneForm.controls.total_marks.dirty || submitAttempt)"></ion-input>
+        </ion-item>        
+        <ion-item *ngIf="!slideOneForm.controls.total_marks.valid  && (slideOneForm.controls.total_marks.dirty || submitAttempt)"> -->
+         <ion-label style="color:red">No symbols allowed and max marks are 100 </ion-label>
+        </ion-item>
+
 
         <ion-item>
-            <ion-label floating >
-                <ion-icon ios="ios-calculator" md="md-calculator"></ion-icon>
-             {{'total_marks' |translate}}
-            </ion-label>
-            <ion-input type="number" min="1" max="3" [(ngModel)]="TM"  name="TM"></ion-input>
+          <ion-label floating >
+              <ion-icon ios="ios-calculator" md="md-calculator"></ion-icon>
+           {{'weightage_marks' |translate}}
+          </ion-label>
+          <ion-input formControlName="weightage_marks" type="number" [class.invalid]="!slideOneForm.controls.weightage_marks.valid && (slideOneForm.controls.weightage_marks.dirty || submitAttempt)"></ion-input>
+        </ion-item>        
+        <ion-item *ngIf="!slideOneForm.controls.weightage_marks.valid  && (slideOneForm.controls.weightage_marks.dirty || submitAttempt)"> -->
+         <ion-label style="color:red"> No symbols allowed and max marks are 100</ion-label>
         </ion-item>
-          
-          <ion-item>
-              <ion-label floating >
-                  <ion-icon ios="ios-calculator" md="md-calculator"></ion-icon>
-               {{'Weightage_marks' |translate}}
-              </ion-label>
-              <ion-input type="number" min="1" max="3"  [(ngModel)]="WM" name="WM"></ion-input>
-          </ion-item>
+         
 
+      </form>
+       
       <div>
-          <button ion-button block on-click="Submit(CLASS,SUBJECT,TYPE,TERM,DATE,NAME,TOPIC,TM,WM,ST,ET,RM)" >
+          <button ion-button block on-click="Submit(CLASS,SUBJECT,TYPE,TERM,DATE,ST,DURATION)" >
               {{'submit' |translate}}
       </button>
     </div>

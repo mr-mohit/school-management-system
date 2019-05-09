@@ -11,7 +11,7 @@
     <ion-item>
         <ion-label floating>{{'class' |translate}} {{'and' |translate}} {{'section' |translate}}</ion-label>
         <ion-select  name="CLASSID" [(ngModel)]="CLASSID" (ionChange)="getSubject(CLASSID)">
-          <ion-option *ngFor="let i of service?.classData"  value="{{i.CLASS_MASTER_ID}}" >{{i.CLASS}} {{i.SECTION}}</ion-option>
+          <ion-option *ngFor="let i of service?.classData"  value="{{i.CLASS_MASTER_ID}}" >{{'class' |translate}} {{i.CLASS}}  {{'section' |translate}} {{i.SECTION}}</ion-option>
          </ion-select>
     </ion-item>
 
@@ -72,9 +72,6 @@
         <ion-col>
            <div>Time</div>
         </ion-col>
-        <ion-col>
-          <div>Day</div>
-        </ion-col>
       </ion-row>
       
     </ion-grid>
@@ -95,11 +92,6 @@
         <ion-col>
           <div>
             {{i.TIME_SLOT}}
-          </div>
-        </ion-col>
-        <ion-col>
-          <div>
-            {{i.DAY}}
           </div>
         </ion-col>
       </ion-row>

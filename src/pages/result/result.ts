@@ -12,21 +12,23 @@ import { ServiceCalculateResultProvider } from '../../providers/service-calculat
   templateUrl: 'result.html',
 })
 export class ResultPage {
-public RegNo:any;
-public RN:any;
+// public RegNo:any;
+// public RN:any;
 public REG:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,public user:ServiceLoginProvider, 
     public RES:ServiceStudentResultProvider ,public CR:ServiceCalculateResultProvider) {
-      this.RegNo=this.navParams.get("reg");
-      this.RN=this.navParams.get("data");
-      console.log(this.RN,"reg no coming");
-      if(this.RegNo!=undefined)
-      {
-        this.REG=this.RegNo;
-      }
-      else{
-        this.REG=this.RN;
-      }
+      // this.RegNo=this.navParams.get("reg");
+      // this.RN=this.navParams.get("data");
+      // console.log(this.RN,"reg no coming");
+      // if(this.RegNo!=undefined)
+      // {
+      //   this.REG=this.RegNo;
+      // }
+      // else{
+      //   this.REG=this.RN;
+      // }
+
+      this.REG=this.navParams.get("REG");
 
 
   }

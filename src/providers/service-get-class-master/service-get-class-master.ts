@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ServiceLoginProvider } from '../service-login/service-login';
+import { ToastController } from 'ionic-angular';
 
 @Injectable()
 export class ServiceGetClassMasterProvider {
@@ -30,15 +31,53 @@ export class ServiceGetClassMasterProvider {
   public date:any;
   public slot:any;
   public attendence:any=[];
+  public UMarks:any=[];
   public term:any;
   public rows:any;
 //end
  public ClassTest:any;
+ public crSub:any;//to get current attendance of a particular subject 
+ public sectionData:any;
   
+ public per:number;
+ public UploadM:any;
 
 
-  constructor(public http: HttpClient,public one:ServiceLoginProvider) {
+  constructor(public http: HttpClient,public one:ServiceLoginProvider,public toastController:ToastController ) {
     
+  }
+//get distinct sections for add user
+  getSectionFun(id)
+  {
+    var url=this.URL+"getSection.php";
+    return this.getSection(url,id);
+  }
+
+  getSection(url,id)
+  {
+    //console.log("Class is which we passing to api",postId);
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(id)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.sectionData=data['data'];
+        //console.log("Row data",this.attsubject);
+        console.log("Distinct Section",this.sectionData);
+        //return 1;
+      }
+      else
+      {
+        // this.SubjectOnTimeTable=[];
+        
+        console.log("no data fetched");
+        //return 0;
+      }        
+       resolve(data);
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+
   }
    //GET TEST FROM CLASS_TEST_TABLE
   getClassTestFun(subjectID)
@@ -72,8 +111,8 @@ export class ServiceGetClassMasterProvider {
   });
 
   }
-
-  getClassFun() //GET DATA FROM CLASS_MASTER_TABLE IN DATABASE----------------------------------------------------->
+ //GET DATA FROM CLASS_MASTER_TABLE IN DATABASE----------------------------------------------------->
+  getClassFun()  
   {
     var url=this.URL+"getClass_Master.php";
     return this.getClass(url);
@@ -138,7 +177,6 @@ export class ServiceGetClassMasterProvider {
 
   }
   // GET Students from data base
-  // GET SUBJECTS FROM SUBJECT TABLE IN DATABASE---------------------------------------------------------------->
   getStudentFun()
   {
     var url=this.URL+"getUser.php";
@@ -195,6 +233,7 @@ export class ServiceGetClassMasterProvider {
         }
         else
         {
+          this.sessionData=[];
           alert("No sessions found");
         }        
         
@@ -297,8 +336,12 @@ getEvent(url,CalendarData)
       }
       else
       {
-        alert("No events found");
-        //return 0;
+        const toast = this.toastController.create({
+          message: 'No events today',
+          position: 'top',
+          duration:2000,
+        });
+        toast.present();
       }        
        resolve(data);
     },error=>{
@@ -530,9 +573,7 @@ FetchViewTimeTable(url,Class)
       }
       else
       {
-        this.timeview=[
-          {SUBJECT_ID: "NA", SUBJECT_NAME: "NA", TIME_SLOT: "NA", DAY: "NA"}
-        ];
+        this.timeview=[];
         alert("No Time Table");
         //return 0;
       }        
@@ -626,6 +667,7 @@ getSA(url,RG)
       }
       else
       {
+        this.SAData=[];
         alert("No attendance found for the student");
         //return 0;
       }        
@@ -665,8 +707,100 @@ getAttStatus(url,UP)
 }
 
 
+// Get attendance for a paricular subject ---------------------------------------------------------------->
+SubjectAttFun(data)
+{
+  var url=this.URL+"currentAtt.php";
+  return this.SubjectAtt(url,data);
+
+}
+SubjectAtt(url,data)
+{
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(data)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.crSub=data['data'];
+        console.log("Attendance for this subject is:",this.crSub);
+      }
+      else
+      {
+        alert("Attendance not found");
+      }        
+      
+       resolve(data);
+
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+
+}
+
+//get total attendance of a student
+perAttFun(id)
+{
+  var url=this.URL+"calculateAttendance.php";
+  return this.perAtt(url,id);
+
+}
+perAtt(url,id)
+{
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(id)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.per=data['data'];
+        console.log("Attendance percentage:",this.per);
+      }
+       resolve(data);
+
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+
 }
 
 
+
+
+
+//TO UPDATE THE MARKS ---------------------------------------------------------------->
+
+getUploadMarksFun(uploadData)
+{
+  var url=this.URL+"getUploadMarks.php";
+  return this.getUploadMarks(uploadData,url);
+
+}
+getUploadMarks(uploadData,url)
+{
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(uploadData)).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.UploadM=data['data'];
+        
+        console.log("Student marks are",this.UploadM);
+        
+
+      }
+      else
+      {
+        alert("Marks are not uploaded yet");
+      }        
+      
+       resolve(data);
+
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+
+}
+
+
+}
 
 // THIS IS THE END OF FILE
