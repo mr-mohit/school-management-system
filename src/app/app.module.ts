@@ -150,6 +150,7 @@ import { StudentSyllabusPage } from '../pages/student-syllabus/student-syllabus'
 import { GetEventProvider } from '../providers/get-event/get-event';
 import { StudentAttendanceSubjectsPage } from '../pages/student-attendance-subjects/student-attendance-subjects';
 import {RoundProgressModule} from 'angular-svg-round-progressbar';
+import { ResultTermPage } from '../pages/result-term/result-term';
 
  @NgModule({ 
   declarations: [
@@ -244,6 +245,8 @@ import {RoundProgressModule} from 'angular-svg-round-progressbar';
     TeacherUploadHomeworkPage,
     StudentSyllabusPage,
     StudentAttendanceSubjectsPage,
+    ResultTermPage,
+    ResultPage,
   ],
   imports: [
     BrowserModule,
@@ -355,6 +358,8 @@ import {RoundProgressModule} from 'angular-svg-round-progressbar';
     TeacherUploadHomeworkPage,
     StudentSyllabusPage,
     StudentAttendanceSubjectsPage,
+    ResultTermPage,
+    ResultPage,
   ],
   providers: [
     StatusBar,
