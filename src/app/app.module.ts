@@ -419,7 +419,6 @@ import { ResultTermPage } from '../pages/result-term/result-term';
     ServiceUploadAttendenceProvider,
     ServiceStudentResultProvider,
     ServiceUploadHomeworkProvider,
-  
     ServiceExamProvider,
     ServiceDeleteTimetableProvider,
     ServiceGetTeacherProvider,
@@ -436,7 +435,7 @@ import { ResultTermPage } from '../pages/result-term/result-term';
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
     NO_ERRORS_SCHEMA,
-  ]
+  ] 
   
 })
 export class AppModule {}
