@@ -15,7 +15,7 @@ import * as moment from "moment";
 export class AdminAnnouncementsPage {
 
 private Date=new Date().getDate();
- public minDate:String=new Date().toISOString();
+public minDate:String=new Date().toISOString();
 private Month=new Date().getMonth()+1;
 private Year=new Date().getFullYear();
 private timestarts=new Date().toISOString();
