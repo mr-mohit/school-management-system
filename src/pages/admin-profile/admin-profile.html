@@ -1,35 +1,37 @@
-<!--
-  Generated template for the AdminProfilePage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar color="header">
       <button ion-button menuToggle>
           <ion-icon name="menu" left></ion-icon>
       </button>
-    <ion-title>Admin : My Profile</ion-title>
+    <ion-title>My Profile</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="text">
+<ion-content padding >
   <!-- used for display profile image of user -->
-  <div class="upperhalf">  
+  <!-- <div class="upperhalf">   -->
      <!-- <ion-avatar> -->
         <!-- <img-loader [src]="imgurl" ></img-loader> -->
         <!-- assets/imgs/logo1.png -->
-        <img src="assets/imgs/logo1.png" style="display:block;width: 50%;margin-left:auto;margin-right:auto;border-radius: 60%;height: 167px;"> 
+        <!-- <img src="assets/imgs/logo1.png" style="display:block;width: 50%;margin-left:auto;margin-right:auto;border-radius: 60%;height: 167px;">  -->
       <!-- </ion-avatar> -->
+  <div >  
+     <ion-avatar> 
+        <img src="assets/imgs/profile.png" style="display:block;width: 50%;margin-left:auto;margin-right:auto;border-radius: 60%;height: 167px;"> 
+      </ion-avatar> 
       <br>
-      <!-- <div  style=" margin-left:40vw">
-      <strong><label>{{service?.details?.NAME}}</label></strong><br>
-      <b><label>{{service?.details?.USER_ID}}</label></b>
-    </div> -->
+      <div class="center">
+        <b>{{service.recdata.data[0].FIRST_NAME}}
+          {{service.recdata.data[0].LAST_NAME}}</b><br>
+        <b>{{service.reg}}</b><br>
+        <!-- <strong>CLASS</strong> : <span>{{st?.stuData?.CLASS}}</span>-
+      <span class="center">{{st?.stuData?.SECTION}}</span> -->
+    </div>
   </div>
   <br>
 <hr>
-<h5 text-center>Basic Details</h5>
+<h5 style="text-align:center">Basic Details</h5>
 <hr>
 <strong><p>Father's Name</p></strong>
 <label > {{service?.address?.FATHER_NAME}}</label>
@@ -44,11 +46,4 @@
   <span>Pincode: {{service?.address?.PINCODE}}</span><br>
 
 </label>
-  <!-- <h5 text-center>Academic Details</h5> -->
-<hr>
-<label >
-    {{service?.address?.FATHER_NAME}}
-  </label>
-
 </ion-content>
-
