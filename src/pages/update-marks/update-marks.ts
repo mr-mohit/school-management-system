@@ -1,5 +1,5 @@
 import { Component,ChangeDetectorRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ToastController, Alert } from 'ionic-angular';
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 import { ServiceUploadMarksProvider } from '../../providers/service-upload-marks/service-upload-marks';
 
@@ -140,6 +140,7 @@ export class UpdateMarksPage {
       {
         name: 'Marks',
         type:"number",
+        max:100,
         placeholder: '123'
       }
     ],
@@ -157,20 +158,27 @@ export class UpdateMarksPage {
           console.log("Reg_no",REG_NO);
           console.log("Data",data.Marks);
           this.new=data.Marks;
-          if(this.new>=0 && this.new<=100)
-           {
-                   
-              this.upMarks['REG']=REG_NO;
-              this.upMarks['TEST']=this.TEST;
-              this.upMarks['MARKS']=this.new;
-              this.UM.UpdateFun(this.upMarks);
-              console.log("Updation",this.upMarks);         
-            
-             }
-             else
-             {
-               console.log("Marks must be between 0 and 100");
-             }
+          if(data.Marks!=undefined && data.Marks!="")
+          {
+            if(data.Marks>=0 && data.Marks<=100)
+            {
+                    
+               this.upMarks['REG']=REG_NO;
+               this.upMarks['TEST']=this.TEST;
+               this.upMarks['MARKS']=this.new;
+               this.UM.UpdateFun(this.upMarks);
+               console.log("Updation",this.upMarks);         
+             
+              }
+              else
+              {
+                 console.log("Marks must be between 0 and 100");
+               }
+          }
+          else
+          {
+            console.log("Please enter a valid marks.");
+          }          
           
         }
       }

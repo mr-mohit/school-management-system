@@ -17,7 +17,6 @@ export class ServiceLoginProvider {
   public actTerm:any;
   public Uimag:any;
 
-
   constructor(public http: HttpClient) {
     //console.log('Hello ServiceLoginProvider Provider');
   }
