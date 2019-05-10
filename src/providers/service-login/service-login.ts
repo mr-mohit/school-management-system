@@ -16,7 +16,6 @@ export class ServiceLoginProvider {
   public actSess:any;
   public actTerm:any;
 
-
   constructor(public http: HttpClient) {
     //console.log('Hello ServiceLoginProvider Provider');
   }

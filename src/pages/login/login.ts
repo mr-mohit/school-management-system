@@ -12,6 +12,7 @@ import { HomePage } from '../home/home';
 import { ResultPage } from '../result/result';
 import { DeleteUserPage } from '../delete-user/delete-user';
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
+import { ServiceGetResultProvider } from '../../providers/service-get-result/service-get-result';
 
 
 @Component({
@@ -33,8 +34,11 @@ public user:any=
   "PASSWORD":" "
 };
   constructor(private nativeStorage: NativeStorage,public Menu: MenuController,public navCtrl: NavController,public alertCtrl:AlertController,public loadingCtrl: LoadingController,
-    public service:ServiceLoginProvider,public toast:ToastController,public GCM:ServiceGetClassMasterProvider) {
+    public service:ServiceLoginProvider,public toast:ToastController,
+    public st:ServiceGetResultProvider
+    ,public GCM:ServiceGetClassMasterProvider) {
       this.Menu.enable(false);
+      
 
   }
   

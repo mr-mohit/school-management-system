@@ -140,6 +140,7 @@ export class UpdateMarksPage {
       {
         name: 'Marks',
         type:"number",
+        max:100,
         placeholder: '123'
       }
     ],
@@ -172,7 +173,7 @@ export class UpdateMarksPage {
               else
               {
                  console.log("Marks must be between 0 and 100");
-              }
+               }
           }
           else
           {

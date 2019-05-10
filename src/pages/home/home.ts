@@ -18,6 +18,7 @@ import { StudentSyllabusPage } from '../student-syllabus/student-syllabus';
 import { ServiceAddsubjectProvider } from '../../providers/service-addsubject/service-addsubject';
 import { StudentAttendanceSubjectsPage } from '../student-attendance-subjects/student-attendance-subjects';
 import { GetEventProvider } from '../../providers/get-event/get-event';
+import { ServiceGetResultProvider } from '../../providers/service-get-result/service-get-result';
 
 
 @Component({
@@ -32,11 +33,13 @@ export class HomePage {
     public result:ServiceStudentResultProvider,public UR:ServiceLoginProvider, 
     public SM:ServiceStudentMessageProvider, public SH:ServiceStudentHomeworkProvider,
      public SA:ServiceGetClassMasterProvider, public Sy:ServiceAddsubjectProvider,
-     public log:ServiceLoginProvider,public GE:GetEventProvider
+     public log:ServiceLoginProvider,public GE:GetEventProvider,
+     public st:ServiceGetResultProvider
     ) {
     this.Menu.enable(true);
     this.SA.getSAFun(this.UR.reg);
     this.SA.perAttFun(this.CRD.reg);
+    this.st.getStudentFun(this.CRD.reg);
   }
 
 //Student Functions

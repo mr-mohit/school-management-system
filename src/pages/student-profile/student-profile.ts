@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ServiceLoginProvider } from '../../providers/service-login/service-login';
+import { ServiceGetResultProvider } from '../../providers/service-get-result/service-get-result';
 
 
 /**
@@ -17,7 +18,8 @@ import { ServiceLoginProvider } from '../../providers/service-login/service-logi
 })
 export class StudentProfilePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public service:ServiceLoginProvider) {
+  constructor(public navCtrl: NavController, public st:ServiceGetResultProvider,
+    public navParams: NavParams, public service:ServiceLoginProvider) {
   }
 
   ionViewDidLoad() {
