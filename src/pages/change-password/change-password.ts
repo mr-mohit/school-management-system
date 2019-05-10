@@ -57,14 +57,12 @@ export class ChangePasswordPage {
         this.Data['REG_NO']=this.getuserid.recdata.data[0].REG_NO;;
         this.Data['PASSWORD']=this.CurrentPassword;
         this.Data['NEWPASSWORD']=this.ConfirmPassword;
-        this.ChangeService.postChangeData(this.Data);
-        
-        if(this.ChangeService.status==true)
+        if(this.ChangeService.postChangeData(this.Data))
         {
-          console.log("Status ",this.ChangeService.status);
-          this.navCtrl.pop();
-          this.navCtrl.popToRoot();
-        }
+         this.navCtrl.pop();
+         this.navCtrl.setRoot(LoginPage);
+         this.navCtrl.popToRoot();
+      }
     }
       else
       {
