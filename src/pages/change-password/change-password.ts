@@ -62,7 +62,7 @@ export class ChangePasswordPage {
          this.navCtrl.pop();
          this.navCtrl.setRoot(LoginPage);
          this.navCtrl.popToRoot();
-      }
+        }
     }
       else
       {
