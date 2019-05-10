@@ -5,6 +5,7 @@ import { ServiceChangepasswordProvider } from '../../providers/service-changepas
 import { LoginPage } from '../login/login';
 
 
+
 /**
  * Generated class for the ChangePasswordPage page.
  *
@@ -59,9 +60,8 @@ export class ChangePasswordPage {
         this.Data['NEWPASSWORD']=this.ConfirmPassword;
         if(this.ChangeService.postChangeData(this.Data))
         {
-         this.navCtrl.pop();
-         this.navCtrl.setRoot(LoginPage);
-         this.navCtrl.popToRoot();
+           this.navCtrl.pop();
+        
         }
     }
       else
