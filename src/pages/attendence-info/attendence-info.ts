@@ -83,10 +83,16 @@ export class AttendenceInfoPage {
     this.UP['SLOT']=SLOT;
     this.UP['CLASS']=Class;
     this.UP['SUBJECT']=Subject;
-    this.navCtrl.push(UpdateAttendancePage,{"date":DATE,"slot":SLOT,"class":Class,"subject":Subject});
-    this.GU.getSDCFun(this.classID);
+    
+    // this.GU.getSDCFun(this.classID);
     this.GU.getAttStatusFun(this.UP);
+    if(this.GU.AS==true)
+    {
+      this.navCtrl.push(UpdateAttendancePage,{"date":DATE,"slot":SLOT,"class":Class,"subject":Subject});
+
+    }
     console.log(DATE);
+
 
     }
     else{

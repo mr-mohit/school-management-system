@@ -66,13 +66,13 @@
 
 
 
-      <ion-label  class="center" > {{'please_select_date' |translate}}</ion-label>
+      <ion-label  class="center" style="color:red" > {{'please_select_date' |translate}}</ion-label>
       <ion-item>
         <ion-label>
          <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
-         {{'date' |translate}} 
+         {{'Date of attendance' |translate}}
         </ion-label>
-        <ion-datetime name="DATE" displayFormat="DD MMM YYYY" placeholder="{{'Date_of_attendance' |translate}}"   [(ngModel)]="DATE"></ion-datetime>
+        <ion-datetime name="DATE" displayFormat="DD MMM YYYY"   [(ngModel)]="DATE"></ion-datetime>
       </ion-item>
 
       <ion-label> </ion-label>
