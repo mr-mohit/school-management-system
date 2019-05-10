@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ServiceLoginProvider } from '../../providers/service-login/service-login';
 import { ServiceChangepasswordProvider } from '../../providers/service-changepassword/service-changepassword';
+import { LoginPage } from '../login/login';
 
 
 /**
@@ -58,11 +59,14 @@ export class ChangePasswordPage {
         this.Data['NEWPASSWORD']=this.ConfirmPassword;
         if(this.ChangeService.postChangeData(this.Data))
         {
+        if(this.ChangeService.status==true)
+        {
+          console.log("Status ",this.ChangeService.status);
           this.navCtrl.pop();
-         // this.navCtrl.setRoot(LoginPage);
-      
+          this.navCtrl.popToRoot();
         }
       }
+    }
       else
       {
         alert("Password do not match");
