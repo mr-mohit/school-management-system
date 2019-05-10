@@ -70,7 +70,7 @@ export class ServiceGetClassMasterProvider {
       else
       {
         // this.SubjectOnTimeTable=[];
-        
+        this.sectionData=[];
         console.log("no data fetched");
         //return 0;
       }        

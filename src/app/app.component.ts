@@ -22,9 +22,9 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
 //import { SchoolInfoPage } from '../pages/school-info/school-info';
 import { ViewCalendarPage } from '../pages/view-calendar/view-calendar';
 import { ServiceAdminmessageProvider } from '../providers/service-adminmessage/service-adminmessage';
-import { DeleteTermPage } from '../pages/delete-term/delete-term';
+//import { DeleteTermPage } from '../pages/delete-term/delete-term';
 import { DeleteTestPage } from '../pages/delete-test/delete-test';
-import { AdminMessagesPage } from '../pages/admin-messages/admin-messages';
+//import { AdminMessagesPage } from '../pages/admin-messages/admin-messages';
 
 
 @Component({
@@ -155,7 +155,7 @@ export class MyApp {
   //   if (!params) params = {};
   //   this.navCtrl.setRoot(HomePage);
   // }
-  goToLogin()
+ public goToLogin()
   {
    
     const confirm = this.alertCtrl.create({

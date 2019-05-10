@@ -35,7 +35,7 @@ export class ServiceExamProvider {
          {  
            this.Exam_Data=[{}]
            this.status=false;
-          alert("No exam found");
+         // alert("No exam found");
          }
          resolve(data);
 

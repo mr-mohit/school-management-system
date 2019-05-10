@@ -68,5 +68,11 @@ export class TeacherTimeTablePage {
       toast.present();
     }
   }
+  resetday()
+  {
+    this.Day=null;
+    this.status=false;
+    console.log("Reset here");
+  }
 
 }

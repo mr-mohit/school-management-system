@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ServiceLoginProvider } from '../../providers/service-login/service-login';
 import { ServiceChangepasswordProvider } from '../../providers/service-changepassword/service-changepassword';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { NativeStorage } from '@ionic-native/native-storage';
+
 
 
 /**
@@ -58,11 +61,9 @@ export class ChangePasswordPage {
         this.Data['NEWPASSWORD']=this.ConfirmPassword;
         if(this.ChangeService.postChangeData(this.Data))
         {
-          this.navCtrl.pop();
-         // this.navCtrl.setRoot(LoginPage);
-      
+         
         }
-      }
+    }
       else
       {
         alert("Password do not match");
@@ -73,7 +74,7 @@ export class ChangePasswordPage {
        
        if(this.status==false)
        {
-        alert("Password Should Include\nAtleast One Uppercase and One Lower Character\nOne Number and Special Character\nMinimum length: 8\n Maximum length : 10\n Example: Abba@123");
+        alert("Password Should Include\nAtleast One Uppercase and One Lower Character\nOne Number and Special Character\nMinimum length: 8\nMaximum length : 10\nExample: Abba@123");
      }
        else
        {
@@ -147,7 +148,7 @@ check(event:any)
     }
     else
     {
-     alert("Password Should Include\nAtleast One Uppercase and One Lower Character\nOne Number and Special Character\nMinimum length: 8\n Maximum length : 10\nExample: Abba@123");
+     alert("Password Should Include\nAtleast One Uppercase and One Lower Character\nOne Number and Special Character\nMinimum length: 8\nMaximum length : 10\nExample: Abba@123");
      this.status=false;
      //  console.log(regExp.test(newValue));
     }

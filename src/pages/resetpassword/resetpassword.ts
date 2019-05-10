@@ -31,6 +31,8 @@ export class ResetpasswordPage {
  // reset password
  reset()
  {
+   if(this.email && this.regNo)
+   {
     this.otp=Math.floor(100000 + Math.random() * 900000000);
     let userinfos={
       regNo: this.regNo, 
@@ -81,6 +83,10 @@ export class ResetpasswordPage {
   
 
 }
-  
-
+else
+{
+  alert("Kindly enter user id and email");
+}
+ 
+}
 }

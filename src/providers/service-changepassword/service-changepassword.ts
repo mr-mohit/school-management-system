@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ServiceLoginProvider } from '../service-login/service-login';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { NativeStorage } from '@ionic-native/native-storage';
 
 /*
   Generated class for the ServiceChangepasswordProvider provider.
@@ -12,15 +14,14 @@ import { ServiceLoginProvider } from '../service-login/service-login';
 export class ServiceChangepasswordProvider {
 
   public URL=this.one.URL;
-  public status:boolean=false;
+  public status:any=0;
 
-  constructor(public http: HttpClient,public one:ServiceLoginProvider) {
+  constructor(public http: HttpClient,public one:ServiceLoginProvider,public nativeStorage: NativeStorage,public splashScreen: SplashScreen) {
     console.log('Hello ServiceChangepasswordProvider Provider');
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad Change Password Service');
-    this.status=false;
    
   }
   postChangeData(NewPasswordData)
@@ -39,13 +40,20 @@ export class ServiceChangepasswordProvider {
         if(data['statuscode'] == 1)
         {
           alert(data['msg']);
-          this.status=true;
+          this.status=1;
+
+          this.nativeStorage.remove('LoginInfo').then(
+            ()=>{'Removed Successfully'},
+            error=> console.log('Error Removing data '+error));
+
+           this.splashScreen.show();
+           location.reload();
           
         }
         else
         {
           alert(data['msg']);
-          this.status=false;
+          this.status=0;
         }
         resolve(data);
       },error=>{

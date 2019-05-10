@@ -105,7 +105,7 @@ public user:any=
 
 else
 {
-  alert("Cannot be empty");
+  alert("Kindly enter user id and Password");
 }
 
   

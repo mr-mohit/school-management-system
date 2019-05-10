@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="header">
-    <ion-title>Add Class </ion-title>
+    <ion-title>Add Subject To Class</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -41,7 +41,13 @@
 
   <div class="center">
     <button ion-button on-click="chooseFile(CLASS,SUBJECT)">
-      {{'add' |translate}}
+      {{'Upload Syllabus ' |translate}}
+    </button>
+  </div>
+
+  <div class="center">
+    <button ion-button  block on-click="Submit()" >
+      {{'Add ' |translate}}
     </button>
   </div>
 </ion-content>
