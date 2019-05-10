@@ -32,8 +32,9 @@ export class StudentMessagePage {
 
   enablecontent(item)
   {
-    
-   this.navCtrl.push(StudentMessage2Page,{item});
+    console.log(item.MSG_ID);
+    this.Service.updateStatus(item.MSG_ID);
+    this.navCtrl.push(StudentMessage2Page,{item});
   }
 
 }

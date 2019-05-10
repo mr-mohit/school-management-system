@@ -324,7 +324,7 @@
                         <div style="width: 100%; text-align: center;">
                     <!-- <ion-label floating>User Picture</ion-label>
                     <ion-input formControlName="userpic" type="text" [class.invalid]="!slideOneForm.controls.userpic.valid && (slideOneForm.controls.userpic.dirty || submitAttempt)"></ion-input> -->
-                    <img src="{{pathForImage(lastImage)}}" style="width: 100%; height:80% ;" [hidden]="lastImage === null">
+                    <!-- <img src="{{pathForImage(lastImage)}}" style="width: 100%; height:80% ;" [hidden]="lastImage === null"> -->
                     <h5 [hidden]="lastImage !== null">{{'select_img_text' |translate}}</h5>
                     <ion-buttons>
                             <button ion-button icon-right (click)="presentActionSheet()">

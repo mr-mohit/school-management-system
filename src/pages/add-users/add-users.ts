@@ -270,12 +270,12 @@ export class AddUsersPage {
             this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
           }
         },
-        {
-          text: 'Use Camera',
-          handler: () => {
-            this.takePicture(this.camera.PictureSourceType.CAMERA);
-          }
-        },
+        // {
+        //   text: 'Use Camera',
+        //   handler: () => {
+        //     this.takePicture(this.camera.PictureSourceType.CAMERA);
+        //   }
+        // },
         {
           text: 'Cancel',
           role: 'cancel'
