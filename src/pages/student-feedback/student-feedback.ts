@@ -10,9 +10,10 @@ import { ServiceLoginProvider } from '../../providers/service-login/service-logi
 })
 export class StudentFeedbackPage {
   private reg:any;
-  private date:any;
+  private date=new Date().toISOString();
   private subject:any;
   private description:any;
+  private minDate=new Date().toISOString();
 
   private feedbackData:any={
     "reg_no":"",

@@ -639,7 +639,7 @@ getCS(url,CS)
       }
       else
       {
-        alert("No student found");
+        alert("No data found");
         this.VSstatus=false;
       }        
        resolve(data);
@@ -698,7 +698,7 @@ getAttStatus(url,UP)
       }
       else
       {
-        alert("No status found for attendance of the student");
+        alert("No data beacuse attendance is not marked");
         this.AS=false;
         //return 0;
       }        
