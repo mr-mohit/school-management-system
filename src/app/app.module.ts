@@ -149,7 +149,7 @@ import { StudentSyllabusPage } from '../pages/student-syllabus/student-syllabus'
 import { GetEventProvider } from '../providers/get-event/get-event';
 import { ServiceSyllabusProvider } from '../providers/service-syllabus/service-syllabus';
 import { StudentAttendanceSubjectsPage } from '../pages/student-attendance-subjects/student-attendance-subjects';
-import { IonicImageLoader } from 'ionic-image-loader';
+//import { IonicImageLoader } from 'ionic-image-loader';
 import {RoundProgressModule} from 'angular-svg-round-progressbar';
 import { ResultTermPage } from '../pages/result-term/result-term';
 
@@ -255,7 +255,7 @@ import { ResultTermPage } from '../pages/result-term/result-term';
     HttpClientModule,
     RoundProgressModule,
     IonicImageViewerModule,
-    IonicImageLoader.forRoot(),
+   // IonicImageLoader.forRoot(),
     IonicModule.forRoot(MyApp),
     TranslateModule.forRoot({
       loader: {
