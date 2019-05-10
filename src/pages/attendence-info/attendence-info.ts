@@ -112,4 +112,10 @@ export class AttendenceInfoPage {
   {
     this.SLOT = null;
   }
+
+  getSlot()
+  {
+    this.GU.getAttSlotFun();
+  }
+
 }

@@ -34,6 +34,7 @@ export class ServiceGetClassMasterProvider {
   public UMarks:any=[];
   public term:any;
   public rows:any;
+  public attSlot:any;
 //end
  public ClassTest:any;
  public crSub:any;//to get current attendance of a particular subject 
@@ -802,6 +803,43 @@ getUploadMarks(uploadData,url)
   });
 
 }
+
+
+getAttSlotFun()
+{
+  var url=this.URL+"getAttSlot.php";
+    return this.getAttSlot(url);
+
+}
+
+getAttSlot(url)
+{
+
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(" ")).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.attSlot=data['data'];
+        console.log("attendance slot's",this.attSlot);
+
+
+      }
+      else
+      {
+        alert("Timeslot not found");
+      }        
+      
+       resolve(data);
+
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+
+}
+
+
+
 
 
 }
