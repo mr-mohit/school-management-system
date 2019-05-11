@@ -40,7 +40,7 @@ export class ServiceAdduserProvider {
             alert("User added successfully")
          }else
          {  
-           alert("Unable to add the user");
+           alert(data['msg']);
          }
          resolve(data);
 

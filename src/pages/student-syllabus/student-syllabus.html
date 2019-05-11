@@ -15,7 +15,7 @@
         <ion-item>
              <ion-label floating>Subjects</ion-label>
            <ion-select  name="Class" [(ngModel)]="Class" (ionChange)="getSubject(Class)">
-            <ion-option *ngFor="let i of GU?.classSB"  value="{{i.SUBJECT_ID}}" >{{i.SUBJECT_ID}}</ion-option>
+            <ion-option *ngFor="let i of GU?.classSYL"  value="{{i.SUBJECT_ID}}" >{{i.SUBJECT_ID}}</ion-option>
            </ion-select>
       </ion-item>  
           <br/> <br/>
@@ -50,13 +50,12 @@
           
           <ion-col>
               <div>
-                   <button ion-button color="header" (click) ="downloadHomework(i.FILE,i.TITLE,i.SUBJECT_ID)"> 
+                   <button ion-button color="header" (click) ="downloadHomework(i.SYLLABUS_LINK,i.TITLE,i.SUBJECT_ID)"> 
                            Download
                    </button>            
               </div>
           </ion-col>
           
-         
         </ion-row>
       </ion-grid> 
     </form>

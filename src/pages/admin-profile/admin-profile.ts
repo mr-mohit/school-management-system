@@ -18,10 +18,13 @@ import { ServiceLoginProvider } from '../../providers/service-login/service-logi
 export class AdminProfilePage {
 
   public imgurl:String="assets/imgs/defuser.png";
+  public profileimg:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public service:ServiceLoginProvider) {
      
-      
+    this.profileimg = service.recdata.data[0].USER_PIC;
+      // this.profileimg= "http://ftp.cpckingdom.com/easyschool.cpckingdom.com/schoolapi/image_uploads/"+service.recdata.data[0].USER_PIC;
+      // console.log("img path",this.profileimg);
 
   }
 
