@@ -58,6 +58,14 @@ export class StudentHomeworkPage {
 // select the homework values corresponding to the subject selected
   getSubject(subject)
   {
+
+      var a = this.HW.length;
+    for( var j= 1; j <= a;j++)
+    {
+
+           this.HW.pop(); 
+    }
+
      
      for( var i in  this.GU.classHW)
      {

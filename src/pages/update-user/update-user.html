@@ -350,7 +350,7 @@
                 <ion-item [hidden]='slideOneForm.controls.userrole.value !=="student"'>
                      <ion-label  floating  [hidden]='slideOneForm.controls.userrole.value !=="student"'>{{'class' |translate}}</ion-label>
                     <ion-select  [placeholder]="slideFourForm.controls.studentClass.value" formControlName="studentClass" [class.invalid]="!slideFourForm.controls.studentClass.valid && (slideFourForm.controls.studentClass.dirty || submitAttempt)">
-                          <ion-option  *ngFor=" let p of cid.classData" [value]="p.CLASS">
+                          <ion-option  *ngFor=" let p of cid.classInfos" [value]="p.CLASS">
                                 {{p.CLASS}}
                           </ion-option>
                           

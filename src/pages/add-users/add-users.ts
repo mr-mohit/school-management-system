@@ -417,20 +417,20 @@ export class AddUsersPage {
 
 
 
-  selectSection(classId)
-  {
-    classId= this.userInfos["studentclass"] = this.slideFourForm.getRawValue().studentClass;
-    console.log("Class id ",classId);
-    if(classId!=undefined)
-    {
+  // selectSection(classId)
+  // {
+  //   classId= this.userInfos["studentclass"] = this.slideFourForm.getRawValue().studentClass;
+  //   console.log("Class id ",classId);
+  //   if(classId!=undefined)
+  //   {
 
-  this.cid.getSectionFun(classId);
-    }
+  //    this.cid.getSectionFun(classId);
+  //   }
     // else
     // {
     //   alert("Select Class First");
     // }
-  }
+  //}
 
 
 }
