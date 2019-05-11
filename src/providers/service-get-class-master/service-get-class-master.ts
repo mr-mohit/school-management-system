@@ -41,6 +41,8 @@ export class ServiceGetClassMasterProvider {
   
  public per:number;
  public UploadM:any;
+ public VSstatus:boolean;
+ public AS:boolean;
 
 
   constructor(public http: HttpClient,public one:ServiceLoginProvider,public toastController:ToastController ) {
@@ -633,12 +635,12 @@ getCS(url,CS)
       {
         this.CSData=data['data'];
         console.log("Students",this.CSData);
-        //return 1;
+        this.VSstatus=true;
       }
       else
       {
-        alert("No student found");
-        //return 0;
+        alert("No data found");
+        this.VSstatus=false;
       }        
        resolve(data);
     },error=>{
@@ -692,11 +694,12 @@ getAttStatus(url,UP)
       {
         this.AttStatus=data['data'];
         console.log("STATUS",this.AttStatus);
-        
+        this.AS=true;
       }
       else
       {
-        alert("No status found for attendance of the student");
+        alert("No data beacuse attendance is not marked");
+        this.AS=false;
         //return 0;
       }        
        resolve(data);

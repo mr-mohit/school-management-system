@@ -14,18 +14,12 @@ import * as moment from "moment";
 })
 export class AdminAnnouncementsPage {
 
-// //private Date=new Date().getDate();
-// public minDate:String=new Date().toISOString();
-// //private Month=new Date().getMonth()+1;
-// //private Year=new Date().getFullYear();
-// private timestarts=new Date().toISOString();
-// private timeEnds=new Date().toISOString();
-  myDate = moment().format("YYYY-MM-DD");
 private Date=new Date().getDate();
+public minDate:String=new Date().toISOString();
 private Month=new Date().getMonth()+1;
 private Year=new Date().getFullYear();
-private timestarts:any;
-private timeEnds:any;
+private timestarts=new Date().toISOString();
+private timeEnds=new Date().toISOString();
 private category:any;
 private AnnouncementsTitle:any;
 private AnnouncementsDescription:any;
@@ -61,7 +55,7 @@ public Announcement={
     if(this.category!=undefined && this.AnnouncementsTitle!=undefined && this.AnnouncementsDescription!=undefined)
     {
         
-      if(this.myDate<this.timestarts &&  this.timestarts<this.timeEnds)
+      if(this.timeEnds>=this.timestarts)
       {
 
         const confirm=this.alertCtrl.create({

@@ -155,7 +155,7 @@ export class MyApp {
   //   if (!params) params = {};
   //   this.navCtrl.setRoot(HomePage);
   // }
-  goToLogin()
+ public goToLogin()
   {
    
     const confirm = this.alertCtrl.create({

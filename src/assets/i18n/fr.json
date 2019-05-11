@@ -177,7 +177,7 @@
 	"delete_test":"Supprimer Test",
 	"logout":"DÉCONNEXION",
 	"add_event":"Ajouter Événement",
-	"please_select_date":"POUR LA MISE À JOUR VEUILLEZ SÉLECTIONNER LA DATE",
+	"please_select_date":"Sélectionnez la date pour mettre à jour l'assiduité",
 	"Date_of_attendance":"Date de présence",
 	"start_time":"Heure de début",
 	"end_time":"Heure De Fin",

@@ -2,13 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ServiceAnnouncementProvider } from '../../providers/service-announcement/service-announcement';
 import { DeleteEditAnnouncementPage } from '../delete-edit-announcement/delete-edit-announcement';
+import * as moment from "moment"; 
 
-/**
- * Generated class for the DeleteAnnouncementsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -16,10 +11,11 @@ import { DeleteEditAnnouncementPage } from '../delete-edit-announcement/delete-e
   templateUrl: 'delete-announcements.html',
 })
 export class DeleteAnnouncementsPage {
- 
+  myDate = moment().format("YYYY-MM-DD");
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public Service:ServiceAnnouncementProvider) {
    
+    console.log("date is",this.myDate);
 
     }
     ionViewDidLoad() {

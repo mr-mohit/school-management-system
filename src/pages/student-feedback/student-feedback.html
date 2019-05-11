@@ -20,11 +20,12 @@
         
       </ion-item>
 
-      <ion-label>  <!-- For Space --></ion-label>
+      <ion-label>  <!-- For Space --></ion-label> 
+      <!-- this is for space     -->
 
     <ion-item>
       <ion-label>{{'select_date' |translate}}</ion-label>
-      <ion-datetime name="date" displayFormat="DD MMM YYYY" placeholder="Select Date" min="2019" max="2050" [(ngModel)]="date"></ion-datetime>
+      <ion-datetime name="date" displayFormat="DD MMM YYYY" [min]="minDate" max="2050" [(ngModel)]="date"></ion-datetime>
     </ion-item>
 
     <ion-item>

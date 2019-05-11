@@ -15,7 +15,7 @@
     <ion-item>
         <ion-label floating>{{'select_subject' |translate}}</ion-label>
     
-        <ion-select name="AssignedSub" [(ngModel)]="AssignedSub">
+        <ion-select name="AssignedSub" [(ngModel)]="AssignedSub" on-click="resetday()">
             <ion-option *ngFor="let i of getTeacherTime?.Teacher_Subject" value="{{i.SUBJECT_ID}}">
               {{i.SUBJECT_NAME}} Code : {{i.SUBJECT_ID}}
             </ion-option>

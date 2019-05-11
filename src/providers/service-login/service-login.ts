@@ -47,7 +47,7 @@ export class ServiceLoginProvider {
          }else
          {
            //console.log("Worng")
-           alert("Invalid User id and Password");
+           alert("Invalid User ID and Password");
          }
          resolve(data);``
 
