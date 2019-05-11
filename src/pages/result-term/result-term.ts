@@ -12,8 +12,8 @@ import { ResultPage } from '../result/result';
 export class ResultTermPage {
 
   public current: number=75;
-  public current1: number=50;
-  public current2: number=90;
+  public current1: number=75;
+  public current2: number=75;
 
   public max: number = 100;
   stroke: number = 12;
@@ -67,7 +67,7 @@ export class ResultTermPage {
   Term2()
   {
     this.GR['REG']=this.REG;
-    this.GR['TERM']=2;
+    this.GR['TERM']=1;
     this.result.getResultFun(this.GR);
     this.navCtrl.push(ResultPage,{"REG":this.REG});
 
@@ -75,7 +75,7 @@ export class ResultTermPage {
   Term3()
   {
     this.GR['REG']=this.REG;
-    this.GR['TERM']=3;
+    this.GR['TERM']=1;
     this.result.getResultFun(this.GR);
     this.navCtrl.push(ResultPage,{"REG":this.REG});
 
