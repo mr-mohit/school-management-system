@@ -9,8 +9,11 @@ import { ServiceGetClassMasterProvider } from '../../providers/service-get-class
   templateUrl: 'student-attendance.html',
 })
 export class StudentAttendancePage {
+  public sub:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public SA:ServiceGetClassMasterProvider) {
+  this.sub=this.navParams.get("data");
+  console.log(this.sub);
   }
 
   ionViewDidLoad() {

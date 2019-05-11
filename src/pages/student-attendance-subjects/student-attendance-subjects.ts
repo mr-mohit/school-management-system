@@ -49,7 +49,7 @@ export class StudentAttendanceSubjectsPage {
      this.SUBJECT=SB;
      this.Att['REG']=this.SL.reg;
      this.Att['SUBJECT']=this.SUBJECT;
-    this.navCtrl.push(StudentAttendancePage);
+    this.navCtrl.push(StudentAttendancePage,{"data":SB});
     this.SA.SubjectAttFun(this.Att);
     console.log(this.Att);
 
