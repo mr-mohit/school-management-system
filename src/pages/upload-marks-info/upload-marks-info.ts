@@ -113,4 +113,8 @@ reset_two(){
   
   }
 
+  ionViewDidLoad() {
+    this.ReData;
+  }
+
 }
