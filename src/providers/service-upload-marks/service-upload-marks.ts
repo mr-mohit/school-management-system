@@ -72,5 +72,17 @@ export class ServiceUploadMarksProvider {
 
   }
 
+  cancelInputMarks(i)
+  {
+    if(i===1)
+    {
+     alert("Marks must be between 0 and 100");
+    }
+    else
+    {
+      alert("Please enter a valid marks.");
+    }
+  }
+
 }
 

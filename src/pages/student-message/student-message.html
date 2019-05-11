@@ -17,8 +17,14 @@
          <ion-card-header class="header-style" (click)="enablecontent(item)">
 
           <!-- style=" background-color: rgba(51,102,204,1);" -->
-          <ion-icon name="megaphone" style="color:red;">  
+          <ion-icon name="megaphone" style="color:red;" *ngIf="item.VIEW_STATUS == 0">  
            <strong style="font-size: 1em">{{item.TITLE}} </strong>
+          </ion-icon>
+
+          <strong style="font-size: 1em"style="color:green;" *ngIf="item.VIEW_STATUS == 1"> Already readed  </strong>
+          <br>
+          <ion-icon name="megaphone" style="color:green;" *ngIf="item.VIEW_STATUS == 1">  
+          <strong style="font-size: 1em">{{item.TITLE}} </strong>
           </ion-icon>
 
           <ion-label text-wrap> <strong>Send By : </strong> {{item.FIRST_NAME}} {{item.LAST_NAME}}</ion-label>

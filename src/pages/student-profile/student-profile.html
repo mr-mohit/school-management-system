@@ -12,15 +12,16 @@
   <!-- used for display profile image of user -->
   <div >  
      <ion-avatar> 
-        <img src="assets/imgs/profile.png" style="display:block;width: 50%;margin-left:auto;margin-right:auto;border-radius: 60%;height: 167px;"> 
+            <img src="{{service.recdata.data[0].USER_PIC}}" style="display:block;width: 50%;margin-left:auto;margin-right:auto;border-radius: 60%;height: 167px;" >   
+        <!-- <img src="assets/imgs/profile.png" style="display:block;width: 50%;margin-left:auto;margin-right:auto;border-radius: 60%;height: 167px;">  -->
       </ion-avatar> 
       <br>
       <div class="center">
         <b>{{service.recdata.data[0].FIRST_NAME}}
           {{service.recdata.data[0].LAST_NAME}}</b><br>
         <b>{{service.reg}}</b><br>
-        <strong>CLASS</strong> : <span>{{st?.stuData?.CLASS}}</span>-
-      <span class="center">{{st?.stuData?.SECTION}}</span>
+        <!-- <strong>CLASS</strong> : <span>{{st?.stuData?.CLASS}}</span>-
+      <span class="center">{{st?.stuData?.SECTION}}</span> -->
     </div>
   </div>
   <br>

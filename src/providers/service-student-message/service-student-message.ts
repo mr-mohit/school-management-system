@@ -52,6 +52,39 @@ export class ServiceStudentMessageProvider {
     return this.postData(usr,url);
   }
 
+  //update status of message 
+  updateStatus(data)
+  {
+    var url=this.URL+"StudentMessageUpdateStatus.php";
+    return this.postID(data,url);
+  }
 
+  postID(data,url)
+  {
 
+      
+    return new Promise(resolve=>{
+      this.http.post(url,JSON.stringify(data)).subscribe(data1=>{ 
+        //console.log(data);     
+        if(data1['statuscode'] == 1)
+         {
+         
+           console.log("Readed"); 
+           //return this.data;
+        
+         }
+         else
+         {
+           //console.log("Worng")
+            console.log("Reading status not updated");
+         }
+         resolve(data);
+
+      },error=>{
+        alert("Connection error");
+      });
+    });
+
+  }
+  // end of updation status
 }

@@ -62,7 +62,14 @@ export class StudentSyllabusPage {
  //select the Syllabus values corresponding to the subject selected
    getSubject(subject)
    {
-      
+     
+    
+    for( var i in this.HW)
+    {
+
+           this.HW.pop(); 
+    }
+
       for( var i in this.GU.classSYL)
       {
           if(this.GU.classSYL[i].SUBJECT_ID === subject)
