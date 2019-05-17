@@ -17,7 +17,7 @@ export class ResultTermPage {
 
   public max: number = 100;
   stroke: number = 12;
-  radius: number = 50;
+  radius: number = 60;
   semicircle: boolean = false;
   rounded: boolean = false;
   responsive: boolean = false;

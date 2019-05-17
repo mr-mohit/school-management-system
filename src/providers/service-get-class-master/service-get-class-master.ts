@@ -8,6 +8,7 @@ export class ServiceGetClassMasterProvider {
   public URL=this.one.URL;
   
   public classData:any;
+  public classInfos:any;  // to get classes for add student page
   public subjectData:any;
   public studentData:any; // for getting student's infos
   public sessionData:any;
@@ -130,6 +131,7 @@ export class ServiceGetClassMasterProvider {
         {
           // alert("Term Added");
           this.classData=data['data'];
+          this.classInfos=data['class'];
           console.log("classes to be display",this.classData);
 
 

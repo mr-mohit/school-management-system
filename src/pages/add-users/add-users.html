@@ -342,8 +342,8 @@
                     <ion-label floating  [hidden]='slideOneForm.controls.userrole.value ==="teacher" || slideOneForm.controls.userrole.value ==="" '>
                             <ion-icon ios="ios-people" md="md-people"></ion-icon>
                         {{'class' |translate}}</ion-label>
-                    <ion-select formControlName="studentClass" (ionChange)="selectSection(studentClass)" [class.invalid]="!slideFourForm.controls.studentClass.valid && (slideFourForm.controls.studentClass.dirty || submitAttempt)">
-                          <ion-option   *ngFor=" let p of cid.classData" [value]="p.CLASS_MASTER_ID" >
+                    <ion-select formControlName="studentClass" [class.invalid]="!slideFourForm.controls.studentClass.valid && (slideFourForm.controls.studentClass.dirty || submitAttempt)">
+                          <ion-option   *ngFor=" let p of cid.classInfos" [value]="p.CLASS" >
                                 {{p.CLASS}}
                           </ion-option>                          
                     </ion-select>
@@ -355,8 +355,17 @@
                         SECTION 
                     </ion-label>
                     <ion-select formControlName="studentSection" [class.invalid]="!slideFourForm.controls.studentSection.valid && (slideFourForm.controls.studentSection.dirty || submitAttempt)">
-                        <ion-option  *ngFor=" let p of cid.sectionData" [value]="p.SECTION">
-                            {{p.SECTION}}
+                        <ion-option   value="A">
+                            A
+                      </ion-option>
+                        <ion-option   value="B">
+                            B
+                      </ion-option>
+                        <ion-option  value="C">
+                            C
+                      </ion-option>
+                        <ion-option  value="D">
+                            D
                       </ion-option>
                          
                     </ion-select>

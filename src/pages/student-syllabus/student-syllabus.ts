@@ -40,7 +40,7 @@ export class StudentSyllabusPage {
    {
        //console.log("download part");
         //here encoding path as encodeURI() format.  
-        var fileName = subject+title+".pdf";
+        var fileName = subject+title+"_Syllabus.pdf";
        // alert(link);
      let url = encodeURI(link);  
      //here initializing object.  
@@ -64,7 +64,7 @@ export class StudentSyllabusPage {
    {
      
     
-    for( var i in this.HW)
+    for( var j in this.HW)
     {
 
            this.HW.pop(); 
