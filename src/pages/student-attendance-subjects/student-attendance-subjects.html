@@ -4,33 +4,18 @@
   </ion-navbar>
 </ion-header>
 
+<ion-content>
+  <h1 style="margin-left:41%; margin-top:34%">{{current}}%</h1>
+</ion-content>
 
 <ion-content padding >
     <h1 style="text-align: center; color:black">Aggregate Attendance</h1>
     
-    <ion-col col-4 text-center>
-      <div class="single-chart">
-        <svg viewbox="0 0 75 75" class="circular-chart" [ngClass]="{'blue':current<='75' && current>='60' ,
-                                                    'orange':current<='59' && current>='49' ,
-                                                    'red':current<'49' && current>='0'  && current !='100','green':current>'75'|| current=='100'}">
-          <path class="circle-bg"
-                d="M50 2.0845
-       a 31 31 0 0 1 0 80
-      a 31 31 0 0 1 0 -80"
-          />
-          <path class="circle"
-                [attr.stroke-dasharray]="(current)*3+',200'"
-                d="M50 2.0845
-      a 31 31 0 0 1 0 80
-      a 31 31 0 0 1 0 -80"
-          />
-          <text x="51" y="52" class="percentage">{{current}}%</text>
-          <!--<text x="36" y="50" class="percentage-detail orange">{{courses.Total_Attd}}/{{courses.Total_Delv}}</text>-->
-        </svg>
-      </div>
-
-    </ion-col>
-  
+    <round-progress style="margin-left:27%; margin-top:10%" [current]="current" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
+    [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
+    [duration]="duration"  [animationDelay]="animationDelay">
+   
+   </round-progress>
 
   <ion-label></ion-label>
   <ion-label></ion-label>
