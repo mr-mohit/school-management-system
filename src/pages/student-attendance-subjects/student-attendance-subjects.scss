@@ -1,9 +1,24 @@
 page-student-attendance-subjects {
-    ion-card{
+    .ion-card{
         display: flex;
         flex-direction: column;
         width: 100% !important;
         margin: 0 !important;
       }
-
+      .progress-percentage-wrapper {
+        position: relative;
+        margin: 35px auto;
+        
+        width: 100px;
+        height: 100px;
+    }
+    .progress-percentage {
+        position: absolute;
+        color: #bbb;
+        width: 100%;
+        margin-left:10%;
+        font-size: 30px;
+        text-align: center !important;
+        top: 40%;
+    }
 }

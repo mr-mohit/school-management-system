@@ -4,47 +4,49 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content no-bounce disable-scroll>
-
-    <h1 style="margin-left:46%; margin-top:18%;display: center;">{{current}}%</h1>
-    
-    <h1 style="margin-left:46%; margin-top:41%">{{current1}}%</h1>
-
-    <h1 style="margin-left:46%; margin-top:42%">{{current2}}%</h1>
 
 
-</ion-content>
-
-<ion-content no-bounce disable-scroll padding>
-    <round-progress style="margin-left:38%; margin-top:5%" [current]="current" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
-    [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
-    [duration]="duration"  [animationDelay]="animationDelay">
-   </round-progress> 
-   <ion-label></ion-label>
-   <div class="center"> 
-     <button ion-button on-click="Term1()">View term 1 marks</button>
-    </div>
-   
+<ion-content>
 
 
-
-    <round-progress style="margin-left:38%; margin-top:8%" [current]="current1" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
+    <div class="progress-percentage-wrapper">
+        <div class="progress-percentage">{{current}}%</div>
+    <round-progress  [current]="current" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
     [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
     [duration]="duration"  [animationDelay]="animationDelay">
   </round-progress>
-  <ion-label></ion-label>
-  <div class="center"> 
-    <button ion-button on-click="Term2()">View term 2 marks</button>
+</div>
+
+<div class="center"> 
+    <button ion-button on-click="Term1()">View term 1 marks</button>
   </div>
 
 
-    <round-progress style="margin-left:38%; margin-top:8%" [current]="current2" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
-    [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
-    [duration]="duration"  [animationDelay]="animationDelay">
-  </round-progress>
-  <ion-label></ion-label>
-  <div class="center"> 
-    <button ion-button on-click="Term3()">View term 3 marks</button>
-  </div> 
+        <div class="progress-percentage-wrapper">
+            <div class="progress-percentage">{{current1}}%</div>
+        <round-progress  [current]="current1" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
+        [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
+        [duration]="duration"  [animationDelay]="animationDelay">
+      </round-progress>
+    </div>
 
+    <div class="center"> 
+        <button ion-button on-click="Term2()">View term 2 marks</button>
+      </div>
+
+
+      <div class="progress-percentage-wrapper">
+          <div class="progress-percentage">{{current2}}%</div>
+      <round-progress  [current]="current2" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
+      [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
+      [duration]="duration"  [animationDelay]="animationDelay">
+    </round-progress>
+  </div>
+
+  <div class="center"> 
+      <button ion-button on-click="Term3()">View term 3 marks</button>
+    </div>
+    
 </ion-content>
+
+

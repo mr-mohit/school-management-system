@@ -13,7 +13,6 @@ public Type:any;
   }
 
 
-
   UploadRDFun(result)
 {
 
