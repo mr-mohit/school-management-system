@@ -333,8 +333,9 @@
                 <ion-item>
                     <!-- <ion-label floating>User Picture</ion-label>
                     <ion-input formControlName="userpic" type="text" [class.invalid]="!slideOneForm.controls.userpic.valid && (slideOneForm.controls.userpic.dirty || submitAttempt)"></ion-input> -->
-                    <img src="{{pathForImage(lastImage)}}" style="width: 100%; height:80% ;" [hidden]="lastImage === null">
+                    <!-- <img src="{{pathForImage(lastImage)}}" style="width: 100%; height:80% ;" [hidden]="lastImage === null"> -->
                     <h5 [hidden]="lastImage !== null">{{'select_img_text' |translate}}</h5>
+                    <h5 [hidden]="lastImage === null">{{'select_img_result' |translate}}</h5>
                     <ion-buttons>
                             <button ion-button icon-right (click)="presentActionSheet()">
                                 <ion-icon name="camera"></ion-icon> &nbsp; {{'select_img_btn' |translate}}
@@ -349,7 +350,7 @@
                 <ion-item [hidden]='slideOneForm.controls.userrole.value !=="student"'>
                      <ion-label  floating  [hidden]='slideOneForm.controls.userrole.value !=="student"'>{{'class' |translate}}</ion-label>
                     <ion-select  [placeholder]="slideFourForm.controls.studentClass.value" formControlName="studentClass" [class.invalid]="!slideFourForm.controls.studentClass.valid && (slideFourForm.controls.studentClass.dirty || submitAttempt)">
-                          <ion-option  *ngFor=" let p of cid.classData" [value]="p.CLASS">
+                          <ion-option  *ngFor=" let p of cid.classInfos" [value]="p.CLASS">
                                 {{p.CLASS}}
                           </ion-option>
                           

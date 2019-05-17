@@ -1,4 +1,4 @@
-import { Component,CUSTOM_ELEMENTS_SCHEMA,NO_ERRORS_SCHEMA } from '@angular/core';
+import { Component,CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 import { StudentAttendancePage } from '../student-attendance/student-attendance';
@@ -14,8 +14,8 @@ export class StudentAttendanceSubjectsPage {
 
   public current: number;
   public max: number = 100;
-  stroke: number = 25;
-  radius: number = 75;
+  stroke: number = 15;
+  radius: number = 60;
   semicircle: boolean = false;
   rounded: boolean = false;
   responsive: boolean = false;

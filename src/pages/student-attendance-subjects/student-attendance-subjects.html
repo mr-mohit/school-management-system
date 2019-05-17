@@ -4,21 +4,18 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <h1 style="margin-left:41%; margin-top:34%">{{current}}%</h1>
-</ion-content>
 
 <ion-content padding >
     <h1 style="text-align: center; color:black">Aggregate Attendance</h1>
-    
-    <round-progress style="margin-left:27%; margin-top:10%" [current]="current" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
+    <div class="progress-percentage-wrapper">
+        <div class="progress-percentage">{{current}}%</div>
+    <round-progress  [current]="current" [max]="max" [stroke]="stroke" [radius]="radius" [semicircle]="semicircle" [rounded]="rounded"
     [responsive]="responsive" [clockwise]="clockwise" [color]="gradient ? 'url(#gradient)' : color" [background]="background"
     [duration]="duration"  [animationDelay]="animationDelay">
-   
-   </round-progress>
-
-  <ion-label></ion-label>
-  <ion-label></ion-label>
+  </round-progress>
+</div>
+<div></div>
+<div></div>
   <ion-item >
     <ion-label floating>
       <ion-icon ios="ios-browsers" md="md-browsers"></ion-icon>

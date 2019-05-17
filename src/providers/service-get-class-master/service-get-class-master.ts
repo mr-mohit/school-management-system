@@ -8,6 +8,7 @@ export class ServiceGetClassMasterProvider {
   public URL=this.one.URL;
   
   public classData:any;
+  public classInfos:any;  // to get classes for add student page
   public subjectData:any;
   public studentData:any; // for getting student's infos
   public sessionData:any;
@@ -34,6 +35,7 @@ export class ServiceGetClassMasterProvider {
   public UMarks:any=[];
   public term:any;
   public rows:any;
+  public attSlot:any;
 //end
  public ClassTest:any;
  public crSub:any;//to get current attendance of a particular subject 
@@ -129,6 +131,7 @@ export class ServiceGetClassMasterProvider {
         {
           // alert("Term Added");
           this.classData=data['data'];
+          this.classInfos=data['class'];
           console.log("classes to be display",this.classData);
 
 
@@ -802,6 +805,43 @@ getUploadMarks(uploadData,url)
   });
 
 }
+
+
+getAttSlotFun()
+{
+  var url=this.URL+"getAttSlot.php";
+    return this.getAttSlot(url);
+
+}
+
+getAttSlot(url)
+{
+
+  return new Promise(resolve=>{
+    this.http.post(url,JSON.stringify(" ")).subscribe(data=>{
+      if(data['statuscode']==1)
+      {
+        this.attSlot=data['data'];
+        console.log("attendance slot's",this.attSlot);
+
+
+      }
+      else
+      {
+        alert("Timeslot not found");
+      }        
+      
+       resolve(data);
+
+    },error=>{
+      console.log("Error",error);
+    });
+  });
+
+}
+
+
+
 
 
 }

@@ -1,7 +1,8 @@
 import { Component,ChangeDetectorRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ToastController, Alert } from 'ionic-angular';
 import { ServiceGetClassMasterProvider } from '../../providers/service-get-class-master/service-get-class-master';
 import { ServiceUploadMarksProvider } from '../../providers/service-upload-marks/service-upload-marks';
+import { timestamp } from 'rxjs/operators';
 
 
 @IonicPage()
@@ -22,7 +23,11 @@ export class UpdateMarksPage {
     "MARKS":""
   };
   
-
+  public INS={
+    "CID":"",
+    "SID":"",
+    "TID":""
+  };
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public GU:ServiceGetClassMasterProvider,
     public alertCtrl:AlertController,public UM:ServiceUploadMarksProvider,public toastController: ToastController,private cdr: ChangeDetectorRef
@@ -33,9 +38,17 @@ export class UpdateMarksPage {
   this.CLASS=navParams.get('class');
   this.SUBJECT=navParams.get('subject');
   this.TEST=navParams.get('test');
+
+ // this is used the reload the page
+  this.INS['CID']= this.CLASS;
+  this.INS['SID']= this.SUBJECT;
+  this.INS['TID']= this.TEST;
+ // console.log("Updating Marks",this.INS);
+  // this.GU.getUploadMarksFun(this.INS);
+
   console.log(this.CLASS,this.SUBJECT,this.TEST);
   this.status=false;
-   
+ ////////////////////////  
   console.log("number of rows is",this.GU.rows);
   }
 
@@ -135,11 +148,15 @@ export class UpdateMarksPage {
 
  updateMarks(REG_NO) {
   let alert = this.alertCtrl.create({
+
+    message: 'Message <strong>Do you want to Update this Marks </strong>',
+
     title: 'New Marks',
     inputs: [
       {
         name: 'Marks',
         type:"number",
+        max:100,
         placeholder: '123'
       }
     ],
@@ -157,20 +174,50 @@ export class UpdateMarksPage {
           console.log("Reg_no",REG_NO);
           console.log("Data",data.Marks);
           this.new=data.Marks;
-          if(this.new>=0 && this.new<=100)
-           {
-                   
-              this.upMarks['REG']=REG_NO;
-              this.upMarks['TEST']=this.TEST;
-              this.upMarks['MARKS']=this.new;
-              this.UM.UpdateFun(this.upMarks);
-              console.log("Updation",this.upMarks);         
-            
-             }
-             else
-             {
-               console.log("Marks must be between 0 and 100");
-             }
+          if(data.Marks!=undefined && data.Marks!="")
+          {
+            if(data.Marks>=0 && data.Marks<=100)
+            {
+                    
+               this.upMarks['REG']=REG_NO;
+               this.upMarks['TEST']=this.TEST;
+               this.upMarks['MARKS']=this.new;
+               this.UM.UpdateFun(this.upMarks).then(data=>{
+
+                if(data['statuscode']==1)
+                {
+                  // this is used the reload the page
+                    this.INS['CID']= this.CLASS;
+                    this.INS['SID']= this.SUBJECT;
+                    this.INS['TID']= this.TEST;
+                    this.navCtrl.pop();
+                
+                    this.GU.getUploadMarksFun(this.INS);
+                    this.navCtrl.push(UpdateMarksPage,{"class":this.CLASS,"subject":this.SUBJECT,"test":this.TEST});
+             
+               // end of updation and refresh
+                }
+
+               });
+               console.log("Updation",this.upMarks);     
+
+               
+                
+                
+              }
+              else
+              {
+                 console.log("Marks must be between 0 and 100");
+                 this.UM.cancelInputMarks(1);
+                 
+               }
+          }
+          else
+          {
+            console.log("Please enter a valid marks.");
+            this.UM.cancelInputMarks(0);
+
+          }          
           
         }
       }

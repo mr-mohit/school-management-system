@@ -152,6 +152,7 @@ import { StudentAttendanceSubjectsPage } from '../pages/student-attendance-subje
 //import { IonicImageLoader } from 'ionic-image-loader';
 import {RoundProgressModule} from 'angular-svg-round-progressbar';
 import { ResultTermPage } from '../pages/result-term/result-term';
+import { TeacherSendMessagePage } from '../pages/teacher-send-message/teacher-send-message';
 
  @NgModule({ 
   declarations: [
@@ -248,6 +249,7 @@ import { ResultTermPage } from '../pages/result-term/result-term';
     StudentAttendanceSubjectsPage,
     ResultTermPage,
     ResultPage,
+    TeacherSendMessagePage,
   ],
   imports: [
     BrowserModule,
@@ -362,6 +364,7 @@ import { ResultTermPage } from '../pages/result-term/result-term';
     StudentAttendanceSubjectsPage,
     ResultTermPage,
     ResultPage,
+    TeacherSendMessagePage,
   ],
   providers: [
     StatusBar,

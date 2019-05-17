@@ -1,105 +1,24 @@
 page-student-attendance-subjects {
-  .flex-wrapper {
-    display: flex;
-    flex-flow: row nowrap;
-  }
-
-  .single-chart {
-
-    justify-content: space-around ;
-  }
-  .center-position{
-    position: absolute;
-    left: 50%;
-    margin-bottom: 50px;
-  }
-
-  .circular-chart {
-    display: block;
-    margin: auto;
-    // margin-left: 45%;
-    height: 100px;
-    width: 100px;
-  }
-
-  .circle-bg {
-    fill: none;
-    stroke: #eee;
-    stroke-width: 3.8;
-  }
-
-  .circle {
-    fill: none;
-    stroke-width: 2.8;
-    stroke-linecap: round;
-    animation: progress 1s ease-out forwards;
-  }
-
-  @keyframes progress {
-    0% {
-      stroke-dasharray: 0 200;
+    .ion-card{
+        display: flex;
+        flex-direction: column;
+        width: 100% !important;
+        margin: 0 !important;
+      }
+      .progress-percentage-wrapper {
+        position: relative;
+        margin: 35px auto;
+        
+        width: 100px;
+        height: 100px;
     }
-  }
-
-  .circular-chart.orange .circle {
-    stroke: #ff9f00;
-  }
-
-  .circular-chart.green .circle {
-    stroke: #026173;
-  }
-
-  .circular-chart.blue .circle {
-    stroke: #3c9ee5;
-  }
-
-  .percentage {
-    fill: #666;
-    font-family: sans-serif;
-    font-size: 5vw;
-    text-anchor: middle;
-  }
-  .percentage-detail {
-    fill: #FF4500;
-    font-family: sans-serif;
-    font-size: 2.5vw;
-    text-anchor: middle;
-  }
-  .arrow-right {
-    width: 0;
-    height: 0;
-    border-top: 15px solid transparent;
-    border-bottom: 15px solid transparent;
-
-    border-left: 15px solid white;
-  }
-  .flag{
-    margin-top: 5px;
-    display: inline-flex;
-  }
-  .course-title{
-    padding: 10px;
-  }
-  .bluegreen{
-    background: #0d98ba;
-    color:white;
-  }
-
-  .circular-chart.orange .circle {
-    stroke: #E67E22;
-  }
-
-  .circular-chart.green .circle {
-
-    stroke: #22a75a;
-  }
-  .circular-chart.blue .circle {
-
-    stroke: #4288D0;
-  }
-  .circular-chart.red .circle {
-
-    stroke: #F70B0B;
-  }
-
+    .progress-percentage {
+        position: absolute;
+        color: #bbb;
+        width: 100%;
+        margin-left:10%;
+        font-size: 30px;
+        text-align: center !important;
+        top: 40%;
+    }
 }
