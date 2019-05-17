@@ -59,13 +59,14 @@ export class StudentHomeworkPage {
   getSubject(subject)
   {
 
+    // used to refresh the array
       var a = this.HW.length;
     for( var j= 1; j <= a;j++)
     {
 
            this.HW.pop(); 
     }
-
+    // end of the refreshing loop
      
      for( var i in  this.GU.classHW)
      {
