@@ -7,7 +7,7 @@
 
 <ion-content padding style="background:rgb(229, 231, 228)">
   
-    <ion-grid no-padding *ngFor="let i of SA?.crSub; let j = index" style="border:solid 0px;">
+    <ion-grid no-padding *ngFor="let i of SA?.crSub; let j = index" style="border:solid 0px;font-size:50%"   >
       <ion-card no-padding>
       <ion-row  no-padding no-lines >
         <ion-col >
@@ -21,7 +21,7 @@
               {{i.SUBJECT_ID}} 
             </div>
           </ion-col>
-          <ion-col>
+          <ion-col size="10">
             <div >
               {{i.SLOT}}
             </div>
