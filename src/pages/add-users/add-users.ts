@@ -111,8 +111,8 @@ export class AddUsersPage {
       studentClass: ['', Validators.compose([Validators.maxLength(30),Validators.required])],
       studentSection: ['', Validators.compose([Validators.maxLength(30),Validators.required])],
       studentSession: ['', Validators.compose([Validators.maxLength(30),Validators.required])],
-      teacherDepart: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z]*')])],
-      teacherDesg: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z]*')])],
+      teacherDepart: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z 0-9]*')])],
+      teacherDesg: ['', Validators.compose([Validators.maxLength(30),Validators.required, Validators.pattern('[a-zA-Z]+')])],
     });
   
     // reset the user ID
