@@ -39,7 +39,7 @@
     "@ionic/storage": "2.2.0",
     "@ngx-translate/core": "^9.1.1",
     "@ngx-translate/http-loader": "^4.0.0",
-    "angular": "^1.7.9",
+    "angular": "^1.8.0",
     "angular-svg-round-progressbar": "^1.2.1",
     "com-sarriaroman-photoviewer": "1.2.1",
     "cordova-android": "7.1.4",
